@@ -12,12 +12,21 @@ using namespace glimac;
 class View
 {
 	private:
+		bool _done;
+		bool _keyPressed;
+		bool _locked;
 		Rendering renderingEngine;
 	public:
-		View(){};
+		View():_done(false), _keyPressed(false), _locked(true){};
 		~View(){};
 
-		int createWindow() const;
+		int createWindow();
+		void manageEvents(const SDL_Event &e);
+
+		void manageKeyUpEvents(const SDLKey &k);
+		void manageKeyDownEvents(const SDLKey &k);
+
+		void cameraRotation();
 };
 
 #endif 
