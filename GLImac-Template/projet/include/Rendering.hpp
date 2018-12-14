@@ -3,9 +3,9 @@
 
 class Rendering
 {
-public:
-	Rendering();
-	~Rendering();
+	public:
+		Rendering(){};
+		~Rendering(){};
 	
 };
 
