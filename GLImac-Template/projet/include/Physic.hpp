@@ -4,8 +4,8 @@
 class Physic
 {
 public:
-	Physic();
-	~Physic();
+	Physic(){}
+	~Physic() = default;
 	
 };
 

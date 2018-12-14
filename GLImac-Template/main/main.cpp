@@ -1,7 +1,9 @@
 #include <View.hpp>
+#include <Game.hpp>
 
 int main(){
-    View view;
-    view.createWindow();
+    Game game = Game();
+    game.init();
+    game.run();
     return 0;
 }

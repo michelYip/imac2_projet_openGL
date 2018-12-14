@@ -8,8 +8,8 @@ class Object
 private: 
 	Collider _boundingBox;
 public:
-	Object();
-	~Object();
+	Object(){}
+	~Object() = default;
 	
 };
 
