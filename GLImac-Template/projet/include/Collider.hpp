@@ -9,8 +9,8 @@ private:
 	float _height;
 	float _depth;
 public:
-	Collider();
-	~Collider();
+	Collider(){}
+	~Collider() = default;
 	
 };
 
