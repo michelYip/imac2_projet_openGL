@@ -41,7 +41,7 @@ public:
 	
 
 	//PUBLICS FUNCTIONS 
-							
+			
 
 
 	//OPERATORS
