@@ -6,6 +6,7 @@ void Game::init(){
 	_player = selectSavedPlayer();
 	std::cout << _player << std::endl;
 	_world = World();
+	_player.save("player_1");
 }
 
 void Game::run(){
