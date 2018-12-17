@@ -23,9 +23,20 @@ public:
 	
 	~Skin() = default;
 
+
+	//GETTERS & SETTER
+	inline const std::string name() const{return _name;}
+	inline const unsigned int price() const{return _price;}
+	inline const std::string texture() const{return _texture;}
+
+
+	//PUBLICS FUNCTIONS
+
 	//@return List of skins who are present in SKIN_LIST_FILE
 	static std::vector<Skin> loadSkins();
 
+
+	//OPERATORS
 	friend std::ostream& operator<<(std::ostream &os, const Skin &p);
 
 };
