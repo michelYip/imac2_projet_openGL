@@ -6,9 +6,6 @@
 #include <string>
 
 
-//@throws std::runtime_error if file cannot be open
-//@throws std::invalid_argument if the loaded file has one line without the good number of parameters
-//@return vector of skin that are saved in the file
 std::vector<Skin> Skin::loadSkins(){
 	std::ifstream skinsFile;
 	skinsFile.open(SKIN_LIST_FILE, std::fstream::in);

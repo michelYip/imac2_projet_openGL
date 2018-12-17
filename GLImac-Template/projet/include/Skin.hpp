@@ -32,7 +32,10 @@ public:
 
 	//PUBLICS FUNCTIONS
 
-	//@return List of skins who are present in SKIN_LIST_FILE
+	
+	//@throws std::runtime_error if file cannot be open
+	//@throws std::invalid_argument if the loaded file has one line without the good number of parameters
+	//@return vector of skins who are present in SKIN_LIST_FILE
 	static std::vector<Skin> loadSkins();
 
 
