@@ -1,5 +1,6 @@
 #include "Game.hpp"
 
+#include <algorithm>
 
 void Game::init(){
 	_player = selectSavedPlayer();
@@ -17,6 +18,10 @@ void Game::run(){
 
 //______________________________________PRIVATE________________________________
 
+
+//Ask to select a player 
+//@return the player who will play during the next game
 Player Game::selectSavedPlayer() const{
+	//TODO
 	return Player("Test"); 
 }
