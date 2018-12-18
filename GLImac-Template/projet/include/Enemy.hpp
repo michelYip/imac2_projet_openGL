@@ -8,7 +8,7 @@ class Enemy : public MovingObject
 {
 public:
 	Enemy();
-	~Enemy();
+	~Enemy() = default;
 	
 };
 

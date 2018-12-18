@@ -7,7 +7,7 @@ class StaticObject : public Object
 {
 public:
 	StaticObject();
-	~StaticObject();
+	~StaticObject() = default;
 	
 };
 

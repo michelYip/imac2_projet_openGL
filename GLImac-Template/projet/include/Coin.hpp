@@ -8,7 +8,7 @@ class Coin : public StaticObject
 {
 public:
 	Coin();
-	~Coin();
+	~Coin() = default;
 	
 };
 

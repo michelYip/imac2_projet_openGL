@@ -9,7 +9,7 @@ void Game::init(){
 }
 
 void Game::run(){
-	while(_world.next_frame()){
+	while(_world.coroutine()){
 		//TODO
 	}
 }

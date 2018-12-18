@@ -3,28 +3,40 @@
 
 #include "Object.hpp"
 
+const float MOVE_SPEED = 5.0f;
+
 class MovingObject : public Object
 {
-private: 
-	float _speed;
+protected: 
+	float _travelingSpeed;
+	float _sideVelocity;
+	float _sideAcceleration;
+	float _verticalVelocity;
+	float _verticalAcceleration;
 
 public:
 	MovingObject()
-	:Object(), _speed(0.f)
+	:Object(), _travelingSpeed(0.f),
+	_sideVelocity(0.f), _sideAcceleration(0.f),
+	_verticalVelocity(0.f), _verticalAcceleration(0.f)
 	{}
 	
-	MovingObject(glm::vec3 position, glm::vec3 size, float speed)
-	:Object(position, size, Collider(size)), _speed(speed)
-	{}
+	MovingObject(	const glm::vec3 & position, 
+					const glm::vec3 & lower, 
+					const glm::vec3 & upper);
 
-	~MovingObject();
+	~MovingObject() = default;
 	
 
 	//GETTERS & SETTERS 
-	const float speed() const {return _speed;}
+	const float speed() const {return _travelingSpeed;}
 
 
-	void move(glm::vec3 position);
+	//METHODS
+	glm::vec3 direction() const;
+
+	void move(const glm::vec3 & direction);
+
 };
 
 #endif

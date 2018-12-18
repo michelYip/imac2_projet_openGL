@@ -11,8 +11,10 @@ private:
 	std::vector<Coin> _collectedCoins;
 public:
 	Character();
-	~Character();
-
+	Character(	const glm::vec3 & position,
+				const glm::vec3 & lower,
+				const glm::vec3 & upper);
+	~Character() = default;
 
 	void collectCoin(Coin c);
 	
