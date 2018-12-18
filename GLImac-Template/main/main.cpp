@@ -1,7 +1,8 @@
 #include <View.hpp>
 
-int main(){
+int main(int argc, char** argv){
+	glimac::FilePath applicationPath(argv[0]);
     View view;
-    view.createWindow();
+    view.window(applicationPath);
     return 0;
 }
