@@ -3,16 +3,20 @@
 #include <algorithm>
 
 void Game::init(){
-	_player = selectSavedPlayer();
-	_world = World();
-	// _player.save("player_1");
-	std::cout << Player::load("player_1") << std::endl;
+	// _player = selectSavedPlayer();
+	// _world = World();
+	// // _player.save("player_1");
+	// std::cout << Player::load("player_1") << std::endl;
 }
 
-void Game::run(){
-	while(_world.next_frame()){
-		//TODO
-	}
+void Game::run(const int argc, char** argv){
+	glimac::FilePath applicationPath(argv[0]);
+    View view;
+    view.window(applicationPath);
+	
+	// while(_world.next_frame()){
+	// 	//TODO
+	// }
 }
 
 
