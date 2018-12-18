@@ -5,6 +5,8 @@
 #include <vector>
 #include "exceptions/Insufficient_funds.hpp"
 #include "Skin.hpp"
+#include <fstream>
+#include <sstream>
 
 const std::string PLAYER_SAVING_FOLDER = "Game/save/";
 
@@ -35,8 +37,15 @@ public:
 	
 
 	//GETTERS & SETTER
-	inline const std::string name() const{return _name;}
-	inline const unsigned int money() const{return _money;}
+	inline const std::string& name() const{return _name;}
+	inline std::string& name(){return _name;}
+	
+	inline const unsigned int& money() const{return _money;}
+	inline unsigned int& money(){return _money;}
+	
+	inline const std::string& savingFile() const{return _savingFile;}
+	inline std::string& savingFile(){return _savingFile;}
+
 	inline void gainMoney(const unsigned int sum){ _money+=sum; }
 	inline void spendMoney(const unsigned int sum){_money-sum >= 0 ? _money-=sum : throw new Insufficient_funds();}
 	inline const std::vector<Skin> unlockedSkins() const{return _unlockedSkins;}
@@ -44,6 +53,7 @@ public:
 	
 
 	//PUBLICS FUNCTIONS 
+	static Player load(const std::string &filename);
 	void save(std::string filename) const;			
 
 
@@ -53,7 +63,14 @@ public:
 private:
 	//Save all unlockedSkins into the file
 	void saveUnlockedSkins(std::ofstream &file) const;
-	Player load(std::string filename) const;
+	//Save the selected skin
+	void saveSelectedSkin(std::ofstream &file) const;
+	//Save the current time in the file 
+	void saveTime(std::ofstream &file) const;
+	//Save the datas of the player 
+	void savePlayer(std::ofstream &file) const;
+
+
 };
 
 #endif
