@@ -1,6 +1,8 @@
 #ifndef _WORLD_ 
 #define _WORLD_
 
+#include <iostream>
+
 #include "Physic.hpp"
 #include "Map.hpp"
 
@@ -14,8 +16,15 @@ private:
 	Physic _physicEngine;
 	Map _map;
 public:
-	World();
-	~World();
+	World()
+	{}
+	
+	~World() = default;
+
+	//Make the world continue running
+	bool next_frame();
+
+	bool isFinished();
 	
 };
 

@@ -9,6 +9,7 @@ public:
 	TriggerObject();
 	~TriggerObject();
 	
+	virtual launchEvent() = 0;
 };
 
 #endif

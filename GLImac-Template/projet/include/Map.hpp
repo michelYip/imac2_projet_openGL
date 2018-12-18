@@ -10,8 +10,10 @@ private:
 	Object _objectList;
 
 public:
-	Map();
-	~Map();
+	Map(){}
+	~Map() = default;
+	
+
 	
 };
 

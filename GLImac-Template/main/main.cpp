@@ -1,8 +1,9 @@
 #include <View.hpp>
+#include <Game.hpp>
 
 int main(int argc, char** argv){
-	glimac::FilePath applicationPath(argv[0]);
-    View view;
-    view.window(applicationPath);
+    Game game = Game();
+    game.init();
+    game.run();
     return 0;
 }
