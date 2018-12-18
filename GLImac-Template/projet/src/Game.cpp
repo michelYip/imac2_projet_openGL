@@ -4,8 +4,9 @@
 
 void Game::init(){
 	_player = selectSavedPlayer();
-	std::cout << _player << std::endl;
 	_world = World();
+	// _player.save("player_1");
+	std::cout << Player::load("player_1") << std::endl;
 }
 
 void Game::run(){
