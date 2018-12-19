@@ -1,12 +1,18 @@
 #include "Game.hpp"
 
 #include <algorithm>
+#include "exceptions/Unreachable_saving_file.hpp"
+
 
 void Game::init(){
-	// _player = selectSavedPlayer();
-	// _world = World();
-	// // _player.save("player_1");
-	// std::cout << Player::load("player_1") << std::endl;
+	_player = selectSavedPlayer();
+	_world = World();
+	try{
+		_player.save("player_1");
+		std::cout << Player::load("player_1") << std::endl;
+	}catch(Unreachable_saving_file &e){
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 void Game::run(const int argc, char** argv){
