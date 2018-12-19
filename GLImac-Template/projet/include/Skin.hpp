@@ -6,7 +6,7 @@
 #include "exceptions/Unreachable_file.hpp"
 
 
-const std::string SKIN_LIST_FILE = "main/skins/list_skins";
+const std::string SKIN_LIST_FILE = "main/assets/skins/list_skins";
 
 class Skin
 {

@@ -8,7 +8,7 @@ std::vector<Skin> Skin::loadSkins(){
 	std::ifstream skinsFile;
 	skinsFile.open(SKIN_LIST_FILE, std::fstream::in);
 	if(!skinsFile.is_open())
-		throw UNREACHABLE_FILE("File not found");
+		throw UNREACHABLE_FILE(SKIN_LIST_FILE);
 
 	std::vector<Skin> skinsVector;
 	char *tmp_line = new char[128];
