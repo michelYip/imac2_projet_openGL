@@ -15,8 +15,10 @@ public:
 	Map();
 	~Map() = default;
 
+	//Add an object to the object list
 	void addObject(const Object & obj);
 
+	//Remove an object from the object list
 	void removeObject(const Object & obj);
 	
 };

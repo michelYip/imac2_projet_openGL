@@ -16,6 +16,7 @@ public:
 				const glm::vec3 & upper);
 	~Character() = default;
 
+	//Add coin value to the collected coin
 	void collectCoin(Coin c);
 	
 };

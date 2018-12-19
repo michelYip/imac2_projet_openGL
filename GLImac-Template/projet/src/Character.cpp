@@ -12,6 +12,7 @@ Character::Character(const glm::vec3 & position,
 _collectedCoins()
 {}
 
+//Add coin value to the collected coin
 void Character::collectCoin(Coin c){
 	_collectedCoins.push_back(c);
 }

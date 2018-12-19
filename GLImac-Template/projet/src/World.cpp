@@ -8,6 +8,7 @@ _backgroundTexture("No background yet"),
 _map() 
 {}
 
+//Make the worl continue running
 bool World::coroutine(){
 	// TODO
 	_cameraPosition += _worldSpeed;
