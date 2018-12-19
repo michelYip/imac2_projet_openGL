@@ -15,7 +15,7 @@ void Player::save(std::string filename) const{
 		std::ofstream playerFile;
 		playerFile.open(PLAYER_SAVING_FOLDER+filename, std::fstream::out);
 		if(!playerFile.is_open())
-			throw new std::runtime_error("File not found");
+			throw UNREACHABLE_SAVING_FILE(filename);
 	    saveTime(playerFile);
 	    saveUnlockedSkins(playerFile);
 	    saveSelectedSkin(playerFile);
@@ -29,14 +29,14 @@ Player Player::load(const std::string &filename){
 	std::ifstream playerFile;
 	playerFile.open(PLAYER_SAVING_FOLDER+filename, std::fstream::in);
 	if(!playerFile.is_open())
-			throw new std::runtime_error("File not found");
+			throw UNREACHABLE_SAVING_FILE(filename);
 
 	const int NB_LINES_SAVED = 4;
 	
 	Player player;
 	for (int line_number = 1; line_number <= NB_LINES_SAVED; ++line_number){
 		if(playerFile.eof())
-			throw new std::runtime_error("Incorrect file");
+			throw INCORRECT_SAVING_FILE(filename);
 			
 		//Findint parameters in file
 		char *tmp_line = new char[128];

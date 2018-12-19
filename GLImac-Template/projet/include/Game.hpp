@@ -5,6 +5,7 @@
 
 #include "Player.hpp"
 #include "World.hpp"
+#include "View.hpp"
 	
 class Game
 {
@@ -22,7 +23,7 @@ public:
 	void init();
 
 	//Launch and run the game
-	void run();
+	void run(const int argc, char** argv);
 
 
 private: 

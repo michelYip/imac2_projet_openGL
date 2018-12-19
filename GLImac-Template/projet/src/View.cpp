@@ -41,7 +41,7 @@ int View::window(const glimac::FilePath &applicationPath){
     GLint uCol = glGetUniformLocation(program.getGLId(), "uColor");
     GLint uTex = glGetUniformLocation(program.getGLId(), "uTexture");
 
-    std::unique_ptr<Image> triforceImg = loadImage("/home/lea-harabagiu/Documents/projet_ogl/imac2_projet_openGL/GLImac-Template/assets/textures/menus/try.png");
+    std::unique_ptr<Image> triforceImg = loadImage(applicationPath.dirPath() + "assets/textures/menus/try.png");
     if(triforceImg == NULL) std::cout << "oups" << std::endl;
     // création objet texture
     GLuint triforceText;

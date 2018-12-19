@@ -4,6 +4,6 @@
 int main(int argc, char** argv){
     Game game = Game();
     game.init();
-    game.run();
+    game.run(argc,argv);
     return 0;
 }

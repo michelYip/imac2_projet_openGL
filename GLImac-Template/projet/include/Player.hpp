@@ -3,10 +3,12 @@
 
 #include <iostream>
 #include <vector>
-#include "exceptions/Insufficient_funds.hpp"
-#include "Skin.hpp"
 #include <fstream>
 #include <sstream>
+#include "exceptions/Incorrect_saving_file.hpp"
+#include "exceptions/Unreachable_saving_file.hpp"
+#include "exceptions/Insufficient_funds.hpp"
+#include "Skin.hpp"
 
 const std::string PLAYER_SAVING_FOLDER = "Game/save/";
 
@@ -47,13 +49,21 @@ public:
 	inline std::string& savingFile(){return _savingFile;}
 
 	inline void gainMoney(const unsigned int sum){ _money+=sum; }
-	inline void spendMoney(const unsigned int sum){_money-sum >= 0 ? _money-=sum : throw new Insufficient_funds();}
+	inline void spendMoney(const unsigned int sum){_money-sum >= 0 ? _money-=sum : throw INSUFFICIENT_FUNDS();}
 	inline const std::vector<Skin> unlockedSkins() const{return _unlockedSkins;}
 	inline const Skin selectedSkin() const{return _selectedSkin;}
 	
 
 	//PUBLICS FUNCTIONS 
+	
+	//Load the player saved in the file
+	//@throws Unreachable_saving_file if file can not be openn
+	//@returns loaded Player
 	static Player load(const std::string &filename);
+	
+	//Save the player in a file
+	//@throws Incorrect_saving_file if file does not have all needed informations
+	//@throws Unreachable_saving_file if file can not be openn
 	void save(std::string filename) const;			
 
 
