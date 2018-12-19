@@ -13,11 +13,17 @@ class Button{
 		GLuint _texture;
 	public:
 		Button(){};
-		Button(std::string imageName);
+		Button(const std::string &imageName, const float &posX, const float &posY, const glimac::FilePath &applicationPath);
 		~Button(){};
 
-		inline GLuint getTexture() const{
-			return this->_texture;
+		inline GLuint texture() const{
+			return _texture;
+		};
+		inline float posX() const{
+			return _position.x;
+		};
+		inline float posY() const{
+			return _position.y;
 		};
 };
 

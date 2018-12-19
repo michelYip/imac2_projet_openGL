@@ -4,7 +4,11 @@
 #include <iostream>
 #include <string>
 #include <GL/glew.h>
-#include <glimac/Program.hpp>
+#include <glimac/Image.hpp>
+
+#include "Button.hpp"
+#include "GPUProgram2D.hpp"
+#include "GPUProgram3D.hpp"
 
 class Rendering
 {
@@ -13,11 +17,14 @@ class Rendering
 		GLuint _vao;
 
 		Rendering(){};
-		Rendering(const char &type){};
+		Rendering(const glimac::FilePath &applicationPath, const unsigned int &screen);
+		Rendering(const Rendering &rendering):_vbo(rendering._vbo), _vao(rendering._vao){
+		};
 		~Rendering(){};
 
-		virtual void initialize(){};
-		virtual void show(){};
+		virtual inline std::vector<Button> elements() const{};
+
+		virtual void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D){};
 		virtual void end(){};
 };
 
