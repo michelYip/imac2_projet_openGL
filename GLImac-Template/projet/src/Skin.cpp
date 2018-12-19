@@ -1,8 +1,6 @@
 #include "Skin.hpp"
 #include <fstream>
 #include <sstream>
-#include <stdexcept>
-#include <exception>
 #include <string>
 
 
@@ -10,7 +8,7 @@ std::vector<Skin> Skin::loadSkins(){
 	std::ifstream skinsFile;
 	skinsFile.open(SKIN_LIST_FILE, std::fstream::in);
 	if(!skinsFile.is_open())
-		throw new std::runtime_error("File not found");
+		throw UNREACHABLE_FILE("File not found");
 
 	std::vector<Skin> skinsVector;
 	char *tmp_line = new char[128];

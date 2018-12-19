@@ -6,7 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include "exceptions/Incorrect_saving_file.hpp"
-#include "exceptions/Unreachable_saving_file.hpp"
+#include "exceptions/Unreachable_file.hpp"
 #include "exceptions/Insufficient_funds.hpp"
 #include "Skin.hpp"
 
@@ -57,7 +57,7 @@ public:
 	//PUBLICS FUNCTIONS 
 	
 	//Load the player saved in the file
-	//@throws Unreachable_saving_file if file can not be openn
+	//@throws Unreachable_saving_file if file can not be open
 	//@returns loaded Player
 	static Player load(const std::string &filename);
 	
