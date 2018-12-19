@@ -19,10 +19,10 @@ void Game::run(const int argc, char** argv){
 	glimac::FilePath applicationPath(argv[0]);
     View view;
     view.window(applicationPath);
-	
-	// while(_world.next_frame()){
-	// 	//TODO
-	// }
+
+	while(_world.coroutine()){
+		//TODO
+	}
 }
 
 

@@ -2,6 +2,7 @@
 #define _OBJECT_
 
 #include <iostream>
+#include <glimac/BBox.hpp>
 #include <glm/glm.hpp>
 #include "Collider.hpp"
 
@@ -10,30 +11,37 @@ class Object
 protected: 
 	Collider _boundingBox;
 	glm::vec3 _position;
-	glm::vec3 _size; 
 
 public:
+	//CONSTRUCTORS & DESTRUCTORS
 	Object()
-	:Object(glm::vec3(),glm::vec3(), Collider())
+	:Object(glm::vec3(), Collider())
 	{}
 	
-	Object(glm::vec3 position, glm::vec3 size, Collider boundingBox)
-	:_position(position),_size(size),_boundingBox(boundingBox)
-	{}
+	//Parameter constructor with a collider
+	Object(const glm::vec3 & position, const Collider & boundingBox);
+
+	//Parameter constructor
+	Object(const glm::vec3 & position, const glm::vec3 & _lower, const glm::vec3 & _upper);
 	
+	//Default destructor
 	~Object() = default;
 
 
 	//GETTERS & SETTERS
+	//Return the bounding box of the object
 	const Collider boundingBox() const {return _boundingBox;} 
-	const glm::vec3 position() const {return _position;} 
-	const glm::vec3 size() const {return _size;} 
-
-	//PUBLICS FUNCTIONS 
-
+	
+	//Return the position of the object
+	const glm::vec3 position() const {return _position;}
 
 	//OPERATORS
-	friend std::ostream& operator<<(std::ostream &os, const Object &p);	
+
+	//Input stream
+	friend std::ostream& operator<<(std::ostream &os, const Object &o);
+
+	//Comparison ==
+	bool operator==(const Object & other);
 };
 
 #endif
