@@ -14,7 +14,7 @@ void Game::init(){
 		
 		_player.save("player_1");
 		std::cout << Player::load("player_1") << std::endl;
-	}catch(Unreachable_saving_file &e){
+	}catch(Unreachable_file &e){
 		std::cerr << e.what() << std::endl;
 	}
 }

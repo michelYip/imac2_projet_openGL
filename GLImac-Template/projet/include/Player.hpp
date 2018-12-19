@@ -10,7 +10,7 @@
 #include "exceptions/Insufficient_funds.hpp"
 #include "Skin.hpp"
 
-const std::string PLAYER_SAVING_FOLDER = "Game/save/";
+const std::string PLAYER_SAVING_FOLDER = "main/saves/";
 
 
 class Player
