@@ -48,10 +48,14 @@ public:
 	inline const std::string& savingFile() const{return _savingFile;}
 	inline std::string& savingFile(){return _savingFile;}
 
+	inline const Skin selectedSkin() const{return _selectedSkin;}
+	inline Skin selectedSkin() {return _selectedSkin;}
+	
 	inline void gainMoney(const unsigned int sum){ _money+=sum; }
 	inline void spendMoney(const unsigned int sum){_money-sum >= 0 ? _money-=sum : throw INSUFFICIENT_FUNDS();}
+	
 	inline const std::vector<Skin> unlockedSkins() const{return _unlockedSkins;}
-	inline const Skin selectedSkin() const{return _selectedSkin;}
+	inline void addUnlockedSkins(const Skin &skin){return _unlockedSkins.push_back(skin);}
 	
 
 	//PUBLICS FUNCTIONS 
