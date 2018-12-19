@@ -10,33 +10,30 @@ std::ostream& operator<<(std::ostream &os, const Player &p){
 
 void Player::save(std::string filename) const{
 	struct stat buf;
-    if (!stat((PLAYER_SAVING_FOLDER+filename).c_str(), &buf) != -1){
-    	//if file does not exist
-		std::ofstream playerFile;
-		playerFile.open(PLAYER_SAVING_FOLDER+filename, std::fstream::out);
-		if(!playerFile.is_open())
-			throw UNREACHABLE_SAVING_FILE(filename);
-	    saveTime(playerFile);
-	    saveUnlockedSkins(playerFile);
-	    saveSelectedSkin(playerFile);
-	    savePlayer(playerFile);
-    }else{
+	std::ofstream playerFile;
+	playerFile.open(PLAYER_SAVING_FOLDER+filename, std::fstream::out);
+	if(!playerFile.is_open())
+		throw UNREACHABLE_FILE(PLAYER_SAVING_FOLDER+filename);
 
-    }
+    saveTime(playerFile);
+    saveUnlockedSkins(playerFile);
+    saveSelectedSkin(playerFile);
+    savePlayer(playerFile);
+    
 }
 
 Player Player::load(const std::string &filename){
 	std::ifstream playerFile;
 	playerFile.open(PLAYER_SAVING_FOLDER+filename, std::fstream::in);
 	if(!playerFile.is_open())
-			throw UNREACHABLE_SAVING_FILE(filename);
+			throw UNREACHABLE_FILE(PLAYER_SAVING_FOLDER+filename);
 
 	const int NB_LINES_SAVED = 4;
 	
 	Player player;
 	for (int line_number = 1; line_number <= NB_LINES_SAVED; ++line_number){
 		if(playerFile.eof())
-			throw INCORRECT_SAVING_FILE(filename);
+			throw UNREACHABLE_FILE(PLAYER_SAVING_FOLDER+filename);
 			
 		//Findint parameters in file
 		char *tmp_line = new char[128];
@@ -80,7 +77,7 @@ void Player::saveUnlockedSkins(std::ofstream &file) const{
 void Player::saveTime(std::ofstream &file) const{
 	std::time_t t = std::time(0);
     std::tm* now = std::localtime(&t);
-	file << "Saving time: " << (now->tm_year + 1900) << '/' << (now->tm_mon + 1) << '/'<<  now->tm_mday << " " << now->tm_hour << "h" << now->tm_min << std::endl;
+	file << "Last saving time: " << (now->tm_year + 1900) << '/' << (now->tm_mon + 1) << '/'<<  now->tm_mday << " " << now->tm_hour << "h" << now->tm_min << std::endl;
 }
 
 void Player::savePlayer(std::ofstream &file) const{
