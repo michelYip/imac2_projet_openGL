@@ -1,29 +1,30 @@
 #include "RenderingInterface.hpp"
 
 std::vector<Button> buttonsScreen(const unsigned int &screen, const glimac::FilePath &applicationPath){
-	std::vector<Button> elements; 
-	switch(screen){
-		case 0:
-			elements.push_back(Button("title.png", -0.5f, 0.5f,  applicationPath));
-			elements.push_back(Button("try.png", -0.5f, -0.5f,  applicationPath));
-			break;
-		case 1:
-			elements.push_back(Button("title.png", 0.f, 0.5f,  applicationPath));
-			elements.push_back(Button("try.png", 0.f, -0.5f,  applicationPath));
-			break;
-		case 2:
-			elements.push_back(Button("title.png", 0.5f, 0.5f,  applicationPath));
-			elements.push_back(Button("try.png", 0.5f, -0.5f,  applicationPath));
-			break;
-		default:
-			break;
-	}
-	return elements;
+    std::vector<Button> elements; 
+    switch(screen){
+        case 0:
+            elements.push_back(Button("title.png", -0.5f, 0.5f,  applicationPath));
+            elements.push_back(Button("try.png", -0.5f, -0.5f,  applicationPath));
+            break;
+        case 1:
+            elements.push_back(Button("title.png", 0.f, 0.5f,  applicationPath));
+            elements.push_back(Button("try.png", 0.f, -0.5f,  applicationPath));
+            break;
+        case 2:
+            elements.push_back(Button("title.png", 0.5f, 0.5f,  applicationPath));
+            elements.push_back(Button("try.png", 0.5f, -0.5f,  applicationPath));
+            break;
+        default:
+            break;
+    }
+    return elements;
 }
 
 RenderingInterface::RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen){
     
-    _elements = buttonsScreen(screen, applicationPath);
+    std::vector<Button> buttons = buttonsScreen(screen, applicationPath);
+    _elements = buttons;
 
     glGenBuffers(1, &this->_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, this->_vbo);
@@ -72,18 +73,18 @@ glm::mat3 translate(float tx, float ty){
     );
 };
 
-void RenderingInterface::show(const GPUProgram2D &program2D, const GPUProgram3D &program3D){
+void RenderingInterface::show(const GPUProgram2D &program2D, const GPUProgram3D &program3D) {
     program2D._program.use();
-	glBindVertexArray(this->_vao);
-	for(int i = 0; i < this->_elements.size(); i++){
-	    glBindTexture(GL_TEXTURE_2D, this->_elements[i].texture());
-	    glUniform1i(program2D._uTexture, 0);
-	    glUniformMatrix3fv(program2D._uModelMatrix, 1, GL_FALSE,glm::value_ptr(translate(this->_elements[i].posX(), this->_elements[i].posY())));
-	    glUniform3f(program2D._uColor, 1.f, 0.f, 0.f);
-	    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    glBindVertexArray(this->_vao);
+    for(int i = 0; i < this->_elements.size(); i++){
+        glBindTexture(GL_TEXTURE_2D, this->_elements[i].texture());
+        glUniform1i(program2D._uTexture, 0);
+        glUniformMatrix3fv(program2D._uModelMatrix, 1, GL_FALSE,glm::value_ptr(translate(this->_elements[i].posX(), this->_elements[i].posY())));
+        glUniform3f(program2D._uColor, 1.f, 0.f, 0.f);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-	    glBindTexture(GL_TEXTURE_2D, 0);
-	}
+        glBindTexture(GL_TEXTURE_2D, 0);
+    }
     glBindVertexArray(0);
 }
 
@@ -91,7 +92,7 @@ void RenderingInterface::end(){
     glDeleteBuffers(1, &this->_vbo);
     glDeleteVertexArrays(1, &this->_vao);
     for(int i = 0; i < this->_elements.size(); i++){
-	    GLuint texture = this->_elements[i].texture();
-	    glDeleteTextures(1, &texture);	
+        GLuint texture = this->_elements[i].texture();
+        glDeleteTextures(1, &texture);  
     }
 }
