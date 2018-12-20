@@ -1,5 +1,0 @@
-<map id="StaticObject" name="StaticObject">
-<area shape="rect" id="node3" href="$classCoin.html" title="Coin" alt="" coords="5,155,56,181"/>
-<area shape="rect" id="node4" href="$classObstacle.html" title="Obstacle" alt="" coords="81,155,159,181"/>
-<area shape="rect" id="node2" href="$classObject.html" title="Object" alt="" coords="43,5,107,32"/>
-</map>
