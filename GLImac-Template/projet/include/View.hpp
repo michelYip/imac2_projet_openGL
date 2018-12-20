@@ -41,4 +41,4 @@ class View
 		void thirdPersonCameraMotion();
 };
 
-#endif 
+#endif

@@ -1,8 +1,8 @@
 #include "Button.hpp"
 
 Button::Button(const std::string &imageName, const float &posX, const float &posY, const glimac::FilePath &applicationPath):_position(glm::vec2(posX, posY)){
-	std::unique_ptr<glimac::Image> image = glimac::loadImage(applicationPath.dirPath() + "assets/textures/menus/" + imageName);
-	if(image == NULL) std::cout << "ERROR IMG : " << imageName << std::endl;
+    std::unique_ptr<glimac::Image> image = glimac::loadImage(applicationPath.dirPath() + "assets/textures/menus/" + imageName);
+    if(image == NULL) std::cout << "ERROR IMG : " << imageName << std::endl;
 
     glGenTextures(1, &_texture);
     glBindTexture(GL_TEXTURE_2D, _texture);
