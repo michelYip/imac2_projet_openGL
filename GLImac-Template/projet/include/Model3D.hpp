@@ -2,13 +2,12 @@
 #define _MODEL3D_
 
 #include "Rendering.hpp"
-#include "ObjLoader.hpp"
-
 #include <iostream>
 #include <fstream>
 #include "exceptions/Unreachable_file.hpp"
 #include "Vertex3DUV.hpp"
 #include <vector>
+#include <map>
 
 
 const std::string OBJ_FOLDER = "main/assets/models/";
@@ -16,21 +15,29 @@ const std::string OBJ_FOLDER = "main/assets/models/";
 class Model3D
 {
 	private:
+		static std::map<std::string, Model3D> already_created_models;
 		std::vector<Vertex3DUV> _vertices;
-		std::vector<int> _indexes;
+		std::vector<int> _indexes; //list of indexes in order to create faces
 		
-		//Only created by callin loadObj()
+		
+	
+	public:
+		Model3D() = default;
+
 		Model3D(const std::vector<Vertex3DUV> &vertices, const std::vector<int> &indexes)
 		:_vertices(vertices),_indexes(indexes)
 		{} 
-	
-	public:
+		
+		Model3D(const Model3D &m)
+		:_vertices(m._vertices), _indexes(m._indexes)
+		{}
+
 		~Model3D() = default;
 
-		static Model3D loadObj(const std::string &filename, std::vector<Vertex3DUV> &obj_list_vertice, std::vector<int> &obj_list_indices);
+		static Model3D loadObj(const std::string &filename);
 
-		inline const std::std::vector<Vertex3DUV> &vertices() const{return _vertices;}
-		inline const std::std::vector<int> &indexes() const{return _indexes;}
+		inline const std::vector<Vertex3DUV> &vertices() const{return _vertices;}
+		inline const std::vector<int> &indexes() const{return _indexes;}
 };
 
 #endif

@@ -7,6 +7,14 @@
 
 
 Model3D Model3D::loadObj(const std::string &filename){
+	//If model already loader by program return it
+	typedef std::map<std::string,Model3D>  mapType;
+	mapType::iterator it = already_created_models.find(filename);
+	if(it != already_created_models.end()){
+		return it->second;
+	}
+
+	//If not load from file
 	std::ifstream objFile;
 	objFile.open(OBJ_FOLDER+filename, std::fstream::in);
 	if(!objFile.is_open())
@@ -45,7 +53,9 @@ Model3D Model3D::loadObj(const std::string &filename){
 		}
 	}
 	
-	return Model3D(obj_list_vertice,obj_list_indices);
+	Model3D model(obj_list_vertice,obj_list_indices);
+	already_created_models[filename] = model;
+	return model;
 
 }
 

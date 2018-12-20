@@ -5,12 +5,14 @@
 #include <glimac/BBox.hpp>
 #include <glm/glm.hpp>
 #include "Collider.hpp"
+#include "Model3D.hpp"
 
 class Object
 {
 protected: 
 	Collider _boundingBox;
 	glm::vec3 _position;
+	Model3D _model3D;
 
 public:
 	//CONSTRUCTORS & DESTRUCTORS
