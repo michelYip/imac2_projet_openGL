@@ -1,6 +1,0 @@
-<map id="Game_exception" name="Game_exception">
-<area shape="rect" id="node2" href="$classException__template.html" title="Exception_template" alt="" coords="5,80,157,107"/>
-<area shape="rect" id="node3" href="$classIncorrect__saving__file.html" title="Incorrect_saving_file" alt="" coords="182,80,338,107"/>
-<area shape="rect" id="node4" href="$classInsufficient__funds.html" title="Insufficient_funds" alt="" coords="362,80,499,107"/>
-<area shape="rect" id="node5" href="$classUnreachable__file.html" title="Unreachable_file" alt="" coords="524,80,655,107"/>
-</map>
