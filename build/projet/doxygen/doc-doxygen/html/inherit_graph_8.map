@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classObject.html" title="Object" alt="" coords="5,132,69,159"/>
+<area shape="rect" id="node2" href="$classMovingObject.html" title="MovingObject" alt="" coords="117,56,228,83"/>
+<area shape="rect" id="node5" href="$classStaticObject.html" title="StaticObject" alt="" coords="122,132,223,159"/>
+<area shape="rect" id="node8" href="$classTriggerObject.html" title="TriggerObject" alt="" coords="119,208,227,235"/>
+<area shape="rect" id="node3" href="$classCharacter.html" title="Character" alt="" coords="276,5,361,32"/>
+<area shape="rect" id="node4" href="$classEnemy.html" title="Enemy" alt="" coords="285,56,352,83"/>
+<area shape="rect" id="node6" href="$classCoin.html" title="Coin" alt="" coords="293,107,344,133"/>
+<area shape="rect" id="node7" href="$classObstacle.html" title="Obstacle" alt="" coords="279,157,358,184"/>
+<area shape="rect" id="node9" href="$classBonus.html" title="Bonus" alt="" coords="287,208,350,235"/>
+<area shape="rect" id="node10" href="$classMalus.html" title="Malus" alt="" coords="289,259,349,285"/>
+</map>

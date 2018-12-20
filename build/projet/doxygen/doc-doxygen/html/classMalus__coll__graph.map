@@ -1,0 +1,6 @@
+<map id="Malus" name="Malus">
+<area shape="rect" id="node2" href="$classTriggerObject.html" title="TriggerObject" alt="" coords="51,171,159,197"/>
+<area shape="rect" id="node3" href="$classObject.html" title="Object" alt="" coords="73,95,137,121"/>
+<area shape="rect" id="node4" href="$classCollider.html" title="Collider" alt="" coords="5,5,77,32"/>
+<area shape="rect" id="node5" href="$classModel3D.html" title="Model3D" alt="" coords="130,5,209,32"/>
+</map>

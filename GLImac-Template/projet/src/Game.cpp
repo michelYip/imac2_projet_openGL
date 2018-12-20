@@ -2,7 +2,7 @@
 
 #include <algorithm>
 #include "exceptions/Unreachable_file.hpp"
-#include "ObjLoader.hpp"
+#include "Model3D.hpp"
 
 
 void Game::init(){
