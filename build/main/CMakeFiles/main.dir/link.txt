@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/main.dir/main.cpp.o  -o main ../projet/libprojet.a ../glimac/libglimac.a -Wl,-Bstatic -lSDLmain -Wl,-Bdynamic -lSDL -lpthread -lGLU -lGL -lGLEW 

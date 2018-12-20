@@ -1,0 +1,4 @@
+<map id="Obstacle" name="Obstacle">
+<area shape="rect" id="node2" href="$classStaticObject.html" title="StaticObject" alt="" coords="5,80,107,107"/>
+<area shape="rect" id="node3" href="$classObject.html" title="Object" alt="" coords="24,5,88,32"/>
+</map>
