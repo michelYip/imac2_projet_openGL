@@ -73,7 +73,8 @@ glm::mat3 translate(float tx, float ty){
     );
 };
 
-void RenderingInterface::show(const GPUProgram2D &program2D) {
+void RenderingInterface::show(const GPUProgram2D &program2D, const GPUProgram3D &program3D) {
+    program2D._program.use();
 	glBindVertexArray(this->_vao);
 	for(int i = 0; i < this->_elements.size(); i++){
 	    glBindTexture(GL_TEXTURE_2D, this->_elements[i].texture());

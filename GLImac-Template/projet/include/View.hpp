@@ -13,9 +13,6 @@
 #include "RenderingInterface.hpp"
 #include "GPUProgram2D.hpp"
 
-const float WINDOW_WIDTH = 1600;
-const float WINDOW_HEIGHT = 1200;
-
 using namespace glimac;
 
 class View

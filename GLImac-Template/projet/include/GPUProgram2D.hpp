@@ -6,13 +6,13 @@
 class GPUProgram2D{
 	public:
 		glimac::Program _program;
-
+	
 		GLint _uModelMatrix;
 		GLint _uColor;
 		GLint _uTexture;
 
 		GPUProgram2D(){};
-		GPUProgram2D(const glimac::FilePath &applicationPath):_program(glimac::loadProgram(applicationPath.dirPath() + "shaders/tex2D.vs.glsl", applicationPath.dirPath() + "shaders/tex2D.fs.glsl")){
+		GPUProgram2D(const glimac::FilePath &applicationPath, const std::string &vsName, const std::string &fsName):_program(glimac::loadProgram(applicationPath.dirPath() + "shaders/" + vsName, applicationPath.dirPath() + "shaders/" + fsName)){
 			_uModelMatrix = glGetUniformLocation(_program.getGLId(), "uModelMatrix");
 			_uColor = glGetUniformLocation(_program.getGLId(), "uColor");
 			_uTexture = glGetUniformLocation(_program.getGLId(), "uTexture");
@@ -23,7 +23,6 @@ class GPUProgram2D{
 			_uColor = program._uColor;
 			_uTexture = program._uTexture;
 		}
-		~GPUProgram2D(){};
 
 		GPUProgram2D &operator=(const GPUProgram2D &program){
 			if (this != &program){

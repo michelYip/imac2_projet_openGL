@@ -8,8 +8,9 @@ int View::window(const glimac::FilePath &applicationPath){
 		return EXIT_FAILURE;
 	}
 
-    GPUProgram2D program2D(applicationPath);
-    program2D._program.use();
+    GPUProgram2D program2D(applicationPath, "tex2D.vs.glsl", "tex2D.fs.glsl");
+    
+    GPUProgram3D program3D(applicationPath, "3D.vs.glsl", "tex3D.fs.glsl");
 
     RenderingInterface startMenu(applicationPath, 0);
     this->_renderingEngine.push_back(&startMenu);
@@ -18,14 +19,17 @@ int View::window(const glimac::FilePath &applicationPath){
     RenderingInterface playerMenu(applicationPath, 2);
     this->_renderingEngine.push_back(&playerMenu);
 
+    Rendering3D sphere(applicationPath, 0);
+    this->_renderingEngine.push_back(&sphere);
+
     while(!this->_done){
     	SDL_Event e;
     	while(this->_windowManager.pollEvent(e)){
 			this->manageEvents(e);
     	}
 
-    	glClear(GL_COLOR_BUFFER_BIT);
-   		this->_renderingEngine[this->_screen]->show(program2D);
+    	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+   		this->_renderingEngine[this->_screen]->show(program2D, program3D);
     	this->_windowManager.swapBuffers();
     }
 	for(int i = 0; i < this->_renderingEngine.size(); i++){

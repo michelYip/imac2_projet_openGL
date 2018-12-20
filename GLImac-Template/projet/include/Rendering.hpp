@@ -8,6 +8,7 @@
 
 #include "Button.hpp"
 #include "GPUProgram2D.hpp"
+#include "GPUProgram3D.hpp"
 
 class Rendering
 {
@@ -26,7 +27,7 @@ class Rendering
 
 		virtual inline std::vector<Button> elements() const{};
 
-		virtual void show(const GPUProgram2D &program2D){};
+		virtual void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D){};
 		virtual void end(){};
 };
 
