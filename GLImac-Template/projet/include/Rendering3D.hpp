@@ -17,11 +17,11 @@ class Rendering3D : public Rendering
 		GLuint _texture;
 		glimac::Sphere _sphere;
 	public:
-		Rendering3D();
+		Rendering3D(){};
 		Rendering3D(const glimac::FilePath &appllicationPath, const unsigned int &screen);
-		~Rendering3D();
+		~Rendering3D(){};
 
-		void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D);
+		void show(const GPUProgram2D &program2D);
 };
 
 #endif

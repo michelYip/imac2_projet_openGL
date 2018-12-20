@@ -10,6 +10,8 @@
 const GLuint VERTEX_ATTR_POSITION = 0;
 const GLuint VERTEX_ATTR_COLOR = 1;
 
+const GLuint NB_SCREEN = 3;
+
 class RenderingInterface : public Rendering
 {
 	private:
@@ -27,7 +29,7 @@ class RenderingInterface : public Rendering
 			return _elements;
 		};
 
-		void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D);
+		void show(const GPUProgram2D &program2D);
 		void end();
 };
 

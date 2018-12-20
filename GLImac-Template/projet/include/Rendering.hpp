@@ -8,7 +8,6 @@
 
 #include "Button.hpp"
 #include "GPUProgram2D.hpp"
-#include "GPUProgram3D.hpp"
 
 class Rendering
 {
@@ -20,11 +19,14 @@ class Rendering
 		Rendering(const glimac::FilePath &applicationPath, const unsigned int &screen);
 		Rendering(const Rendering &rendering):_vbo(rendering._vbo), _vao(rendering._vao){
 		};
-		~Rendering(){};
+		~Rendering(){
+		    glDeleteBuffers(1, &_vbo);
+		    glDeleteVertexArrays(1, &_vao);
+		};
 
 		virtual inline std::vector<Button> elements() const{};
 
-		virtual void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D){};
+		virtual void show(const GPUProgram2D &program2D){};
 		virtual void end(){};
 };
 

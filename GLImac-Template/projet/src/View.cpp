@@ -8,11 +8,15 @@ int View::window(const glimac::FilePath &applicationPath){
 		return EXIT_FAILURE;
 	}
 
-	GPUProgram2D program2D(applicationPath);
-	GPUProgram3D program3D(applicationPath);
+    GPUProgram2D program2D(applicationPath);
+    program2D._program.use();
 
     RenderingInterface startMenu(applicationPath, 0);
     this->_renderingEngine.push_back(&startMenu);
+    RenderingInterface savesMenu(applicationPath, 1);
+    this->_renderingEngine.push_back(&savesMenu);
+    RenderingInterface playerMenu(applicationPath, 2);
+    this->_renderingEngine.push_back(&playerMenu);
 
     while(!this->_done){
     	SDL_Event e;
@@ -20,25 +24,15 @@ int View::window(const glimac::FilePath &applicationPath){
 			this->manageEvents(e);
     	}
 
-    	this->_renderingEngine.erase(this->_renderingEngine.begin(), this->_renderingEngine.end());
-    	if(this->_screen < 3){
-	    	RenderingInterface interface(applicationPath, this->_screen);
-	    	this->_renderingEngine.push_back(&interface);
-    	}
-    	else{
-    		// Rendering3D sphere(applicationPath, 0);
-    		// this->_renderingEngine.push_back(&sphere);
-    	}
-
     	glClear(GL_COLOR_BUFFER_BIT);
-    	for(int i = 0; i < this->_renderingEngine.size(); i++){
-	 		this->_renderingEngine[i]->show(program2D, program3D);
-    	}
+   		this->_renderingEngine[this->_screen]->show(program2D);
     	this->_windowManager.swapBuffers();
     }
-    startMenu.end(); 
+	for(int i = 0; i < this->_renderingEngine.size(); i++){
+ 		this->_renderingEngine[i]->end();
+	} 
     return EXIT_SUCCESS;
-}	
+}
 
 // deals with the events
 void View::manageEvents(const SDL_Event &e){
@@ -92,8 +86,8 @@ void View::manageKeyUpEvents(const SDLKey &k){
 		case SDLK_LEFT:
 			std::cout << "menu left" << std::endl;
 			break;
-		case SDLK_RETURN:
-			this->_screen += 1;
+		case SDLK_SPACE:
+		 	if(this->_screen != NB_SCREEN - 1) this->_screen += 1;
 			break;
 		case SDLK_RIGHT:
 			std::cout << "menu right" << std::endl;

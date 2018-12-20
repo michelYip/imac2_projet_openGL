@@ -98,17 +98,17 @@ glEnable(GL_DEPTH_TEST);
     }	
 }
 
-void Rendering3D::show(const GPUProgram2D &program2D, const GPUProgram3D &program3D){
-		_MVMatrix = glm::translate(glm::mat4(1), glm::vec3(0, 0, -5));
-  //       _MVMatrix = glm::rotate(_MVMatrix, windowManager.getTime(), glm::vec3(0, 1, 0));
-        glUniformMatrix4fv(program3D._uMVPMatrix, 1, GL_FALSE, glm::value_ptr(_ProjMatrix * _MVMatrix));
-        glUniformMatrix4fv(program3D._uMVMatrix, 1, GL_FALSE, glm::value_ptr(_MVMatrix));
-        glUniformMatrix4fv(program3D._uNormalMatrix, 1, GL_FALSE, glm::value_ptr(_NormalMatrix));
+void Rendering3D::show(const GPUProgram2D &program2D){
+		// _MVMatrix = glm::translate(glm::mat4(1), glm::vec3(0, 0, -5));
+  // //       _MVMatrix = glm::rotate(_MVMatrix, windowManager.getTime(), glm::vec3(0, 1, 0));
+  //       glUniformMatrix4fv(program3D._uMVPMatrix, 1, GL_FALSE, glm::value_ptr(_ProjMatrix * _MVMatrix));
+  //       glUniformMatrix4fv(program3D._uMVMatrix, 1, GL_FALSE, glm::value_ptr(_MVMatrix));
+  //       glUniformMatrix4fv(program3D._uNormalMatrix, 1, GL_FALSE, glm::value_ptr(_NormalMatrix));
 
-        glBindVertexArray(_vao);
-        glBindTexture(GL_TEXTURE_2D, _texture);
-        glUniform1i(program3D._uTexture, 0);
-        glDrawArrays(GL_TRIANGLES, 0, _sphere.getVertexCount());
-        glBindTexture(GL_TEXTURE_2D, 0);
-        glBindVertexArray(0);
+  //       glBindVertexArray(_vao);
+  //       glBindTexture(GL_TEXTURE_2D, _texture);
+  //       glUniform1i(program3D._uTexture, 0);
+  //       glDrawArrays(GL_TRIANGLES, 0, _sphere.getVertexCount());
+  //       glBindTexture(GL_TEXTURE_2D, 0);
+  //       glBindVertexArray(0);
 }
