@@ -2,27 +2,26 @@
 #define _WORLD_
 
 #include <iostream>
-
 #include "Physic.hpp"
 #include "Map.hpp"
+
+const float INITIAL_SPEED = 5.0f;
 
 class World
 {
 private: 
-	float _speed;
-	float _xPos;
-	float _yPos;
+	float _worldSpeed;
+	float _gameOverZone;
+	glm::vec3 _cameraPosition;
 	std::string _backgroundTexture;
-	Physic _physicEngine;
 	Map _map;
 public:
-	World()
-	{}
+	World();
 	
 	~World() = default;
 
 	//Make the world continue running
-	bool next_frame();
+	bool coroutine();
 
 	bool isFinished();
 	

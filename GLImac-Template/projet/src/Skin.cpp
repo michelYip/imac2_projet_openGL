@@ -1,16 +1,13 @@
 #include "Skin.hpp"
 #include <fstream>
 #include <sstream>
-#include <stdexcept>
-#include <exception>
 #include <string>
-
 
 std::vector<Skin> Skin::loadSkins(){
 	std::ifstream skinsFile;
 	skinsFile.open(SKIN_LIST_FILE, std::fstream::in);
 	if(!skinsFile.is_open())
-		throw new std::runtime_error("File not found");
+		throw UNREACHABLE_FILE(SKIN_LIST_FILE);
 
 	std::vector<Skin> skinsVector;
 	char *tmp_line = new char[128];
@@ -43,9 +40,39 @@ std::vector<Skin> Skin::loadSkins(){
 	skinsFile.close();
 	return skinsVector;
 }
+
+
+Skin Skin::load(const std::string &couted_skin){
+	Skin skin;
+	std::regex skin_name_regex("name:([^,]*)");
+	std::regex skin_price_regex("price:([^,]*)");
+	std::regex skin_texture_regex("texture:([^,]*)");
+	std::smatch param_name;
+	std::smatch param_price;
+	std::smatch param_texture;
+	std::regex_search(couted_skin, param_name, skin_name_regex);
+	std::regex_search(couted_skin, param_price, skin_price_regex);
+	std::regex_search(couted_skin, param_texture, skin_texture_regex);
+	skin.name() = param_name.str().substr(5);
+	skin.price() = std::stoi(param_price.str().substr(6));
+	skin.texture() = param_texture.str().substr(8);
+	return skin;
+}
 	
+
+
 std::ostream& operator<<(std::ostream &os, const Skin &s){
 	os << "[name:" << s._name << ", price:" << s._price << ", texture:" << s._texture << "]";
+	return os;
+}
+
+std::ostream& operator<<(std::ostream &os, const std::vector<Skin> &s_list){
+		os << "[\n";
+	for (int i = 0; i < s_list.size(); ++i){
+		Skin s = s_list.at(i);
+		os << "[name:" << s._name << ", price:" << s._price << ", texture:" << s._texture << "],\n";
+	}
+	os << "]";
 	return os;
 }
 

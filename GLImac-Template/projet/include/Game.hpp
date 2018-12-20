@@ -7,6 +7,8 @@
 #include "World.hpp"
 #include "View.hpp"
 	
+/// \class Game
+/// \brief Create and manage the game
 class Game
 {
 private: 
@@ -19,15 +21,16 @@ public:
 	Game(){}
 	~Game() = default;
 
-	//Select a player and create the world
+	/// \brief initialization of the game.
 	void init();
 
-	//Launch and run the game
+	/// \brief Launch the window and the main loop
 	void run(const int argc, char** argv);
 
 
 private: 
-	// Select a player and load him into _player
+	/// \brief  Select a player and load him into _player
+	/// \return  The player selected to play 
 	Player selectSavedPlayer() const;
 
 

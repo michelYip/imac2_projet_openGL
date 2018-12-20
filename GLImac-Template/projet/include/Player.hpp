@@ -6,13 +6,14 @@
 #include <fstream>
 #include <sstream>
 #include "exceptions/Incorrect_saving_file.hpp"
-#include "exceptions/Unreachable_saving_file.hpp"
+#include "exceptions/Unreachable_file.hpp"
 #include "exceptions/Insufficient_funds.hpp"
 #include "Skin.hpp"
 
-const std::string PLAYER_SAVING_FOLDER = "Game/save/";
+const std::string PLAYER_SAVING_FOLDER = "main/saves/";
 
-
+/// \class Player
+/// \brief Create a Player that can be saved and loaded to continue playing even after closing the game
 class Player
 {
 private:
@@ -27,6 +28,7 @@ public:
 	:Player("unknown")
 	{}
 
+	/// \param name: Name of the player
 	Player(const std::string &name)
 	:_name(name), _money(0)
 	{}
@@ -48,22 +50,26 @@ public:
 	inline const std::string& savingFile() const{return _savingFile;}
 	inline std::string& savingFile(){return _savingFile;}
 
+	inline const Skin selectedSkin() const{return _selectedSkin;}
+	inline Skin selectedSkin() {return _selectedSkin;}
+	
 	inline void gainMoney(const unsigned int sum){ _money+=sum; }
 	inline void spendMoney(const unsigned int sum){_money-sum >= 0 ? _money-=sum : throw INSUFFICIENT_FUNDS();}
+	
 	inline const std::vector<Skin> unlockedSkins() const{return _unlockedSkins;}
-	inline const Skin selectedSkin() const{return _selectedSkin;}
+	inline void addUnlockedSkins(const Skin &skin){return _unlockedSkins.push_back(skin);}
 	
 
 	//PUBLICS FUNCTIONS 
 	
-	//Load the player saved in the file
-	//@throws Unreachable_saving_file if file can not be openn
-	//@returns loaded Player
+	/// \brief Load the player saved in the file
+	/// \throw Unreachable_file if file can not be open
+	/// \returns loaded Player
 	static Player load(const std::string &filename);
 	
-	//Save the player in a file
-	//@throws Incorrect_saving_file if file does not have all needed informations
-	//@throws Unreachable_saving_file if file can not be openn
+	/// \brief Save the player in a file
+	/// \throw Incorrect_saving_file if file does not have all needed informations
+	/// \throw Unreachable_file if file can not be openn
 	void save(std::string filename) const;			
 
 
