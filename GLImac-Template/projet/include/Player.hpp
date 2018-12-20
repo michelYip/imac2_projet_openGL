@@ -12,7 +12,8 @@
 
 const std::string PLAYER_SAVING_FOLDER = "main/saves/";
 
-
+/// \class Player
+/// \brief Create a Player that can be saved and loaded to continue playing even after closing the game
 class Player
 {
 private:
@@ -27,6 +28,7 @@ public:
 	:Player("unknown")
 	{}
 
+	/// \param name: Name of the player
 	Player(const std::string &name)
 	:_name(name), _money(0)
 	{}
@@ -60,14 +62,14 @@ public:
 
 	//PUBLICS FUNCTIONS 
 	
-	//Load the player saved in the file
-	//@throws Unreachable_saving_file if file can not be open
-	//@returns loaded Player
+	/// \brief Load the player saved in the file
+	/// \throw Unreachable_file if file can not be open
+	/// \returns loaded Player
 	static Player load(const std::string &filename);
 	
-	//Save the player in a file
-	//@throws Incorrect_saving_file if file does not have all needed informations
-	//@throws Unreachable_saving_file if file can not be openn
+	/// \brief Save the player in a file
+	/// \throw Incorrect_saving_file if file does not have all needed informations
+	/// \throw Unreachable_file if file can not be openn
 	void save(std::string filename) const;			
 
 
