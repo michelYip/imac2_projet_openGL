@@ -23,7 +23,8 @@ std::vector<Button> buttonsScreen(const unsigned int &screen, const glimac::File
 
 RenderingInterface::RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen){
     
-    _elements = buttonsScreen(screen, applicationPath);
+    std::vector<Button> buttons = buttonsScreen(screen, applicationPath);
+    _elements = buttons;
 
     glGenBuffers(1, &this->_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, this->_vbo);
@@ -72,7 +73,7 @@ glm::mat3 translate(float tx, float ty){
     );
 };
 
-void RenderingInterface::show(const GPUProgram2D &program2D, const GPUProgram3D &program3D){
+void RenderingInterface::show(const GPUProgram2D &program2D, const GPUProgram3D &program3D) {
     program2D._program.use();
 	glBindVertexArray(this->_vao);
 	for(int i = 0; i < this->_elements.size(); i++){

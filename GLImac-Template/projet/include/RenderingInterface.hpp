@@ -10,11 +10,14 @@
 const GLuint VERTEX_ATTR_POSITION = 0;
 const GLuint VERTEX_ATTR_COLOR = 1;
 
+const GLuint NB_SCREEN = 4;
+
 class RenderingInterface : public Rendering
 {
 	private:
 		GLuint _ibo;
 		std::vector<Button> _elements;
+		GPUProgram2D _program2D;
 	public:
 		RenderingInterface(){};
 		RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen);

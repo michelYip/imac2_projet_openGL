@@ -20,7 +20,10 @@ class Rendering
 		Rendering(const glimac::FilePath &applicationPath, const unsigned int &screen);
 		Rendering(const Rendering &rendering):_vbo(rendering._vbo), _vao(rendering._vao){
 		};
-		~Rendering(){};
+		~Rendering(){
+		    glDeleteBuffers(1, &_vbo);
+		    glDeleteVertexArrays(1, &_vao);
+		};
 
 		virtual inline std::vector<Button> elements() const{};
 

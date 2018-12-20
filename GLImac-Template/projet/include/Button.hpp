@@ -14,6 +14,8 @@ class Button{
 	public:
 		Button(){};
 		Button(const std::string &imageName, const float &posX, const float &posY, const glimac::FilePath &applicationPath);
+		Button(const Button &button):_position(glm::vec2(button._position.x, button._position.y)), _texture(button._texture){
+		};
 		~Button(){};
 
 		inline GLuint texture() const{
@@ -25,6 +27,13 @@ class Button{
 		inline float posY() const{
 			return _position.y;
 		};
+
+		Button &operator=(const Button &button){
+			if(this != &button){
+				_position = glm::vec2(button._position.x, button._position.y);
+				_texture = button._texture;
+			}
+		}
 };
 
 #endif
