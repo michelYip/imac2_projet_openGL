@@ -14,11 +14,25 @@ private:
 	float _gameOverZone;
 	glm::vec3 _cameraPosition;
 	std::string _backgroundTexture;
+	Character _player;
 	Map _map;
 public:
+	//CONSTRUCTORS & DESTRUCTORS
+	//Default constructor
 	World();
 	
+	//Default destructor
 	~World() = default;
+
+	//GETTERS & SETTERS
+	//Set map with a file name
+	void setMap(const std::string & map);
+
+	//Set map with a reference
+	void setMap(const Map & map);
+
+	//Return the current map
+	Map getMap() const;
 
 	//Make the world continue running
 	bool coroutine();
