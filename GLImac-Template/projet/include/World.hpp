@@ -6,6 +6,7 @@
 #include "Map.hpp"
 
 const float INITIAL_SPEED = 5.0f;
+const int MAP_NUMBER = 2;
 
 class World
 {
@@ -26,7 +27,7 @@ public:
 
 	//GETTERS & SETTERS
 	//Set map with a file name
-	void setMap(const std::string & map);
+	void createMap(const std::string & map);
 
 	//Set map with a reference
 	void setMap(const Map & map);

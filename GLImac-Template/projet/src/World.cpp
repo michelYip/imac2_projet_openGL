@@ -10,8 +10,8 @@ _map()
 {}
 
 //Set map with a file name
-void World::setMap(const std::string & map){
-	_map = Map(map, 1);
+void World::createMap(const std::string & map){
+	_map = Map(map, MAP_NUMBER);
 }
 
 //Set map with a reference

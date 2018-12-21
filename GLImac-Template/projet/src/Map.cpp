@@ -7,8 +7,8 @@ Map::Map()
 :_objectList(), _altitude(), _startPoint(glm::vec2()), _endPoints(), _nextMaps()
 {}
 
-//Parameter constructor, load a map and the next ones if flag = 1
-Map::Map(const std::string & mapFile, const int & flag){
+//Parameter constructor, load a map and the next ones
+Map::Map(const std::string & mapFile, const int & i){
     std::ifstream ppmFile;
     ppmFile.open(MAP_SAVING_FOLDER+mapFile, std::fstream::in);
 	if (!ppmFile.is_open())
@@ -49,9 +49,10 @@ Map::Map(const std::string & mapFile, const int & flag){
 			this->addBlock(col, row, r);
 			if (g >= START_MIN && b >= START_MIN && g <= START_MAX && b <= START_MAX)
 				_startPoint = glm::vec2(row, col);
-			if (flag == 1 && g >= END_MIN && b >= END_MIN && g < END_MAX && b < END_MAX){
+			if (g >= END_MIN && b >= END_MIN && g < END_MAX && b < END_MAX){
 				_endPoints.push_back(glm::vec2(row,col));
-				_nextMaps.push_back(Map(mapFile, 0));
+				if (i <= 0)
+					_nextMaps.push_back(Map(mapFile, i - 1));
 			}
 			if (g < END_MIN && b < END_MIN)
 				createObject(col, row, r, g, b);
