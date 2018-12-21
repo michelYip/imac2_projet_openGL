@@ -12,7 +12,7 @@ Map::Map(const std::string & mapFile, const int & flag){
     std::ifstream ppmFile;
     ppmFile.open(MAP_SAVING_FOLDER+mapFile, std::fstream::in);
 	if (!ppmFile.is_open())
-        throw UNREACHABLE_SAVING_FILE(mapFile);
+        throw UNREACHABLE_MAP_FILE(mapFile);
 	char * tmp_line = new char[128];
 	
 	//Check ppm version
@@ -34,7 +34,7 @@ Map::Map(const std::string & mapFile, const int & flag){
 	for (int col = 0; col < MAP_SIZE; col++){
         for (int row = 0; row < MAP_SIZE; row++){
 			if (ppmFile.eof()){
-				throw INCORRECT_SAVING_FILE(mapFile);
+				throw INCORRECT_MAP_FILE(mapFile);
 			}
 			ppmFile.getline(tmp_line, 4);
 			std::string strR(tmp_line);

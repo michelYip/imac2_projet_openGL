@@ -7,8 +7,8 @@
 #include "Object.hpp"
 #include "Obstacle.hpp"
 #include "Character.hpp"
-#include "exceptions/Incorrect_saving_file.hpp"
-#include "exceptions/Unreachable_saving_file.hpp"
+#include "exceptions/Incorrect_map_file.hpp"
+#include "exceptions/Unreachable_map_file.hpp"
 
 //PPM file const
 const int MAP_SIZE = 15;
