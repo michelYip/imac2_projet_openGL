@@ -7,7 +7,7 @@ Collider::Collider()
 
 //Reference constructor
 Collider::Collider(const Collider & other)
-:_upper(other._upper), _lower(other._upper)
+:_lower(other._lower), _upper(other._upper)
 {}
 
 //Parameters constructor

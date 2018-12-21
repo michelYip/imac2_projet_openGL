@@ -4,11 +4,27 @@ World::World()
 : _worldSpeed(INITIAL_SPEED), 
 _gameOverZone(0), 
 _cameraPosition(glm::vec3(0,0,0)),
-_backgroundTexture("No background yet"), 
-_map() 
+_backgroundTexture("No background yet"),
+_player(),
+_map()
 {}
 
-//Make the worl continue running
+//Set map with a file name
+void World::setMap(const std::string & map){
+	_map = Map(map, 1);
+}
+
+//Set map with a reference
+void World::setMap(const Map & map){
+	_map = map;
+}
+
+//Return the current map
+Map World::getMap() const{
+	return _map;
+}
+
+//Make the world continue running
 bool World::coroutine(){
 	// TODO
 	_cameraPosition += _worldSpeed;
@@ -20,3 +36,4 @@ bool World::isFinished(){
 	// TODO
 	return true;
 }
+

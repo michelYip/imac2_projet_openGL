@@ -7,6 +7,7 @@
 void Game::init(){
 	_player = selectSavedPlayer();
 	_world = World();
+	_world.setMap("01.ppm");
 	try{
 		_player.save("player_1");
 		std::cout << Player::load("player_1") << std::endl;

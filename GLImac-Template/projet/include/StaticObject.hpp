@@ -6,7 +6,16 @@
 class StaticObject : public Object
 {
 public:
+	//CONSTRUCTORS & DESTRUCTORS
+
+	//Default constructor
 	StaticObject();
+
+	//Parameter constructor
+	StaticObject(const glm::vec3 & position, const glm::vec3 & _lower, const glm::vec3 & _upper);
+	
+
+	//Default destructor
 	~StaticObject() = default;
 	
 };
