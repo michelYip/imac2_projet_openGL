@@ -8,8 +8,8 @@ const GLuint POS_ATTRIB_IND = 0;
 const GLuint NORM_ATTRIB_IND = 1;
 const GLuint TEXT_ATTRIB_IND = 2;
 
-const float WINDOW_WIDTH = 1600;
-const float WINDOW_HEIGHT = 1200;
+const float WINDOW_WIDTH = 2400;
+const float WINDOW_HEIGHT = 1800;
 
 class Rendering3D : public Rendering
 {
@@ -25,7 +25,7 @@ class Rendering3D : public Rendering
 		Rendering3D(const Rendering3D &rendering3D):Rendering(rendering3D), _ProjMatrix(rendering3D._ProjMatrix), _MVMatrix(rendering3D._MVMatrix), _NormalMatrix(rendering3D._NormalMatrix), _texture(rendering3D._texture), _sphere(rendering3D._sphere){};
 		~Rendering3D(){};
 
-		void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D);
+		void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D, const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType);
 		void end();
 };
 

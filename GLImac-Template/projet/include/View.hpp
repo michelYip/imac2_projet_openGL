@@ -22,12 +22,15 @@ class View
 		bool _keyPressed;	// a key is pressed
 		bool _locked;		// camera locked or not
 		unsigned int _screen;
+		glm::vec2 _lastPos;
 		std::string _cameraType;
 		std::vector<Rendering*> _renderingEngine;
 		SDLWindowManager _windowManager;
+		TrackballCamera _thirdPCamera;	// tb = third person
+		FreeflyCamera _firstPCamera;
 
 	public:
-		View():_done(false), _keyPressed(false), _locked(true),_screen(0), _cameraType("third"), _windowManager(SDLWindowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")){};
+		View():_done(false), _keyPressed(false), _locked(true),_screen(0), _lastPos(glm::vec2(0, 0)), _cameraType("first"), _windowManager(SDLWindowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")){};
 		~View(){};
 
 		int window(const glimac::FilePath &applicationPath);
