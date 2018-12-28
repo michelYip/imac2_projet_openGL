@@ -10,6 +10,9 @@
 #include "GPUProgram2D.hpp"
 #include "GPUProgram3D.hpp"
 
+#include "TrackballCamera.hpp"
+#include "FreeflyCamera.hpp"
+
 class Rendering
 {
 	public:
@@ -26,9 +29,14 @@ class Rendering
 		};
 
 		virtual inline std::vector<Button> elements() const{};
+		virtual inline unsigned int currentButton() const{};
 
-		virtual void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D){};
-		virtual void end(){};
+		virtual void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D, const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType){}
+		virtual void end(){}
+
+		virtual void arrowDown(const unsigned int &screen){}
+		virtual void arrowUp(const unsigned int &screen){}
+		virtual bool actionButton(unsigned int &screen) const{}
 };
 
 #endif

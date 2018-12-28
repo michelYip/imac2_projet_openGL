@@ -8,28 +8,36 @@ int View::window(const glimac::FilePath &applicationPath){
 		return EXIT_FAILURE;
 	}
 
+	// Programs
     GPUProgram2D program2D(applicationPath, "tex2D.vs.glsl", "tex2D.fs.glsl");
-    
     GPUProgram3D program3D(applicationPath, "3D.vs.glsl", "tex3D.fs.glsl");
 
+    // Rendering 2D (interface)
     RenderingInterface startMenu(applicationPath, 0);
-    this->_renderingEngine.push_back(&startMenu);
+    _renderingEngine.push_back(&startMenu);
     RenderingInterface savesMenu(applicationPath, 1);
-    this->_renderingEngine.push_back(&savesMenu);
+    _renderingEngine.push_back(&savesMenu);
     RenderingInterface playerMenu(applicationPath, 2);
-    this->_renderingEngine.push_back(&playerMenu);
+    _renderingEngine.push_back(&playerMenu);
 
+    // Rendering 3D (game)
     Rendering3D sphere(applicationPath, 0);
-    this->_renderingEngine.push_back(&sphere);
+    _renderingEngine.push_back(&sphere);
 
-    while(!this->_done){
+    // Cameras
+    TrackballCamera tbCamera;
+    _thirdPCamera = tbCamera;
+
+    while(!_done){
     	SDL_Event e;
-    	while(this->_windowManager.pollEvent(e)){
-			this->manageEvents(e);
+    	while(_windowManager.pollEvent(e)){
+			manageEvents(e);
     	}
-
     	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   		this->_renderingEngine[this->_screen]->show(program2D, program3D);
+
+	    glEnable(GL_DEPTH_TEST);
+	    glDepthFunc(GL_LEQUAL);
+   		this->_renderingEngine[this->_screen]->show(program2D, program3D, _thirdPCamera, _firstPCamera, _cameraType);
     	this->_windowManager.swapBuffers();
     }
 	for(int i = 0; i < this->_renderingEngine.size(); i++){
@@ -51,17 +59,18 @@ void View::manageEvents(const SDL_Event &e){
 			this->manageKeyUpEvents(e.key.keysym.sym);
 			break;
 		case SDL_MOUSEBUTTONDOWN:
-			std::cout << "zomm out" << std::endl;
-			break;
-		case SDL_MOUSEBUTTONUP:
-			std::cout << "zoom int" << std::endl;
+			if(this->_cameraType == "third" && _locked == false){
+				if(e.button.button == SDL_BUTTON_WHEELUP) this->_thirdPCamera.moveFront(0.5f);
+				else if(e.button.button == SDL_BUTTON_WHEELDOWN) this->_thirdPCamera.moveFront(-0.5f);	
+			}
 			break;
 		case SDL_MOUSEMOTION:
-			if(this->_cameraType == "first") this->firstPersonCameraMotion();
-			else this->thirdPersonCameraMotion();
+			if(_locked == false){
+				if(this->_cameraType == "first") this->firstPersonCameraMotion();
+				else this->thirdPersonCameraMotion();	
+			}
 			break;
 		default: 
-			std::cout << "le sanglier court" << std::endl;
 			break;
 	}
 	if(this->_keyPressed) this->manageKeyDownEvents(e.key.keysym.sym);
@@ -79,33 +88,30 @@ glm::vec2 View::getMousePosition(){
 void View::manageKeyUpEvents(const SDLKey &k){
 	switch(k){
 		case SDLK_BACKSPACE:
-			if(this->_screen != 0) this->_screen -= 1;
+			if(_screen != 0) _screen -= 1;
 			break;
 		case SDLK_DOWN:
-			std::cout << "menu down !" << std::endl; 
+			if(_screen != NB_SCREEN -1) _renderingEngine[_screen]->arrowDown(_screen);
 			break;
 		case SDLK_ESCAPE:
 			this->_done = true;
 			break;
-		case SDLK_LEFT:
-			std::cout << "menu left" << std::endl;
-			break;
 		case SDLK_SPACE:
-		 	if(this->_screen != NB_SCREEN - 1) this->_screen += 1;
-			break;
-		case SDLK_RIGHT:
-			std::cout << "menu right" << std::endl;
+		 	if(!_renderingEngine[_screen]->actionButton(_screen)) _done = true;
 			break;
 		case SDLK_UP:
-			std::cout << "menu up !" << std::endl;
+			if(_screen != NB_SCREEN -1) _renderingEngine[_screen]->arrowUp(_screen);
 			break;
 
 		case SDLK_c:
-			if(this->_cameraType == "third") this->_cameraType = "first";
-			else this->_cameraType = "third";
+			if(_cameraType == "third") _cameraType = "first";
+			else _cameraType = "third";
 			break;
 		case SDLK_l:
-			if(this->_locked) this->_locked = false;
+			if(_locked){
+				_lastPos = glm::vec2(getMousePosition().x, getMousePosition().y);
+				this->_locked = false;
+			}
 			else this->_locked = true;
 			break;
 		case SDLK_d:
@@ -137,11 +143,15 @@ void View::manageKeyDownEvents(const SDLKey &k){
 	}	
 }
 
-//
+// trackball Camera
 void View::firstPersonCameraMotion(){
-
+	float posX = getMousePosition().x, posY = getMousePosition().y;
+	_firstPCamera.rotateLeft(posX - _lastPos.x);
+	_firstPCamera.rotateUp(posY - _lastPos.y);		
 }
-//
+// freefly Camera
 void View::thirdPersonCameraMotion(){
-
+	float posX = getMousePosition().x, posY = getMousePosition().y;
+	_thirdPCamera.rotateLeft(posX - _lastPos.x);
+	_thirdPCamera.rotateUp(posY - _lastPos.y);
 }

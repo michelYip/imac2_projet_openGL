@@ -7,11 +7,11 @@ precision mediump float;
 
 in vec2 vTex;
 
-out vec3 fFragColor;
+out vec4 fFragColor;
 
 uniform vec3 uColor;
 uniform sampler2D uTexture;
 
 void main() {
-	fFragColor = texture(uTexture, vTex).xyz;
+	fFragColor = texture(uTexture, vTex);
 }
