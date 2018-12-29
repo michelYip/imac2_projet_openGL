@@ -39,7 +39,7 @@ class View
 		_screen(0), 
 		_lastPos(glm::vec2(0, 0)), 
 		_cameraType("first"), 
-		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")		
+		_windowManager(SDLWindowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac"))		
 		{};
 
 		//Default destructor

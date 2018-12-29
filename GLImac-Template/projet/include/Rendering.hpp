@@ -43,7 +43,7 @@ class Rendering
 		virtual inline std::vector<Button> elements() const{};
 		virtual inline unsigned int currentButton() const{};
 
-		virtual void show(){ std::cout << "Rendering" << std::endl; }
+		virtual void show(){};
 		virtual void show(const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType){}
 		
 		virtual void end(){}

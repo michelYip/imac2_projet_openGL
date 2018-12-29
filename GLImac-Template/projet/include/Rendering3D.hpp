@@ -23,8 +23,7 @@ class Rendering3D : public Rendering
 	public:
 		Rendering3D();
 
-		Rendering3D(const glimac::FilePath &applicationPath, const unsigned int &screen, const GPUProgram3D & program3D);
-		
+		Rendering3D(const glimac::FilePath &applicationPath, const unsigned int &screen);
 
 		~Rendering3D(){};
 

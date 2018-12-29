@@ -1,8 +1,9 @@
 #include "Rendering3D.hpp"
 
-Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, const unsigned int &screen, const GPUProgram3D & program3D)
-: _program3D(program3D)
+Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, const unsigned int &screen)
 {
+    _program3D = GPUProgram3D(applicationPath, "3D.vs.glsl", "tex3D.fs.glsl");
+    
     _ProjMatrix = glm::perspective(glm::radians(70.f), (float)(WINDOW_WIDTH / WINDOW_HEIGHT), 0.1f, 100.f);
     _MVMatrix = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 0.f, -5.f));
     _NormalMatrix = glm::transpose(glm::inverse(_MVMatrix));

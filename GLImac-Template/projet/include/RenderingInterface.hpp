@@ -23,7 +23,7 @@ class RenderingInterface : public Rendering
 		unsigned int _currentButton = 1;
 	public:
 		RenderingInterface(){};
-		RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen, const GPUProgram2D & program);
+		RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen);
 		RenderingInterface(const RenderingInterface &renderingInterface):Rendering(renderingInterface), _ibo(renderingInterface._ibo){
 			_elements = renderingInterface._elements;
 		};

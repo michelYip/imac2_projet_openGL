@@ -32,9 +32,10 @@ std::vector<Button> buttonsScreen(const unsigned int &screen, const glimac::File
     return elements;
 }
 
-RenderingInterface::RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen, const GPUProgram2D & program2D)
-:_program2D(program2D)
+RenderingInterface::RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen)
 {    
+    _program2D = GPUProgram2D(applicationPath, "tex2D.vs.glsl", "tex2D.fs.glsl");
+
     std::vector<Button> buttons = buttonsScreen(screen, applicationPath);
     _elements = buttons;
 
@@ -93,7 +94,6 @@ mat3 scale(float sx, float sy){
 }
 
 void RenderingInterface::show() {
-    std::cout << "Rendering Interface" << std::endl;
     _program2D._program.use();
     glBindVertexArray(this->_vao);
     for(int i = 0; i < this->_elements.size(); i++){
