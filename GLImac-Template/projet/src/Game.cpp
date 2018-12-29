@@ -29,14 +29,10 @@ void Game::run(const int argc, char** argv){
     View view;
     view.createWindow(applicationPath);
 
-	int i = 0;
-
 	while(_world.coroutine()){
 		//TODO
 		view.waitEvents();
 		view.displayWindow();
-		std::cout << "World coroutine ... " << i << std::endl; 
-		i++;
 	}
 	view.clearWindow();
 }

@@ -25,24 +25,6 @@ int View::createWindow(const glimac::FilePath &applicationPath){
     TrackballCamera tbCamera;
     _thirdPCamera = tbCamera;
 
-    // while(!_done){
-    // 	SDL_Event e;
-    // 	while(_windowManager.pollEvent(e)){
-	// 		manageEvents(e);
-    // 	}
-    // 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	//     glEnable(GL_DEPTH_TEST);
-	//     glDepthFunc(GL_LEQUAL);
-   	// 	if (this->_screen != 3)	this->_renderingEngine[this->_screen]->show();
-	// 	else {
-	// 		this->_renderingEngine[this->_screen]->show(_thirdPCamera, _firstPCamera, _cameraType);
-	// 	}
-    // 	this->_windowManager.swapBuffers();
-    // }
-	// for(int i = 0; i < this->_renderingEngine.size(); i++){
- 	// 	this->_renderingEngine[i]->end();
-	// } 
     return EXIT_SUCCESS;
 }
 
