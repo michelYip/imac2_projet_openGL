@@ -27,11 +27,13 @@ void Game::init(){
 void Game::run(const int argc, char** argv){
 	glimac::FilePath applicationPath(argv[0]);
     View view;
-    view.window(applicationPath);
+    view.createWindow(applicationPath);
 
 	while(_world.coroutine()){
 		//TODO
+		view.displayWindow();
 	}
+	view.clearWindow();
 }
 
 

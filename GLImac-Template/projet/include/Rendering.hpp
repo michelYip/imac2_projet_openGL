@@ -15,23 +15,37 @@
 
 class Rendering
 {
-	public:
+	protected:
 		GLuint _vbo;
 		GLuint _vao;
 
+	public:
+		//CONSTRUCTORS & DESTRUCTORS
+		//Default constructor
 		Rendering(){};
+
+		//Parameter constructor
 		Rendering(const glimac::FilePath &applicationPath, const unsigned int &screen);
-		Rendering(const Rendering &rendering):_vbo(rendering._vbo), _vao(rendering._vao){
-		};
+		
+		//Reference constructor
+		Rendering(const Rendering &rendering)
+		:_vbo(rendering._vbo), 
+		_vao(rendering._vao)
+		{};
+
+		//Default destructor
 		~Rendering(){
 		    glDeleteBuffers(1, &_vbo);
 		    glDeleteVertexArrays(1, &_vao);
 		};
 
+		//
 		virtual inline std::vector<Button> elements() const{};
 		virtual inline unsigned int currentButton() const{};
 
-		virtual void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D, const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType){}
+		virtual void show(){ std::cout << "Rendering" << std::endl; }
+		virtual void show(const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType){}
+		
 		virtual void end(){}
 
 		virtual void arrowDown(const unsigned int &screen){}

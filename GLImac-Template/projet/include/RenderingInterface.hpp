@@ -23,7 +23,7 @@ class RenderingInterface : public Rendering
 		unsigned int _currentButton = 1;
 	public:
 		RenderingInterface(){};
-		RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen);
+		RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen, const GPUProgram2D & program);
 		RenderingInterface(const RenderingInterface &renderingInterface):Rendering(renderingInterface), _ibo(renderingInterface._ibo){
 			_elements = renderingInterface._elements;
 		};
@@ -36,7 +36,7 @@ class RenderingInterface : public Rendering
 			return _currentButton;
 		}
 
-		void show(const GPUProgram2D &program2D, const GPUProgram3D &program3D, const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType);
+		void show();
 		void end();
 
 		void arrowDown(const unsigned int &screen);

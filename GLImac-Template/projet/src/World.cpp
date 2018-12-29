@@ -29,7 +29,7 @@ bool World::coroutine(){
 	// TODO
 	_cameraPosition += _worldSpeed;
 	//
-	return !isFinished();
+	return isFinished();
 }
 
 bool World::isFinished(){

@@ -1,7 +1,7 @@
 #include "View.hpp"
 
 // initializes sdl window
-int View::window(const glimac::FilePath &applicationPath){
+int View::createWindow(const glimac::FilePath &applicationPath){
 	GLenum glewInitError = glewInit();
 	if(GLEW_OK != glewInitError){
 		std::cerr << glewGetErrorString(glewInitError) << std::endl;
@@ -13,37 +13,69 @@ int View::window(const glimac::FilePath &applicationPath){
     GPUProgram3D program3D(applicationPath, "3D.vs.glsl", "tex3D.fs.glsl");
 
     // Rendering 2D (interface)
-    RenderingInterface startMenu(applicationPath, 0);
+    RenderingInterface startMenu(applicationPath, 0, program2D);
     _renderingEngine.push_back(&startMenu);
-    RenderingInterface savesMenu(applicationPath, 1);
+    RenderingInterface savesMenu(applicationPath, 1, program2D);
     _renderingEngine.push_back(&savesMenu);
-    RenderingInterface playerMenu(applicationPath, 2);
+    RenderingInterface playerMenu(applicationPath, 2, program2D);
     _renderingEngine.push_back(&playerMenu);
 
     // Rendering 3D (game)
-    Rendering3D sphere(applicationPath, 0);
+    Rendering3D sphere(applicationPath, 0, program3D);
     _renderingEngine.push_back(&sphere);
 
     // Cameras
     TrackballCamera tbCamera;
     _thirdPCamera = tbCamera;
 
-    while(!_done){
-    	SDL_Event e;
-    	while(_windowManager.pollEvent(e)){
-			manageEvents(e);
-    	}
-    	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    // while(!_done){
+    // 	SDL_Event e;
+    // 	while(_windowManager.pollEvent(e)){
+	// 		manageEvents(e);
+    // 	}
+    // 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	    glEnable(GL_DEPTH_TEST);
-	    glDepthFunc(GL_LEQUAL);
-   		this->_renderingEngine[this->_screen]->show(program2D, program3D, _thirdPCamera, _firstPCamera, _cameraType);
-    	this->_windowManager.swapBuffers();
-    }
+	//     glEnable(GL_DEPTH_TEST);
+	//     glDepthFunc(GL_LEQUAL);
+   	// 	if (this->_screen != 3)	this->_renderingEngine[this->_screen]->show();
+	// 	else {
+	// 		this->_renderingEngine[this->_screen]->show(_thirdPCamera, _firstPCamera, _cameraType);
+	// 	}
+    // 	this->_windowManager.swapBuffers();
+    // }
+	// for(int i = 0; i < this->_renderingEngine.size(); i++){
+ 	// 	this->_renderingEngine[i]->end();
+	// } 
+    return EXIT_SUCCESS;
+}
+
+void View::displayWindow(){
+	if (!_done){
+		SDL_Event e;
+		while(_windowManager.pollEvent(e)){
+			manageEvents(e);
+		}
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_LEQUAL);
+		if (this->_renderingEngine.empty()) std::cout << "FUCKING EMPTY" << std::endl;
+		else std::cout << this->_renderingEngine.size() << std::endl;
+		if (this->_screen != 3)	{
+			std::cout << "SEGFAULT NOT HERE : " << this->_screen << std::endl;
+			this->_renderingEngine[this->_screen]->show();
+			std::cout << "SEGFAULT HERE" << std::endl;
+		}
+		else {
+			this->_renderingEngine[this->_screen]->show(_thirdPCamera, _firstPCamera, _cameraType);
+		}
+		this->_windowManager.swapBuffers();
+	}
+}
+
+void View::clearWindow(){
 	for(int i = 0; i < this->_renderingEngine.size(); i++){
  		this->_renderingEngine[i]->end();
 	} 
-    return EXIT_SUCCESS;
 }
 
 // deals with the events

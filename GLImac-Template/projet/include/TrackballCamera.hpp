@@ -11,7 +11,7 @@ class TrackballCamera{
 
 	public:
 		// constructeur(s)
-		TrackballCamera():_fDistance(-5.f), _fAngleY(0.f),_fAngleX(0.f){}; 
+		TrackballCamera():_fDistance(-10.f), _fAngleY(0.f),_fAngleX(0.f){}; 
 
 		// getters
 		inline const float getDistance() const{

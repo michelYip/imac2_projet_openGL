@@ -30,12 +30,31 @@ class View
 		FreeflyCamera _firstPCamera;
 
 	public:
-		View():_done(false), _keyPressed(false), _locked(true),_screen(0), _lastPos(glm::vec2(0, 0)), _cameraType("first"), _windowManager(SDLWindowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")){};
+		//CONSTRUCTORS & DESTRUCTORS
+		//Default constructor
+		View()
+		:_done(false),
+		_keyPressed(false), 
+		_locked(true),
+		_screen(0), 
+		_lastPos(glm::vec2(0, 0)), 
+		_cameraType("first"), 
+		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")		
+		{};
+
+		//Default destructor
 		~View(){};
 
-		int window(const glimac::FilePath &applicationPath);
-		void manageEvents(const SDL_Event &e);
+		//GETTERS & SETTERS
 		glm::vec2 getMousePosition();
+
+		//PUBLIC METHODS
+
+		int createWindow(const glimac::FilePath &applicationPath);
+		void displayWindow();
+		void clearWindow();
+
+		void manageEvents(const SDL_Event &e);
 
 		void manageKeyUpEvents(const SDLKey &k);
 		void manageKeyDownEvents(const SDLKey &k);

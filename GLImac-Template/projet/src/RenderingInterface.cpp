@@ -32,8 +32,9 @@ std::vector<Button> buttonsScreen(const unsigned int &screen, const glimac::File
     return elements;
 }
 
-RenderingInterface::RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen){
-    
+RenderingInterface::RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen, const GPUProgram2D & program2D)
+:_program2D(program2D)
+{    
     std::vector<Button> buttons = buttonsScreen(screen, applicationPath);
     _elements = buttons;
 
@@ -91,16 +92,17 @@ mat3 scale(float sx, float sy){
     );
 }
 
-void RenderingInterface::show(const GPUProgram2D &program2D, const GPUProgram3D &program3D, const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType) {
-    program2D._program.use();
+void RenderingInterface::show() {
+    std::cout << "Rendering Interface" << std::endl;
+    _program2D._program.use();
     glBindVertexArray(this->_vao);
     for(int i = 0; i < this->_elements.size(); i++){
         glBindTexture(GL_TEXTURE_2D, this->_elements[i].texture());
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glUniform1i(program2D._uTexture, 0);
-        glUniformMatrix3fv(program2D._uModelMatrix, 1, GL_FALSE,glm::value_ptr(scale(this->_elements[i].width(), this->_elements[i].height()) * translate(this->_elements[i].posX(), this->_elements[i].posY())));
-        glUniform3f(program2D._uColor, 1.f, 0.f, 0.f);
+        glUniform1i(_program2D._uTexture, 0);
+        glUniformMatrix3fv(_program2D._uModelMatrix, 1, GL_FALSE,glm::value_ptr(scale(this->_elements[i].width(), this->_elements[i].height()) * translate(this->_elements[i].posX(), this->_elements[i].posY())));
+        glUniform3f(_program2D._uColor, 1.f, 0.f, 0.f);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
         glBindTexture(GL_TEXTURE_2D, 0);
