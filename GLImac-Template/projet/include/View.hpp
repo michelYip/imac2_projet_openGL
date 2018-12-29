@@ -39,7 +39,7 @@ class View
 		_screen(0), 
 		_lastPos(glm::vec2(0, 0)), 
 		_cameraType("first"), 
-		_windowManager(SDLWindowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac"))		
+		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")		
 		{};
 
 		//Default destructor
@@ -54,6 +54,7 @@ class View
 		void displayWindow();
 		void clearWindow();
 
+		void waitEvents();
 		void manageEvents(const SDL_Event &e);
 
 		void manageKeyUpEvents(const SDLKey &k);

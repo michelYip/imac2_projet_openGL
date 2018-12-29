@@ -18,8 +18,8 @@ int View::createWindow(const glimac::FilePath &applicationPath){
     _renderingEngine.push_back(playerMenu);
 
     // Rendering 3D (game)
-    Rendering3D sphere(applicationPath, 0);
-    _renderingEngine.push_back(&sphere);
+    Rendering3D* sphere = new Rendering3D(applicationPath, 0);
+    _renderingEngine.push_back(sphere);
 
     // Cameras
     TrackballCamera tbCamera;
@@ -48,19 +48,15 @@ int View::createWindow(const glimac::FilePath &applicationPath){
 
 void View::displayWindow(){
 	if (!_done){
-		SDL_Event e;
-		while(_windowManager.pollEvent(e)){
-			manageEvents(e);
-		}
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_LEQUAL);
-		// if (this->_screen != 3)	{
-		// 	this->_renderingEngine[this->_screen]->show();
-		// }
-		// else {
-		// 	this->_renderingEngine[this->_screen]->show(_thirdPCamera, _firstPCamera, _cameraType);
-		// }
+		if (this->_screen != 3)	{
+			this->_renderingEngine[this->_screen]->show();
+		}
+		else {
+			this->_renderingEngine[this->_screen]->show(_thirdPCamera, _firstPCamera, _cameraType);
+		}
 		this->_windowManager.swapBuffers();
 	}
 }
@@ -70,6 +66,13 @@ void View::clearWindow(){
  		_renderingEngine[i]->end();
 		delete _renderingEngine[i];
 	} 
+}
+
+void View::waitEvents(){
+	SDL_Event e;
+	while(_windowManager.pollEvent(e)){
+		manageEvents(e);
+	}
 }
 
 // deals with the events
