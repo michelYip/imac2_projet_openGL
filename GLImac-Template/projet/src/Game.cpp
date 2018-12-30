@@ -29,15 +29,13 @@ void Game::run(const int argc, char** argv){
     View view;
     view.createWindow(applicationPath);
 
-	while(_world.coroutine()){
+	while(!_world.coroutine(view.done())){
 		//TODO
 		view.waitEvents();
 		view.displayWindow();
 	}
 	view.clearWindow();
 }
-
-
 
 //______________________________________PRIVATE________________________________
 

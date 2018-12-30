@@ -21,11 +21,15 @@ class Rendering3D : public Rendering
 		glimac::Sphere _sphere;
 		GPUProgram3D _program3D;
 	public:
-		Rendering3D();
+		Rendering3D(){}
 
 		Rendering3D(const glimac::FilePath &applicationPath, const unsigned int &screen);
 
-		~Rendering3D(){};
+		~Rendering3D(){	
+		    glDeleteBuffers(1, &_vbo);
+		    glDeleteVertexArrays(1, &_vao);
+		    glDeleteTextures(1, &_texture);
+		};
 
 		void show(const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType);
 		void end();

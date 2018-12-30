@@ -8,7 +8,6 @@ int View::createWindow(const glimac::FilePath &applicationPath){
 		return EXIT_FAILURE;
 	}
 
-
     // Rendering 2D (interface)
     RenderingInterface* startMenu = new RenderingInterface(applicationPath, 0);
     _renderingEngine.push_back(startMenu);
@@ -20,10 +19,6 @@ int View::createWindow(const glimac::FilePath &applicationPath){
     // Rendering 3D (game)
     Rendering3D* sphere = new Rendering3D(applicationPath, 0);
     _renderingEngine.push_back(sphere);
-
-    // Cameras
-    TrackballCamera tbCamera;
-    _thirdPCamera = tbCamera;
 
     return EXIT_SUCCESS;
 }
@@ -44,10 +39,12 @@ void View::displayWindow(){
 }
 
 void View::clearWindow(){
-	for(int i = 0; i < this->_renderingEngine.size(); i++){
+	std::cout << "clearWindow" << std::endl;
+	for(int i = 0; i < _renderingEngine.size(); i++){
  		_renderingEngine[i]->end();
-		delete _renderingEngine[i];
-	} 
+		delete _renderingEngine.at(i);
+	}
+	_renderingEngine.clear();
 }
 
 void View::waitEvents(){

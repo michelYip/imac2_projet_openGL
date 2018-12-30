@@ -17,21 +17,21 @@ class GPUProgram2D{
 			_uColor = glGetUniformLocation(_program.getGLId(), "uColor");
 			_uTexture = glGetUniformLocation(_program.getGLId(), "uTexture");
 		};
-		GPUProgram2D(const GPUProgram2D &program){
-			_program = program._program;
-			_uModelMatrix = program._uModelMatrix;
-			_uColor = program._uColor;
-			_uTexture = program._uTexture;
-		}
+		// GPUProgram2D(const GPUProgram2D &program){
+		// 	_program = program._program;
+		// 	_uModelMatrix = program._uModelMatrix;
+		// 	_uColor = program._uColor;
+		// 	_uTexture = program._uTexture;
+		// }
 
-		GPUProgram2D &operator=(const GPUProgram2D &program){
-			if (this != &program){
-				_program = program._program;
-				_uModelMatrix = program._uModelMatrix;
-				_uColor = program._uColor;
-				_uTexture = program._uTexture;				
-			}
-		};
+		// GPUProgram2D &operator=(const GPUProgram2D &program){
+		// 	if (this != &program){
+		// 		_program = program._program;
+		// 		_uModelMatrix = program._uModelMatrix;
+		// 		_uColor = program._uColor;
+		// 		_uTexture = program._uTexture;				
+		// 	}
+		// };
 };
 
 #endif

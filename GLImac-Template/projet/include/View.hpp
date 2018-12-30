@@ -43,10 +43,19 @@ class View
 		{};
 
 		//Default destructor
-		~View(){};
+		~View(){
+			for(int i = 0; i < _renderingEngine.size(); i++){
+ 				_renderingEngine[i]->end();
+				delete _renderingEngine.at(i);
+			}
+			_renderingEngine.clear();
+		};
 
 		//GETTERS & SETTERS
 		glm::vec2 getMousePosition();
+		inline bool done() const{
+			return _done;
+		}
 
 		//PUBLIC METHODS
 

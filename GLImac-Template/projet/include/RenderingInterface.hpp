@@ -18,16 +18,22 @@ class RenderingInterface : public Rendering
 	private:
 		GLuint _ibo;
 		std::vector<Button> _elements;
-		std::vector<Button> _buttons;
 		GPUProgram2D _program2D;
 		unsigned int _currentButton = 1;
 	public:
-		RenderingInterface(){};
+		RenderingInterface(){}
 		RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen);
 		RenderingInterface(const RenderingInterface &renderingInterface):Rendering(renderingInterface), _ibo(renderingInterface._ibo){
 			_elements = renderingInterface._elements;
-		};
-		~RenderingInterface(){};
+		}
+		~RenderingInterface(){
+		    glDeleteBuffers(1, &this->_vbo);
+		    glDeleteVertexArrays(1, &this->_vao);
+		    for(int i = 0; i < this->_elements.size(); i++){
+		        GLuint texture = this->_elements[i].texture();
+		        glDeleteTextures(1, &texture);  
+		    }
+		}
 
 		inline std::vector<Button> elements() const{
 			return _elements;
