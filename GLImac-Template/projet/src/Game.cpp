@@ -2,8 +2,6 @@
 
 #include <algorithm>
 #include "exceptions/Unreachable_file.hpp"
-#include "Model3D.hpp"
-
 
 void Game::init(){
 	std::cout << "________________________________" << std::endl << "GAME INIT STARTING..." << std::endl;

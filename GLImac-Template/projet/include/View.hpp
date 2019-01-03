@@ -9,6 +9,7 @@
 #include <vector>
 
 #include "Camera.hpp"
+#include "Mesh.hpp"
 #include "Rendering.hpp"
 #include "Rendering3D.hpp"
 #include "RenderingInterface.hpp"
@@ -47,6 +48,9 @@ class View
 				delete _renderingEngine.at(i);
 			}
 			_renderingEngine.clear();
+
+			//Free static loaded Mesh
+			Mesh::clearAllLoadedMesh();
 		};
 
 		//GETTERS & SETTERS
