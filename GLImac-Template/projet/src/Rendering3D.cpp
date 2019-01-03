@@ -12,10 +12,9 @@ Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, const unsigne
     _meshList.push_back(Mesh(applicationPath.dirPath(),"Crate1.obj",""));
 }
 
-void Rendering3D::show(const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType){
+void Rendering3D::show(const Camera &camera){
 
-    if(cameraType == "third") _MVMatrix = tbCamera.getViewMatrix();
-    else _MVMatrix = ffCamera.getViewMatrix();
+    _MVMatrix = camera.getCurrentViewMatrix();
     _NormalMatrix = glm::transpose(glm::inverse(_MVMatrix));
 
     // _MVMatrix = glm::translate(glm::mat4(1), glm::vec3(0, 0, -5));

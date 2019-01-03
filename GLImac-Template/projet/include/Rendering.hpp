@@ -6,12 +6,11 @@
 #include <GL/glew.h>
 #include <glimac/Image.hpp>
 
-#include "Button.hpp"
+#include "Image.hpp"
 #include "GPUProgram2D.hpp"
 #include "GPUProgram3D.hpp"
 
-#include "TrackballCamera.hpp"
-#include "FreeflyCamera.hpp"
+#include "Camera.hpp"
 
 class Rendering
 {
@@ -40,11 +39,11 @@ class Rendering
 		};
 
 		//
-		virtual inline std::vector<Button> elements() const{};
+		virtual inline std::vector<Image> elements() const{};
 		virtual inline unsigned int currentButton() const{};
 
 		virtual void show(){};
-		virtual void show(const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType){}
+		virtual void show(const Camera &camera){}
 		
 		virtual void end(){}
 

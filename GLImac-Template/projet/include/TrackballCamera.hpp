@@ -1,6 +1,7 @@
-#include <glimac/glm.hpp>
+#ifndef _TRACKBALLCAMERA_
+#define _TRACKBALLCAMERA_
 
-using namespace glm;
+#include <glimac/glm.hpp>
 
 class TrackballCamera{
 
@@ -34,10 +35,12 @@ class TrackballCamera{
 		void rotateUp(float degrees){
 			this->_fAngleX += degrees * 0.005;
 		};
-		mat4 getViewMatrix() const{
-			mat4 MVMatrix = translate(mat4(1.f), vec3(0, 0, _fDistance));
-			MVMatrix = rotate(MVMatrix, -radians(_fAngleY), vec3(0, 1, 0));
-			MVMatrix = rotate(MVMatrix, -radians(_fAngleX), vec3(1, 0, 0));
+		glm::mat4 getViewMatrix() const{
+			glm::mat4 MVMatrix = glm::translate(glm::mat4(1.f), glm::vec3(0, 0, _fDistance));
+			MVMatrix = glm::rotate(MVMatrix, -glm::radians(_fAngleY), glm::vec3(0, 1, 0));
+			MVMatrix = glm::rotate(MVMatrix, -glm::radians(_fAngleX), glm::vec3(1, 0, 0));
 			return MVMatrix;
 		};
 };
+
+#endif

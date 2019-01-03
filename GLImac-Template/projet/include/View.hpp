@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 
+#include "Camera.hpp"
 #include "Mesh.hpp"
 #include "Rendering.hpp"
 #include "Rendering3D.hpp"
@@ -24,11 +25,9 @@ class View
 		bool _locked;		// camera locked or not
 		unsigned int _screen;
 		glm::vec2 _lastPos;
-		std::string _cameraType;
 		std::vector<Rendering*> _renderingEngine;
 		SDLWindowManager _windowManager;
-		TrackballCamera _thirdPCamera;	// tb = third person
-		FreeflyCamera _firstPCamera;
+		Camera _camera;
 
 	public:
 		//CONSTRUCTORS & DESTRUCTORS
@@ -39,7 +38,6 @@ class View
 		_locked(true),
 		_screen(0), 
 		_lastPos(glm::vec2(0, 0)), 
-		_cameraType("first"), 
 		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")		
 		{};
 
@@ -72,9 +70,6 @@ class View
 
 		void manageKeyUpEvents(const SDLKey &k);
 		void manageKeyDownEvents(const SDLKey &k);
-
-		void firstPersonCameraMotion();
-		void thirdPersonCameraMotion();
 };
 
 #endif

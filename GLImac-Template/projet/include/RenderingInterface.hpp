@@ -17,7 +17,7 @@ class RenderingInterface : public Rendering
 {
 	private:
 		GLuint _ibo;
-		std::vector<Button> _elements;
+		std::vector<Image> _elements;
 		GPUProgram2D _program2D;
 		unsigned int _currentButton = 1;
 	public:
@@ -35,7 +35,7 @@ class RenderingInterface : public Rendering
 		    }
 		}
 
-		inline std::vector<Button> elements() const{
+		inline std::vector<Image> elements() const{
 			return _elements;
 		}
 		inline unsigned int currentButton() const{

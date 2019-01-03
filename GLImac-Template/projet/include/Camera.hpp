@@ -2,29 +2,35 @@
 #define _CAMERA_
 
 #include <string>
-#include "TrackballCamera.hpp"
-#include "FreeflyCamera.hpp"
 
-class Camera
-{
+#include "FreeflyCamera.hpp"
+#include "TrackballCamera.hpp"
+
+class Camera{
     private:
         std::string _cameraType;
-        TrackballCamera _thirdCamera;
-        FreeflyCamera _firstCamera;
+        FreeflyCamera _first;
+        TrackballCamera _third;
     public:
-        //CONSTRUCTORS & DESTRUCTORS
-        //Default constructor
-        Camera()
-        :_cameraType("first"),
-        _thirdCamera(),
-        _firstCamera()
-        {}
+        Camera():_cameraType("third"){}
+        ~Camera(){}
 
-        //Default destructor
-        ~Camera() = default;
+        inline std::string cameraType() const{
+            return _cameraType;
+        }
+        inline FreeflyCamera firstPCamera() const{
+            return _first;
+        }
+        inline TrackballCamera thirdPCamera() const{
+            return _third;
+        }
+        inline glm::mat4 getCurrentViewMatrix() const{
+            if(_cameraType == "first") return _first.getViewMatrix();
+            else return _third.getViewMatrix();
+        }
 
-		void firstPersonCameraMotion();
-		void thirdPersonCameraMotion();
+        void changeCameraType();
+        void cameraMotion(const glm::vec2 &lastPos, const glm::vec2 &pos);
 };
 
 #endif

@@ -2,9 +2,16 @@
 
 // initializes sdl window
 int View::createWindow(const glimac::FilePath &applicationPath){
+	// initialisation SDL
 	GLenum glewInitError = glewInit();
 	if(GLEW_OK != glewInitError){
 		std::cerr << glewGetErrorString(glewInitError) << std::endl;
+		return EXIT_FAILURE;
+	}
+	// initialisation SDL_ttf
+	GLenum ttfInitError = TTF_Init();
+	if(ttfInitError == -1){
+		std::cerr << TTF_GetError() << std::endl;
 		return EXIT_FAILURE;
 	}
 
@@ -20,26 +27,31 @@ int View::createWindow(const glimac::FilePath &applicationPath){
     Rendering3D* sphere = new Rendering3D(applicationPath, 0);
     _renderingEngine.push_back(sphere);
 
+    // Rendering 2D (gameinfos)
+    RenderingInterface* gameInfos = new RenderingInterface(applicationPath, 3);
+    _renderingEngine.push_back(gameInfos);
+
     return EXIT_SUCCESS;
 }
 
 void View::displayWindow(){
 	if (!_done){
+		SDL_ShowCursor(SDL_DISABLE);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_LEQUAL);
-		if (this->_screen != 3)	{
-			this->_renderingEngine[this->_screen]->show();
+		if (_screen != 3)	{
+			_renderingEngine[this->_screen]->show();
 		}
 		else {
-			this->_renderingEngine[this->_screen]->show(_thirdPCamera, _firstPCamera, _cameraType);
+			_renderingEngine[_screen]->show(_camera);
+			_renderingEngine[_screen+1]->show();
 		}
-		this->_windowManager.swapBuffers();
+		_windowManager.swapBuffers();
 	}
 }
 
 void View::clearWindow(){
-	std::cout << "clearWindow" << std::endl;
 	for(int i = 0; i < _renderingEngine.size(); i++){
  		_renderingEngine[i]->end();
 		delete _renderingEngine.at(i);
@@ -67,26 +79,23 @@ void View::manageEvents(const SDL_Event &e){
 			this->manageKeyUpEvents(e.key.keysym.sym);
 			break;
 		case SDL_MOUSEBUTTONDOWN:
-			if(this->_cameraType == "third" && _locked == false){
-				if(e.button.button == SDL_BUTTON_WHEELUP) this->_thirdPCamera.moveFront(0.5f);
-				else if(e.button.button == SDL_BUTTON_WHEELDOWN) this->_thirdPCamera.moveFront(-0.5f);	
+			if(_camera.cameraType() == "third" && _locked == false){
+				if(e.button.button == SDL_BUTTON_WHEELUP) _camera.thirdPCamera().moveFront(0.5f);
+				else if(e.button.button == SDL_BUTTON_WHEELDOWN) _camera.thirdPCamera().moveFront(-0.5f);	
 			}
 			break;
 		case SDL_MOUSEMOTION:
-			if(_locked == false){
-				if(this->_cameraType == "first") this->firstPersonCameraMotion();
-				else this->thirdPersonCameraMotion();	
-			}
+			if(_locked == false) _camera.cameraMotion(getMousePosition(), _lastPos);
 			break;
 		default: 
 			break;
 	}
-	if(this->_keyPressed) this->manageKeyDownEvents(e.key.keysym.sym);
+	if(_keyPressed) manageKeyDownEvents(e.key.keysym.sym);
 }
 
 // converts mouse position from windowManager to position for game landmark
 glm::vec2 View::getMousePosition(){
-	float x = this->_windowManager.getMousePosition().x, y = this->_windowManager.getMousePosition().y;
+	float x = _windowManager.getMousePosition().x, y = _windowManager.getMousePosition().y;
 	x = x - WINDOW_WIDTH / 2;
 	y = -(y - WINDOW_HEIGHT * 3 / 4); 
 	return glm::vec2(x, y);
@@ -112,8 +121,7 @@ void View::manageKeyUpEvents(const SDLKey &k){
 			break;
 
 		case SDLK_c:
-			if(_cameraType == "third") _cameraType = "first";
-			else _cameraType = "third";
+			_camera.changeCameraType();
 			break;
 		case SDLK_l:
 			if(_locked){
@@ -149,17 +157,4 @@ void View::manageKeyDownEvents(const SDLKey &k){
 		default:
 			break;
 	}	
-}
-
-// trackball Camera
-void View::firstPersonCameraMotion(){
-	float posX = getMousePosition().x, posY = getMousePosition().y;
-	_firstPCamera.rotateLeft(posX - _lastPos.x);
-	_firstPCamera.rotateUp(posY - _lastPos.y);		
-}
-// freefly Camera
-void View::thirdPersonCameraMotion(){
-	float posX = getMousePosition().x, posY = getMousePosition().y;
-	_thirdPCamera.rotateLeft(posX - _lastPos.x);
-	_thirdPCamera.rotateUp(posY - _lastPos.y);
 }

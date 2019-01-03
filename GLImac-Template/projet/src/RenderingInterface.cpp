@@ -1,30 +1,33 @@
 #include "RenderingInterface.hpp"
 
-std::vector<Button> buttonsScreen(const unsigned int &screen, const glimac::FilePath &applicationPath){
-    std::vector<Button> elements; 
+std::vector<Image> screens(const unsigned int &screen, const glimac::FilePath &applicationPath){
+    std::vector<Image> elements; 
     switch(screen){
         case 0:
-            elements.push_back(Button("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            elements.push_back(Button("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-            elements.push_back(Button("title.png", 0.05f, 0.f, 0.5f, 0.5f, applicationPath));
-            elements.push_back(Button("start.png", 0.f, -0.25f, 0.1f, 0.05f, applicationPath));
-            elements.push_back(Button("quit.png", 0.f, -0.35f, 0.07f, 0.05f, applicationPath));
-            elements.push_back(Button("arrow.png", -0.15f, -0.25, 0.03f, 0.03f, applicationPath));
+            elements.push_back(Image("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
+            elements.push_back(Image("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
+            elements.push_back(Image("title.png", 0.05f, 0.f, 0.5f, 0.5f, applicationPath));
+            elements.push_back(Image("start.png", 0.f, -0.25f, 0.1f, 0.05f, applicationPath));
+            elements.push_back(Image("quit.png", 0.f, -0.35f, 0.07f, 0.05f, applicationPath));
+            elements.push_back(Image("arrow.png", -0.15f, -0.25, 0.03f, 0.03f, applicationPath));
             break;
         case 1:
-            elements.push_back(Button("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            elements.push_back(Button("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-            elements.push_back(Button("saves-frames.png",   0.f, 0.f, 0.5f, 0.5f, applicationPath));
-            elements.push_back(Button("arrow.png", -0.475f, 0.35, 0.03f, 0.03f, applicationPath));
+            elements.push_back(Image("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
+            elements.push_back(Image("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
+            elements.push_back(Image("saves-frames.png",   0.f, 0.f, 0.5f, 0.5f, applicationPath));
+            elements.push_back(Image("arrow.png", -0.475f, 0.35, 0.03f, 0.03f, applicationPath));
             break;
         case 2:
-            elements.push_back(Button("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            elements.push_back(Button("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-            elements.push_back(Button("play.png", 0.05f, 0.25f, 0.07f, 0.05f, applicationPath));
-            elements.push_back(Button("change-skin.png", 0.175f, 0.15f, 0.2f, 0.05f, applicationPath));
-            elements.push_back(Button("change-player.png", 0.175f, 0.05f, 0.2f, 0.05f, applicationPath));
-            elements.push_back(Button("quit.png", 0.05f, -0.05f, 0.07f, 0.05f, applicationPath));
-            elements.push_back(Button("arrow.png", -0.1f, 0.25, 0.03f, 0.03f, applicationPath));
+            elements.push_back(Image("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
+            elements.push_back(Image("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
+            elements.push_back(Image("play.png", 0.05f, 0.25f, 0.07f, 0.05f, applicationPath));
+            elements.push_back(Image("change-skin.png", 0.175f, 0.15f, 0.2f, 0.05f, applicationPath));
+            elements.push_back(Image("change-player.png", 0.175f, 0.05f, 0.2f, 0.05f, applicationPath));
+            elements.push_back(Image("quit.png", 0.05f, -0.05f, 0.07f, 0.05f, applicationPath));
+            elements.push_back(Image("arrow.png", -0.1f, 0.25, 0.03f, 0.03f, applicationPath));
+            break;
+        case 3:
+            elements.push_back(Image("title.png", 0.f, 0.5f, 0.5f, 0.5f, applicationPath));
             break;
         default:
             break;
@@ -36,8 +39,8 @@ RenderingInterface::RenderingInterface(const glimac::FilePath &applicationPath, 
 {    
     _program2D = GPUProgram2D(applicationPath, "tex2D.vs.glsl", "tex2D.fs.glsl");
 
-    std::vector<Button> buttons = buttonsScreen(screen, applicationPath);
-    _elements = buttons;
+    std::vector<Image> elements = screens(screen, applicationPath);
+    _elements = elements;
 
     glGenBuffers(1, &this->_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, this->_vbo);
@@ -85,8 +88,8 @@ glm::mat3 translate(float tx, float ty){
         0.f, 0.f, 1.f
     );
 };
-mat3 scale(float sx, float sy){
-    return mat3(
+glm::mat3 scale(float sx, float sy){
+    return glm::mat3(
         sx, 0.f, 0.f,
         0.f, sy, 0.f,
         0.f, 0.f, 1.f
