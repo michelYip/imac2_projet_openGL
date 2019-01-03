@@ -6,7 +6,7 @@
 #include <GL/glew.h>
 #include <glimac/Image.hpp>
 
-#include "Button.hpp"
+#include "Image.hpp"
 #include "GPUProgram2D.hpp"
 #include "GPUProgram3D.hpp"
 
@@ -40,7 +40,7 @@ class Rendering
 		};
 
 		//
-		virtual inline std::vector<Button> elements() const{};
+		virtual inline std::vector<Image> elements() const{};
 		virtual inline unsigned int currentButton() const{};
 
 		virtual void show(){};

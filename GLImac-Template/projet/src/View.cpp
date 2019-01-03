@@ -2,9 +2,16 @@
 
 // initializes sdl window
 int View::createWindow(const glimac::FilePath &applicationPath){
+	// initialisation SDL
 	GLenum glewInitError = glewInit();
 	if(GLEW_OK != glewInitError){
 		std::cerr << glewGetErrorString(glewInitError) << std::endl;
+		return EXIT_FAILURE;
+	}
+	// initialisation SDL_ttf
+	GLenum ttfInitError = TTF_Init();
+	if(ttfInitError == -1){
+		std::cerr << TTF_GetError() << std::endl;
 		return EXIT_FAILURE;
 	}
 
@@ -20,26 +27,31 @@ int View::createWindow(const glimac::FilePath &applicationPath){
     Rendering3D* sphere = new Rendering3D(applicationPath, 0);
     _renderingEngine.push_back(sphere);
 
+    // Rendering 2D (gameinfos)
+    RenderingInterface* gameInfos = new RenderingInterface(applicationPath, 3);
+    _renderingEngine.push_back(gameInfos);
+
     return EXIT_SUCCESS;
 }
 
 void View::displayWindow(){
 	if (!_done){
+		SDL_ShowCursor(SDL_DISABLE);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_LEQUAL);
-		if (this->_screen != 3)	{
-			this->_renderingEngine[this->_screen]->show();
+		if (_screen != 3)	{
+			_renderingEngine[this->_screen]->show();
 		}
 		else {
-			this->_renderingEngine[this->_screen]->show(_thirdPCamera, _firstPCamera, _cameraType);
+			_renderingEngine[_screen]->show(_thirdPCamera, _firstPCamera, _cameraType);
+			_renderingEngine[_screen+1]->show();
 		}
-		this->_windowManager.swapBuffers();
+		_windowManager.swapBuffers();
 	}
 }
 
 void View::clearWindow(){
-	std::cout << "clearWindow" << std::endl;
 	for(int i = 0; i < _renderingEngine.size(); i++){
  		_renderingEngine[i]->end();
 		delete _renderingEngine.at(i);
