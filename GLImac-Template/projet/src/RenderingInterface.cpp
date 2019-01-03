@@ -88,8 +88,8 @@ glm::mat3 translate(float tx, float ty){
         0.f, 0.f, 1.f
     );
 };
-mat3 scale(float sx, float sy){
-    return mat3(
+glm::mat3 scale(float sx, float sy){
+    return glm::mat3(
         sx, 0.f, 0.f,
         0.f, sy, 0.f,
         0.f, 0.f, 1.f

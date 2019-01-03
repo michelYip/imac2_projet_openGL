@@ -1,6 +1,7 @@
 #ifndef _RENDERING3D_ 
 #define _RENDERING3D_
 
+#include "Camera.hpp"
 #include "Rendering.hpp"
 #include <glimac/Sphere.hpp>
 
@@ -31,7 +32,7 @@ class Rendering3D : public Rendering
 		    glDeleteTextures(1, &_texture);
 		};
 
-		void show(const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType);
+		void show(const Camera &camera);
 		void end();
 };
 

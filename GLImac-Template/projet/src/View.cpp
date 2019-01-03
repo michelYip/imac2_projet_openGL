@@ -44,7 +44,7 @@ void View::displayWindow(){
 			_renderingEngine[this->_screen]->show();
 		}
 		else {
-			_renderingEngine[_screen]->show(_thirdPCamera, _firstPCamera, _cameraType);
+			_renderingEngine[_screen]->show(_camera);
 			_renderingEngine[_screen+1]->show();
 		}
 		_windowManager.swapBuffers();
@@ -79,26 +79,23 @@ void View::manageEvents(const SDL_Event &e){
 			this->manageKeyUpEvents(e.key.keysym.sym);
 			break;
 		case SDL_MOUSEBUTTONDOWN:
-			if(this->_cameraType == "third" && _locked == false){
-				if(e.button.button == SDL_BUTTON_WHEELUP) this->_thirdPCamera.moveFront(0.5f);
-				else if(e.button.button == SDL_BUTTON_WHEELDOWN) this->_thirdPCamera.moveFront(-0.5f);	
+			if(_camera.cameraType() == "third" && _locked == false){
+				if(e.button.button == SDL_BUTTON_WHEELUP) _camera.thirdPCamera().moveFront(0.5f);
+				else if(e.button.button == SDL_BUTTON_WHEELDOWN) _camera.thirdPCamera().moveFront(-0.5f);	
 			}
 			break;
 		case SDL_MOUSEMOTION:
-			if(_locked == false){
-				if(this->_cameraType == "first") this->firstPersonCameraMotion();
-				else this->thirdPersonCameraMotion();	
-			}
+			if(_locked == false) _camera.cameraMotion(getMousePosition(), _lastPos);
 			break;
 		default: 
 			break;
 	}
-	if(this->_keyPressed) this->manageKeyDownEvents(e.key.keysym.sym);
+	if(_keyPressed) manageKeyDownEvents(e.key.keysym.sym);
 }
 
 // converts mouse position from windowManager to position for game landmark
 glm::vec2 View::getMousePosition(){
-	float x = this->_windowManager.getMousePosition().x, y = this->_windowManager.getMousePosition().y;
+	float x = _windowManager.getMousePosition().x, y = _windowManager.getMousePosition().y;
 	x = x - WINDOW_WIDTH / 2;
 	y = -(y - WINDOW_HEIGHT * 3 / 4); 
 	return glm::vec2(x, y);
@@ -124,8 +121,7 @@ void View::manageKeyUpEvents(const SDLKey &k){
 			break;
 
 		case SDLK_c:
-			if(_cameraType == "third") _cameraType = "first";
-			else _cameraType = "third";
+			_camera.changeCameraType();
 			break;
 		case SDLK_l:
 			if(_locked){
@@ -161,17 +157,4 @@ void View::manageKeyDownEvents(const SDLKey &k){
 		default:
 			break;
 	}	
-}
-
-// trackball Camera
-void View::firstPersonCameraMotion(){
-	float posX = getMousePosition().x, posY = getMousePosition().y;
-	_firstPCamera.rotateLeft(posX - _lastPos.x);
-	_firstPCamera.rotateUp(posY - _lastPos.y);		
-}
-// freefly Camera
-void View::thirdPersonCameraMotion(){
-	float posX = getMousePosition().x, posY = getMousePosition().y;
-	_thirdPCamera.rotateLeft(posX - _lastPos.x);
-	_thirdPCamera.rotateUp(posY - _lastPos.y);
 }
