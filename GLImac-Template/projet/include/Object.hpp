@@ -5,14 +5,19 @@
 #include <glimac/BBox.hpp>
 #include <glm/glm.hpp>
 #include "Collider.hpp"
-#include "Model3D.hpp"
+#include "Mesh.hpp"
+
+#include <string>
 
 class Object
 {
 protected: 
 	Collider _boundingBox;
 	glm::vec3 _position;
-	Model3D _model3D;
+	Mesh modele3D;
+
+	static const std::string TEXTURE_FILE; 
+	static const std::string OBJ_FILE; 
 
 public:
 	//CONSTRUCTORS & DESTRUCTORS
