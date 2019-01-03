@@ -2,8 +2,6 @@
 
 #include <algorithm>
 #include "exceptions/Unreachable_file.hpp"
-#include "Model3D.hpp"
-
 
 void Game::init(){
 	std::cout << "________________________________" << std::endl << "GAME INIT STARTING..." << std::endl;
@@ -27,14 +25,15 @@ void Game::init(){
 void Game::run(const int argc, char** argv){
 	glimac::FilePath applicationPath(argv[0]);
     View view;
-    view.window(applicationPath);
+    view.createWindow(applicationPath);
 
-	while(_world.coroutine()){
+	while(!_world.coroutine(view.done())){
 		//TODO
+		view.waitEvents();
+		view.displayWindow();
 	}
+	view.clearWindow();
 }
-
-
 
 //______________________________________PRIVATE________________________________
 

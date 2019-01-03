@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 
+#include "Mesh.hpp"
 #include "Rendering.hpp"
 #include "Rendering3D.hpp"
 #include "RenderingInterface.hpp"
@@ -22,17 +23,52 @@ class View
 		bool _keyPressed;	// a key is pressed
 		bool _locked;		// camera locked or not
 		unsigned int _screen;
+		glm::vec2 _lastPos;
 		std::string _cameraType;
 		std::vector<Rendering*> _renderingEngine;
 		SDLWindowManager _windowManager;
+		TrackballCamera _thirdPCamera;	// tb = third person
+		FreeflyCamera _firstPCamera;
 
 	public:
-		View():_done(false), _keyPressed(false), _locked(true),_screen(0), _cameraType("third"), _windowManager(SDLWindowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")){};
-		~View(){};
+		//CONSTRUCTORS & DESTRUCTORS
+		//Default constructor
+		View()
+		:_done(false),
+		_keyPressed(false), 
+		_locked(true),
+		_screen(0), 
+		_lastPos(glm::vec2(0, 0)), 
+		_cameraType("first"), 
+		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")		
+		{};
 
-		int window(const glimac::FilePath &applicationPath);
-		void manageEvents(const SDL_Event &e);
+		//Default destructor
+		~View(){
+			for(int i = 0; i < _renderingEngine.size(); i++){
+ 				_renderingEngine[i]->end();
+				delete _renderingEngine.at(i);
+			}
+			_renderingEngine.clear();
+
+			//Free static loaded Mesh
+			Mesh::clearAllLoadedMesh();
+		};
+
+		//GETTERS & SETTERS
 		glm::vec2 getMousePosition();
+		inline bool done() const{
+			return _done;
+		}
+
+		//PUBLIC METHODS
+
+		int createWindow(const glimac::FilePath &applicationPath);
+		void displayWindow();
+		void clearWindow();
+
+		void waitEvents();
+		void manageEvents(const SDL_Event &e);
 
 		void manageKeyUpEvents(const SDLKey &k);
 		void manageKeyDownEvents(const SDLKey &k);

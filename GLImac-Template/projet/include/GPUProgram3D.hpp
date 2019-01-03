@@ -12,6 +12,7 @@ class GPUProgram3D{
 		GLint _uNormalMatrix;
 		GLint _uTexture;
 
+	GPUProgram3D(){};
 	GPUProgram3D(const glimac::FilePath &applicationPath, const std::string &vsName, const std::string &fsName):_program(glimac::loadProgram(applicationPath.dirPath() + "shaders/" + vsName, applicationPath.dirPath() + "shaders/" + fsName)){
             _uMVPMatrix = glGetUniformLocation(_program.getGLId(), "uMVPMatrix");
             _uMVMatrix = glGetUniformLocation(_program.getGLId(), "uMVMatrix");

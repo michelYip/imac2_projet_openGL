@@ -36,7 +36,7 @@ public:
 	Map getMap() const;
 
 	//Make the world continue running
-	bool coroutine();
+	bool coroutine(const bool done);
 
 	bool isFinished();
 	

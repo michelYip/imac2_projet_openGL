@@ -25,15 +25,14 @@ Map World::getMap() const{
 }
 
 //Make the world continue running
-bool World::coroutine(){
+bool World::coroutine(const bool done){
 	// TODO
 	_cameraPosition += _worldSpeed;
 	//
-	return !isFinished();
+	return done && isFinished();
 }
 
 bool World::isFinished(){
 	// TODO
 	return true;
 }
-

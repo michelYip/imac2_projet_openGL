@@ -40,6 +40,7 @@ Player Player::load(const std::string &filename){
 		char *tmp_line = new char[128];
 		playerFile.getline(tmp_line,128);
 		std::string str_line(tmp_line);
+		delete[] tmp_line;
 		std::smatch param;
 	
 		std::regex param_regex (": (.*)");
