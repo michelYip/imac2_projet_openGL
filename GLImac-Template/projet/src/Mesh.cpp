@@ -1,7 +1,7 @@
 #include "Mesh.hpp"
 
 std::map<std::string, VAO*> Mesh::_already_loaded_models = {};
-std::map<std::string, GLuint*> Mesh::_already_loaded_texture = {};
+std::map<std::string, Texture*> Mesh::_already_loaded_texture = {};
 
 Mesh::Mesh(const std::string &obj_filename, const std::string &texture_filename){
 	//vao
@@ -15,55 +15,29 @@ Mesh::Mesh(const std::string &obj_filename, const std::string &texture_filename)
 	}
 	//Texture
 	//If already loaded
-	std::map<std::string,GLuint*>::const_iterator itTEXTURE = Mesh::_already_loaded_texture.find(texture_filename);
+	std::map<std::string,Texture*>::const_iterator itTEXTURE = Mesh::_already_loaded_texture.find(texture_filename);
 	if(itTEXTURE != Mesh::_already_loaded_texture.end()){
 		_texture = itTEXTURE->second;
 	}else{
-		_texture = new GLuint;
-		loadTexture((texture_filename.size() != 0) ? texture_filename : DEFAULT_TEXTURE);
+		_texture = new Texture(texture_filename);
 		Mesh::_already_loaded_texture[texture_filename] = _texture;
 	}
 }
 
-void Mesh::loadTexture(const std::string &filename){
-	std::unique_ptr<glimac::Image> image = glimac::loadImage(TEXTURE_FOLDER + filename);
-	if (image == NULL)
-		throw UNREACHABLE_FILE(TEXTURE_FOLDER + filename);
-	glGenTextures(1, _texture);
-	glBindTexture(GL_TEXTURE_2D, *_texture);
-	glTexImage2D(
-		GL_TEXTURE_2D,
-		0,
-		GL_RGBA,
-		image->getWidth(),
-		image->getHeight(),
-		0,
-		GL_RGBA,
-		GL_FLOAT,
-		image->getPixels()
-		);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glBindTexture(GL_TEXTURE_2D, 0);
-	std::cout << "Texture [" << TEXTURE_FOLDER + filename << "] loaded" << std::endl;
-}
-
-
 
 void Mesh::show(const GLint &uTexture) const{
 	_vao->bind();    
-	glBindTexture(GL_TEXTURE_2D, *_texture);
+	_texture->bind();
 	glUniform1i(uTexture, 0);
 	_vao->draw();
-	glBindTexture(GL_TEXTURE_2D, 0);
+	_texture->unbind();
 	_vao->unbind();    
 }
 
 
 void Mesh::clearAllLoadedMesh(){
-	for(std::map<std::string, GLuint*>::iterator itr = Mesh::_already_loaded_texture.begin(); itr != Mesh::_already_loaded_texture.end(); itr++){
-		glDeleteTextures(1, itr->second);
-    	delete itr->second;
+	for(std::map<std::string, Texture*>::iterator itr = Mesh::_already_loaded_texture.begin(); itr != Mesh::_already_loaded_texture.end(); itr++){
+		delete itr->second;
 	}
 	for(std::map<std::string, VAO*>::iterator itr = Mesh::_already_loaded_models.begin(); itr != Mesh::_already_loaded_models.end(); itr++)
     	delete itr->second;

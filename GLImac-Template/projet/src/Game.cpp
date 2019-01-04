@@ -4,7 +4,8 @@
 #include <ctime>
 #include "exceptions/Unreachable_file.hpp"
 
-void Game::init(){
+Game::Game(){
+	//TODO
 	std::cout << "________________________________" << std::endl << "GAME INIT STARTING..." << std::endl;
 	_player = selectSavedPlayer();
 	
@@ -23,8 +24,8 @@ void Game::init(){
 	std::cout << "GAME INIT DONE." << std::endl << "________________________________" << std::endl;
 }
 
-void Game::run(const int argc, char** argv){
-	glimac::FilePath applicationPath(argv[0]);
+void Game::run(char* execName){
+	glimac::FilePath applicationPath(execName);
     _view.createWindow(applicationPath,_world);
 
 	std::clock_t start = clock();
@@ -43,6 +44,7 @@ void Game::run(const int argc, char** argv){
 	}
 	_view.clearWindow();
 }
+
 
 //______________________________________PRIVATE________________________________
 

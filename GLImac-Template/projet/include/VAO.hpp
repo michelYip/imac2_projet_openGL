@@ -12,19 +12,16 @@
 #include <GL/glew.h>
 
 
-#include <glimac/Sphere.hpp>
 
-
-const GLuint POS_ATTRIB_IND = 0;
-const GLuint NORM_ATTRIB_IND = 1;
-const GLuint TEXT_ATTRIB_IND = 2;
-
-
-const std::string OBJ_FOLDER = "main/assets/models/";
 
 class VAO
 {
 	private:
+		static const std::string OBJ_FOLDER;
+		static const GLuint POS_ATTRIB_IND;
+		static const GLuint NORM_ATTRIB_IND;
+		static const GLuint TEXT_ATTRIB_IND;
+
 		GLuint _vbo;
 		GLuint _vao;
 		GLuint _ibo;

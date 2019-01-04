@@ -16,12 +16,9 @@ protected:
 	glm::vec3 _position;
 	Mesh _modele3D;
 
-	static const std::string TEXTURE_FILE; 
-	static const std::string OBJ_FILE; 
-
-	virtual void loadMesh(){ 
-		_modele3D = Mesh(OBJ_FILE,TEXTURE_FILE);
-	}
+	void loadMesh(){_modele3D = Mesh(OBJ_FILE(),TEXTURE_FILE());}
+	virtual const std::string TEXTURE_FILE(){return "";}
+	virtual const std::string OBJ_FILE(){return "cube.obj";}
 
 public:
 	//CONSTRUCTORS & DESTRUCTORS

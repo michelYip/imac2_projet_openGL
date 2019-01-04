@@ -3,18 +3,13 @@
 Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, const unsigned int &screen, const World &world)
 :_world(world)
 {
-    _program3D = GPUProgram3D(applicationPath, "3D.vs.glsl", "tex3D.fs.glsl");
-    
+    _program3D = GPUProgram3D(applicationPath, "3D.vs.glsl", "tex3D.fs.glsl");    
     _ProjMatrix = glm::perspective(glm::radians(70.f), (float)(WINDOW_WIDTH / WINDOW_HEIGHT), 0.1f, 100.f);
-    _MVMatrix = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 0.f, -5.f));
-    _NormalMatrix = glm::transpose(glm::inverse(_MVMatrix));
 }
 
 void Rendering3D::show(const Camera &camera){
-
     _MVMatrix = camera.getCurrentViewMatrix();
     _NormalMatrix = glm::transpose(glm::inverse(_MVMatrix));
-
 
     std::vector<Object> list_obj = _world.getAllPrintableObjects();
     _program3D._program.use();

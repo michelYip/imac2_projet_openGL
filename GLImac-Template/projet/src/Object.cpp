@@ -1,7 +1,5 @@
 #include "Object.hpp"
 
-const std::string Object::TEXTURE_FILE = ""; 
-const std::string Object::OBJ_FILE = "Crate1.obj"; 
 
 //Parameter constructor with a collider
 Object::Object(const glm::vec3 & position, const Collider & boundingBox)

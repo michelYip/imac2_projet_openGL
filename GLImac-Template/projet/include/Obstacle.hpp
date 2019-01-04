@@ -10,6 +10,10 @@ const int OBSTACLE_HEIGHT_MARGIN = 50;
 
 class Obstacle : public StaticObject
 {
+protected:
+	// virtual const std::string TEXTURE_FILE(){return "white.png";}
+	// virtual const std::string OBJ_FILE(){return "character.obj";}
+
 public:
 	//CONSTRUCTORS & DESTRUCTORS
 	//Default constructor

@@ -1,6 +1,11 @@
 #include "VAO.hpp"
-
 #include <sstream>
+
+const std::string VAO::OBJ_FOLDER = "main/assets/models/";
+const GLuint VAO::POS_ATTRIB_IND = 0;
+const GLuint VAO::NORM_ATTRIB_IND = 1;
+const GLuint VAO::TEXT_ATTRIB_IND = 2;
+
 
 VAO::VAO(const std::string &obj_filename){
 //Load vertices & indexes
@@ -15,10 +20,8 @@ void VAO::create_glvao(){
 		std::cerr << glewGetErrorString(glewInitError) << std::endl;
 
 //VBO
-	std::cerr << "test" << std::endl;
 	glGenBuffers(1, &_vbo);
-	std::cerr << "test2" << std::endl;
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, _vbo);
     glBufferData(
         GL_ARRAY_BUFFER,
         _vertices.size() * sizeof(Vertex3DUV),
