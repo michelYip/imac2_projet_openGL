@@ -7,6 +7,10 @@
 
 class Character : public MovingObject
 {
+protected:
+	virtual const std::string TEXTURE_FILE(){return "white.png";}
+	virtual const std::string OBJ_FILE(){return "character.obj";}
+
 private: 
 	std::vector<Coin> _collectedCoins;
 public:

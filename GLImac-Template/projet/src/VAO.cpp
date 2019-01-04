@@ -20,10 +20,8 @@ void VAO::create_glvao(){
 		std::cerr << glewGetErrorString(glewInitError) << std::endl;
 
 //VBO
-	std::cerr << "test" << std::endl;
 	glGenBuffers(1, &_vbo);
-	std::cerr << "test2" << std::endl;
-    glBindBuffer(GL_ARRAY_BUFFER, _vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, _vbo);
     glBufferData(
         GL_ARRAY_BUFFER,
         _vertices.size() * sizeof(Vertex3DUV),

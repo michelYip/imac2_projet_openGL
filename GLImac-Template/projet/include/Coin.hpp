@@ -6,8 +6,12 @@
 
 class Coin : public StaticObject
 {
+protected:
+	// virtual const std::string TEXTURE_FILE(){return "white.png";}
+	// virtual const std::string OBJ_FILE(){return "character.obj";}
+
 public:
-	Coin();
+	Coin(){loadMesh();}
 	~Coin() = default;
 	
 };

@@ -5,9 +5,13 @@
 
 class Malus : public TriggerObject
 {
+protected:
+	// virtual const std::string TEXTURE_FILE(){return "white.png";}
+	// virtual const std::string OBJ_FILE(){return "character.obj";}
+
 public:
-	Malus();
-	~Malus();
+	Malus(){loadMesh();}
+	~Malus() = default
 	
 };
 

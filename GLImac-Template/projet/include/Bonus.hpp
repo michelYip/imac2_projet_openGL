@@ -5,9 +5,12 @@
 
 class Bonus : public TriggerObject
 {
+protected:
+	// virtual const std::string TEXTURE_FILE(){return "";}
+	// virtual const std::string OBJ_FILE(){return "";}
 public:
-	Bonus();
-	~Bonus();
+	Bonus(){loadMesh();}
+	~Bonus() = default
 	
 };
 
