@@ -10,10 +10,9 @@ Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, const unsigne
     _NormalMatrix = glm::transpose(glm::inverse(_MVMatrix));
 }
 
-void Rendering3D::show(const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType){
+void Rendering3D::show(const Camera &camera){
 
-    if(cameraType == "third") _MVMatrix = tbCamera.getViewMatrix();
-    else _MVMatrix = ffCamera.getViewMatrix();
+    _MVMatrix = camera.getCurrentViewMatrix();
     _NormalMatrix = glm::transpose(glm::inverse(_MVMatrix));
 
 

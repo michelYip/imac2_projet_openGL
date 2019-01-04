@@ -1,26 +1,27 @@
-#include <glimac/glm.hpp>
+#ifndef _FREEFLYCAMERA_
+#define _FREEFLYCAMERA_
 
-using namespace glm;
+#include <glimac/glm.hpp>
 
 class FreeflyCamera{
 	private:
-		vec3 _position;	// position caméra
+		glm::vec3 _position;	// position caméra
 		float _fPhi;	// coordonnées sphériques
 		float _fTheta;
 
-		vec3 _frontVector;
-		vec3 _leftVector;
-		vec3 _upVector;
+		glm::vec3 _frontVector;
+		glm::vec3 _leftVector;
+		glm::vec3 _upVector;
 
 		void computeDirectionVectors(){
-			_frontVector = vec3(cos(_fTheta) * sin(_fPhi), sin(_fTheta), cos(_fTheta) * cos(_fPhi));
-			_leftVector = vec3(sin(_fPhi + pi<float>() / 2), 0, cos(_fPhi + pi<float>() / 2));
-			_upVector = cross(_frontVector, _leftVector);
+			_frontVector = glm::vec3(glm::cos(_fTheta) * glm::sin(_fPhi), glm::sin(_fTheta), glm::cos(_fTheta) * glm::cos(_fPhi));
+			_leftVector = glm::vec3(sin(_fPhi + glm::pi<float>() / 2), 0, glm::cos(_fPhi + glm::pi<float>() / 2));
+			_upVector = glm::cross(_frontVector, _leftVector);
 		};
 
 	public:
 		// constructeur(s)
-		FreeflyCamera(): _position(vec3(0, 0, 0)), _fPhi(pi<float>()), _fTheta(0){
+		FreeflyCamera(): _position(glm::vec3(0, 0, 0)), _fPhi(glm::pi<float>()), _fTheta(0){
 			this->computeDirectionVectors();
 		};
 
@@ -33,17 +34,19 @@ class FreeflyCamera{
 		};
 		void rotateLeft(float degrees){
 			// if(_fPhi + degrees >= radians(90.f) && _fPhi + degrees <= radians(270.f)) 
-			_fPhi += radians(degrees * 0.001);
+			_fPhi += glm::radians(degrees * 0.001);
 			computeDirectionVectors();
 		};
 		void rotateUp(float degrees){
 			// if(_fTheta+ degrees >= radians(-90.f) && _fTheta + degrees <= radians(90.f))
-			 _fTheta += radians(degrees * 0.001);
+			 _fTheta += glm::radians(degrees * 0.001);
 			this->computeDirectionVectors();
 		};
 
-		mat4 getViewMatrix() const{
-			return lookAt(this->_position, this->_position + this->_frontVector, _upVector);
+		glm::mat4 getViewMatrix() const{
+			return glm::lookAt(this->_position, this->_position + this->_frontVector, _upVector);
 		};
 
 };
+
+#endif

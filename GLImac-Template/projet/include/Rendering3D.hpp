@@ -1,6 +1,7 @@
 #ifndef _RENDERING3D_ 
 #define _RENDERING3D_
 
+#include "Camera.hpp"
 #include "Rendering.hpp"
 #include "Mesh.hpp"
 #include "World.hpp"
@@ -24,6 +25,7 @@ class Rendering3D : public Rendering
 		Rendering3D(const glimac::FilePath &applicationPath, const unsigned int &screen, const World &world);
 
 		~Rendering3D() = default;
+
 
 		void show(const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType);
 		void end(){} //A DELETE
