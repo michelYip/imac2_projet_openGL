@@ -6,8 +6,8 @@
 #include "Physic.hpp"
 #include "Map.hpp"
 
-const float INITIAL_SPEED = 5.0f;
-const int MAP_NUMBER = 2;
+const float INITIAL_SPEED = 1.0f;
+const int MAX_MAPS = 2;
 
 class World
 {
@@ -39,10 +39,11 @@ public:
 	//Return the current map
 	Map getMap() const;
 
+	//Return a list of all object in the world
 	const std::vector<Object> getAllPrintableObjects() const;
 
 	//Make the world continue running
-	bool coroutine(const bool done);
+	bool coroutine(const bool & done, const float & time_interval);
 
 	bool isFinished();
 	
