@@ -36,3 +36,9 @@ bool World::isFinished(){
 	// TODO
 	return true;
 }
+
+const std::vector<Object> World::getAllPrintableObjects() const{
+	std::vector<Object> list = _map.objectList();
+	// list.push_back(_player);
+	return list; 
+}

@@ -14,10 +14,14 @@ class Object
 protected: 
 	Collider _boundingBox;
 	glm::vec3 _position;
-	Mesh modele3D;
+	Mesh _modele3D;
 
 	static const std::string TEXTURE_FILE; 
 	static const std::string OBJ_FILE; 
+
+	virtual void loadMesh(){ 
+		_modele3D = Mesh(OBJ_FILE,TEXTURE_FILE);
+	}
 
 public:
 	//CONSTRUCTORS & DESTRUCTORS
@@ -41,6 +45,7 @@ public:
 	
 	//Return the position of the object
 	const glm::vec3 position() const {return _position;}
+	const Mesh modele3D() const {return _modele3D;}
 
 	//OPERATORS
 

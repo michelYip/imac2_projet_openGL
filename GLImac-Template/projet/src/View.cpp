@@ -1,7 +1,7 @@
 #include "View.hpp"
 
 // initializes sdl window
-int View::createWindow(const glimac::FilePath &applicationPath){
+int View::createWindow(const glimac::FilePath &applicationPath, const World &world){
 	GLenum glewInitError = glewInit();
 	if(GLEW_OK != glewInitError){
 		std::cerr << glewGetErrorString(glewInitError) << std::endl;
@@ -17,7 +17,7 @@ int View::createWindow(const glimac::FilePath &applicationPath){
     _renderingEngine.push_back(playerMenu);
 
     // Rendering 3D (game)
-    Rendering3D* sphere = new Rendering3D(applicationPath, 0);
+    Rendering3D* sphere = new Rendering3D(applicationPath, 0, world);
     _renderingEngine.push_back(sphere);
 
     return EXIT_SUCCESS;

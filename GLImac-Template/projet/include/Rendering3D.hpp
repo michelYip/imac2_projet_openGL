@@ -3,6 +3,7 @@
 
 #include "Rendering.hpp"
 #include "Mesh.hpp"
+#include "World.hpp"
 #include <glimac/Sphere.hpp>
 
 const float WINDOW_WIDTH = 1280;
@@ -15,12 +16,12 @@ class Rendering3D : public Rendering
 		glm::mat4 _MVMatrix;
 		glm::mat4 _NormalMatrix;
 		GPUProgram3D _program3D;
-		std::vector<Mesh> _meshList;
+		const World &_world;
 
 	public:
 		Rendering3D() = default;
 
-		Rendering3D(const glimac::FilePath &applicationPath, const unsigned int &screen);
+		Rendering3D(const glimac::FilePath &applicationPath, const unsigned int &screen, const World &world);
 
 		~Rendering3D() = default;
 

@@ -2,6 +2,7 @@
 #define _WORLD_
 
 #include <iostream>
+#include <vector>
 #include "Physic.hpp"
 #include "Map.hpp"
 
@@ -34,6 +35,8 @@ public:
 
 	//Return the current map
 	Map getMap() const;
+
+	const std::vector<Object> getAllPrintableObjects() const;
 
 	//Make the world continue running
 	bool coroutine(const bool done);

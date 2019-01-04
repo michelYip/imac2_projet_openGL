@@ -2,16 +2,22 @@
 
 #include <sstream>
 
-VAO::VAO(const std::string &abs_project_path, const std::string &obj_filename){
+VAO::VAO(const std::string &obj_filename){
 //Load vertices & indexes
-	loadObj(abs_project_path,obj_filename);
+	loadObj(obj_filename);
 	create_glvao();
 }
 
 
 void VAO::create_glvao(){
+	GLenum glewInitError = glewInit();
+	if(GLEW_OK != glewInitError)
+		std::cerr << glewGetErrorString(glewInitError) << std::endl;
+
 //VBO
+	std::cerr << "test" << std::endl;
 	glGenBuffers(1, &_vbo);
+	std::cerr << "test2" << std::endl;
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
     glBufferData(
         GL_ARRAY_BUFFER,
@@ -20,6 +26,7 @@ void VAO::create_glvao(){
         GL_STATIC_DRAW
     );
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+
 
 // IBO
     glGenBuffers(1, &_ibo);
@@ -99,7 +106,7 @@ glm::vec2 getvec2(std::string str_line){
 }
 
 
-void VAO::loadObj(const std::string &abs_project_path, const std::string &obj_filename){
+void VAO::loadObj(const std::string &obj_filename){
 	std::ifstream objFile;
 	objFile.open(OBJ_FOLDER+obj_filename, std::fstream::in);
 	if(!objFile.is_open())

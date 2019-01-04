@@ -41,6 +41,8 @@ public:
 	//Default destructor
 	~Map() = default;
 
+	const std::vector<Object> objectList() const{return _objectList;}
+
 	//Create an object from a pixel
 	void createObject(const int & col, const int & row, const float & r, const float & g, const float & b);
 

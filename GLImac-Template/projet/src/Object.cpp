@@ -1,14 +1,21 @@
 #include "Object.hpp"
 
+const std::string Object::TEXTURE_FILE = ""; 
+const std::string Object::OBJ_FILE = "Crate1.obj"; 
+
 //Parameter constructor with a collider
 Object::Object(const glm::vec3 & position, const Collider & boundingBox)
 :_position(position),_boundingBox(boundingBox)
-{}
+{
+	loadMesh();
+}
 
 //Parameter constructor
 Object::Object(const glm::vec3 & position, const glm::vec3 & _lower, const glm::vec3 & _upper)
 :_position(position), _boundingBox(_lower, _upper)
-{}
+{
+	loadMesh();
+}
 
 //Input stream
 std::ostream& operator<<(std::ostream & os, const Object &o){

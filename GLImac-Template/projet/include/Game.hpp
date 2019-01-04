@@ -13,6 +13,7 @@ class Game
 {
 private: 
 	Player _player;
+	View _view; //must be before world to init glew
 	World _world;
 
 

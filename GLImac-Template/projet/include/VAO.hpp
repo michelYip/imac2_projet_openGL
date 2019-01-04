@@ -21,7 +21,6 @@ const GLuint TEXT_ATTRIB_IND = 2;
 
 
 const std::string OBJ_FOLDER = "main/assets/models/";
-const std::string TEXTURE_FOLDER = "/assets/textures/obj/";
 
 class VAO
 {
@@ -33,12 +32,12 @@ class VAO
 		std::vector<int> _indexes;
 
 		
-		void loadObj(const std::string &abs_project_path, const std::string &obj_filename);
+		void loadObj(const std::string &obj_filename);
 		void create_glvao();
 	public:
 		
 		// VAO() = default;
-		VAO(const std::string &abs_project_path, const std::string &obj_filename);
+		VAO(const std::string &obj_filename);
 		VAO(const VAO &m)
 		:_vbo(m._vbo), _vao(m._vao), _ibo(m._ibo), _vertices(m._vertices), _indexes(m._indexes) 
 		{}

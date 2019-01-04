@@ -6,7 +6,6 @@
 void Game::init(){
 	std::cout << "________________________________" << std::endl << "GAME INIT STARTING..." << std::endl;
 	_player = selectSavedPlayer();
-	_world = World();
 	
 	std::cout << _player << std::endl;
 
@@ -24,15 +23,14 @@ void Game::init(){
 
 void Game::run(const int argc, char** argv){
 	glimac::FilePath applicationPath(argv[0]);
-    View view;
-    view.createWindow(applicationPath);
+    _view.createWindow(applicationPath,_world);
 
-	while(!_world.coroutine(view.done())){
+	while(!_world.coroutine(_view.done())){
 		//TODO
-		view.waitEvents();
-		view.displayWindow();
+		_view.waitEvents();
+		_view.displayWindow();
 	}
-	view.clearWindow();
+	_view.clearWindow();
 }
 
 //______________________________________PRIVATE________________________________

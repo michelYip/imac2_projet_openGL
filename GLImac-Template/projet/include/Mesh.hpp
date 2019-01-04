@@ -8,6 +8,7 @@
 #include <GL/glew.h>
 
 const std::string DEFAULT_TEXTURE = "default.png";
+const std::string TEXTURE_FOLDER = "main/assets/textures/obj/";
 
 
 
@@ -19,11 +20,11 @@ class Mesh
 		GLuint *_texture;
 		VAO *_vao;
 
-		void loadTexture(const std::string &abs_project_path, const std::string &filename);
+		void loadTexture(const std::string &filename);
 	public:
 		Mesh() = default;
 		
-		Mesh(const std::string &abs_project_path, const std::string &obj_filename, const std::string &texture_filename);
+		Mesh(const std::string &obj_filename, const std::string &texture_filename);
 
 		
 		Mesh(const Mesh &m)
@@ -31,7 +32,7 @@ class Mesh
 
 		~Mesh(){}
 
-		void show(const GLint &uTexture);
+		void show(const GLint &uTexture) const;
 
 		static void clearAllLoadedMesh();
 		

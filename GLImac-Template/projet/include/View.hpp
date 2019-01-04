@@ -63,7 +63,7 @@ class View
 
 		//PUBLIC METHODS
 
-		int createWindow(const glimac::FilePath &applicationPath);
+		int createWindow(const glimac::FilePath &applicationPath, const World &world);
 		void displayWindow();
 		void clearWindow();
 
