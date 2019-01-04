@@ -62,7 +62,6 @@ Map::Map(const std::string & mapFile, const int & i, const glm::vec2 & start){
 	for (int t = 0; t < _endPoints.size(); t++){
 		if (i > 0){
 			_nextMaps.push_back(new Map(mapFile, i - 1, start + _endPoints.back() - _startPoint));
-			std::cout << _endPoints.back() << " - " << _startPoint << " = " << _endPoints.back()  -  _startPoint << std::endl;
 		}
 	}
 		

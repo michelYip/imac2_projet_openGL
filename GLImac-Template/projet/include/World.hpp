@@ -7,7 +7,7 @@
 #include "Map.hpp"
 
 const float INITIAL_SPEED = 1.0f;
-const int MAX_MAPS = 2;
+const int MAX_MAPS = 5;
 
 class World
 {
