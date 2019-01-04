@@ -13,6 +13,7 @@ Game::Game(){
 	_player.addUnlockedSkins(Skin("test1",50,"test1.texture"));
 	_player.addUnlockedSkins(Skin("test2",10,"test2.texture"));
 	_world.createMap("01.ppm");
+	_world.initCharacter();
 	try{
 		_player.save("player_1");
 		std::cout << Player::load("player_1") << std::endl;
