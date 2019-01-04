@@ -27,7 +27,7 @@ class Rendering3D : public Rendering
 		~Rendering3D() = default;
 
 
-		void show(const TrackballCamera &tbCamera, const FreeflyCamera &ffCamera, const std::string &cameraType);
+		void show(const Camera &camera);
 		void end(){} //A DELETE
 };
 
