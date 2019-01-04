@@ -30,6 +30,9 @@ public:
 	//Set map with a file name
 	void createMap(const std::string & map);
 
+	//Create the character
+	void initCharacter();
+
 	//Set map with a reference
 	void setMap(const Map & map);
 

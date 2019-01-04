@@ -4,7 +4,7 @@
 
 //Default constructor
 Map::Map()
-:_objectList(), _altitude(), _startPoint(glm::vec2()), _endPoints(), _nextMaps()
+:_objectList(), _startPoint(glm::vec2()), _endPoints(), _nextMaps()
 {}
 
 //Parameter constructor, load a map and the next ones
@@ -46,7 +46,6 @@ Map::Map(const std::string & mapFile, const int & i){
 			std::string strB(tmp_line);
 			b = std::stoi(strB)/HEIGHT_RATIO_PPM;
 
-			this->addBlock(col, row, r);
 			if (g >= START_MIN && b >= START_MIN && g <= START_MAX && b <= START_MAX)
 				_startPoint = glm::vec2(row, col);
 			if (g >= END_MIN && b >= END_MIN && g < END_MAX && b < END_MAX){
@@ -54,19 +53,21 @@ Map::Map(const std::string & mapFile, const int & i){
 				if (i <= 0)
 					_nextMaps.push_back(Map(mapFile, i - 1));
 			}
+			if (!(r == 0 && g == 0 && b == 0))
+				addObject(Obstacle(row, col, -1, 1));
 			if (g < END_MIN && b < END_MIN)
-				createObject(col, row, r, g, b);
+				createObject(row, col, g, b);
         }
     }
 }
 
 //Create an object from a pixel
-void Map::createObject(const int & col, const int & row, const float & r, const float & g, const float & b){
+void Map::createObject(const int & col, const int & row, const float & g, const float & b){
 	if (g > 0){
 		if (g <= OBSTACLE_GROUNDED_THRESHOLD)
-			addObject(Obstacle(row, col, r, g));
+			addObject(Obstacle(row, col, 0, g));
 		if (g > OBSTACLE_GROUNDED_THRESHOLD && g <= OBSTACLE_AIRBORN_THRESHOLD){
-			addObject(Obstacle(row, col, r + OBSTACLE_FLOAT_HEIGHT, g - OBSTACLE_HEIGHT_MARGIN));
+			addObject(Obstacle(row, col, OBSTACLE_FLOAT_HEIGHT, g - OBSTACLE_HEIGHT_MARGIN));
 		}
 	}
 	//Add coin and bonus/malus
@@ -84,21 +85,6 @@ void Map::addObject(const Object & obj){
 //Remove an object from the object list
 void Map::removeObject(const Object & obj){
     _objectList.erase(std::remove(_objectList.begin(), _objectList.end(), obj), _objectList.end());
-}
-
-//Add a block in the altitude list
-void Map::addBlock(const int & col, const int & row, const float & altitude){
-	_altitude[col][row] = altitude;
-}
-
-//Print the altitude map
-void Map::printAltitude() const{
-	for (int col = 0; col < MAP_SIZE; col++){
-		for (int row = 0; row < MAP_SIZE; row++){
-			std::cout << _altitude[col][row] << "\t";
-		}
-		std::cout << std::endl;
-	}
 }
 
 //Print the starting point and the end point of the map

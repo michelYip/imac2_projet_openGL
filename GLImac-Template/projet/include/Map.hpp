@@ -24,7 +24,6 @@ class Map
 {
 private: 
 	std::vector<Object> _objectList;
-	float _altitude[MAP_SIZE][MAP_SIZE];
 	glm::vec2 _startPoint;
 	std::vector<glm::vec2> _endPoints;
 	std::vector<Map> _nextMaps;
@@ -41,24 +40,23 @@ public:
 	//Default destructor
 	~Map() = default;
 
+	//Return the starting point
+	inline glm::vec2 getStartPoint() const{
+		return _startPoint;
+	}
+
 	const std::vector<Object> objectList() const{return _objectList;}
 
 	//Create an object from a pixel
-	void createObject(const int & col, const int & row, const float & r, const float & g, const float & b);
+	void createObject(const int & col, const int & row, const float & g, const float & b);
 
 	//Add an object to the object list
 	void addObject(const Object & obj);
 
 	//Remove an object from the object list
 	void removeObject(const Object & obj);
-	
-	//Add a block in the altitude list
-	void addBlock(const int & col, const int & row, const float & altitude);
 
 	//DEBUG
-
-	//Print the altitude map
-	void printAltitude() const;
 
 	//Print the starting point and the end point of the map
 	void printExtremity();
