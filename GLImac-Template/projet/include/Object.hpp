@@ -44,6 +44,11 @@ public:
 	const glm::vec3 position() const {return _position;}
 	const Mesh modele3D() const {return _modele3D;}
 
+	inline glm::vec3 getPosition() const { return _position; }
+
+	//Set the position of an object
+	inline void setPosition(const glm::vec3 & pos) { _position = pos; }
+
 	//OPERATORS
 
 	//Input stream

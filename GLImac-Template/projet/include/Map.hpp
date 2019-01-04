@@ -26,7 +26,7 @@ private:
 	std::vector<Object> _objectList;
 	glm::vec2 _startPoint;
 	std::vector<glm::vec2> _endPoints;
-	std::vector<Map> _nextMaps;
+	std::vector<Map*> _nextMaps;
 
 public:
 	//CONSTRUCTORS & DESTRUCTORS
@@ -35,7 +35,7 @@ public:
 	Map();
 
 	//Parameter constructor
-	Map(const std::string & mapFile, const int & flag);
+	Map(const std::string & mapFile, const int & flag, const glm::vec2 & start);
 
 	//Default destructor
 	~Map() = default;
@@ -45,7 +45,11 @@ public:
 		return _startPoint;
 	}
 
-	const std::vector<Object> objectList() const{return _objectList;}
+	//Return the list of the next maps
+	inline const std::vector<Map*> getNextMaps() const { return _nextMaps; }
+
+	//Return a list of the object of the map
+	const std::vector<Object> objectList() const{ return _objectList; }
 
 	//Create an object from a pixel
 	void createObject(const int & col, const int & row, const float & g, const float & b);
@@ -55,6 +59,12 @@ public:
 
 	//Remove an object from the object list
 	void removeObject(const Object & obj);
+
+	//Progress in the map
+	void moveMap(const float & distance);
+
+	//Return the list of object of all maps
+	std::vector<Object> getAllObjects(const int & i) const;
 
 	//DEBUG
 
