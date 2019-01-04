@@ -12,21 +12,20 @@
 class Game
 {
 private: 
-	Player _player;
-	View _view; //must be before world to init glew
-	World _world;
-
+	Player _player; ///< Player of the game
+	//view must be before world to init glew
+	View _view; ///< View that print every world element 
+	World _world; ///< World that contain every element of the game, can be considered as the model 
 
 
 public:
-	Game(){}
+	Game();
 	~Game() = default;
 
-	/// \brief initialization of the game.
-	void init();
 
 	/// \brief Launch the window and the main loop
-	void run(const int argc, char** argv);
+	/// \param execName: Name of the executed file. Supposed to be argv[0] of the main
+	void run(char* execName);
 
 
 private: 

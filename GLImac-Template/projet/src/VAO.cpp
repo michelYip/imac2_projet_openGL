@@ -1,6 +1,11 @@
 #include "VAO.hpp"
-
 #include <sstream>
+
+const std::string VAO::OBJ_FOLDER = "main/assets/models/";
+const GLuint VAO::POS_ATTRIB_IND = 0;
+const GLuint VAO::NORM_ATTRIB_IND = 1;
+const GLuint VAO::TEXT_ATTRIB_IND = 2;
+
 
 VAO::VAO(const std::string &obj_filename){
 //Load vertices & indexes
