@@ -21,7 +21,7 @@ class FreeflyCamera{
 
 	public:
 		// constructeur(s)
-		FreeflyCamera(): _position(glm::vec3(0, 0, 0)), _fPhi(glm::pi<float>()), _fTheta(0){
+		FreeflyCamera(): _position(glm::vec3(0, 0, 1)), _fPhi(0), _fTheta(0){
 			this->computeDirectionVectors();
 		};
 

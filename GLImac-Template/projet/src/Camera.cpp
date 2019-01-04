@@ -5,13 +5,20 @@ void Camera::changeCameraType(){
 	else _cameraType = "first";
 }
 
-void Camera::cameraMotion(const glm::vec2 &lastPos, const glm::vec2 &pos){
+void Camera::cameraMotion(const float &xrel, const float &yrel){
 	if(_cameraType == "first"){
-		_first.rotateLeft(pos.x - lastPos.x);
-		_first.rotateUp(pos.y - lastPos.y);
+		_first.rotateLeft(xrel * FIRST_ROTATE_SPEED);
+		_first.rotateUp(yrel * FIRST_ROTATE_SPEED);
 	}
 	else{
-		_third.rotateLeft(pos.x - lastPos.x);
-		_third.rotateUp(pos.y - lastPos.y);
+		_third.rotateLeft(xrel * THIRD_ROTATE_SPEED);
+		_third.rotateUp(yrel * THIRD_ROTATE_SPEED);
 	}
+}
+
+void Camera::zoomIn(){
+	_third.moveFront(ZOOM_SPEED);
+}
+void Camera::zoomOut(){
+	_third.moveFront(-ZOOM_SPEED);
 }

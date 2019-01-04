@@ -27,8 +27,8 @@ int View::createWindow(const glimac::FilePath &applicationPath, const World &wor
     _renderingEngine.push_back(sphere);
 
     // Rendering 2D (gameinfos)
-    RenderingInterface* gameInfos = new RenderingInterface(applicationPath, 3);
-    _renderingEngine.push_back(gameInfos);
+    // RenderingInterface* gameInfos = new RenderingInterface(applicationPath, 3);
+    // _renderingEngine.push_back(gameInfos);
 
     return EXIT_SUCCESS;
 }
@@ -44,7 +44,7 @@ void View::displayWindow(){
 		}
 		else {
 			_renderingEngine[_screen]->show(_camera);
-			_renderingEngine[_screen+1]->show();
+			// _renderingEngine[_screen+1]->show();
 		}
 		_windowManager.swapBuffers();
 	}
@@ -79,12 +79,12 @@ void View::manageEvents(const SDL_Event &e){
 			break;
 		case SDL_MOUSEBUTTONDOWN:
 			if(_camera.cameraType() == "third" && _locked == false){
-				if(e.button.button == SDL_BUTTON_WHEELUP) _camera.thirdPCamera().moveFront(0.5f);
-				else if(e.button.button == SDL_BUTTON_WHEELDOWN) _camera.thirdPCamera().moveFront(-0.5f);	
+				if(e.button.button == SDL_BUTTON_WHEELUP)_camera.zoomIn();
+				else if(e.button.button == SDL_BUTTON_WHEELDOWN) _camera.zoomOut();	
 			}
 			break;
 		case SDL_MOUSEMOTION:
-			if(_locked == false) _camera.cameraMotion(getMousePosition(), _lastPos);
+			if(_locked == false) _camera.cameraMotion(e.motion.xrel, e.motion.yrel);
 			break;
 		default: 
 			break;
@@ -123,10 +123,7 @@ void View::manageKeyUpEvents(const SDLKey &k){
 			_camera.changeCameraType();
 			break;
 		case SDLK_l:
-			if(_locked){
-				_lastPos = glm::vec2(getMousePosition().x, getMousePosition().y);
-				this->_locked = false;
-			}
+			if(_locked)	this->_locked = false;
 			else this->_locked = true;
 			break;
 		case SDLK_d:

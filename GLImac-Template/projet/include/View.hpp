@@ -24,7 +24,6 @@ class View
 		bool _keyPressed;	// a key is pressed
 		bool _locked;		// camera locked or not
 		unsigned int _screen;
-		glm::vec2 _lastPos;
 		std::vector<Rendering*> _renderingEngine;
 		SDLWindowManager _windowManager;
 		Camera _camera;
@@ -36,8 +35,7 @@ class View
 		:_done(false),
 		_keyPressed(false), 
 		_locked(true),
-		_screen(0), 
-		_lastPos(glm::vec2(0, 0)), 
+		_screen(0),
 		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")		
 		{};
 

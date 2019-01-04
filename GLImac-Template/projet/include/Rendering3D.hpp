@@ -7,8 +7,8 @@
 #include "World.hpp"
 #include <glimac/Sphere.hpp>
 
-const float WINDOW_WIDTH = 1280;
-const float WINDOW_HEIGHT = 720;
+const float WINDOW_WIDTH = 1600;
+const float WINDOW_HEIGHT = 1200;
 
 class Rendering3D : public Rendering
 {

@@ -6,6 +6,10 @@
 #include "FreeflyCamera.hpp"
 #include "TrackballCamera.hpp"
 
+const float FIRST_ROTATE_SPEED = 400.f;
+const float THIRD_ROTATE_SPEED = 40.f;
+const float ZOOM_SPEED = 0.5f;
+
 class Camera{
     private:
         std::string _cameraType;
@@ -30,7 +34,9 @@ class Camera{
         }
 
         void changeCameraType();
-        void cameraMotion(const glm::vec2 &lastPos, const glm::vec2 &pos);
+        void cameraMotion(const float &xrel, const float &yrel);
+        void zoomIn();
+        void zoomOut();
 };
 
 #endif

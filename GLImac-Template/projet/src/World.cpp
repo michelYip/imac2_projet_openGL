@@ -39,6 +39,6 @@ bool World::isFinished(){
 
 const std::vector<Object> World::getAllPrintableObjects() const{
 	std::vector<Object> list = _map.objectList();
-	// list.push_back(_player);
+	list.push_back(_player);
 	return list; 
 }
