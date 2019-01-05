@@ -12,8 +12,8 @@ const float FREEFLY_ROTATION_SPEED = 0.5;
 /// \brief view from character's eyes 
 class FreeflyCamera : public Camera{
 	private:
-		glm::vec3 _position;	// position caméra
-		float _fPhi;	// coordonnées sphériques
+		glm::vec3 _position;	
+		float _fPhi;	
 		float _fTheta;
 
 		glm::vec3 _frontVector;
@@ -27,12 +27,12 @@ class FreeflyCamera : public Camera{
 		};
 
 	public:
-		// constructeur(s)
+		// CONSTRUCTORS(S)
 		FreeflyCamera(): _position(glm::vec3(0, 1, 1.5)), _fPhi(0), _fTheta(0){
 			this->computeDirectionVectors();
 		};
 
-		// méthodes
+		// METHODS
 		void moveLeft(float t){
 			this->_position += t * _leftVector;
 		};
@@ -55,7 +55,13 @@ class FreeflyCamera : public Camera{
 		glm::mat4 getViewMatrix() const{
 			return glm::lookAt(this->_position, this->_position + this->_frontVector, _upVector);
 		};
+		void motion(const float &xrel, const float &yrel){
+			if(!_locked){
+				rotateLeft(xrel);
+				rotateUp(yrel);				
+			}
 
+		}
 };
 
 #endif

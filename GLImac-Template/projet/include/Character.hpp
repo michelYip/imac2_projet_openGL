@@ -12,7 +12,7 @@ class Character : public MovingObject
 {
 protected:
 	virtual const std::string TEXTURE_FILE(){return "white.png";}
-	virtual const std::string OBJ_FILE(){return "cube.obj";}
+	virtual const std::string OBJ_FILE(){return "character.obj";}
 
 private: 
 	std::vector<Coin> _collectedCoins;
@@ -25,7 +25,6 @@ public:
 
 	//Add coin value to the collected coin
 	void collectCoin(Coin c);
-	
 };
 
 #endif

@@ -27,7 +27,6 @@ class View
 	private:
 		bool _done;			// end app loop
 		bool _keyPressed;	// a key is pressed
-		bool _locked;		// camera locked or not
 		unsigned int _screen;
 		Rendering *_rendering;
 		SDLWindowManager _windowManager;
@@ -37,8 +36,7 @@ class View
 		//Default constructor
 		View()
 		:_done(false),
-		_keyPressed(false), 
-		_locked(true),
+		_keyPressed(false),
 		_screen(0),
 		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac"),
 		_rendering(NULL)

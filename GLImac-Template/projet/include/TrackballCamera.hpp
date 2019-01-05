@@ -9,9 +9,9 @@ const float TRACKBALL_ROTATION_SPEED = 0.5;
 /// \brief focuses on the character 
 class TrackballCamera : public Camera{
 	private:
-		float _fDistance;	// distance par rapport au centre de la scène
-		float _fAngleX;		// angle de la caméra autour de l'axe x
-		float _fAngleY;		// de l'axe Y
+		float _fDistance;	// distance with the center of the scene
+		float _fAngleX;		// angle around x-axis
+		float _fAngleY;		// angle around y-axis
 
 	public:
 		// constructeur(s)
@@ -34,7 +34,6 @@ class TrackballCamera : public Camera{
 		};
 		void rotateLeft(float degrees){
 			float newAngleY = _fAngleY + degrees * TRACKBALL_ROTATION_SPEED;
-			std::cout << newAngleY << std::endl;
 			if(newAngleY >= 145.f && newAngleY <= 215.f)
 				_fAngleY = newAngleY;
 		};
@@ -49,6 +48,21 @@ class TrackballCamera : public Camera{
 			MVMatrix = glm::rotate(MVMatrix, -glm::radians(_fAngleX), glm::vec3(1, 0, 0));
 			return MVMatrix;
 		};
+
+		void motion(const float &xrel, const float &yrel){
+			if(!_locked){
+				rotateLeft(xrel);
+				rotateUp(yrel);	
+			}
+		}
+		void zoomIn(){
+			if(!_locked)
+				moveFront(ZOOM_SPEED);
+		}
+		void zoomOut(){
+			if(!_locked)
+				moveFront(-ZOOM_SPEED);
+		}
 };
 
 #endif
