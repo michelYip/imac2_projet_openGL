@@ -15,6 +15,8 @@
 #include "RenderingInterface.hpp"
 #include "GPUProgram2D.hpp"
 
+#include "interface/throwableEvents/QuitGame.hpp"
+
 using namespace glimac;
 
 
@@ -27,9 +29,8 @@ class View
 		bool _keyPressed;	// a key is pressed
 		bool _locked;		// camera locked or not
 		unsigned int _screen;
-		std::vector<Rendering*> _renderingEngine;
+		Rendering *_rendering;
 		SDLWindowManager _windowManager;
-		Camera _camera;
 
 	public:
 		//CONSTRUCTORS & DESTRUCTORS
@@ -39,20 +40,20 @@ class View
 		_keyPressed(false), 
 		_locked(true),
 		_screen(0),
-		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac")		
+		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac"),
+		_rendering(NULL)
 		{};
 
 		//Default destructor
 		~View(){
-			for(int i = 0; i < _renderingEngine.size(); i++){
- 				_renderingEngine[i]->end();
-				delete _renderingEngine.at(i);
-			}
-			_renderingEngine.clear();
-
+			delete(_rendering);
 			//Free static loaded Mesh
 			Mesh::clearAllLoadedMesh();
 		};
+
+		void set_rendering(Rendering* r){
+			_rendering = r;
+		}
 
 		//GETTERS & SETTERS
 		glm::vec2 getMousePosition();
@@ -64,13 +65,8 @@ class View
 
 		int createWindow(const glimac::FilePath &applicationPath, const World &world);
 		void displayWindow();
-		void clearWindow();
 
 		void waitEvents();
-		void manageEvents(const SDL_Event &e);
-
-		void manageKeyUpEvents(const SDLKey &k);
-		void manageKeyDownEvents(const SDLKey &k);
 };
 
 #endif

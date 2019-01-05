@@ -4,23 +4,13 @@
 #include <iostream>
 #include <string>
 #include <GL/glew.h>
-#include <glimac/Image.hpp>
-
-#include "Image.hpp"
-#include "GPUProgram2D.hpp"
-#include "GPUProgram3D.hpp"
-
-#include "Camera.hpp"
-
+#include <glimac/SDLWindowManager.hpp>
+#include "ImageButton.hpp"
 
 /// \class Rendering
 /// \bried Rendering module of the View
 class Rendering
 {
-	protected:
-		GLuint _vbo;
-		GLuint _vao;
-
 	public:
 		//CONSTRUCTORS & DESTRUCTORS
 		//Default constructor
@@ -30,29 +20,20 @@ class Rendering
 		Rendering(const glimac::FilePath &applicationPath, const unsigned int &screen);
 		
 		//Reference constructor
-		Rendering(const Rendering &rendering)
-		:_vbo(rendering._vbo), 
-		_vao(rendering._vao)
-		{};
+		Rendering(const Rendering &rendering){}
 
 		//Default destructor
-		~Rendering(){
-		    glDeleteBuffers(1, &_vbo);
-		    glDeleteVertexArrays(1, &_vao);
-		};
+		~Rendering(){}
 
 		//
-		virtual inline std::vector<Image> elements() const{};
-		virtual inline unsigned int currentButton() const{};
+		virtual void show() = 0;
 
-		virtual void show(){};
-		virtual void show(const Camera &camera){}
-		
-		virtual void end(){}
-
-		virtual void arrowDown(const unsigned int &screen){}
-		virtual void arrowUp(const unsigned int &screen){}
-		virtual bool actionButton(unsigned int &screen) const{}
+		// deals with the events
+		virtual void manageEvents(const SDL_Event &e) = 0;
+		// deals with key up events
+		virtual void manageKeyUpEvents(const SDLKey &k) = 0;
+		// deals with key down events
+		virtual void manageKeyDownEvents(const SDLKey &k) = 0;
 };
 
 #endif

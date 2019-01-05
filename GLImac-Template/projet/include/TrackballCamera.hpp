@@ -1,13 +1,11 @@
 #ifndef _TRACKBALLCAMERA_
 #define _TRACKBALLCAMERA_
 
-using namespace glm;
-#include <glimac/glm.hpp>
-
+#include "Camera.hpp"
 
 /// \class TrackballCamera
 /// \bried [DESCRIPTION TO FILL] 
-class TrackballCamera{
+class TrackballCamera : public Camera{
 
 	private:
 		float _fDistance;	// distance par rapport au centre de la scène
