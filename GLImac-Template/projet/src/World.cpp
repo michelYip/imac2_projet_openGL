@@ -43,9 +43,16 @@ const std::vector<Object> World::getAllPrintableObjects() const{
 bool World::coroutine(const bool & done, const float & time_interval){
 	// TODO
 	float distance = _worldSpeed * time_interval;
-	//_cameraPosition += distance;
 
 	_map.moveMap(-distance);
+
+	if ((_player.isMovingLeft() && _player.isMovingRight()) ||
+		(!_player.isMovingLeft() && !_player.isMovingRight()))
+	{
+		_player.decelerateX(time_interval);
+	}
+	else _player.accelerateX(time_interval, _player.isMovingLeft());
+	_player.move(glm::vec3(_player.getXVelocity(), _player.getYVelocity(), 0) * glm::vec3(time_interval));
 
 	return done && isFinished();
 }

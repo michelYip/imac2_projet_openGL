@@ -2,6 +2,18 @@
 
 // deals with the events
 void Environment3D::manageEvents(const SDL_Event &e){
+    const Uint8 * keyState = SDL_GetKeyState(NULL);
+    if  ((keyState[SDLK_q] && !_world.getCharacter().isMovingLeft()) || 
+        (!keyState[SDLK_q] && _world.getCharacter().isMovingLeft()))
+    {
+        _world.movingLeft();
+    }
+    if  ((keyState[SDLK_d] && !_world.getCharacter().isMovingRight()) || 
+        (!keyState[SDLK_d] && _world.getCharacter().isMovingRight()))
+    {
+        _world.movingRight();
+    }
+
     switch(e.type){
         case SDL_QUIT:
             throw QuitGame();

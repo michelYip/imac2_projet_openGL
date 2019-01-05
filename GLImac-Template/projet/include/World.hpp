@@ -6,7 +6,7 @@
 #include "Physic.hpp"
 #include "Map.hpp"
 
-const float INITIAL_SPEED = 1.2f;
+const float INITIAL_SPEED = 3;
 const int MAX_MAPS = 5;
 
 
@@ -33,14 +33,20 @@ public:
 	//Set map with a file name
 	void createMap(const std::string & map);
 
-	//Create the character
-	void initCharacter();
-
 	//Set map with a reference
 	void setMap(const Map & map);
 
 	//Return the current map
 	Map getMap() const;
+
+	//Create the character
+	void initCharacter();
+
+	//Return the character
+	inline Character getCharacter() { return _player; }
+
+	inline void movingLeft() { _player.movingLeft(); }
+	inline void movingRight() { _player.movingRight(); }
 
 	//Return a list of all object in the world
 	const std::vector<Object> getAllPrintableObjects() const;

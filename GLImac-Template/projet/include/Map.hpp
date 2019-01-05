@@ -20,7 +20,7 @@ const float START_MAX = 25.5;
 const float END_MIN = 23.5;
 const float END_MAX = 24.5;
 const int INIT_X = 8;
-const int INIT_Y = 3;
+const int INIT_Z = 3;
 
 /// \class Map
 /// \bried [DESCRIPTION TO FILL] 

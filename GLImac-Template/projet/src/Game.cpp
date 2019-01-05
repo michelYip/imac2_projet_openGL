@@ -37,15 +37,17 @@ void Game::run(char* execName){
 	while(!_world.coroutine(_view.done(), time_interval)){
 	    time_interval = float(end - start)/CLOCKS_PER_SEC; 
 		start = clock();
-      	try{_view.waitEvents();}
+      	
+		try{_view.waitEvents();}
 	    catch(const GoToSaveMenu &e){_view.set_rendering(savemenu);}
 	    catch(const GoToCreatePlayerMenu &e){ std::cout << "Not yet created option" << std::endl;}
 	    catch(const GoToPlayerMenu &e){_view.set_rendering(playermenu);}
 	    catch(const GoToChangeSkinMenu &e){ std::cout << "Not yet created option" << std::endl;}
 	    catch(const GoTo3DEnvironment &e){ _view.set_rendering(environment3D);}    
-  		_view.displayWindow();
+  		
+		_view.displayWindow();
   		end = clock();
-  }
+  	}
 	
 
 	delete(startmenu);
