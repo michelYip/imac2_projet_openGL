@@ -7,10 +7,13 @@
 Game::Game(){
 	//TODO
 	std::cout << "________________________________" << std::endl << "GAME INIT STARTING..." << std::endl;
-	
 
+	//CREATE AND SAVE DEFAULT PLAYER BECAUSE CANNOT CREATE PLAYER FROM THE INTERFACE FOR NOW
 	_player.addUnlockedSkins(Skin("test1",50,"test1.texture"));
 	_player.addUnlockedSkins(Skin("test2",10,"test2.texture"));
+	_player.save("player_1");
+
+
 	_world.createMap("01.ppm");
 	_world.initCharacter();
 	
