@@ -23,7 +23,7 @@ void Rendering3D::show(){
     std::vector<Object> list_obj = _world.getAllPrintableObjects();
     _program3D._program.use();
     for (int i = 0; i < list_obj.size(); ++i){
-        glm::mat4 tmp_MVMatrix = glm::translate(_MVMatrix, list_obj.at(i).position() * glm::vec3(1.5,1.5,1.5));
+        glm::mat4 tmp_MVMatrix = glm::translate(_MVMatrix, list_obj.at(i).position());
         glUniformMatrix4fv(_program3D._uMVPMatrix, 1, GL_FALSE, glm::value_ptr(_ProjMatrix * tmp_MVMatrix));
         glUniformMatrix4fv(_program3D._uMVMatrix, 1, GL_FALSE, glm::value_ptr(tmp_MVMatrix));
         glUniformMatrix4fv(_program3D._uNormalMatrix, 1, GL_FALSE, glm::value_ptr(_NormalMatrix));
