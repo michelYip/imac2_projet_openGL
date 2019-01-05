@@ -1,15 +1,13 @@
 #ifndef _TRACKBALLCAMERA_
 #define _TRACKBALLCAMERA_
 
-using namespace glm;
-#include <glimac/glm.hpp>
 
 const float TRACKBALL_ROTATION_SPEED = 0.5;
+#include "Camera.hpp"
 
 /// \class TrackballCamera
-/// \bried focuses on the character 
-class TrackballCamera{
-
+/// \brief focuses on the character 
+class TrackballCamera : public Camera{
 	private:
 		float _fDistance;	// distance par rapport au centre de la scène
 		float _fAngleX;		// angle de la caméra autour de l'axe x

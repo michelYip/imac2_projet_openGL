@@ -6,9 +6,11 @@
 
 const float FREEFLY_ROTATION_SPEED = 0.5;
 
+#include "Camera.hpp"
+
 /// \class FreeflyCamera
-/// \bried view from character's eyes 
-class FreeflyCamera{
+/// \brief view from character's eyes 
+class FreeflyCamera : public Camera{
 	private:
 		glm::vec3 _position;	// position caméra
 		float _fPhi;	// coordonnées sphériques

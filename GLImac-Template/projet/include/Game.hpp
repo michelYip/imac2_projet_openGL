@@ -6,6 +6,10 @@
 #include "Player.hpp"
 #include "World.hpp"
 #include "View.hpp"
+#include "interface/StartMenu.hpp"
+#include "interface/SaveMenu.hpp"
+#include "interface/PlayerMenu.hpp"
+#include "interface/Environment3D.hpp"
 	
 /// \class Game
 /// \brief Create and manage the game
@@ -26,12 +30,6 @@ public:
 	/// \brief Launch the window and the main loop
 	/// \param execName: Name of the executed file. Supposed to be argv[0] of the main
 	void run(char* execName);
-
-
-private: 
-	/// \brief  Select a player and load him into _player
-	/// \return  The player selected to play 
-	Player selectSavedPlayer() const;
 
 
 };
