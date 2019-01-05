@@ -3,6 +3,8 @@
 
 #include "Object.hpp"
 
+/// \class TriggerObject
+/// \bried Object that can launch and event present in the World 
 class TriggerObject : public Object
 {
 public:

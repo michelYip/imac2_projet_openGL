@@ -9,6 +9,9 @@
 
 #include <string>
 
+
+/// \class Object
+/// \bried Abstract class of an object present in the World
 class Object
 {
 protected: 

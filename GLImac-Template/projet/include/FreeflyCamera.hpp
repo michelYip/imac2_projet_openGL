@@ -3,6 +3,8 @@
 
 #include <glimac/glm.hpp>
 
+/// \class FreeflyCamera
+/// \bried [DESCRIPTION TO FILL] 
 class FreeflyCamera{
 	private:
 		glm::vec3 _position;	// position caméra

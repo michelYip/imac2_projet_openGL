@@ -4,6 +4,8 @@
 #include <glimac/Program.hpp>
 #include <string>
 
+/// \class GPUProgram
+/// \bried [DESCRIPTION TO FILL] 
 class GPUProgram{
 	public:
 		glimac::Program _program;

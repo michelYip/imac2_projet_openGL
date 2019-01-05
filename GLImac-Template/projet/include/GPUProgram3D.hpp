@@ -3,6 +3,9 @@
 
 #include <glimac/Program.hpp>
 
+
+/// \class GPUProgram3D
+/// \bried Contain the uniform var location needed by the Rendering3D
 class GPUProgram3D{
 	public:
 		glimac::Program _program;

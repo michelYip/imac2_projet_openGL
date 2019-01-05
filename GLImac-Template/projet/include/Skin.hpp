@@ -10,6 +10,8 @@
 
 const std::string SKIN_LIST_FILE = "main/assets/skins/list_skins";
 
+/// \class Skin
+/// \bried Skin of the player applied to the Character in the World
 class Skin
 {
 private:

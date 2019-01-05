@@ -9,6 +9,9 @@
 const float INITIAL_SPEED = 5.0f;
 const int MAP_NUMBER = 2;
 
+
+/// \class World
+/// \brief World of the Game that manage every element present in it
 class World
 {
 private: 

@@ -12,6 +12,9 @@
 
 #include "Camera.hpp"
 
+
+/// \class Rendering
+/// \bried Rendering module of the View
 class Rendering
 {
 	protected:

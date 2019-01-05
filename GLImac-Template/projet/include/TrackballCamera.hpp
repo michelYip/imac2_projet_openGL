@@ -5,7 +5,8 @@ using namespace glm;
 #include <glimac/glm.hpp>
 
 
-
+/// \class TrackballCamera
+/// \bried [DESCRIPTION TO FILL] 
 class TrackballCamera{
 
 	private:

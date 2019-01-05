@@ -3,6 +3,8 @@
 
 #include "TriggerObject.hpp"
 
+/// \class Bonus
+/// \bried Bonus present on the Map
 class Bonus : public TriggerObject
 {
 protected:

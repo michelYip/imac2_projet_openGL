@@ -8,7 +8,7 @@
 #include <GL/glew.h>
 
 /// \class Mesh
-/// \brief Mesh of an object
+/// \brief 3D Mesh of an object
 class Mesh
 {
 	private:
