@@ -4,6 +4,7 @@
 #include "Camera.hpp"
 #include "Rendering.hpp"
 #include "Mesh.hpp"
+#include "Light.hpp"
 #include "World.hpp"
 #include <glimac/Sphere.hpp>
 #include "GPUProgram3D.hpp"
@@ -25,6 +26,7 @@ class Rendering3D : public Rendering
 		glm::mat4 _MVMatrix;
 		glm::mat4 _NormalMatrix;
 		GPUProgram3D _program3D;
+		Light _light;
 
 	public:
 		Rendering3D() = default;
