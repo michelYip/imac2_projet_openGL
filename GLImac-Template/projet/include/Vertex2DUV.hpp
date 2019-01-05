@@ -1,5 +1,7 @@
 #include <glimac/glm.hpp>
 
+
+/// \class Vertex2DUV
 class Vertex2DUV{
     public:
         glm::vec2 _pos;

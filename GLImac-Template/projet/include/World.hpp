@@ -9,6 +9,9 @@
 const float INITIAL_SPEED = 1.0f;
 const int MAX_MAPS = 5;
 
+
+/// \class World
+/// \brief World of the Game that manage every element present in it
 class World
 {
 private: 

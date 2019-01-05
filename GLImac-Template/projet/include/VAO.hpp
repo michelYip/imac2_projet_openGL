@@ -13,7 +13,8 @@
 
 
 
-
+/// \class VAO
+/// \bried Create a VAO that can be drawn on the window from an .obj file   
 class VAO
 {
 	private:

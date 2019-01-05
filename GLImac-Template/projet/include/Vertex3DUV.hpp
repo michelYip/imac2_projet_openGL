@@ -4,6 +4,8 @@
 
 #include <glimac/glm.hpp>
 
+
+/// \class Vertex3DUV
 class Vertex3DUV{
 	private:
         glm::vec3 _pos;

@@ -4,6 +4,8 @@
 
 #include "StaticObject.hpp"
 
+/// \class Coin
+/// \bried Coin present on the Map that add money to the Player at the end of every Game try
 class Coin : public StaticObject
 {
 protected:

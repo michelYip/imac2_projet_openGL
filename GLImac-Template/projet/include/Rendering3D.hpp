@@ -10,6 +10,9 @@
 const float WINDOW_WIDTH = 1600;
 const float WINDOW_HEIGHT = 1200;
 
+
+/// \class Rendering3D
+/// \bried Rendering module that is able to create a 3D environment from the world informations
 class Rendering3D : public Rendering
 {
 	private:

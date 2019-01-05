@@ -3,6 +3,9 @@
 
 #include "TriggerObject.hpp"
 
+
+/// \class Malus
+/// \bried Malus present on the Map
 class Malus : public TriggerObject
 {
 protected:

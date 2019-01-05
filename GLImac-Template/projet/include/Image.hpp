@@ -7,6 +7,9 @@
 #include <cstddef>
 #include <iostream>
 
+
+/// \class Image
+/// \bried [DESCRIPTION TO FILL] 
 class Image{
 	private:
 		glm::vec2 _position;

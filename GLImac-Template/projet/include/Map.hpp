@@ -20,6 +20,9 @@ const float START_MAX = 25.5;
 const float END_MIN = 23.5;
 const float END_MAX = 24.5;
 
+
+/// \class Map
+/// \bried [DESCRIPTION TO FILL] 
 class Map
 {
 private: 
