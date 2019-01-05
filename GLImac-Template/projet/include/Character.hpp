@@ -25,7 +25,6 @@ public:
 
 	//Add coin value to the collected coin
 	void collectCoin(Coin c);
-	
 };
 
 #endif

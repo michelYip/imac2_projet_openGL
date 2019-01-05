@@ -31,7 +31,7 @@ class Rendering3D : public Rendering
 	public:
 		Rendering3D() = default;
 
-		Rendering3D(const glimac::FilePath &applicationPath, const Camera *camera, World &world);
+		Rendering3D(const glimac::FilePath &applicationPath, const Camera* camera, World &world);
 
 		~Rendering3D() = default;
 

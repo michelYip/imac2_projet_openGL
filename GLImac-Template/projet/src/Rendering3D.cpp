@@ -1,6 +1,6 @@
 #include "Rendering3D.hpp"
 
-Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, const Camera *camera, World &world)
+Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, const Camera* camera, World &world)
 :_world(world), _camera(camera)
 {
     _program3D = GPUProgram3D(applicationPath, "3D.vs.glsl", "tex3D.fs.glsl");   

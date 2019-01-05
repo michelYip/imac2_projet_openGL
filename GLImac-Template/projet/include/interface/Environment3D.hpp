@@ -11,16 +11,13 @@
 #include "interface/throwableEvents/GoToChangeSkinMenu.hpp"
 #include "exceptions/Unreachable_file.hpp"
 
-
-
-
 /// \class PlayerMenu
 class Environment3D : public Rendering3D
 {
 	private:
 		Player &_player; 
 		FreeflyCamera _ffcamera;
-		TrackballCamera _tccamera;
+		TrackballCamera _tbcamera;
 	public:
 		Environment3D(const glimac::FilePath &applicationPath, World &world, Player &player)
 		:Rendering3D(applicationPath,&_ffcamera,world), _player(player)

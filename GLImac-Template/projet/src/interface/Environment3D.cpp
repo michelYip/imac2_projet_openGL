@@ -10,7 +10,17 @@ void Environment3D::manageEvents(const SDL_Event &e){
             manageKeyDownEvents(e.key.keysym.sym);
             break;
         case SDL_KEYUP:
-            this->manageKeyUpEvents(e.key.keysym.sym);
+            manageKeyUpEvents(e.key.keysym.sym);
+            break;
+        case SDL_MOUSEMOTION:
+            _ffcamera.motion(e.motion.xrel, e.motion.yrel);
+            _tbcamera.motion(e.motion.xrel, e.motion.yrel);
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            if(e.button.button == SDL_BUTTON_WHEELUP)
+                _tbcamera.zoomIn();
+            else if(e.button.button == SDL_BUTTON_WHEELDOWN)
+                _tbcamera.zoomOut();
             break;
         default: 
             break;
@@ -38,7 +48,11 @@ void Environment3D::manageKeyUpEvents(const SDLKey &k){
 void Environment3D::manageKeyDownEvents(const SDLKey &k){
     switch(k){
         case SDLK_c:
-            _camera = (_camera != &_ffcamera) ? (Camera*)&_ffcamera : (Camera*)&_tccamera;
+            _camera = (_camera != &_ffcamera) ? (Camera*)&_ffcamera : (Camera*)&_tbcamera;
+            break;
+        case SDLK_l:
+            _ffcamera.changeLock();
+            _tbcamera.changeLock();
             break;
         default:
             break;

@@ -13,7 +13,6 @@ int View::createWindow(const glimac::FilePath &applicationPath, const World &wor
 		std::cerr << TTF_GetError() << std::endl;
 		return EXIT_FAILURE;
 	}
-
     return EXIT_SUCCESS;
 }
 
