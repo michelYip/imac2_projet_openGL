@@ -37,7 +37,7 @@ void Game::run(char* execName){
   
 	while(!_world.coroutine(_view.done(), time_interval)){
 	    time_interval = float(end - start)/CLOCKS_PER_SEC; 
-		  start = clock();
+		start = clock();
       try{_view.waitEvents();}
 	    catch(const GoToSaveMenu &e){_view.set_rendering(savemenu);}
 	    catch(const GoToCreatePlayerMenu &e){ std::cout << "Not yet created option" << std::endl;}
@@ -45,8 +45,8 @@ void Game::run(char* execName){
 	    catch(const GoToChangeSkinMenu &e){ std::cout << "Not yet created option" << std::endl;}
 	    catch(const GoTo3DEnvironment &e){ _view.set_rendering(environment3D);}    
   		_view.displayWindow();
+  		end = clock();
   }
-  end = clock();
 	
 
 	delete(startmenu);

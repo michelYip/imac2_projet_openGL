@@ -6,7 +6,7 @@
 #include "Physic.hpp"
 #include "Map.hpp"
 
-const float INITIAL_SPEED = 0.2f;
+const float INITIAL_SPEED = 1.2f;
 const int MAX_MAPS = 5;
 
 

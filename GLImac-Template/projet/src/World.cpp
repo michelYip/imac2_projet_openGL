@@ -44,8 +44,8 @@ bool World::coroutine(const bool & done, const float & time_interval){
 	// TODO
 	float distance = _worldSpeed * time_interval;
 	//_cameraPosition += distance;
-	
-	_map.moveMap(distance);
+
+	_map.moveMap(-distance);
 
 	return done && isFinished();
 }
