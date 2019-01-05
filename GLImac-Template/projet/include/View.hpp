@@ -17,6 +17,9 @@
 
 using namespace glimac;
 
+
+/// \class View
+/// \brief View of the Game that control the window
 class View
 {
 	private:

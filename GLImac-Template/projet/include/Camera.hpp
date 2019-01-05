@@ -10,6 +10,9 @@ const float FIRST_ROTATE_SPEED = 400.f;
 const float THIRD_ROTATE_SPEED = 40.f;
 const float ZOOM_SPEED = 0.5f;
 
+
+/// \class Camera
+/// \bried Camera of the View
 class Camera{
     private:
         std::string _cameraType;

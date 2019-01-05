@@ -1,5 +1,7 @@
 #include <glimac/glm.hpp>
 
+
+/// \class Vertex2DColor
 class Vertex2DColor{
     public:
         glm::vec2 _position;

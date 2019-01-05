@@ -13,6 +13,8 @@ const GLuint VERTEX_ATTR_COLOR = 1;
 const GLuint NB_SCREEN = 4;
 const std::vector<unsigned int> NB_BUTTON = {2, 3, 4};
 
+/// \class RenderingInterface
+/// \bried Rendering module that is able to create a 2D environment to create an interface
 class RenderingInterface : public Rendering
 {
 	private:

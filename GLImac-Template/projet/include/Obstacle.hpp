@@ -8,6 +8,9 @@ const int OBSTACLE_AIRBORN_THRESHOLD  = 200;
 const int OBSTACLE_FLOAT_HEIGHT = 3;
 const int OBSTACLE_HEIGHT_MARGIN = 50;
 
+
+/// \class Obstacle
+/// \bried Obstacle present on the Map
 class Obstacle : public StaticObject
 {
 protected:

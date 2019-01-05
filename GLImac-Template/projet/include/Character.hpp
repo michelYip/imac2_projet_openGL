@@ -5,6 +5,9 @@
 #include "MovingObject.hpp"
 #include "Coin.hpp"
 
+
+/// \class Character
+/// \bried Character present on the Map controlled by the Player
 class Character : public MovingObject
 {
 protected:

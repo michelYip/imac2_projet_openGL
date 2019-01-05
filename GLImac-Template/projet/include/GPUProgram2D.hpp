@@ -3,6 +3,8 @@
 
 #include <glimac/Program.hpp>
 
+/// \class GPUProgram2D
+/// \bried Contain the uniform var location needed by the RenderingInterface
 class GPUProgram2D{
 	public:
 		glimac::Program _program;

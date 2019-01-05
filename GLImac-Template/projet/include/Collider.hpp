@@ -6,6 +6,8 @@
 
 const unsigned int DIM = 3;
 
+/// \class Collider
+/// \bried Collider bouding box of an Object
 class Collider
 {
 private: 
