@@ -2,9 +2,12 @@
 #define _FREEFLYCAMERA_
 
 #include <glimac/glm.hpp>
+#include <iostream>
+
+const float FREEFLY_ROTATION_SPEED = 0.5;
 
 /// \class FreeflyCamera
-/// \bried [DESCRIPTION TO FILL] 
+/// \bried view from character's eyes 
 class FreeflyCamera{
 	private:
 		glm::vec3 _position;	// position caméra
@@ -23,7 +26,7 @@ class FreeflyCamera{
 
 	public:
 		// constructeur(s)
-		FreeflyCamera(): _position(glm::vec3(0, 0, 1)), _fPhi(0), _fTheta(0){
+		FreeflyCamera(): _position(glm::vec3(0, 1, 1.5)), _fPhi(0), _fTheta(0){
 			this->computeDirectionVectors();
 		};
 
@@ -35,14 +38,16 @@ class FreeflyCamera{
 			this->_position += t * _frontVector;
 		};
 		void rotateLeft(float degrees){
-			// if(_fPhi + degrees >= radians(90.f) && _fPhi + degrees <= radians(270.f)) 
-			_fPhi += glm::radians(degrees * 0.001);
+			float newPhi = _fPhi + glm::radians(degrees * FREEFLY_ROTATION_SPEED);
+			if(newPhi <= glm::pi<float>() / 4.f && newPhi >= - glm::pi<float>() / 4.f)
+				_fPhi = newPhi;
 			computeDirectionVectors();
 		};
 		void rotateUp(float degrees){
-			// if(_fTheta+ degrees >= radians(-90.f) && _fTheta + degrees <= radians(90.f))
-			 _fTheta += glm::radians(degrees * 0.001);
-			this->computeDirectionVectors();
+			float newTheta = _fTheta + glm::radians(degrees * FREEFLY_ROTATION_SPEED);
+			if(newTheta <= glm::pi<float>() / 4.f && newTheta >= - glm::pi<float>() / 4.f)
+				_fTheta = newTheta;
+			computeDirectionVectors();
 		};
 
 		glm::mat4 getViewMatrix() const{

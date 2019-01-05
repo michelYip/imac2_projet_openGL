@@ -49,14 +49,14 @@ Map::Map(const std::string & mapFile, const int & i, const glm::vec2 & start){
 			b = std::stoi(strB)/HEIGHT_RATIO_PPM;
 
 			if (g >= START_MIN && b >= START_MIN && g <= START_MAX && b <= START_MAX)
-				_startPoint = glm::vec2(col, row) + start;
+				_startPoint = glm::vec2(col, row) - glm::vec2(INIT_X, INIT_Y) + start;
 			if (g >= END_MIN && b >= END_MIN && g < END_MAX && b < END_MAX){
-				_endPoints.push_back(glm::vec2(col,row) + start);
+				_endPoints.push_back(glm::vec2(col,row) - glm::vec2(INIT_X, INIT_Y) + start);
 			}
 			if (!(r == 0 && g == 0 && b == 0))
-				addObject(Obstacle(col + start.x, row + start.y, -1, 1));
+				addObject(Obstacle(col + start.x - INIT_X, row + start.y - INIT_Y, -1, 1));
 			if (g < END_MIN && b < END_MIN)
-				createObject(col + start.x, row + start.y, g, b);
+				createObject(col + start.x - INIT_X, row + start.y - INIT_Y, g, b);
         }
     }
 	for (int t = 0; t < _endPoints.size(); t++){
