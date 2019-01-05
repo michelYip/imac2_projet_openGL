@@ -1,46 +1,8 @@
 #include "RenderingInterface.hpp"
 
-std::vector<Image> screens(const unsigned int &screen, const glimac::FilePath &applicationPath){
-    std::vector<Image> elements; 
-    switch(screen){
-        case 0:
-            elements.push_back(Image("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            elements.push_back(Image("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-            elements.push_back(Image("title.png", 0.05f, 0.f, 0.5f, 0.5f, applicationPath));
-            elements.push_back(Image("start.png", 0.f, -0.25f, 0.1f, 0.05f, applicationPath));
-            elements.push_back(Image("quit.png", 0.f, -0.35f, 0.07f, 0.05f, applicationPath));
-            elements.push_back(Image("arrow.png", -0.15f, -0.25, 0.03f, 0.03f, applicationPath));
-            break;
-        case 1:
-            elements.push_back(Image("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            elements.push_back(Image("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-            elements.push_back(Image("saves-frames.png",   0.f, 0.f, 0.5f, 0.5f, applicationPath));
-            elements.push_back(Image("arrow.png", -0.475f, 0.35, 0.03f, 0.03f, applicationPath));
-            break;
-        case 2:
-            elements.push_back(Image("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            elements.push_back(Image("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-            elements.push_back(Image("play.png", 0.05f, 0.25f, 0.07f, 0.05f, applicationPath));
-            elements.push_back(Image("change-skin.png", 0.175f, 0.15f, 0.2f, 0.05f, applicationPath));
-            elements.push_back(Image("change-player.png", 0.175f, 0.05f, 0.2f, 0.05f, applicationPath));
-            elements.push_back(Image("quit.png", 0.05f, -0.05f, 0.07f, 0.05f, applicationPath));
-            elements.push_back(Image("arrow.png", -0.1f, 0.25, 0.03f, 0.03f, applicationPath));
-            break;
-        case 3:
-            elements.push_back(Image("title.png", 0.f, 0.5f, 0.5f, 0.5f, applicationPath));
-            break;
-        default:
-            break;
-    }
-    return elements;
-}
-
-RenderingInterface::RenderingInterface(const glimac::FilePath &applicationPath, const unsigned int &screen)
+RenderingInterface::RenderingInterface(const glimac::FilePath &applicationPath)
 {    
     _program2D = GPUProgram2D(applicationPath, "tex2D.vs.glsl", "tex2D.fs.glsl");
-
-    std::vector<Image> elements = screens(screen, applicationPath);
-    _elements = elements;
 
     glGenBuffers(1, &this->_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, this->_vbo);
@@ -96,57 +58,62 @@ glm::mat3 scale(float sx, float sy){
     );
 }
 
+
 void RenderingInterface::show() {
     _program2D._program.use();
     glBindVertexArray(this->_vao);
-    for(int i = 0; i < this->_elements.size(); i++){
-        glBindTexture(GL_TEXTURE_2D, this->_elements[i].texture());
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glUniform1i(_program2D._uTexture, 0);
-        glUniformMatrix3fv(_program2D._uModelMatrix, 1, GL_FALSE,glm::value_ptr(scale(this->_elements[i].width(), this->_elements[i].height()) * translate(this->_elements[i].posX(), this->_elements[i].posY())));
-        glUniform3f(_program2D._uColor, 1.f, 0.f, 0.f);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-        glBindTexture(GL_TEXTURE_2D, 0);
-        glDisable(GL_BLEND);
-    }
+    for(int i = 0; i < _elements.size(); i++)
+        showElement(_elements.at(i));
+    for(int i = 0; i < _selectableElements.size(); i++)
+        showElement(_selectableElements.at(i));   
+
     glBindVertexArray(0);
 }
 
-void RenderingInterface::end(){
+
+void RenderingInterface::showElement(const ImageButton &image){
+    glBindTexture(GL_TEXTURE_2D, image.texture());
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glUniform1i(_program2D._uTexture, 0);
+    glUniformMatrix3fv(_program2D._uModelMatrix, 1, GL_FALSE,glm::value_ptr(scale(image.width(), image.height()) * translate(image.posX(), image.posY())));
+    glUniform3f(_program2D._uColor, 1.f, 0.f, 0.f);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+    glDisable(GL_BLEND);
+}
+
+
+RenderingInterface::~RenderingInterface(){
     glDeleteBuffers(1, &this->_vbo);
     glDeleteVertexArrays(1, &this->_vao);
     for(int i = 0; i < this->_elements.size(); i++){
         GLuint texture = this->_elements[i].texture();
         glDeleteTextures(1, &texture);  
     }
-}
+    for(int i = 0; i < this->_selectableElements.size(); i++){
+        GLuint texture = this->_selectableElements[i].texture();
+        glDeleteTextures(1, &texture);  
+    }
+ }
 
-void RenderingInterface::arrowDown(const unsigned int &screen){
-    float distance = 0.1;
-    if(screen == 1) distance = 0.325;
-    if(_currentButton != NB_BUTTON[screen]) {
-        _elements.back().setPosY(_elements.back().posY() - distance);
-        _currentButton += 1;
+
+void RenderingInterface::arrowDown(){
+    if(_currentButton != _selectableElements.size()-1){
+        _currentButton++;
+        updateArrow();
     }
 }
 
-void RenderingInterface::arrowUp(const unsigned int &screen){
-    float distance = 0.1;
-    if(screen == 1) distance = 0.325;
-    if(_currentButton != 1){
-        _elements.back().setPosY(_elements.back().posY() + distance);
-        _currentButton -= 1;        
+void RenderingInterface::arrowUp(){
+    if(_currentButton != 0){
+        _currentButton--;
+        updateArrow();
     }
 }
 
-
-bool RenderingInterface::actionButton(unsigned int &screen) const{
-    if(screen == 1 || _currentButton == 1) screen += 1;
-    else if(NB_BUTTON[screen] == _currentButton) return false;
-    else if(screen == 2){
-        if(_currentButton == 3) screen -= 1;
-    }
-    return true;
+void RenderingInterface::updateArrow(){
+    _elements.back().setPosY(_selectableElements.at(_currentButton).posY());
 }

@@ -1,6 +1,6 @@
-#include "Image.hpp"
+#include "ImageButton.hpp"
 
-Image::Image(const std::string &imageName, const float &posX, const float &posY, const float &width, const float &height, const glimac::FilePath &applicationPath):_position(glm::vec2(posX, posY)), _dimension(glm::vec2(width, height)){
+ImageButton::ImageButton(const std::string &imageName, const float &posX, const float &posY, const float &width, const float &height, const glimac::FilePath &applicationPath):_position(glm::vec2(posX, posY)), _dimension(glm::vec2(width, height)){
     std::unique_ptr<glimac::Image> image = glimac::loadImage(applicationPath.dirPath() + "assets/interface/" + imageName);
     if(image == NULL) std::cout << "ERROR IMG : " << imageName << std::endl;
     glEnable(GL_BLEND);

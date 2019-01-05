@@ -1,14 +1,14 @@
 #include "Rendering3D.hpp"
 
-Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, const unsigned int &screen, const World &world)
-:_world(world)
+Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, const Camera *camera, World &world)
+:_world(world), _camera(camera)
 {
     _program3D = GPUProgram3D(applicationPath, "3D.vs.glsl", "tex3D.fs.glsl");    
     _ProjMatrix = glm::perspective(glm::radians(70.f), (float)(WINDOW_WIDTH / WINDOW_HEIGHT), 0.1f, 100.f);
 }
 
-void Rendering3D::show(const Camera &camera){
-    _MVMatrix = camera.getCurrentViewMatrix();
+void Rendering3D::show(){
+    _MVMatrix = _camera->getViewMatrix();
     _NormalMatrix = glm::transpose(glm::inverse(_MVMatrix));
 
     std::vector<Object> list_obj = _world.getAllPrintableObjects();

@@ -1,5 +1,5 @@
-#ifndef _IMAGE_
-#define _IMAGE_
+#ifndef _IMAGEBUTTON_
+#define _IMAGEBUTTON_
 
 #include <glimac/Image.hpp>
 #include <GL/glew.h>
@@ -8,19 +8,19 @@
 #include <iostream>
 
 
-/// \class Image
+/// \class ImageButton
 /// \bried [DESCRIPTION TO FILL] 
-class Image{
+class ImageButton{
 	private:
 		glm::vec2 _position;
 		glm::vec2 _dimension;
 		GLuint _texture;
 	public:
-		Image(){};
-		Image(const std::string &imageName, const float &posX, const float &posY, const float &width, const float &height, const glimac::FilePath &applicationPath);
-		Image(const Image &image):_position(glm::vec2(image._position.x, image._position.y)),_dimension(glm::vec2(image._dimension.x, image._dimension.y)), _texture(image._texture){
+		ImageButton(){};
+		ImageButton(const std::string &imageName, const float &posX, const float &posY, const float &width, const float &height, const glimac::FilePath &applicationPath);
+		ImageButton(const ImageButton &image):_position(glm::vec2(image._position.x, image._position.y)),_dimension(glm::vec2(image._dimension.x, image._dimension.y)), _texture(image._texture){
 		};
-		~Image(){};
+		~ImageButton(){};
 
 		inline GLuint texture() const{
 			return _texture;
@@ -42,7 +42,7 @@ class Image{
 			_position.y = posY;
 		}
 
-		Image &operator=(const Image &image){
+		ImageButton &operator=(const ImageButton &image){
 			if(this != &image){
 				_position = glm::vec2(image._position.x, image._position.y);
 				_texture = image._texture;
