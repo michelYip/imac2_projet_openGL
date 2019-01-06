@@ -9,7 +9,7 @@ const float ZOOM_SPEED = 0.5f;
 using namespace glm;
 
 /// \class Camera
-/// \bried Camera of the View
+/// \brief Camera of the View
 class Camera{
 	protected:
 		bool _locked;

@@ -10,7 +10,7 @@ const float ACCELERATION = 40;
 const float DECELERATION = 40;
 
 /// \class Character
-/// \bried Character present on the Map controlled by the Player
+/// \brief Character present on the Map controlled by the Player
 class Character : public MovingObject
 {
 protected:

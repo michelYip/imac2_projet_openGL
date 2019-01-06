@@ -5,7 +5,7 @@
 #include "MovingObject.hpp"
 
 /// \class Enemy
-/// \bried Enemy present on the Map
+/// \brief Enemy present on the Map
 class Enemy : public MovingObject
 {
 protected:
