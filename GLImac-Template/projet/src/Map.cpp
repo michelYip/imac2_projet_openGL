@@ -64,6 +64,7 @@ Map::Map(const std::string & mapFile, const int & i, const glm::vec2 & start){
 			_nextMaps.push_back(new Map(mapFile, i - 1, start + _endPoints.back() - _startPoint));
 		}
 	}
+	delete tmp_line;
 		
 }
 

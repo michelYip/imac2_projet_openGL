@@ -10,6 +10,7 @@
 #include "interface/SaveMenu.hpp"
 #include "interface/PlayerMenu.hpp"
 #include "interface/Environment3D.hpp"
+#include "interface/CreatePlayerMenu.hpp"
 	
 /// \class Game
 /// \brief Create and manage the game

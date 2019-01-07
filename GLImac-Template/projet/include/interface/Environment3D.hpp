@@ -28,6 +28,8 @@ class Environment3D : public Rendering3D
 		:Rendering3D(applicationPath,&_ffcamera,world), _player(player)
 		{}
 
+		~Environment3D() = default;
+
 
 	/// \brief Manage the events
 	/// \param e: SDL_Event that comme from the view's SDLWindowManager

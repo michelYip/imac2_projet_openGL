@@ -27,6 +27,8 @@ class StartMenu : public RenderingInterface
             _elements.push_back(ImageButton("arrow.png", -0.15f, -0.25, 0.03f, 0.03f, applicationPath));   
 		}
 
+		~StartMenu() = default;
+
 	/// \brief Manage the events
 	/// \param e: SDL_Event that comme from the view's SDLWindowManager
 	void manageEvents(const SDL_Event &e);

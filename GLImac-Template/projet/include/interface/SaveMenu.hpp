@@ -30,6 +30,8 @@ class SaveMenu : public RenderingInterface
             _elements.push_back(ImageButton("arrow.png", -0.475f, 0.31, 0.03f, 0.03f, applicationPath));
    		}
 
+		~SaveMenu() = default;   		
+
 
 	/// \brief Manage the events
 	/// \param e: SDL_Event that comme from the view's SDLWindowManager

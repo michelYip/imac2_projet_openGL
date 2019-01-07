@@ -125,6 +125,7 @@ void VAO::loadObj(const std::string &obj_filename){
 		char *tmp_line = new char[128];
 		objFile.getline(tmp_line,128);
 		std::string str_line(tmp_line);
+		delete[] tmp_line;
 
 		//remove extra space
 		for(int i=str_line.size()-1; i >= 0; i-- )

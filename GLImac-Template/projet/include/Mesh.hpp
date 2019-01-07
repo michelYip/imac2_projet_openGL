@@ -30,7 +30,7 @@ class Mesh
 		Mesh(const Mesh &m)
 		:_vao(m._vao), _texture(m._texture){}
 
-		~Mesh(){}
+		~Mesh() = default;
 
 		/// \brief Print the mesh in the GL environment 
 		/// \param uTexture: uniform texture GLint of the GPUProgram3D

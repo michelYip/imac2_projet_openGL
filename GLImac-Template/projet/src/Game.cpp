@@ -22,9 +22,11 @@ Game::Game(){
 void Game::run(char* execName){
 	glimac::FilePath applicationPath(execName);
 	
+	//Load all interfaces
 	StartMenu *startmenu = new StartMenu(applicationPath);
 	SaveMenu *savemenu = new SaveMenu(applicationPath,_player);
 	PlayerMenu *playermenu = new PlayerMenu(applicationPath,_player);
+	CreatePlayerMenu *createplayermenu = new CreatePlayerMenu(applicationPath,_player);
 	Environment3D *environment3D = new Environment3D(applicationPath,_world,_player);
 
 	_view.set_rendering(startmenu);
@@ -35,12 +37,12 @@ void Game::run(char* execName){
 	float time_interval = 0;
   
 	while(!_world.coroutine(_view.done(), time_interval)){
-	    time_interval = float(end - start)/CLOCKS_PER_SEC; 
+		time_interval = float(end - start)/CLOCKS_PER_SEC; 
 		start = clock();
       	
 		try{_view.waitEvents();}
 	    catch(const GoToSaveMenu &e){_view.set_rendering(savemenu);}
-	    catch(const GoToCreatePlayerMenu &e){ std::cout << "Not yet created option" << std::endl;}
+	    catch(const GoToCreatePlayerMenu &e){ _view.set_rendering(createplayermenu);}
 	    catch(const GoToPlayerMenu &e){_view.set_rendering(playermenu);}
 	    catch(const GoToChangeSkinMenu &e){ std::cout << "Not yet created option" << std::endl;}
 	    catch(const GoTo3DEnvironment &e){ _view.set_rendering(environment3D);}    
@@ -48,7 +50,6 @@ void Game::run(char* execName){
 		_view.displayWindow();
   		end = clock();
   	}
-	
 
 	delete(startmenu);
 	delete(savemenu);
