@@ -16,7 +16,7 @@ void World::createMap(const std::string & map){
 
 void World::initCharacter(){
 	glm::vec2 start = _map.getStartPoint();
-	_player = Character(glm::vec3(start.x, 0.5, start.y),
+	_player = Character(glm::vec3(start.x, 0.1, start.y),
 						glm::vec3(start.x - 0.5, 0, start.y - 0.5),
 						glm::vec3(start.x + 0.5, 1, start.y + 0.5));
 }
