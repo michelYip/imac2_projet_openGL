@@ -11,7 +11,9 @@
 #include "interface/throwableEvents/GoToChangeSkinMenu.hpp"
 #include "exceptions/Unreachable_file.hpp"
 
-/// \class PlayerMenu
+/// \class Environment3D
+/// \brief Manage all the 3D Environnement of the game, it create cameras and is able to modify the player and the world    
+/// \brief Like all others Interfaces folder class it has its own key event manager to control every elements       
 class Environment3D : public Rendering3D
 {
 	private:
@@ -19,15 +21,24 @@ class Environment3D : public Rendering3D
 		FreeflyCamera _ffcamera;
 		TrackballCamera _tbcamera;
 	public:
+		/// \param: applicationPath: Game applicationPath
+		/// \param: world: Game _world param
+		/// \param: player: Game _player param
 		Environment3D(const glimac::FilePath &applicationPath, World &world, Player &player)
 		:Rendering3D(applicationPath,&_ffcamera,world), _player(player)
 		{}
 
-	// deals with the events
+
+	/// \brief Manage the events
+	/// \param e: SDL_Event that comme from the view's SDLWindowManager
 	void manageEvents(const SDL_Event &e);
-	// deals with key up events
+	
+	/// \brief Manage the keyUp events
+	/// \param k: [SDL_Event].key.keysym.sym
 	void manageKeyUpEvents(const SDLKey &k);
-	// deals with key down events
+
+	/// \brief Manage the keyDown events
+	/// \param k: [SDL_Event].key.keysym.sym
 	void manageKeyDownEvents(const SDLKey &k);
 };
 

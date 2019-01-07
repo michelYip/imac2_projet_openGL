@@ -12,12 +12,17 @@
 
 
 
+
 /// \class PlayerMenu
+/// \brief Manage all the Player selection Menu of the game, it create all the needed elements and is able to modify the player    
+/// \brief Like all others Interfaces folder class it has its own key event manager to control every elements       
 class PlayerMenu : public RenderingInterface
 {
 	private:
 		Player &_player; 
 	public:
+		/// \param: applicationPath: Game applicationPath
+		/// \param: player: Game _player param
 		PlayerMenu(const glimac::FilePath &applicationPath, Player &player)
 		:RenderingInterface(applicationPath), _player(player)
 		{
@@ -30,11 +35,17 @@ class PlayerMenu : public RenderingInterface
             _elements.push_back(ImageButton("arrow.png", -0.1f, 0.25, 0.03f, 0.03f, applicationPath));
 		}
 
-	// deals with the events
+
+	/// \brief Manage the events
+	/// \param e: SDL_Event that comme from the view's SDLWindowManager
 	void manageEvents(const SDL_Event &e);
-	// deals with key up events
+	
+	/// \brief Manage the keyUp events
+	/// \param k: [SDL_Event].key.keysym.sym
 	void manageKeyUpEvents(const SDLKey &k);
-	// deals with key down events
+
+	/// \brief Manage the keyDown events
+	/// \param k: [SDL_Event].key.keysym.sym
 	void manageKeyDownEvents(const SDLKey &k);
 };
 

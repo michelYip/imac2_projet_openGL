@@ -10,9 +10,12 @@
 
 
 /// \class StartMenu
+/// \brief Manage all the Start Menu of the game, it create all the needed elements    
+/// \brief Like all others Interfaces folder class it has its own key event manager to control every elements
 class StartMenu : public RenderingInterface
 {
 	public:
+		/// \param: applicationPath: Game applicationPath
 		StartMenu(const glimac::FilePath &applicationPath)
 		:RenderingInterface(applicationPath)
 		{
@@ -24,11 +27,16 @@ class StartMenu : public RenderingInterface
             _elements.push_back(ImageButton("arrow.png", -0.15f, -0.25, 0.03f, 0.03f, applicationPath));   
 		}
 
-	// deals with the events
+	/// \brief Manage the events
+	/// \param e: SDL_Event that comme from the view's SDLWindowManager
 	void manageEvents(const SDL_Event &e);
-	// deals with key up events
+	
+	/// \brief Manage the keyUp events
+	/// \param k: [SDL_Event].key.keysym.sym
 	void manageKeyUpEvents(const SDLKey &k);
-	// deals with key down events
+
+	/// \brief Manage the keyDown events
+	/// \param k: [SDL_Event].key.keysym.sym
 	void manageKeyDownEvents(const SDLKey &k);
 };
 

@@ -14,7 +14,7 @@ const float WINDOW_HEIGHT = 800;
 
 
 /// \class Rendering3D
-/// \bried Rendering module that is able to create a 3D environment from the world informations
+/// \brief Rendering module that is able to create a 3D environment from the world informations
 class Rendering3D : public Rendering
 {
 	protected:
@@ -35,12 +35,18 @@ class Rendering3D : public Rendering
 
 		~Rendering3D() = default;
 
-		// deals with the events
-		virtual void manageEvents(const SDL_Event &e) = 0;
-		// deals with key up events
-		virtual void manageKeyUpEvents(const SDLKey &k) = 0;
-		// deals with key down events
-		virtual void manageKeyDownEvents(const SDLKey &k) = 0;		
+
+		/// \brief Manage the events
+		/// \param e: SDL_Event that comme from the view's SDLWindowManager
+		void manageEvents(const SDL_Event &e) = 0;
+		
+		/// \brief Manage the keyUp events
+		/// \param k: [SDL_Event].key.keysym.sym
+		void manageKeyUpEvents(const SDLKey &k) = 0;
+
+		/// \brief Manage the keyDown events
+		/// \param k: [SDL_Event].key.keysym.sym
+		void manageKeyDownEvents(const SDLKey &k) = 0;
 
 		void show();
 };

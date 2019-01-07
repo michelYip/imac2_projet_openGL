@@ -15,7 +15,7 @@ const GLuint NB_SCREEN = 4;
 const std::vector<unsigned int> NB_BUTTON = {2, 3, 4};
 
 /// \class RenderingInterface
-/// \bried Rendering module that is able to create a 2D environment to create an interface
+/// \brief Rendering module that is able to create a 2D environment to create an interface
 class RenderingInterface : public Rendering
 {
 	protected:
@@ -39,12 +39,18 @@ class RenderingInterface : public Rendering
 		~RenderingInterface();
 
 
-		// deals with the events
-		virtual void manageEvents(const SDL_Event &e) = 0;
-		// deals with key up events
-		virtual void manageKeyUpEvents(const SDLKey &k) = 0;
-		// deals with key down events
-		virtual void manageKeyDownEvents(const SDLKey &k) = 0;		
+
+	/// \brief Manage the events
+	/// \param e: SDL_Event that comme from the view's SDLWindowManager
+	void manageEvents(const SDL_Event &e) = 0;
+	
+	/// \brief Manage the keyUp events
+	/// \param k: [SDL_Event].key.keysym.sym
+	void manageKeyUpEvents(const SDLKey &k) = 0;
+
+	/// \brief Manage the keyDown events
+	/// \param k: [SDL_Event].key.keysym.sym
+	void manageKeyDownEvents(const SDLKey &k) = 0;
 
 
 
