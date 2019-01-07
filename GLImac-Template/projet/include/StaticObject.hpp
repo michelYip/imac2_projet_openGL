@@ -5,7 +5,7 @@
 
 
 /// \class StaticObject
-/// \bried Inert Object that are present in the World
+/// \brief Inert Object that are present in the World
 class StaticObject : public Object
 {
 public:

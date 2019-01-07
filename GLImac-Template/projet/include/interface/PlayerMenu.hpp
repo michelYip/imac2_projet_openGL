@@ -19,7 +19,7 @@
 class PlayerMenu : public RenderingInterface
 {
 	private:
-		Player &_player; 
+		Player &_player; ///< _player parameter of the Game
 	public:
 		/// \param: applicationPath: Game applicationPath
 		/// \param: player: Game _player param

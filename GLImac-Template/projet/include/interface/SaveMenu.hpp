@@ -17,7 +17,7 @@
 class SaveMenu : public RenderingInterface
 {
 	private:
-		Player &_player; 
+		Player &_player; ///< _player parameter of the Game
 	public:
 		/// \param: applicationPath: Game applicationPath
 		/// \param: player: Game _player param
@@ -43,8 +43,13 @@ class SaveMenu : public RenderingInterface
 	/// \param k: [SDL_Event].key.keysym.sym
 	void manageKeyDownEvents(const SDLKey &k);
 
+	/// \brief Used to select the next selectableElement
 	void arrowDown();
+	
+	/// \brief Used to select the previous selectableElement
 	void arrowUp();
+
+	/// \brief Used to update the Arrow position 
 	void updateArrow();
 };
 

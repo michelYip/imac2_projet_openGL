@@ -17,9 +17,9 @@
 class Environment3D : public Rendering3D
 {
 	private:
-		Player &_player; 
-		FreeflyCamera _ffcamera;
-		TrackballCamera _tbcamera;
+		Player &_player; ///< _player parameter of the Game
+		FreeflyCamera _ffcamera; ///< Third person camera
+		TrackballCamera _tbcamera; ///< First person camera
 	public:
 		/// \param: applicationPath: Game applicationPath
 		/// \param: world: Game _world param

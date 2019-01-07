@@ -17,7 +17,7 @@ class Rendering
 		Rendering(){};
 
 		//Parameter constructor
-		Rendering(const glimac::FilePath &applicationPath, const unsigned int &screen);
+		Rendering(const glimac::FilePath &applicationPath);
 		
 		//Reference constructor
 		Rendering(const Rendering &rendering){}
@@ -25,21 +25,21 @@ class Rendering
 		//Default destructor
 		~Rendering(){}
 
-		//
+		/// \brief show the object content on the window 
 		virtual void show() = 0;
 
 	
 		/// \brief Manage the events
 		/// \param e: SDL_Event that comme from the view's SDLWindowManager
-		void manageEvents(const SDL_Event &e) = 0;
+		virtual void manageEvents(const SDL_Event &e) = 0;
 		
 		/// \brief Manage the keyUp events
 		/// \param k: [SDL_Event].key.keysym.sym
-		void manageKeyUpEvents(const SDLKey &k) = 0;
+		virtual void manageKeyUpEvents(const SDLKey &k) = 0;
 
 		/// \brief Manage the keyDown events
 		/// \param k: [SDL_Event].key.keysym.sym
-		void manageKeyDownEvents(const SDLKey &k) = 0;
+		virtual void manageKeyDownEvents(const SDLKey &k) = 0;
 };
 
 #endif

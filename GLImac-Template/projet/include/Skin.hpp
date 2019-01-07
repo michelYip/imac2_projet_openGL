@@ -11,25 +11,24 @@
 const std::string SKIN_LIST_FILE = "main/assets/skins/list_skins";
 
 /// \class Skin
-/// \bried Skin of the player applied to the Character in the World
+/// \brief Skin of the player applied to the Character in the World
 class Skin
 {
 private:
-	std::string _name;
-	unsigned int _price;
-	std::string _texture;
+	std::string _name; ///< Name of the Skin
+	unsigned int _price; ///< Price to acquire the Skin 
+	std::string _texture; ///< Texture filename
 public:
 	Skin()
 	:_name(""),_price(0),_texture()
 	{}
 
+	///param name: Name of the Skin
+	///param price: Price to acquire the Skin 
+	///param texture: Texture filename 
 	Skin(const std::string name, const unsigned int &price, const std::string &texture)
 	:_name(name),_price(price),_texture(texture)
 	{}
-	
-	// Skin(const Skin &s)
-	// :_name(s._name),_price(s._price),_texture(s._texture)
-	// {}
 
 	~Skin() = default;
 
@@ -48,12 +47,12 @@ public:
 	//PUBLICS FUNCTIONS
 
 	
-	//@throws std::runtime_error if file cannot be open
-	//@throws std::invalid_argument if the loaded file has one line without the good number of parameters
-	//@return vector of skins who are present in SKIN_LIST_FILE
+	///\throws std::runtime_error if file cannot be open
+	///\throws std::invalid_argument if the loaded file has one line without the good number of parameters
+	///\return vector of skins who are present in SKIN_LIST_FILE
 	static std::vector<Skin> loadSkins();
 
-	//@return the skin saved in the string
+	///\return the skin saved in the string
 	static Skin load(const std::string &couted_skin);
 
 	//OPERATORS

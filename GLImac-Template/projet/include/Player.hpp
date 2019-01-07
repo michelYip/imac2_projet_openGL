@@ -17,11 +17,11 @@ const std::string PLAYER_SAVING_FOLDER = "main/saves/";
 class Player
 {
 private:
-	std::string _name;
-	unsigned int _money;
-	std::string _savingFile;
-	std::vector<Skin> _unlockedSkins;
-	Skin _selectedSkin;
+	std::string _name; ///< Name of the player
+	unsigned int _money; ///< Total of money 
+	std::string _savingFile; ///<  Filename of the saving file
+	std::vector<Skin> _unlockedSkins; ///< Skin that can be picked up by the player
+	Skin _selectedSkin; ///< Selected Skin of the player applyed to the Character during the Game
 
 public:
 	Player()
@@ -77,13 +77,16 @@ public:
 	friend std::ostream& operator<<(std::ostream &os, const Player &p);
 
 private:
-	//Save all unlockedSkins into the file
+	///brief Save all unlockedSkins into the file
 	void saveUnlockedSkins(std::ofstream &file) const;
-	//Save the selected skin
+	
+	///brief Save the selected skin
 	void saveSelectedSkin(std::ofstream &file) const;
-	//Save the current time in the file 
+	
+	///brief Save the current time in the file 
 	void saveTime(std::ofstream &file) const;
-	//Save the datas of the player 
+	
+	///brief Save the datas of the player 
 	void savePlayer(std::ofstream &file) const;
 
 
