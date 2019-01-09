@@ -8,7 +8,7 @@
 #include "Skybox.hpp"
 
 const float INITIAL_SPEED = 3;
-const int MAX_MAPS = 5;
+const int MAX_MAPS = 3;
 
 
 /// \class World
@@ -48,6 +48,7 @@ public:
 
 	inline void movingLeft() { _player.movingLeft(); }
 	inline void movingRight() { _player.movingRight(); }
+	inline void jump() { _player.jump(); }
 
 	//Return a list of all object in the world
 	const std::vector<Object> getAllPrintableObjects() const;

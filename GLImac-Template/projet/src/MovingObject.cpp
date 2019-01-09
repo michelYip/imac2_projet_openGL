@@ -12,4 +12,5 @@ _yVelocity(0.f)
 //Move the object to the direction
 void MovingObject::move(const glm::vec3 & direction){
 	_position += direction;
+	_boundingBox.moveCollider(direction);
 }

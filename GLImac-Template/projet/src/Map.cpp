@@ -54,7 +54,7 @@ Map::Map(const std::string & mapFile, const int & i, const glm::vec2 & start){
 				_endPoints.push_back(glm::vec2(col,row) - glm::vec2(INIT_X, INIT_Z) + start);
 			}
 			if (!(r == 0 && g == 0 && b == 0))
-				addObject(Obstacle(col + start.x - INIT_X, row + start.y - INIT_Z, -1, 1));
+				addObject(Obstacle(col + start.x - INIT_X, row + start.y - INIT_Z, -1));
 			if (g < END_MIN && b < END_MIN)
 				createObject(col + start.x - INIT_X, row + start.y - INIT_Z, g, b);
         }
@@ -70,11 +70,19 @@ Map::Map(const std::string & mapFile, const int & i, const glm::vec2 & start){
 
 //Create an object from a pixel
 void Map::createObject(const int & col, const int & row, const float & g, const float & b){
+	int height = 0;
+	int altitude = 0;
 	if (g > 0){
-		if (g <= OBSTACLE_GROUNDED_THRESHOLD)
-			addObject(Obstacle(col, row, 0, g));
+		if (g <= OBSTACLE_GROUNDED_THRESHOLD){
+			height = g;
+			altitude = 0;
+		}
 		if (g > OBSTACLE_GROUNDED_THRESHOLD && g <= OBSTACLE_AIRBORN_THRESHOLD){
-			addObject(Obstacle(col, row, OBSTACLE_FLOAT_HEIGHT, g - OBSTACLE_HEIGHT_MARGIN));
+			height = g - OBSTACLE_HEIGHT_MARGIN;
+			altitude = OBSTACLE_FLOAT_HEIGHT;
+		}
+		for (int i = 0; i < height; i++){
+			addObject(Obstacle(col, row, altitude + i));
 		}
 	}
 	//Add coin and bonus/malus
@@ -100,7 +108,7 @@ void Map::moveMap(const float & distance){
 			_nextMaps[t]->moveMap(distance);
 	}
 	for (int i = 0; i < _objectList.size(); i++){
-		_objectList[i].setPosition( _objectList[i].getPosition() + glm::vec3(0,0,distance));
+		_objectList[i].moveObject(glm::vec3(0,0,distance));
 	}
 }
 
