@@ -14,6 +14,7 @@
 #include "Rendering3D.hpp"
 #include "RenderingInterface.hpp"
 #include "GPUProgram2D.hpp"
+#include "Music.hpp"
 
 #include "interface/throwableEvents/QuitGame.hpp"
 
@@ -29,6 +30,7 @@ class View
 		unsigned int _screen;
 		Rendering *_rendering;
 		SDLWindowManager _windowManager;
+		Music _audio;
 
 	public:
 		//CONSTRUCTORS & DESTRUCTORS
@@ -60,6 +62,7 @@ class View
 
 		int createWindow(const glimac::FilePath &applicationPath, const World &world);
 		void displayWindow();
+		void clearWindow();
 
 		void waitEvents();
 };

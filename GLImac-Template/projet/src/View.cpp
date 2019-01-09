@@ -13,6 +13,11 @@ int View::createWindow(const glimac::FilePath &applicationPath, const World &wor
 		std::cerr << TTF_GetError() << std::endl;
 		return EXIT_FAILURE;
 	}
+	if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1){
+		std::cerr << "ERROR MUSIC" << Mix_GetError() << std::endl;
+		return EXIT_FAILURE;
+	}			
+	_audio.play("blue-monday");
     return EXIT_SUCCESS;
 }
 
@@ -27,6 +32,12 @@ void View::displayWindow(){
 	}
 }
 
+void View::clearWindow(){
+	TTF_Quit();
+	_audio.clear();
+	Mix_CloseAudio();
+	SDL_Quit();
+}
 
 void View::waitEvents(){
 	try{
@@ -36,6 +47,7 @@ void View::waitEvents(){
 		}
 	}catch(const QuitGame &e){
 		std::cout << "Game exit requested..." << std::endl;
+		clearWindow();
 		_done = 1;
 	}
 }
