@@ -55,12 +55,17 @@ class FreeflyCamera : public Camera{
 		glm::mat4 getViewMatrix() const{
 			return glm::lookAt(this->_position, this->_position + this->_frontVector, _upVector);
 		};
+
 		void motion(const float &xrel, const float &yrel){
 			if(!_locked){
 				rotateLeft(xrel);
 				rotateUp(yrel);				
 			}
 
+		}
+		void updatePos(const glm::vec3 &position){
+			_position = position + glm::vec3(0, 1, 1.5);
+			computeDirectionVectors();
 		}
 };
 

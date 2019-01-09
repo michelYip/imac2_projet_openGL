@@ -3,13 +3,13 @@
 // deals with the events
 void Environment3D::manageEvents(const SDL_Event &e){
     const Uint8 * keyState = SDL_GetKeyState(NULL);
-    if  ((keyState[SDLK_q] && !_world.getCharacter().isMovingLeft()) || 
-        (!keyState[SDLK_q] && _world.getCharacter().isMovingLeft()))
+    if  ((keyState[SDLK_q] && !_world.character().isMovingLeft()) || 
+        (!keyState[SDLK_q] && _world.character().isMovingLeft()))
     {
         _world.movingLeft();
     }
-    if  ((keyState[SDLK_d] && !_world.getCharacter().isMovingRight()) || 
-        (!keyState[SDLK_d] && _world.getCharacter().isMovingRight()))
+    if  ((keyState[SDLK_d] && !_world.character().isMovingRight()) || 
+        (!keyState[SDLK_d] && _world.character().isMovingRight()))
     {
         _world.movingRight();
     }
