@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classRendering.html" title="Rendering module of the View. " alt="" coords="5,57,92,84"/>
+<area shape="rect" id="node2" href="$classRendering3D.html" title="Rendering module that is able to create a 3D environment from the world informations. " alt="" coords="160,19,265,45"/>
+<area shape="rect" id="node4" href="$classRenderingInterface.html" title="Rendering module that is able to create a 2D environment to create an interface. " alt="" coords="140,95,285,121"/>
+<area shape="rect" id="node3" href="$classEnvironment3D.html" title="Manage all the 3D Environnement of the game, it create cameras and is able to modify the player and t..." alt="" coords="333,5,456,32"/>
+<area shape="rect" id="node5" href="$classPlayerMenu.html" title="Manage all the Player selection Menu of the game, it create all the needed elements and is able to mo..." alt="" coords="345,56,444,83"/>
+<area shape="rect" id="node6" href="$classSaveMenu.html" title="Manage all the Saving Menu of the game, it create all the needed elements and is able to modify the p..." alt="" coords="350,107,439,133"/>
+<area shape="rect" id="node7" href="$classStartMenu.html" title="Manage all the Start Menu of the game, it create all the needed elements. " alt="" coords="351,157,439,184"/>
+</map>

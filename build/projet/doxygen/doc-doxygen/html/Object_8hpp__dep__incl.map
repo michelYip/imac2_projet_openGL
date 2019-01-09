@@ -1,0 +1,28 @@
+<map id="projet/include/Object.hpp" name="projet/include/Object.hpp">
+<area shape="rect" id="node2" href="$TriggerObject_8hpp.html" title="projet/include/TriggerObject.hpp" alt="" coords="229,80,459,107"/>
+<area shape="rect" id="node5" href="$MovingObject_8hpp.html" title="projet/include/MovingObject.hpp" alt="" coords="1071,80,1303,107"/>
+<area shape="rect" id="node7" href="$Map_8hpp.html" title="projet/include/Map.hpp" alt="" coords="644,304,815,331"/>
+<area shape="rect" id="node22" href="$StaticObject_8hpp.html" title="projet/include/StaticObject.hpp" alt="" coords="741,80,963,107"/>
+<area shape="rect" id="node27" href="$Object_8cpp.html" title="projet/src/Object.cpp" alt="" coords="1327,80,1483,107"/>
+<area shape="rect" id="node3" href="$Bonus_8hpp.html" title="projet/include/Bonus.hpp" alt="" coords="265,155,447,181"/>
+<area shape="rect" id="node4" href="$Malus_8hpp.html" title="projet/include/Malus.hpp" alt="" coords="59,155,240,181"/>
+<area shape="rect" id="node6" href="$Character_8hpp.html" title="projet/include/Character.hpp" alt="" coords="961,229,1167,256"/>
+<area shape="rect" id="node20" href="$Enemy_8hpp.html" title="projet/include/Enemy.hpp" alt="" coords="1224,155,1411,181"/>
+<area shape="rect" id="node21" href="$MovingObject_8cpp.html" title="projet/src/MovingObject.cpp" alt="" coords="1435,155,1637,181"/>
+<area shape="rect" id="node19" href="$Character_8cpp.html" title="projet/src/Character.cpp" alt="" coords="976,304,1152,331"/>
+<area shape="rect" id="node8" href="$World_8hpp.html" title="projet/include/World.hpp" alt="" coords="547,379,727,405"/>
+<area shape="rect" id="node18" href="$Map_8cpp.html" title="projet/src/Map.cpp" alt="" coords="752,379,893,405"/>
+<area shape="rect" id="node9" href="$Game_8hpp.html" title="projet/include/Game.hpp" alt="" coords="546,639,729,666"/>
+<area shape="rect" id="node11" href="$Rendering3D_8hpp.html" title="projet/include/Rendering3\lD.hpp" alt="" coords="315,453,503,495"/>
+<area shape="rect" id="node17" href="$World_8cpp.html" title="projet/src/World.cpp" alt="" coords="675,461,826,487"/>
+<area shape="rect" id="node10" href="$Game_8cpp.html" title="projet/src/Game.cpp" alt="" coords="561,721,714,748"/>
+<area shape="rect" id="node12" href="$View_8hpp.html" title="projet/include/View.hpp" alt="" coords="425,550,599,577"/>
+<area shape="rect" id="node14" href="$Environment3D_8hpp.html" title="projet/include/interface\l/Environment3D.hpp" alt="" coords="227,543,400,584"/>
+<area shape="rect" id="node16" href="$Rendering3D_8cpp.html" title="projet/src/Rendering3D.cpp" alt="" coords="5,550,203,577"/>
+<area shape="rect" id="node13" href="$View_8cpp.html" title="projet/src/View.cpp" alt="" coords="377,639,522,666"/>
+<area shape="rect" id="node15" href="$Environment3D_8cpp.html" title="projet/src/interface\l/Environment3D.cpp" alt="" coords="197,632,352,673"/>
+<area shape="rect" id="node23" href="$Coin_8hpp.html" title="projet/include/Coin.hpp" alt="" coords="977,155,1149,181"/>
+<area shape="rect" id="node24" href="$Obstacle_8hpp.html" title="projet/include/Obstacle.hpp" alt="" coords="752,155,952,181"/>
+<area shape="rect" id="node26" href="$StaticObject_8cpp.html" title="projet/src/StaticObject.cpp" alt="" coords="534,155,727,181"/>
+<area shape="rect" id="node25" href="$Obstacle_8cpp.html" title="projet/src/Obstacle.cpp" alt="" coords="767,229,937,256"/>
+</map>

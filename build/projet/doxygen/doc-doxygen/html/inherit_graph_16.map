@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classObject.html" title="Abstract class of an object present in the World " alt="" coords="5,132,69,159"/>
+<area shape="rect" id="node2" href="$classMovingObject.html" title="Abstract class of an object able to move " alt="" coords="117,56,228,83"/>
+<area shape="rect" id="node5" href="$classStaticObject.html" title="Inert Object that are present in the World " alt="" coords="122,132,223,159"/>
+<area shape="rect" id="node8" href="$classTriggerObject.html" title="Object that can launch and event present in the World " alt="" coords="119,208,227,235"/>
+<area shape="rect" id="node3" href="$classCharacter.html" title="Character present on the Map controlled by the Player. " alt="" coords="276,5,361,32"/>
+<area shape="rect" id="node4" href="$classEnemy.html" title="Enemy present on the Map. " alt="" coords="285,56,352,83"/>
+<area shape="rect" id="node6" href="$classCoin.html" title="Coin present on the Map that add money to the Player at the end of every Game try. " alt="" coords="293,107,344,133"/>
+<area shape="rect" id="node7" href="$classObstacle.html" title="Obstacle present on the Map " alt="" coords="279,157,358,184"/>
+<area shape="rect" id="node9" href="$classBonus.html" title="Bonus present on the Map. " alt="" coords="287,208,350,235"/>
+<area shape="rect" id="node10" href="$classMalus.html" title="Malus present on the Map " alt="" coords="289,259,349,285"/>
+</map>

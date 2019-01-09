@@ -9,27 +9,23 @@
 #include "interface/throwableEvents/GoToPlayerMenu.hpp"
 #include "exceptions/Unreachable_file.hpp"
 
-/// \class Environment3D
-/// \brief Manage all the 3D Environnement of the game, it create cameras and is able to modify the player and the world    
-/// \brief Like all others Interfaces folder class it has its own key event manager to control every elements       
+/// \class PlayerMenu
 class Environment3D : public Rendering3D
 {
 	private:
-		Player &_player; ///< _player parameter of the Game
-		FreeflyCamera _ffcamera; ///< Third person camera
-		TrackballCamera _tbcamera; ///< First person camera
+		Player &_player; 
+		FreeflyCamera _ffcamera;
+		TrackballCamera _tbcamera;
 	public:
-		/// \param: applicationPath: Game applicationPath
-		/// \param: world: Game _world param
-		/// \param: player: Game _player param
 		Environment3D(const glimac::FilePath &applicationPath, World &world, Player &player)
 		:Rendering3D(applicationPath,&_ffcamera,world), _player(player)
 		{updateCharaterTexture();} 
 
+
 		~Environment3D() = default;
 
 		/// \brief Update character texture from player selected skin
-		void updateCharaterTexture(){_world.getCharacter().texture() = _player.selectedSkin().texture();}
+		void updateCharaterTexture(){_world.character().texture() = _player.selectedSkin().texture();}
 		
 		/// \brief Manage the events
 		/// \param e: SDL_Event that comme from the view's SDLWindowManager
@@ -45,6 +41,7 @@ class Environment3D : public Rendering3D
 
 		/// \brief setter to update player if it has change of object
 		Player& player(){return _player;}
+
 };
 
 #endif

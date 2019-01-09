@@ -1,0 +1,6 @@
+<map id="RenderingInterface" name="RenderingInterface">
+<area shape="rect" id="node3" href="$classPlayerMenu.html" title="Manage all the Player selection Menu of the game, it create all the needed elements and is able to mo..." alt="" coords="5,155,104,181"/>
+<area shape="rect" id="node4" href="$classSaveMenu.html" title="Manage all the Saving Menu of the game, it create all the needed elements and is able to modify the p..." alt="" coords="129,155,218,181"/>
+<area shape="rect" id="node5" href="$classStartMenu.html" title="Manage all the Start Menu of the game, it create all the needed elements. " alt="" coords="243,155,331,181"/>
+<area shape="rect" id="node2" href="$classRendering.html" title="Rendering module of the View. " alt="" coords="130,5,217,32"/>
+</map>

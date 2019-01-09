@@ -1,0 +1,18 @@
+<map id="projet/include/MovingObject.hpp" name="projet/include/MovingObject.hpp">
+<area shape="rect" id="node2" href="$Character_8hpp.html" title="projet/include/Character.hpp" alt="" coords="725,80,931,107"/>
+<area shape="rect" id="node16" href="$Enemy_8hpp.html" title="projet/include/Enemy.hpp" alt="" coords="955,80,1141,107"/>
+<area shape="rect" id="node17" href="$MovingObject_8cpp.html" title="projet/src/MovingObject.cpp" alt="" coords="1165,80,1368,107"/>
+<area shape="rect" id="node3" href="$Map_8hpp.html" title="projet/include/Map.hpp" alt="" coords="644,155,815,181"/>
+<area shape="rect" id="node15" href="$Character_8cpp.html" title="projet/src/Character.cpp" alt="" coords="839,155,1015,181"/>
+<area shape="rect" id="node4" href="$World_8hpp.html" title="projet/include/World.hpp" alt="" coords="547,229,727,256"/>
+<area shape="rect" id="node14" href="$Map_8cpp.html" title="projet/src/Map.cpp" alt="" coords="752,229,893,256"/>
+<area shape="rect" id="node5" href="$Game_8hpp.html" title="projet/include/Game.hpp" alt="" coords="546,490,729,517"/>
+<area shape="rect" id="node7" href="$Rendering3D_8hpp.html" title="projet/include/Rendering3\lD.hpp" alt="" coords="315,304,503,345"/>
+<area shape="rect" id="node13" href="$World_8cpp.html" title="projet/src/World.cpp" alt="" coords="675,311,826,338"/>
+<area shape="rect" id="node6" href="$Game_8cpp.html" title="projet/src/Game.cpp" alt="" coords="561,572,714,599"/>
+<area shape="rect" id="node8" href="$View_8hpp.html" title="projet/include/View.hpp" alt="" coords="425,401,599,427"/>
+<area shape="rect" id="node10" href="$Environment3D_8hpp.html" title="projet/include/interface\l/Environment3D.hpp" alt="" coords="227,393,400,435"/>
+<area shape="rect" id="node12" href="$Rendering3D_8cpp.html" title="projet/src/Rendering3D.cpp" alt="" coords="5,401,203,427"/>
+<area shape="rect" id="node9" href="$View_8cpp.html" title="projet/src/View.cpp" alt="" coords="377,490,522,517"/>
+<area shape="rect" id="node11" href="$Environment3D_8cpp.html" title="projet/src/interface\l/Environment3D.cpp" alt="" coords="197,483,352,524"/>
+</map>
