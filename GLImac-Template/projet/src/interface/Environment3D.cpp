@@ -66,6 +66,9 @@ void Environment3D::manageKeyDownEvents(const SDLKey &k){
             _ffcamera.changeLock();
             _tbcamera.changeLock();
             break;
+        case SDLK_z:
+            if (_world.getCharacter().isGrounded())
+                _world.jump();
         default:
             break;
     }   

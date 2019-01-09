@@ -47,10 +47,14 @@ public:
 	const glm::vec3 position() const {return _position;}
 	const Mesh modele3D() const {return _modele3D;}
 
-	inline glm::vec3 getPosition() const { return _position; }
-
-	//Set the position of an object
+	//Set the object to a given position
 	inline void setPosition(const glm::vec3 & pos) { _position = pos; }
+
+	//Move an object to the given direction
+	inline void moveObject(const glm::vec3 & direction) { 
+		_position += direction; 
+		_boundingBox.moveCollider(direction);
+	}
 
 	//OPERATORS
 

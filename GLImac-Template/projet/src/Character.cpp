@@ -12,7 +12,7 @@ Character::Character(const glm::vec3 & position,
 _collectedCoins(),
 _movingLeft(false),
 _movingRight(false),
-_isGrounded(true),
+_isGrounded(false),
 _isJumping(false),
 _isCrouching(false)
 {loadMesh();}
@@ -30,6 +30,19 @@ void Character::accelerateX(const float & time_interval, const bool & left){
 	if (!left) _xVelocity -= acceleration_rate;
 	else _xVelocity += acceleration_rate; 
 	if (abs(_xVelocity) > MAX_VELOCITY) _xVelocity = (_xVelocity < 0) ? -MAX_VELOCITY : MAX_VELOCITY;
+}
+
+//Increase the velocity on Y axis
+void Character::jump(){
+	_yVelocity = JUMP_POWER;
+	_isGrounded = false;
+}
+
+//Decrease the velocity on Y axis until the player touch the ground
+void Character::fall(const float & time_interval){
+	const float fall_speed = GRAVITY * time_interval;
+	_isGrounded = false;
+	_yVelocity = (_yVelocity < -MAX_VELOCITY) ? -MAX_VELOCITY : _yVelocity - fall_speed; 
 }
 
 //Add coin value to the collected coin

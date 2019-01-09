@@ -23,7 +23,7 @@ public:
 	Obstacle();
 
 	//Parameter constructor
-	Obstacle(const int & x, const int & y, const float & altitude, const float & height);
+	Obstacle(const int & x, const int & y, const int & altitude);
 
 	//Default destructor
 	~Obstacle() = default;
