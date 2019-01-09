@@ -1,5 +1,0 @@
-<map id="MovingObject" name="MovingObject">
-<area shape="rect" id="node3" href="$classCharacter.html" title="Character present on the Map controlled by the Player. " alt="" coords="5,155,91,181"/>
-<area shape="rect" id="node4" href="$classEnemy.html" title="Enemy present on the Map. " alt="" coords="115,155,181,181"/>
-<area shape="rect" id="node2" href="$classObject.html" title="Abstract class of an object present in the World " alt="" coords="65,5,129,32"/>
-</map>

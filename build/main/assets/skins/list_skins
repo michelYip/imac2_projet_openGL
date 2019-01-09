@@ -1,4 +1,0 @@
-#Commentaries are set with the "#" character
-#The template is : [name],[price],[textureFile], [previewFile]
-Skin0,0,skin0,preview_skin0.png
-Skin1,15,skin1,preview_skin1.png

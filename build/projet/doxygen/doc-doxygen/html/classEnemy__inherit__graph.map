@@ -1,4 +1,0 @@
-<map id="Enemy" name="Enemy">
-<area shape="rect" id="node2" href="$classMovingObject.html" title="Abstract class of an object able to move " alt="" coords="5,80,116,107"/>
-<area shape="rect" id="node3" href="$classObject.html" title="Abstract class of an object present in the World " alt="" coords="29,5,93,32"/>
-</map>

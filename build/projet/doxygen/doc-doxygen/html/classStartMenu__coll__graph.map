@@ -1,5 +1,0 @@
-<map id="StartMenu" name="StartMenu">
-<area shape="rect" id="node2" href="$classRenderingInterface.html" title="Rendering module that is able to create a 2D environment to create an interface. " alt="" coords="40,95,185,121"/>
-<area shape="rect" id="node3" href="$classRendering.html" title="Rendering module of the View. " alt="" coords="5,5,92,32"/>
-<area shape="rect" id="node4" href="$classGPUProgram2D.html" title="Contain the uniform var location needed by the RenderingInterface " alt="" coords="117,5,239,32"/>
-</map>

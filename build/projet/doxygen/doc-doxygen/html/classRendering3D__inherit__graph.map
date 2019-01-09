@@ -1,4 +1,0 @@
-<map id="Rendering3D" name="Rendering3D">
-<area shape="rect" id="node3" href="$classEnvironment3D.html" title="Manage all the 3D Environnement of the game, it create cameras and is able to modify the player and t..." alt="" coords="5,155,128,181"/>
-<area shape="rect" id="node2" href="$classRendering.html" title="Rendering module of the View. " alt="" coords="23,5,110,32"/>
-</map>

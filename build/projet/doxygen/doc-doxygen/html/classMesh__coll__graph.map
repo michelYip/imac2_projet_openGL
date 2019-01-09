@@ -1,4 +1,0 @@
-<map id="Mesh" name="Mesh">
-<area shape="rect" id="node2" href="$classTexture.html" title="Texture applied on a Mesh. " alt="" coords="5,5,76,32"/>
-<area shape="rect" id="node3" href="$classVAO.html" title="Create a VAO that can be drawn on the window from an .obj file. " alt="" coords="105,5,155,32"/>
-</map>
