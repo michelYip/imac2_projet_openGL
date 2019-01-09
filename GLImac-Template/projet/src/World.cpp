@@ -35,7 +35,7 @@ Map World::getMap() const{
 const std::vector<Object> World::getAllPrintableObjects() const{
 	std::vector<Object> list = _map.getAllObjects(MAX_MAPS);
 	list.push_back(_player);
-	
+	list.push_back(Skybox(0, -20, 0, 10));
 	return list; 
 }
 

@@ -5,6 +5,7 @@
 #include <vector>
 #include "Physic.hpp"
 #include "Map.hpp"
+#include "Skybox.hpp"
 
 const float INITIAL_SPEED = 3;
 const int MAX_MAPS = 5;
