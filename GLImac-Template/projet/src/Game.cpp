@@ -54,6 +54,8 @@ void Game::run(char* execName){
 	delete(startmenu);
 	delete(savemenu);
 	delete(playermenu);
+	delete(createplayermenu);
+	//delete(environment3D); //double free corruption ???
     
 }
 

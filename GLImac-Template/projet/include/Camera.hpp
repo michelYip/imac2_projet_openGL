@@ -4,14 +4,14 @@
 #include <string>
 #include <glimac/glm.hpp>
 
-const float ZOOM_SPEED = 0.5f;
 
 using namespace glm;
 
 /// \class Camera
 /// \brief Camera of the View
 class Camera{
-	protected:
+    protected:
+        const float ZOOM_SPEED = 0.5f;
 		bool _locked;
     public:
         Camera():_locked(true){}

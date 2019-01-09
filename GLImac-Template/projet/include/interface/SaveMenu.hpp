@@ -17,18 +17,11 @@
 class SaveMenu : public RenderingInterface
 {
 	private:
-		Player &_player; ///< _player parameter of the Game
+		Player &_player; ///< _player parameter of the Game 
 	public:
 		/// \param: applicationPath: Game applicationPath
 		/// \param: player: Game _player param
-		SaveMenu(const glimac::FilePath &applicationPath, Player &player)
-		:RenderingInterface(applicationPath), _player(player)
-		{
-			_elements.push_back(ImageButton("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            _elements.push_back(ImageButton("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-            _elements.push_back(ImageButton("saves-frames.png",   0.f, 0.f, 0.5f, 0.5f, applicationPath));
-            _elements.push_back(ImageButton("arrow.png", -0.475f, 0.31, 0.03f, 0.03f, applicationPath));
-   		}
+		SaveMenu(const glimac::FilePath &applicationPath, Player &player);
 
 		~SaveMenu() = default;   		
 
