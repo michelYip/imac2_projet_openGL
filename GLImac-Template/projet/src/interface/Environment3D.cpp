@@ -45,7 +45,7 @@ void Environment3D::manageKeyUpEvents(const SDLKey &k){
         case SDLK_DOWN:
             break;
         case SDLK_ESCAPE:
-            throw QuitGame();
+            throw GoToPlayerMenu();
             break;
         case SDLK_SPACE:
             break;

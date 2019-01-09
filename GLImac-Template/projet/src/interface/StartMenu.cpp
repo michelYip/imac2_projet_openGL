@@ -20,6 +20,14 @@ void StartMenu::manageEvents(const SDL_Event &e){
 // deals with key up events
 void StartMenu::manageKeyUpEvents(const SDLKey &k){
     switch(k){
+        default:
+            break;
+    }
+}
+
+// deals with key down events
+void StartMenu::manageKeyDownEvents(const SDLKey &k){
+    switch(k){
         case SDLK_DOWN:
             arrowDown();
             break;
@@ -33,14 +41,6 @@ void StartMenu::manageKeyUpEvents(const SDLKey &k){
         case SDLK_UP:
             arrowUp();
             break;
-        default:
-            break;
-    }
-}
-
-// deals with key down events
-void StartMenu::manageKeyDownEvents(const SDLKey &k){
-    switch(k){
         default:
             break;
     }   

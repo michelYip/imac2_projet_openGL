@@ -6,9 +6,7 @@
 #include "FreeflyCamera.hpp"
 #include "TrackballCamera.hpp"
 #include "interface/throwableEvents/QuitGame.hpp"
-#include "interface/throwableEvents/GoToSaveMenu.hpp"
-#include "interface/throwableEvents/GoTo3DEnvironment.hpp"
-#include "interface/throwableEvents/GoToChangeSkinMenu.hpp"
+#include "interface/throwableEvents/GoToPlayerMenu.hpp"
 #include "exceptions/Unreachable_file.hpp"
 
 /// \class Environment3D
@@ -26,22 +24,27 @@ class Environment3D : public Rendering3D
 		/// \param: player: Game _player param
 		Environment3D(const glimac::FilePath &applicationPath, World &world, Player &player)
 		:Rendering3D(applicationPath,&_ffcamera,world), _player(player)
-		{}
+		{updateCharaterTexture();} 
 
 		~Environment3D() = default;
 
+		/// \brief Update character texture from player selected skin
+		void updateCharaterTexture(){_world.getCharacter().texture() = _player.selectedSkin().texture();}
+		
+		/// \brief Manage the events
+		/// \param e: SDL_Event that comme from the view's SDLWindowManager
+		void manageEvents(const SDL_Event &e);
+		
+		/// \brief Manage the keyUp events
+		/// \param k: [SDL_Event].key.keysym.sym
+		void manageKeyUpEvents(const SDLKey &k);
 
-	/// \brief Manage the events
-	/// \param e: SDL_Event that comme from the view's SDLWindowManager
-	void manageEvents(const SDL_Event &e);
-	
-	/// \brief Manage the keyUp events
-	/// \param k: [SDL_Event].key.keysym.sym
-	void manageKeyUpEvents(const SDLKey &k);
+		/// \brief Manage the keyDown events
+		/// \param k: [SDL_Event].key.keysym.sym
+		void manageKeyDownEvents(const SDLKey &k);
 
-	/// \brief Manage the keyDown events
-	/// \param k: [SDL_Event].key.keysym.sym
-	void manageKeyDownEvents(const SDLKey &k);
+		/// \brief setter to update player if it has change of object
+		Player& player(){return _player;}
 };
 
 #endif

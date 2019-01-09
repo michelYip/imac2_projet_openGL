@@ -6,7 +6,7 @@
 #include "interface/throwableEvents/QuitGame.hpp"
 #include "interface/throwableEvents/GoToPlayerMenu.hpp"
 #include "exceptions/Unreachable_file.hpp"
-
+#include <string>
 
 
 
@@ -18,20 +18,23 @@ class CreatePlayerMenu : public RenderingInterface
 {
 	private:
 		Player &_player; ///< _player parameter of the Game
+		int _playerNum; ///< _player parameter of the Game
 	public:
 		/// \param: applicationPath: Game applicationPath
 		/// \param: player: Game _player param
-		CreatePlayerMenu(const glimac::FilePath &applicationPath, Player &player)
-		:RenderingInterface(applicationPath), _player(player)
+		/// \param: playerNum: unique player number (used for saving file)
+		CreatePlayerMenu(const glimac::FilePath &applicationPath, Player &player, const int playerNum)
+		:RenderingInterface(applicationPath), _player(player), _playerNum(playerNum)
 		{
-			_elements.push_back(ImageButton("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            _elements.push_back(ImageButton("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-            // _selectableElements.push_back(ImageButton("play.png", 0.05f, 0.25f, 0.07f, 0.05f, applicationPath));
-            // _selectableElements.push_back(ImageButton("change-skin.png", 0.175f, 0.15f, 0.2f, 0.05f, applicationPath));
-            // _selectableElements.push_back(ImageButton("change-player.png", 0.175f, 0.05f, 0.2f, 0.05f, applicationPath));
-            // _selectableElements.push_back(ImageButton("quit.png", 0.05f, -0.05f, 0.07f, 0.05f, applicationPath));
-            _elements.push_back(ImageButton("arrow.png", -0.1f, 0.25, 0.03f, 0.03f, applicationPath));
+			_player = Player();
+			_player.savingFile() = "player_" + std::to_string(playerNum);
+			_player.name() = _player.savingFile();
+			_player.save();
+			// _elements.push_back(ImageButton("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
+            // _elements.push_back(ImageButton("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
+            // _elements.push_back(ImageButton("arrow.png", -0.1f, 0.25, 0.03f, 0.03f, applicationPath));
 		}
+		~CreatePlayerMenu() = default;
 
 
 	/// \brief Manage the events
@@ -45,6 +48,12 @@ class CreatePlayerMenu : public RenderingInterface
 	/// \brief Manage the keyDown events
 	/// \param k: [SDL_Event].key.keysym.sym
 	void manageKeyDownEvents(const SDLKey &k);
+
+	/// \brief setter to update player if it has change of object
+	Player& player(){return _player;}
+	
+	/// \brief setter to update playerNum
+	int& playerNum(){return _playerNum;}
 };
 
 #endif

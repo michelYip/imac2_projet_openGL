@@ -46,8 +46,19 @@ void SaveMenu::manageEvents(const SDL_Event &e){
 // deals with key up events
 void SaveMenu::manageKeyUpEvents(const SDLKey &k){
     switch(k){
+        default:
+            break;
+    }
+}
+
+// deals with key down events
+void SaveMenu::manageKeyDownEvents(const SDLKey &k){
+    switch(k){
         case SDLK_DOWN:
             arrowDown();
+            break;
+        case SDLK_BACKSPACE:
+            throw GoToStartMenu();
             break;
         case SDLK_ESCAPE:
             throw QuitGame();
@@ -57,19 +68,11 @@ void SaveMenu::manageKeyUpEvents(const SDLKey &k){
                 _player = Player::load(std::string("player_")+std::to_string(_currentButton+1));
                 throw GoToPlayerMenu();
             }
-            catch(const Unreachable_file &e){ throw GoToCreatePlayerMenu();}
+            catch(const Unreachable_file &e){ throw GoToCreatePlayerMenu(_currentButton+1);}
             break;
         case SDLK_UP:
             arrowUp();
             break;
-        default:
-            break;
-    }
-}
-
-// deals with key down events
-void SaveMenu::manageKeyDownEvents(const SDLKey &k){
-    switch(k){
         default:
             break;
     }   

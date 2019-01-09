@@ -22,14 +22,13 @@ class RenderingInterface : public Rendering
 		std::vector<ImageButton> _elements;
 		std::vector<ImageButton> _selectableElements;
 		unsigned int _currentButton = 0;
-	private:
+		GPUProgram2D _program2D;
 		GLuint _vbo;
 		GLuint _vao;
 		GLuint _ibo;
-		GPUProgram2D _program2D;
 		bool isFinished = 0;
-		
 		void showElement(const ImageButton &image);
+	
 	public:
 		RenderingInterface(){}
 		RenderingInterface(const glimac::FilePath &applicationPath);
@@ -52,11 +51,9 @@ class RenderingInterface : public Rendering
 		/// \param k: [SDL_Event].key.keysym.sym
 		virtual void manageKeyDownEvents(const SDLKey &k) = 0;
 
-
 		/// \brief show the object content on the window
 		void show();
 
-		
 		/// \brief Used to select the next selectableElement
 		virtual void arrowDown();
 		

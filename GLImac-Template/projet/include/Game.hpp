@@ -11,6 +11,7 @@
 #include "interface/PlayerMenu.hpp"
 #include "interface/Environment3D.hpp"
 #include "interface/CreatePlayerMenu.hpp"
+#include "interface/ChangeSkinMenu.hpp"
 	
 /// \class Game
 /// \brief Create and manage the game
@@ -22,10 +23,15 @@ private:
 	View _view; ///< View that print every world element 
 	World _world; ///< World that contain every element of the game, can be considered as the model 
 
+	///\brief preload all needed texture
+	///\param applicationPath: application path of Game::run()
+	void preload(const glimac::FilePath &applicationPath);
 
 public:
-	Game();
+	Game(){}
 	~Game() = default;
+
+
 
 
 	/// \brief Launch the window and the main loop

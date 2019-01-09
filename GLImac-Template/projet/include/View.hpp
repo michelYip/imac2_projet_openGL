@@ -44,7 +44,6 @@ class View
 
 		//Default destructor
 		~View(){
-			delete(_rendering);
 			//Free static loaded Mesh
 			Mesh::clearAllLoadedMesh();
 		};

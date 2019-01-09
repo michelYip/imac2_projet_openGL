@@ -14,7 +14,7 @@ const float DECELERATION = 40;
 class Character : public MovingObject
 {
 protected:
-	virtual const std::string TEXTURE_FILE(){return "white.png";}
+	virtual const std::string TEXTURE_FILE(){return _texture;}
 	virtual const std::string OBJ_FILE(){return "character.obj";}
 
 private: 
@@ -24,9 +24,11 @@ private:
 	bool _isGrounded;
 	bool _isJumping;
 	bool _isCrouching;
+	std::string _texture;
 
 public:
 	Character();
+	Character(std::string texture):_texture(texture){}
 	Character(	const glm::vec3 & position,
 				const glm::vec3 & lower,
 				const glm::vec3 & upper);
@@ -38,6 +40,8 @@ public:
 	inline void movingLeft() { _movingLeft = !_movingLeft; }
 	inline void movingRight(){ _movingRight = !_movingRight; }
 
+	std::string &texture(){return _texture;}
+	
 	//Decrease the velocity on X axis until it reach 0
 	void decelerateX(const float & time_interval);
 

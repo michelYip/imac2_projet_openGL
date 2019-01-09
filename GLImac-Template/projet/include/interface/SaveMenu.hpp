@@ -6,6 +6,7 @@
 #include "interface/throwableEvents/QuitGame.hpp"
 #include "interface/throwableEvents/GoToCreatePlayerMenu.hpp"
 #include "interface/throwableEvents/GoToPlayerMenu.hpp"
+#include "interface/throwableEvents/GoToStartMenu.hpp"
 #include "exceptions/Unreachable_file.hpp"
 
 
@@ -25,27 +26,29 @@ class SaveMenu : public RenderingInterface
 
 		~SaveMenu() = default;   		
 
+		/// \brief Manage the events
+		/// \param e: SDL_Event that comme from the view's SDLWindowManager
+		void manageEvents(const SDL_Event &e);
+		
+		/// \brief Manage the keyUp events
+		/// \param k: [SDL_Event].key.keysym.sym
+		void manageKeyUpEvents(const SDLKey &k);
 
-	/// \brief Manage the events
-	/// \param e: SDL_Event that comme from the view's SDLWindowManager
-	void manageEvents(const SDL_Event &e);
-	
-	/// \brief Manage the keyUp events
-	/// \param k: [SDL_Event].key.keysym.sym
-	void manageKeyUpEvents(const SDLKey &k);
+		/// \brief Manage the keyDown events
+		/// \param k: [SDL_Event].key.keysym.sym
+		void manageKeyDownEvents(const SDLKey &k);
 
-	/// \brief Manage the keyDown events
-	/// \param k: [SDL_Event].key.keysym.sym
-	void manageKeyDownEvents(const SDLKey &k);
+		/// \brief Used to select the next selectableElement
+		void arrowDown();
+		
+		/// \brief Used to select the previous selectableElement
+		void arrowUp();
 
-	/// \brief Used to select the next selectableElement
-	void arrowDown();
-	
-	/// \brief Used to select the previous selectableElement
-	void arrowUp();
+		/// \brief Used to update the Arrow position 
+		void updateArrow();
 
-	/// \brief Used to update the Arrow position 
-	void updateArrow();
+		/// \brief setter to update player if it has change of object
+		Player& player(){return _player;}
 };
 
 #endif

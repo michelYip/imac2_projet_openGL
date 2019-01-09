@@ -57,8 +57,12 @@ public:
 	inline void spendMoney(const unsigned int sum){_money-sum >= 0 ? _money-=sum : throw INSUFFICIENT_FUNDS();}
 	
 	inline const std::vector<Skin> unlockedSkins() const{return _unlockedSkins;}
-	inline void addUnlockedSkins(const Skin &skin){return _unlockedSkins.push_back(skin);}
-	
+	inline void buyskin(const Skin &skin){
+		if(std::find(_unlockedSkins.begin(), _unlockedSkins.end(),skin) == _unlockedSkins.end()){
+			spendMoney(skin.price());
+			_unlockedSkins.push_back(skin);
+		}
+	}
 
 	//PUBLICS FUNCTIONS 
 	
@@ -70,13 +74,15 @@ public:
 	/// \brief Save the player in a file
 	/// \throw Incorrect_saving_file if file does not have all needed informations
 	/// \throw Unreachable_file if file can not be openn
-	void save(std::string filename) const;			
+	void save() const;			
 
 
 	//OPERATORS
 	friend std::ostream& operator<<(std::ostream &os, const Player &p);
 
 private:
+	inline void addUnlockedSkins(const Skin &skin){return _unlockedSkins.push_back(skin);}
+	
 	///brief Save all unlockedSkins into the file
 	void saveUnlockedSkins(std::ofstream &file) const;
 	

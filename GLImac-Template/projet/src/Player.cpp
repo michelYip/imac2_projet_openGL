@@ -9,12 +9,12 @@ std::ostream& operator<<(std::ostream &os, const Player &p){
 	return os;
 }
 
-void Player::save(std::string filename) const{
+void Player::save() const{
 	struct stat buf;
 	std::ofstream playerFile;
-	playerFile.open(PLAYER_SAVING_FOLDER+filename, std::fstream::out);
+	playerFile.open(PLAYER_SAVING_FOLDER+_savingFile, std::fstream::out);
 	if(!playerFile.is_open())
-		throw UNREACHABLE_FILE(PLAYER_SAVING_FOLDER+filename);
+		throw UNREACHABLE_FILE(PLAYER_SAVING_FOLDER+_savingFile);
 
     saveTime(playerFile);
     saveUnlockedSkins(playerFile);
@@ -67,9 +67,10 @@ Player Player::load(const std::string &filename){
 					skin_as_str.at(0).erase(0,skin_as_str.at(0).find(":")+1);
 					skin_as_str.at(1).erase(0,skin_as_str.at(1).find(":")+1);
 					skin_as_str.at(2).erase(0,skin_as_str.at(2).find(":")+1);
+					skin_as_str.at(3).erase(0,skin_as_str.at(3).find(":")+1);
 
 				
-					player.addUnlockedSkins(Skin(skin_as_str.at(0),std::stoi(skin_as_str.at(1)),skin_as_str.at(2)));
+					player.addUnlockedSkins(Skin(skin_as_str.at(0),std::stoi(skin_as_str.at(1)),skin_as_str.at(2),skin_as_str.at(3)));
 				}
 			}
 		}else if(line_number == 3){

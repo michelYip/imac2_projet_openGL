@@ -42,6 +42,10 @@ class ImageButton{
 			_position.y = posY;
 		}
 
+		void setPosX(const float &posX){
+			_position.x = posX;
+		}
+
 		ImageButton &operator=(const ImageButton &image){
 			if(this != &image){
 				_position = glm::vec2(image._position.x, image._position.y);

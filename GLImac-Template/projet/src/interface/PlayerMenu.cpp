@@ -20,6 +20,18 @@ void PlayerMenu::manageEvents(const SDL_Event &e){
 // deals with key up events
 void PlayerMenu::manageKeyUpEvents(const SDLKey &k){
     switch(k){
+            break;
+        default:
+            break;
+    }
+}
+
+// deals with key down events
+void PlayerMenu::manageKeyDownEvents(const SDLKey &k){
+    switch(k){
+        case SDLK_UP:
+            arrowUp();
+            break;
         case SDLK_DOWN:
             arrowDown();
             break;
@@ -32,17 +44,6 @@ void PlayerMenu::manageKeyUpEvents(const SDLKey &k){
             if(_currentButton == 2) throw GoToSaveMenu();
             throw QuitGame();
             break;
-        case SDLK_UP:
-            arrowUp();
-            break;
-        default:
-            break;
-    }
-}
-
-// deals with key down events
-void PlayerMenu::manageKeyDownEvents(const SDLKey &k){
-    switch(k){
         default:
             break;
     }   

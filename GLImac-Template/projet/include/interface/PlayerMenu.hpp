@@ -49,6 +49,9 @@ class PlayerMenu : public RenderingInterface
 	/// \brief Manage the keyDown events
 	/// \param k: [SDL_Event].key.keysym.sym
 	void manageKeyDownEvents(const SDLKey &k);
+
+	/// \brief setter to update player if it has change of object
+	Player& player(){return _player;}
 };
 
 #endif

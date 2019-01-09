@@ -30,11 +30,11 @@ std::vector<Skin> Skin::loadSkins(){
 			}
 			
 			// Throw if invalid argument numbers
-			if(((int)(skinParams.size())) != 3)
+			if(((int)(skinParams.size())) != 4)
 				throw new std::invalid_argument("Invalid number of argument given");
 
 			//Add to vector if ok
-			skinsVector.push_back(Skin(skinParams.at(0),std::stoi(skinParams.at(1)),skinParams.at(2)));
+			skinsVector.push_back(Skin(skinParams.at(0),std::stoi(skinParams.at(1)),skinParams.at(2), skinParams.at(3)));
 		}
 	}
 	skinsFile.close();
