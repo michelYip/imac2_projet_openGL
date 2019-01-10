@@ -45,7 +45,9 @@ void Game::run(char* execName){
 	    	_view.set_rendering(createplayermenu);
 	    }
 	    catch(const GoToPlayerMenu &e){
+		  	_player.gainMoney(_world.earnedMoney());
 	    	playermenu->player() = _player;
+	    	playermenu->updateScreen();
 			_view.set_rendering(playermenu);
 	    }
 	    catch(const GoToChangeSkinMenu &e){ 
@@ -62,7 +64,6 @@ void Game::run(char* execName){
 	    }    
     	_view.displayWindow();
   		end = clock();
-	  	_player.gainMoney(_world.earnedMoney());
   	}
   	_player.save();
 

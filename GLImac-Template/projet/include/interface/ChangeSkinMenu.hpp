@@ -8,10 +8,6 @@
 #include "interface/throwableEvents/GoToPlayerMenu.hpp"
 #include "exceptions/Unreachable_file.hpp"
 
-
-
-
-
 /// \class ChangeSkinMenu
 /// \brief Manage all the Player creation Menu of the game, can create a new saving file and load the player to the player given, it create all the needed elements and is able to modify the player    
 /// \brief Like all others Interfaces folder class it has its own key event manager to control every elements       
@@ -29,20 +25,7 @@ class ChangeSkinMenu : public RenderingInterface
 		ChangeSkinMenu(const glimac::FilePath &applicationPath, Player &player)
 		:RenderingInterface(applicationPath), _player(player), _applicationPath(applicationPath)
 		{
-			_elements.push_back(Illustration("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            _elements.push_back(Illustration("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-			_listSkins = Skin::loadSkins();
-			float arrowX = -.45f;
-			for (int i = 0; i < _listSkins.size(); ++i)
-			{
-				float x = .3f*i-.3f;
-            	_elements.push_back(Illustration(_listSkins.at(i).previewPng(), x, 0.0f, 0.10f, 0.10f, applicationPath));
-				if(std::find(_player.unlockedSkins().begin(), _player.unlockedSkins().end(),_listSkins.at(i)) == _player.unlockedSkins().end())
-            		_frontElements.push_back(Illustration("buy.png", x, 0.f, .1f, .1f, applicationPath));
-				if(_listSkins.at(i) == _player.selectedSkin())
-         		   arrowX = .3f*i-.3f-0.15f;
-			}
-         	_elements.push_back(Illustration("arrow.png", arrowX, 0.f, 0.03f, 0.03f, applicationPath));
+			updateScreen();
             
 		}
 		~ChangeSkinMenu() = default;
