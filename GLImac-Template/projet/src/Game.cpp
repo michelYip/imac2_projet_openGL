@@ -64,6 +64,12 @@ void Game::run(char* execName){
   	}
   	_player.save();
 
+  	delete startmenu;
+	delete playermenu;
+	delete changeskinmenu;
+	delete environment3D;
+	delete savemenu;
+	delete createplayermenu;
 }
 
 
