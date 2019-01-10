@@ -9,7 +9,7 @@ const float MAX_VELOCITY = 25;
 const float ACCELERATION = 125;
 const float DECELERATION = 125;
 
-const float JUMP_POWER 	   = 100;
+const float JUMP_POWER 	   = 90;
 const float GRAVITY 	   = 10;
 
 /// \class Character
@@ -18,7 +18,7 @@ class Character : public MovingObject
 {
 protected:
 	virtual const std::string TEXTURE_FILE(){ return (_texture.size() == 0) ? Object::TEXTURE_FILE() : _texture;}
-	virtual const std::string OBJ_FILE(){return "cube.obj";}
+	virtual const std::string OBJ_FILE(){return "character.obj";}
 
 private: 
 	std::vector<Coin> _collectedCoins;

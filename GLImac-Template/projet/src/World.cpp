@@ -18,9 +18,9 @@ void World::createMap(const std::string & map){
 
 void World::initCharacter(){
 	glm::vec2 start = _map.getStartPoint();
-	_player = Character(glm::vec3(start.x, 5,start.y),
-						glm::vec3(start.x - 0.5, 5.1, start.y - 0.5),
-						glm::vec3(start.x + 0.5, 6, start.y + 0.5));
+	_player = Character(glm::vec3(start.x		, 5		, start.y),
+						glm::vec3(start.x - 0.5	, 5.1	, start.y - 0.5),
+						glm::vec3(start.x + 0.5	, 6		, start.y + 0.5));
 }
 
 //Set map with a reference
