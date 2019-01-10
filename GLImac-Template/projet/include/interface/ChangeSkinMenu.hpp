@@ -26,7 +26,7 @@ class ChangeSkinMenu : public RenderingInterface
 	public:
 		/// \param: applicationPath: Game applicationPath
 		/// \param: player: Game _player param
-		ChangeSkinMenu(const glimac::FilePath &applicationPath, Player &player
+		ChangeSkinMenu(const glimac::FilePath &applicationPath, Player &player)
 		:RenderingInterface(applicationPath), _player(player), _applicationPath(applicationPath)
 		{
 			_elements.push_back(Illustration("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
@@ -45,8 +45,6 @@ class ChangeSkinMenu : public RenderingInterface
          	_elements.push_back(Illustration("arrow.png", arrowX, 0.f, 0.03f, 0.03f, applicationPath));
             
 		}
-		~ChangeSkinMenu() = default;
-
 		~ChangeSkinMenu() = default;
 
 		/// \brief Manage the events

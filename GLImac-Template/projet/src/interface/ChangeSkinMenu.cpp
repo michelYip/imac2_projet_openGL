@@ -69,18 +69,18 @@ void ChangeSkinMenu::updateScreen(){
     _frontElements.clear();
     _selectableElements.clear();
 
-    _elements.push_back(ImageButton("background.png",   0.f, 0.f, 1.f, 1.f, _applicationPath));
-    _elements.push_back(ImageButton("frame.png", 0.f, 0.f, 1.3f, 1.3f, _applicationPath));
+    _elements.push_back(Element2D("background.png",   0.f, 0.f, 1.f, 1.f, _applicationPath));
+    _elements.push_back(Element2D("frame.png", 0.f, 0.f, 1.3f, 1.3f, _applicationPath));
     _listSkins = Skin::loadSkins();
     float arrowX = -.45f;
     for (int i = 0; i < _listSkins.size(); ++i)
     {
         float x = .3f*i-.3f;
-        _selectableElements.push_back(ImageButton(_listSkins.at(i).previewPng(), x, 0.0f, 0.10f, 0.10f, _applicationPath));
+        _selectableElements.push_back(Element2D(_listSkins.at(i).previewPng(), x, 0.0f, 0.10f, 0.10f, _applicationPath));
         if(std::find(_player.unlockedSkins().begin(), _player.unlockedSkins().end(),_listSkins.at(i)) == _player.unlockedSkins().end())
-            _frontElements.push_back(ImageButton("buy.png", x, 0.f, .1f, .1f, _applicationPath));
+            _frontElements.push_back(Element2D("buy.png", x, 0.f, .1f, .1f, _applicationPath));
         if(_listSkins.at(i) == _player.selectedSkin())
            arrowX = .3f*i-.3f-0.15f;
     }
-    _elements.push_back(ImageButton("arrow.png", arrowX, 0.f, 0.03f, 0.03f, _applicationPath));
+    _elements.push_back(Element2D("arrow.png", arrowX, 0.f, 0.03f, 0.03f, _applicationPath));
 }
