@@ -68,9 +68,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a07ad9c140b57d5300ab0ce0f0f05013a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34cfc9860bd0822bcc554dc9e076c9f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysic.html#a34cfc9860bd0822bcc554dc9e076c9f0">~Physic</a> ()</td></tr>
 <tr class="separator:a34cfc9860bd0822bcc554dc9e076c9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3324de5d891400bf8a2561aa54f2c4fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysic.html#a3324de5d891400bf8a2561aa54f2c4fb">checkCollision</a> (const <a class="el" href="classCollider.html">Collider</a> &amp;a, const <a class="el" href="classCollider.html">Collider</a> &amp;b)</td></tr>
-<tr class="memdesc:a3324de5d891400bf8a2561aa54f2c4fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two Colliders are colliding or not.  <a href="#a3324de5d891400bf8a2561aa54f2c4fb">More...</a><br /></td></tr>
-<tr class="separator:a3324de5d891400bf8a2561aa54f2c4fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace81b15029d89ecbe0ebeb5759787075"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysic.html#ace81b15029d89ecbe0ebeb5759787075">checkCollision</a> (const <a class="el" href="classCharacter.html">Character</a> &amp;a, const <a class="el" href="classObject.html">Object</a> &amp;b)</td></tr>
+<tr class="memdesc:ace81b15029d89ecbe0ebeb5759787075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two Colliders are colliding or not.  <a href="#ace81b15029d89ecbe0ebeb5759787075">More...</a><br /></td></tr>
+<tr class="separator:ace81b15029d89ecbe0ebeb5759787075"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d87cb65001674fb1c363003ca50c1a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysic.html#a1d87cb65001674fb1c363003ca50c1a5">isGrounded</a> (const <a class="el" href="classCollider.html">Collider</a> &amp;a, const <a class="el" href="classCollider.html">Collider</a> &amp;other)</td></tr>
 <tr class="memdesc:a1d87cb65001674fb1c363003ca50c1a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the collider a is touching another collider from above.  <a href="#a1d87cb65001674fb1c363003ca50c1a5">More...</a><br /></td></tr>
 <tr class="separator:a1d87cb65001674fb1c363003ca50c1a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -96,7 +96,7 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classPhysic.html" title="Physic of the Game, a singleton, only one Physic can be instancied at a time. ">Physic</a> of the <a class="el" href="classGame.html" title="Create and manage the game. ">Game</a>, a singleton, only one <a class="el" href="classPhysic.html" title="Physic of the Game, a singleton, only one Physic can be instancied at a time. ">Physic</a> can be instancied at a time. </p>
 
-<p class="definition">Definition at line <a class="el" href="Physic_8hpp_source.html#l00014">14</a> of file <a class="el" href="Physic_8hpp_source.html">Physic.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Physic_8hpp_source.html#l00016">16</a> of file <a class="el" href="Physic_8hpp_source.html">Physic.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a861135e64e4a93d7d119f822b8c5aed8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a861135e64e4a93d7d119f822b8c5aed8">&#9670;&nbsp;</a></span>Physic() <span class="overload">[1/2]</span></h2>
@@ -173,8 +173,8 @@ Static Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3324de5d891400bf8a2561aa54f2c4fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3324de5d891400bf8a2561aa54f2c4fb">&#9670;&nbsp;</a></span>checkCollision()</h2>
+<a id="ace81b15029d89ecbe0ebeb5759787075"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace81b15029d89ecbe0ebeb5759787075">&#9670;&nbsp;</a></span>checkCollision()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,13 +182,13 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool Physic::checkCollision </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classCollider.html">Collider</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classCharacter.html">Character</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classCollider.html">Collider</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classObject.html">Object</a> &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -270,7 +270,7 @@ Static Private Attributes</h2></td></tr>
 <p>Check if the collider a is touching another collider from above. </p>
 <dl class="section return"><dt>Returns</dt><dd>: True if a is touching other from above, otherwise return False </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Physic_8cpp_source.html#l00019">19</a> of file <a class="el" href="Physic_8cpp_source.html">Physic.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Physic_8cpp_source.html#l00020">20</a> of file <a class="el" href="Physic_8cpp_source.html">Physic.cpp</a>.</p>
 
 </div>
 </div>
@@ -323,7 +323,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Instance of <a class="el" href="classPhysic.html" title="Physic of the Game, a singleton, only one Physic can be instancied at a time. ">Physic</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Physic_8hpp_source.html#l00017">17</a> of file <a class="el" href="Physic_8hpp_source.html">Physic.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Physic_8hpp_source.html#l00019">19</a> of file <a class="el" href="Physic_8hpp_source.html">Physic.hpp</a>.</p>
 
 </div>
 </div>

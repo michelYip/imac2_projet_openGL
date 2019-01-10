@@ -67,7 +67,7 @@ Collaboration diagram for PlayerMenu:</div>
 <area shape="rect" id="node2" href="classRenderingInterface.html" title="Rendering module that is able to create a 2D environment to create an interface. " alt="" coords="93,171,239,197"/>
 <area shape="rect" id="node3" href="classRendering.html" title="Rendering module of the View. " alt="" coords="5,81,92,108"/>
 <area shape="rect" id="node4" href="classGPUProgram2D.html" title="Contain the uniform var location needed by the RenderingInterface " alt="" coords="117,81,239,108"/>
-<area shape="rect" id="node5" href="classGPUProgram.html" title="associated with shaders " alt="" coords="125,5,231,32"/>
+<area shape="rect" id="node5" href="classGPUProgram.html" title="Program with uniform var locations and shaders to render correctly. " alt="" coords="125,5,231,32"/>
 <area shape="rect" id="node6" href="classPlayer.html" title="Create a Player that can be saved and loaded to continue playing even after closing the game..." alt="" coords="263,171,325,197"/>
 <area shape="rect" id="node7" href="classSkin.html" title="Skin of the player applied to the Character in the World. " alt="" coords="269,81,319,108"/>
 </map>
@@ -91,6 +91,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b3a37e630b941c8e403d8699e7d5e89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlayer.html">Player</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerMenu.html#a0b3a37e630b941c8e403d8699e7d5e89">player</a> ()</td></tr>
 <tr class="memdesc:a0b3a37e630b941c8e403d8699e7d5e89"><td class="mdescLeft">&#160;</td><td class="mdescRight">setter to update player if it has change of object  <a href="#a0b3a37e630b941c8e403d8699e7d5e89">More...</a><br /></td></tr>
 <tr class="separator:a0b3a37e630b941c8e403d8699e7d5e89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adabd61ea552ee01c31ac241cdd7cc922"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerMenu.html#adabd61ea552ee01c31ac241cdd7cc922">updateScreen</a> ()</td></tr>
+<tr class="memdesc:adabd61ea552ee01c31ac241cdd7cc922"><td class="mdescLeft">&#160;</td><td class="mdescRight">update screen according to change in the game  <a href="#adabd61ea552ee01c31ac241cdd7cc922">More...</a><br /></td></tr>
+<tr class="separator:adabd61ea552ee01c31ac241cdd7cc922"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classRenderingInterface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classRenderingInterface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classRenderingInterface.html">RenderingInterface</a></td></tr>
 <tr class="memitem:a68c67bc56bbddab494987570dcf1093a inherit pub_methods_classRenderingInterface"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderingInterface.html#a68c67bc56bbddab494987570dcf1093a">RenderingInterface</a> ()</td></tr>
 <tr class="separator:a68c67bc56bbddab494987570dcf1093a inherit pub_methods_classRenderingInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,35 +130,46 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a86e7ceb27367470fab0418daebe3ab85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlayer.html">Player</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerMenu.html#a86e7ceb27367470fab0418daebe3ab85">_player</a></td></tr>
 <tr class="memdesc:a86e7ceb27367470fab0418daebe3ab85"><td class="mdescLeft">&#160;</td><td class="mdescRight">_player parameter of the <a class="el" href="classGame.html" title="Create and manage the game. ">Game</a>  <a href="#a86e7ceb27367470fab0418daebe3ab85">More...</a><br /></td></tr>
 <tr class="separator:a86e7ceb27367470fab0418daebe3ab85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a9f9a3e5e50734c85bf3857c62fe625"><td class="memItemLeft" align="right" valign="top">glimac::FilePath&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayerMenu.html#a0a9f9a3e5e50734c85bf3857c62fe625">_applicationPath</a></td></tr>
+<tr class="separator:a0a9f9a3e5e50734c85bf3857c62fe625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classRenderingInterface"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classRenderingInterface')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classRenderingInterface.html">RenderingInterface</a></td></tr>
 <tr class="memitem:a0db9160fa6c159c295fa49290e521ff2 inherit pro_methods_classRenderingInterface"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderingInterface.html#a0db9160fa6c159c295fa49290e521ff2">showElement</a> (const <a class="el" href="classElement2D.html">Element2D</a> &amp;image)</td></tr>
+<tr class="memdesc:a0db9160fa6c159c295fa49290e521ff2 inherit pro_methods_classRenderingInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">displays a 2D element  <a href="classRenderingInterface.html#a0db9160fa6c159c295fa49290e521ff2">More...</a><br /></td></tr>
 <tr class="separator:a0db9160fa6c159c295fa49290e521ff2 inherit pro_methods_classRenderingInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classRenderingInterface"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classRenderingInterface')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classRenderingInterface.html">RenderingInterface</a></td></tr>
 <tr class="memitem:a4e3d8694b787e7379681318d7669488e inherit pro_attribs_classRenderingInterface"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classElement2D.html">Element2D</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderingInterface.html#a4e3d8694b787e7379681318d7669488e">_elements</a></td></tr>
+<tr class="memdesc:a4e3d8694b787e7379681318d7669488e inherit pro_attribs_classRenderingInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D elements to display  <a href="classRenderingInterface.html#a4e3d8694b787e7379681318d7669488e">More...</a><br /></td></tr>
 <tr class="separator:a4e3d8694b787e7379681318d7669488e inherit pro_attribs_classRenderingInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad798c436b88969c6e4d47414a48e6eca inherit pro_attribs_classRenderingInterface"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classElement2D.html">Element2D</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderingInterface.html#ad798c436b88969c6e4d47414a48e6eca">_selectableElements</a></td></tr>
+<tr class="memdesc:ad798c436b88969c6e4d47414a48e6eca inherit pro_attribs_classRenderingInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D elements that are selectable by the arrow and triggers actions  <a href="classRenderingInterface.html#ad798c436b88969c6e4d47414a48e6eca">More...</a><br /></td></tr>
 <tr class="separator:ad798c436b88969c6e4d47414a48e6eca inherit pro_attribs_classRenderingInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93a37228575ee4eab7285fe16b33862d inherit pro_attribs_classRenderingInterface"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderingInterface.html#a93a37228575ee4eab7285fe16b33862d">_currentButton</a> = 0</td></tr>
+<tr class="memdesc:a93a37228575ee4eab7285fe16b33862d inherit pro_attribs_classRenderingInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">currentButton revealing what is the action to trigger if the button is selected  <a href="classRenderingInterface.html#a93a37228575ee4eab7285fe16b33862d">More...</a><br /></td></tr>
 <tr class="separator:a93a37228575ee4eab7285fe16b33862d inherit pro_attribs_classRenderingInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7dacab163abe37d963a3f5b7e2c9c5e2 inherit pro_attribs_classRenderingInterface"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGPUProgram2D.html">GPUProgram2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderingInterface.html#a7dacab163abe37d963a3f5b7e2c9c5e2">_program2D</a></td></tr>
+<tr class="memdesc:a7dacab163abe37d963a3f5b7e2c9c5e2 inherit pro_attribs_classRenderingInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classGPUProgram.html" title="Program with uniform var locations and shaders to render correctly. ">GPUProgram</a> that will allow to display the 2D render.  <a href="classRenderingInterface.html#a7dacab163abe37d963a3f5b7e2c9c5e2">More...</a><br /></td></tr>
 <tr class="separator:a7dacab163abe37d963a3f5b7e2c9c5e2 inherit pro_attribs_classRenderingInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37693fbb17dd1662d51ab661ed597b33 inherit pro_attribs_classRenderingInterface"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderingInterface.html#a37693fbb17dd1662d51ab661ed597b33">_vbo</a></td></tr>
+<tr class="memdesc:a37693fbb17dd1662d51ab661ed597b33 inherit pro_attribs_classRenderingInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">id to Vertex Buffer Objects  <a href="classRenderingInterface.html#a37693fbb17dd1662d51ab661ed597b33">More...</a><br /></td></tr>
 <tr class="separator:a37693fbb17dd1662d51ab661ed597b33 inherit pro_attribs_classRenderingInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a032b6f88738d74f60f631ec254c734 inherit pro_attribs_classRenderingInterface"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderingInterface.html#a1a032b6f88738d74f60f631ec254c734">_vao</a></td></tr>
+<tr class="memdesc:a1a032b6f88738d74f60f631ec254c734 inherit pro_attribs_classRenderingInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">id to Vertex Array Objects  <a href="classRenderingInterface.html#a1a032b6f88738d74f60f631ec254c734">More...</a><br /></td></tr>
 <tr class="separator:a1a032b6f88738d74f60f631ec254c734 inherit pro_attribs_classRenderingInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7a344bc46550e714f33f5b9ebbe1be6 inherit pro_attribs_classRenderingInterface"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderingInterface.html#ae7a344bc46550e714f33f5b9ebbe1be6">_ibo</a></td></tr>
+<tr class="memdesc:ae7a344bc46550e714f33f5b9ebbe1be6 inherit pro_attribs_classRenderingInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">id to Index Buffer Objects  <a href="classRenderingInterface.html#ae7a344bc46550e714f33f5b9ebbe1be6">More...</a><br /></td></tr>
 <tr class="separator:ae7a344bc46550e714f33f5b9ebbe1be6 inherit pro_attribs_classRenderingInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6f6d529e3a589669397055043f60ad2 inherit pro_attribs_classRenderingInterface"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderingInterface.html#ac6f6d529e3a589669397055043f60ad2">isFinished</a> = 0</td></tr>
+<tr class="memdesc:ac6f6d529e3a589669397055043f60ad2 inherit pro_attribs_classRenderingInterface"><td class="mdescLeft">&#160;</td><td class="mdescRight">reveals if it is the end of the render  <a href="classRenderingInterface.html#ac6f6d529e3a589669397055043f60ad2">More...</a><br /></td></tr>
 <tr class="separator:ac6f6d529e3a589669397055043f60ad2 inherit pro_attribs_classRenderingInterface"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manage all the <a class="el" href="classPlayer.html" title="Create a Player that can be saved and loaded to continue playing even after closing the game...">Player</a> selection Menu of the game, it create all the needed elements and is able to modify the player. </p>
 <p>Like all others Interfaces folder class it has its own key event manager to control every elements </p>
 
-<p class="definition">Definition at line <a class="el" href="PlayerMenu_8hpp_source.html#l00019">19</a> of file <a class="el" href="PlayerMenu_8hpp_source.html">PlayerMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PlayerMenu_8hpp_source.html#l00016">16</a> of file <a class="el" href="PlayerMenu_8hpp_source.html">PlayerMenu.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a933b31ac3f110cd4e6a4de02bef383b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a933b31ac3f110cd4e6a4de02bef383b8">&#9670;&nbsp;</a></span>PlayerMenu()</h2>
@@ -197,7 +211,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="PlayerMenu_8hpp_source.html#l00026">26</a> of file <a class="el" href="PlayerMenu_8hpp_source.html">PlayerMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PlayerMenu_8hpp_source.html#l00024">24</a> of file <a class="el" href="PlayerMenu_8hpp_source.html">PlayerMenu.hpp</a>.</p>
 
 </div>
 </div>
@@ -261,7 +275,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classRenderingInterface.html#a91da6929512d7250d96762deb8f512c2">RenderingInterface</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="PlayerMenu_8cpp_source.html#l00004">4</a> of file <a class="el" href="PlayerMenu_8cpp_source.html">PlayerMenu.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PlayerMenu_8cpp_source.html#l00003">3</a> of file <a class="el" href="PlayerMenu_8cpp_source.html">PlayerMenu.cpp</a>.</p>
 
 </div>
 </div>
@@ -299,7 +313,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classRenderingInterface.html#a2eb20679d4be2d67473c689657c9d239">RenderingInterface</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="PlayerMenu_8cpp_source.html#l00030">30</a> of file <a class="el" href="PlayerMenu_8cpp_source.html">PlayerMenu.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PlayerMenu_8cpp_source.html#l00027">27</a> of file <a class="el" href="PlayerMenu_8cpp_source.html">PlayerMenu.cpp</a>.</p>
 
 </div>
 </div>
@@ -337,7 +351,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classRenderingInterface.html#aca0a32bf6b20f2ebe29596e0828089e7">RenderingInterface</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="PlayerMenu_8cpp_source.html#l00021">21</a> of file <a class="el" href="PlayerMenu_8cpp_source.html">PlayerMenu.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PlayerMenu_8cpp_source.html#l00019">19</a> of file <a class="el" href="PlayerMenu_8cpp_source.html">PlayerMenu.cpp</a>.</p>
 
 </div>
 </div>
@@ -366,11 +380,56 @@ Additional Inherited Members</h2></td></tr>
 
 <p>setter to update player if it has change of object </p>
 
-<p class="definition">Definition at line <a class="el" href="PlayerMenu_8hpp_source.html#l00055">55</a> of file <a class="el" href="PlayerMenu_8hpp_source.html">PlayerMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PlayerMenu_8hpp_source.html#l00045">45</a> of file <a class="el" href="PlayerMenu_8hpp_source.html">PlayerMenu.hpp</a>.</p>
+
+</div>
+</div>
+<a id="adabd61ea552ee01c31ac241cdd7cc922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adabd61ea552ee01c31ac241cdd7cc922">&#9670;&nbsp;</a></span>updateScreen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlayerMenu::updateScreen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>update screen according to change in the game </p>
+
+<p class="definition">Definition at line <a class="el" href="PlayerMenu_8cpp_source.html#l00052">52</a> of file <a class="el" href="PlayerMenu_8cpp_source.html">PlayerMenu.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0a9f9a3e5e50734c85bf3857c62fe625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a9f9a3e5e50734c85bf3857c62fe625">&#9670;&nbsp;</a></span>_applicationPath</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glimac::FilePath PlayerMenu::_applicationPath</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="PlayerMenu_8hpp_source.html#l00020">20</a> of file <a class="el" href="PlayerMenu_8hpp_source.html">PlayerMenu.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a86e7ceb27367470fab0418daebe3ab85"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a86e7ceb27367470fab0418daebe3ab85">&#9670;&nbsp;</a></span>_player</h2>
 
@@ -393,7 +452,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>_player parameter of the <a class="el" href="classGame.html" title="Create and manage the game. ">Game</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="PlayerMenu_8hpp_source.html#l00022">22</a> of file <a class="el" href="PlayerMenu_8hpp_source.html">PlayerMenu.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PlayerMenu_8hpp_source.html#l00019">19</a> of file <a class="el" href="PlayerMenu_8hpp_source.html">PlayerMenu.hpp</a>.</p>
 
 </div>
 </div>

@@ -1,7 +1,7 @@
 #ifndef _GOTOCHANGESKINMENU_ 
 #define _GOTOCHANGESKINMENU_
 
-///< class GoTo3DEnvironment
+/// \class GoTo3DEnvironment
 class GoToChangeSkinMenu
 {
 public:

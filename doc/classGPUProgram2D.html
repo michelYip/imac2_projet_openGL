@@ -55,7 +55,7 @@ Inheritance diagram for GPUProgram2D:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGPUProgram2D__inherit__graph.png" border="0" usemap="#GPUProgram2D_inherit__map" alt="Inheritance graph"/></div>
 <map name="GPUProgram2D_inherit__map" id="GPUProgram2D_inherit__map">
-<area shape="rect" id="node2" href="classGPUProgram.html" title="associated with shaders " alt="" coords="14,5,119,32"/>
+<area shape="rect" id="node2" href="classGPUProgram.html" title="Program with uniform var locations and shaders to render correctly. " alt="" coords="14,5,119,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -63,7 +63,7 @@ Collaboration diagram for GPUProgram2D:</div>
 <div class="dyncontent">
 <div class="center"><img src="classGPUProgram2D__coll__graph.png" border="0" usemap="#GPUProgram2D_coll__map" alt="Collaboration graph"/></div>
 <map name="GPUProgram2D_coll__map" id="GPUProgram2D_coll__map">
-<area shape="rect" id="node2" href="classGPUProgram.html" title="associated with shaders " alt="" coords="14,5,119,32"/>
+<area shape="rect" id="node2" href="classGPUProgram.html" title="Program with uniform var locations and shaders to render correctly. " alt="" coords="14,5,119,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -82,13 +82,17 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ac13d3cfc433146102db48f23847e7dca"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUProgram2D.html#ac13d3cfc433146102db48f23847e7dca">_uModelMatrix</a></td></tr>
+<tr class="memdesc:ac13d3cfc433146102db48f23847e7dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">location of the uniform var of the model matrix  <a href="#ac13d3cfc433146102db48f23847e7dca">More...</a><br /></td></tr>
 <tr class="separator:ac13d3cfc433146102db48f23847e7dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0632b69082f5ec8d46f65e9b613d3bd"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUProgram2D.html#ab0632b69082f5ec8d46f65e9b613d3bd">_uColor</a></td></tr>
+<tr class="memdesc:ab0632b69082f5ec8d46f65e9b613d3bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">location of the uniform var of the color  <a href="#ab0632b69082f5ec8d46f65e9b613d3bd">More...</a><br /></td></tr>
 <tr class="separator:ab0632b69082f5ec8d46f65e9b613d3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3fbeb73eef3fd5e2554e48696d6b0cb"><td class="memItemLeft" align="right" valign="top">GLint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUProgram2D.html#aa3fbeb73eef3fd5e2554e48696d6b0cb">_uTexture</a></td></tr>
+<tr class="memdesc:aa3fbeb73eef3fd5e2554e48696d6b0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">location of the uniform var of the texture  <a href="#aa3fbeb73eef3fd5e2554e48696d6b0cb">More...</a><br /></td></tr>
 <tr class="separator:aa3fbeb73eef3fd5e2554e48696d6b0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classGPUProgram"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classGPUProgram')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classGPUProgram.html">GPUProgram</a></td></tr>
 <tr class="memitem:ae3e7b0765aad826f1a93b102d10a53a5 inherit pub_attribs_classGPUProgram"><td class="memItemLeft" align="right" valign="top">glimac::Program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGPUProgram.html#ae3e7b0765aad826f1a93b102d10a53a5">_program</a></td></tr>
+<tr class="memdesc:ae3e7b0765aad826f1a93b102d10a53a5 inherit pub_attribs_classGPUProgram"><td class="mdescLeft">&#160;</td><td class="mdescRight">program with the two shaders  <a href="classGPUProgram.html#ae3e7b0765aad826f1a93b102d10a53a5">More...</a><br /></td></tr>
 <tr class="separator:ae3e7b0765aad826f1a93b102d10a53a5 inherit pub_attribs_classGPUProgram"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -162,8 +166,14 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="GPUProgram2D_8hpp_source.html#l00015">15</a> of file <a class="el" href="GPUProgram2D_8hpp_source.html">GPUProgram2D.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="GPUProgram2D_8hpp_source.html#l00017">17</a> of file <a class="el" href="GPUProgram2D_8hpp_source.html">GPUProgram2D.hpp</a>.</p>
 
 </div>
 </div>
@@ -179,6 +189,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>location of the uniform var of the color </p>
 
 <p class="definition">Definition at line <a class="el" href="GPUProgram2D_8hpp_source.html#l00011">11</a> of file <a class="el" href="GPUProgram2D_8hpp_source.html">GPUProgram2D.hpp</a>.</p>
 
@@ -196,6 +208,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>location of the uniform var of the model matrix </p>
+
 <p class="definition">Definition at line <a class="el" href="GPUProgram2D_8hpp_source.html#l00010">10</a> of file <a class="el" href="GPUProgram2D_8hpp_source.html">GPUProgram2D.hpp</a>.</p>
 
 </div>
@@ -211,6 +225,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>location of the uniform var of the texture </p>
 
 <p class="definition">Definition at line <a class="el" href="GPUProgram2D_8hpp_source.html#l00012">12</a> of file <a class="el" href="GPUProgram2D_8hpp_source.html">GPUProgram2D.hpp</a>.</p>
 

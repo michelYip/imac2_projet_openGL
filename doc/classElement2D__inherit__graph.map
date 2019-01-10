@@ -1,4 +1,4 @@
 <map id="Element2D" name="Element2D">
-<area shape="rect" id="node2" href="$classIllustration.html" title="2D element " alt="" coords="5,80,97,107"/>
-<area shape="rect" id="node3" href="$classText.html" title="\ Class Text \ brief displays text (string converted to image) " alt="" coords="121,80,171,107"/>
+<area shape="rect" id="node2" href="$classIllustration.html" title="In order to display the wanted images / textures. " alt="" coords="5,80,97,107"/>
+<area shape="rect" id="node3" href="$classText.html" title="displays text (string converted to image) " alt="" coords="121,80,171,107"/>
 </map>

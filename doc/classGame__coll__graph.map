@@ -1,7 +1,7 @@
 <map id="Game" name="Game">
 <area shape="rect" id="node2" href="$classView.html" title="View of the Game that control the window. " alt="" coords="125,425,180,452"/>
 <area shape="rect" id="node3" href="$classRendering.html" title="Rendering module of the View. " alt="" coords="5,336,92,363"/>
-<area shape="rect" id="node4" href="$classMusic.html" title="Music" alt="" coords="123,336,182,363"/>
+<area shape="rect" id="node4" href="$classMusic.html" title="Plays music during the game. " alt="" coords="123,336,182,363"/>
 <area shape="rect" id="node5" href="$classWorld.html" title="World of the Game that manages every element in it. " alt="" coords="243,425,302,452"/>
 <area shape="rect" id="node6" href="$classMap.html" title="The structure of the Map where the game takes place. " alt="" coords="207,336,256,363"/>
 <area shape="rect" id="node7" href="$classCharacter.html" title="Character present on the Map controlled by the Player. " alt="" coords="281,336,366,363"/>

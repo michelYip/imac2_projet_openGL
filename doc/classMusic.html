@@ -46,6 +46,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Plays music during the game.  
+ <a href="classMusic.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Music_8hpp_source.html">Music.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -55,18 +58,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b4f3b9a018207e0c08003505f1f87fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#a0b4f3b9a018207e0c08003505f1f87fe">~Music</a> ()</td></tr>
 <tr class="separator:a0b4f3b9a018207e0c08003505f1f87fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1a0985cd2a7eea0186f693ce2c888e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#ac1a0985cd2a7eea0186f693ce2c888e9">play</a> (const std::string &amp;musicName)</td></tr>
+<tr class="memdesc:ac1a0985cd2a7eea0186f693ce2c888e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">: creates the music object and plays it infinitely  <a href="#ac1a0985cd2a7eea0186f693ce2c888e9">More...</a><br /></td></tr>
 <tr class="separator:ac1a0985cd2a7eea0186f693ce2c888e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e6c0d3f2e77dfd078d6115a886fb8c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#a8e6c0d3f2e77dfd078d6115a886fb8c6">clear</a> ()</td></tr>
+<tr class="memdesc:a8e6c0d3f2e77dfd078d6115a886fb8c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">clears the pointer  <a href="#a8e6c0d3f2e77dfd078d6115a886fb8c6">More...</a><br /></td></tr>
 <tr class="separator:a8e6c0d3f2e77dfd078d6115a886fb8c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:af0a571f82e1cae72e302728349834255"><td class="memItemLeft" align="right" valign="top">Mix_Music *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMusic.html#af0a571f82e1cae72e302728349834255">_music</a></td></tr>
+<tr class="memdesc:af0a571f82e1cae72e302728349834255"><td class="mdescLeft">&#160;</td><td class="mdescRight">the music to play  <a href="#af0a571f82e1cae72e302728349834255">More...</a><br /></td></tr>
 <tr class="separator:af0a571f82e1cae72e302728349834255"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00004">4</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
+<div class="textblock"><p>Plays music during the game. </p>
+
+<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00006">6</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab5143f67c021bc77894c8e91de2b916b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab5143f67c021bc77894c8e91de2b916b">&#9670;&nbsp;</a></span>Music()</h2>
@@ -91,7 +98,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00008">8</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00010">10</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
 
 </div>
 </div>
@@ -118,7 +125,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00009">9</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00011">11</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
 
 </div>
 </div>
@@ -146,7 +153,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00018">18</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
+<p>clears the pointer </p>
+
+<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00023">23</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
 
 </div>
 </div>
@@ -174,7 +183,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00011">11</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
+<p>: creates the music object and plays it infinitely </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00015">15</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
 
 </div>
 </div>
@@ -199,7 +216,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00006">6</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
+<p>the music to play </p>
+
+<p class="definition">Definition at line <a class="el" href="Music_8hpp_source.html#l00008">8</a> of file <a class="el" href="Music_8hpp_source.html">Music.hpp</a>.</p>
 
 </div>
 </div>

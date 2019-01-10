@@ -2,7 +2,7 @@
 <area shape="rect" id="node2" href="$classRenderingInterface.html" title="Rendering module that is able to create a 2D environment to create an interface. " alt="" coords="93,171,239,197"/>
 <area shape="rect" id="node3" href="$classRendering.html" title="Rendering module of the View. " alt="" coords="5,81,92,108"/>
 <area shape="rect" id="node4" href="$classGPUProgram2D.html" title="Contain the uniform var location needed by the RenderingInterface " alt="" coords="117,81,239,108"/>
-<area shape="rect" id="node5" href="$classGPUProgram.html" title="associated with shaders " alt="" coords="125,5,231,32"/>
+<area shape="rect" id="node5" href="$classGPUProgram.html" title="Program with uniform var locations and shaders to render correctly. " alt="" coords="125,5,231,32"/>
 <area shape="rect" id="node6" href="$classPlayer.html" title="Create a Player that can be saved and loaded to continue playing even after closing the game..." alt="" coords="263,171,325,197"/>
 <area shape="rect" id="node7" href="$classSkin.html" title="Skin of the player applied to the Character in the World. " alt="" coords="269,81,319,108"/>
 </map>

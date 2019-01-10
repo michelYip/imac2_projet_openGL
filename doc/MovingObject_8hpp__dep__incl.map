@@ -1,11 +1,12 @@
 <map id="projet/include/MovingObject.hpp" name="projet/include/MovingObject.hpp">
-<area shape="rect" id="node2" href="$Character_8hpp.html" title="projet/include/Character.hpp" alt="" coords="786,80,991,107"/>
-<area shape="rect" id="node18" href="$Enemy_8hpp.html" title="projet/include/Enemy.hpp" alt="" coords="1015,80,1202,107"/>
-<area shape="rect" id="node19" href="$MovingObject_8cpp.html" title="projet/src/MovingObject.cpp" alt="" coords="1226,80,1429,107"/>
-<area shape="rect" id="node3" href="$Map_8hpp.html" title="projet/include/Map.hpp" alt="" coords="705,155,875,181"/>
-<area shape="rect" id="node17" href="$Character_8cpp.html" title="projet/src/Character.cpp" alt="" coords="899,155,1075,181"/>
+<area shape="rect" id="node2" href="$Character_8hpp.html" title="projet/include/Character.hpp" alt="" coords="699,80,905,107"/>
+<area shape="rect" id="node20" href="$Enemy_8hpp.html" title="projet/include/Enemy.hpp" alt="" coords="929,80,1115,107"/>
+<area shape="rect" id="node21" href="$MovingObject_8cpp.html" title="projet/src/MovingObject.cpp" alt="" coords="1139,80,1342,107"/>
+<area shape="rect" id="node3" href="$Physic_8hpp.html" title="projet/include/Physic.hpp" alt="" coords="709,155,895,181"/>
+<area shape="rect" id="node17" href="$Map_8hpp.html" title="projet/include/Map.hpp" alt="" coords="514,155,685,181"/>
+<area shape="rect" id="node19" href="$Character_8cpp.html" title="projet/src/Character.cpp" alt="" coords="919,155,1095,181"/>
 <area shape="rect" id="node4" href="$World_8hpp.html" title="projet/include/World.hpp" alt="" coords="608,229,788,256"/>
-<area shape="rect" id="node16" href="$Map_8cpp.html" title="projet/src/Map.cpp" alt="" coords="813,229,954,256"/>
+<area shape="rect" id="node16" href="$Physic_8cpp.html" title="projet/src/Physic.cpp" alt="" coords="812,229,968,256"/>
 <area shape="rect" id="node5" href="$Game_8hpp.html" title="projet/include/Game.hpp" alt="" coords="545,490,728,517"/>
 <area shape="rect" id="node7" href="$Rendering3D_8hpp.html" title="projet/include/Rendering3\lD.hpp" alt="" coords="311,304,499,345"/>
 <area shape="rect" id="node13" href="$SaveMenu_8hpp.html" title="projet/include/interface\l/SaveMenu.hpp" alt="" coords="674,304,847,345"/>
@@ -17,4 +18,5 @@
 <area shape="rect" id="node9" href="$View_8cpp.html" title="projet/src/View.cpp" alt="" coords="20,490,165,517"/>
 <area shape="rect" id="node11" href="$Environment3D_8cpp.html" title="projet/src/interface\l/Environment3D.cpp" alt="" coords="366,483,521,524"/>
 <area shape="rect" id="node14" href="$SaveMenu_8cpp.html" title="projet/src/interface\l/SaveMenu.cpp" alt="" coords="725,393,871,435"/>
+<area shape="rect" id="node18" href="$Map_8cpp.html" title="projet/src/Map.cpp" alt="" coords="442,229,583,256"/>
 </map>

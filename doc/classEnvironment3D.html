@@ -64,12 +64,12 @@ Collaboration diagram for Environment3D:</div>
 <area shape="rect" id="node2" href="classRendering3D.html" title="Rendering module that is able to create a 3D environment from the world informations ..." alt="" coords="184,528,289,555"/>
 <area shape="rect" id="node3" href="classRendering.html" title="Rendering module of the View. " alt="" coords="5,260,92,287"/>
 <area shape="rect" id="node6" href="classRenderingInterface.html" title="Rendering module that is able to create a 2D environment to create an interface. " alt="" coords="87,349,232,376"/>
-<area shape="rect" id="node4" href="classCamera.html" title="Camera of the View " alt="" coords="383,439,456,465"/>
+<area shape="rect" id="node4" href="classCamera.html" title="Camera of the View. " alt="" coords="383,439,456,465"/>
 <area shape="rect" id="node18" href="classFreeflyCamera.html" title="view from character&#39;s eyes " alt="" coords="313,528,429,555"/>
 <area shape="rect" id="node19" href="classTrackballCamera.html" title="focuses on the character " alt="" coords="454,528,585,555"/>
 <area shape="rect" id="node5" href="classGameInterface.html" title="Show infos of current game during the game. " alt="" coords="100,439,219,465"/>
 <area shape="rect" id="node7" href="classGPUProgram2D.html" title="Contain the uniform var location needed by the RenderingInterface " alt="" coords="117,260,239,287"/>
-<area shape="rect" id="node8" href="classGPUProgram.html" title="associated with shaders " alt="" coords="125,184,231,211"/>
+<area shape="rect" id="node8" href="classGPUProgram.html" title="Program with uniform var locations and shaders to render correctly. " alt="" coords="125,184,231,211"/>
 <area shape="rect" id="node9" href="classWorld.html" title="World of the Game that manages every element in it. " alt="" coords="251,439,310,465"/>
 <area shape="rect" id="node10" href="classMap.html" title="The structure of the Map where the game takes place. " alt="" coords="256,349,305,376"/>
 <area shape="rect" id="node11" href="classCharacter.html" title="Character present on the Map controlled by the Player. " alt="" coords="330,349,415,376"/>
@@ -113,7 +113,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3d54b6c0842c66c39e17ac552d193a36 inherit pub_methods_classRendering3D"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRendering3D.html#a3d54b6c0842c66c39e17ac552d193a36">~Rendering3D</a> ()=default</td></tr>
 <tr class="separator:a3d54b6c0842c66c39e17ac552d193a36 inherit pub_methods_classRendering3D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad783c1e58e4ddac79ff8accf17bcd252 inherit pub_methods_classRendering3D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRendering3D.html#ad783c1e58e4ddac79ff8accf17bcd252">show</a> ()</td></tr>
-<tr class="memdesc:ad783c1e58e4ddac79ff8accf17bcd252 inherit pub_methods_classRendering3D"><td class="mdescLeft">&#160;</td><td class="mdescRight">show the object content on the window  <a href="classRendering3D.html#ad783c1e58e4ddac79ff8accf17bcd252">More...</a><br /></td></tr>
+<tr class="memdesc:ad783c1e58e4ddac79ff8accf17bcd252 inherit pub_methods_classRendering3D"><td class="mdescLeft">&#160;</td><td class="mdescRight">displays what is in the render  <a href="classRendering3D.html#ad783c1e58e4ddac79ff8accf17bcd252">More...</a><br /></td></tr>
 <tr class="separator:ad783c1e58e4ddac79ff8accf17bcd252 inherit pub_methods_classRendering3D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classRendering"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classRendering')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classRendering.html">Rendering</a></td></tr>
 <tr class="memitem:a2d6135f6f0563031d59f12e81c15416d inherit pub_methods_classRendering"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRendering.html#a2d6135f6f0563031d59f12e81c15416d">Rendering</a> ()</td></tr>
@@ -138,10 +138,13 @@ Private Attributes</h2></td></tr>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classRendering3D"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classRendering3D')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classRendering3D.html">Rendering3D</a></td></tr>
 <tr class="memitem:adc42974df902d44e95e4bba1c10c3b12 inherit pro_attribs_classRendering3D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCamera.html">Camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRendering3D.html#adc42974df902d44e95e4bba1c10c3b12">_camera</a></td></tr>
+<tr class="memdesc:adc42974df902d44e95e4bba1c10c3b12 inherit pro_attribs_classRendering3D"><td class="mdescLeft">&#160;</td><td class="mdescRight">current camera of the 3D render  <a href="classRendering3D.html#adc42974df902d44e95e4bba1c10c3b12">More...</a><br /></td></tr>
 <tr class="separator:adc42974df902d44e95e4bba1c10c3b12 inherit pro_attribs_classRendering3D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21c06942accf608303dfd9564eb6b01f inherit pro_attribs_classRendering3D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorld.html">World</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRendering3D.html#a21c06942accf608303dfd9564eb6b01f">_world</a></td></tr>
+<tr class="memdesc:a21c06942accf608303dfd9564eb6b01f inherit pro_attribs_classRendering3D"><td class="mdescLeft">&#160;</td><td class="mdescRight">world of the game  <a href="classRendering3D.html#a21c06942accf608303dfd9564eb6b01f">More...</a><br /></td></tr>
 <tr class="separator:a21c06942accf608303dfd9564eb6b01f inherit pro_attribs_classRendering3D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04f3daab37da1cff74aa73266eb66884 inherit pro_attribs_classRendering3D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGameInterface.html">GameInterface</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRendering3D.html#a04f3daab37da1cff74aa73266eb66884">_interface</a></td></tr>
+<tr class="memdesc:a04f3daab37da1cff74aa73266eb66884 inherit pro_attribs_classRendering3D"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface showing informations during the game  <a href="classRendering3D.html#a04f3daab37da1cff74aa73266eb66884">More...</a><br /></td></tr>
 <tr class="separator:a04f3daab37da1cff74aa73266eb66884 inherit pro_attribs_classRendering3D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

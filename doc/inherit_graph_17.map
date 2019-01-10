@@ -7,7 +7,7 @@
 <area shape="rect" id="node4" href="$classEnemy.html" title="Enemy present on the Map. " alt="" coords="285,56,352,83"/>
 <area shape="rect" id="node6" href="$classCoin.html" title="Coin present on the Map that add money to the Player at the end of every Game try. " alt="" coords="293,107,344,133"/>
 <area shape="rect" id="node7" href="$classObstacle.html" title="Obstacle present on the Map " alt="" coords="279,157,358,184"/>
-<area shape="rect" id="node8" href="$classSkybox.html" title="Skybox" alt="" coords="283,208,354,235"/>
+<area shape="rect" id="node8" href="$classSkybox.html" title="box that envelops the world " alt="" coords="283,208,354,235"/>
 <area shape="rect" id="node10" href="$classBonus.html" title="Bonus present on the Map. " alt="" coords="287,259,350,285"/>
 <area shape="rect" id="node11" href="$classMalus.html" title="Malus present on the Map " alt="" coords="289,309,349,336"/>
 </map>
