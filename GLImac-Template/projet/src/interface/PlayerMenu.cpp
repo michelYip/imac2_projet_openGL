@@ -41,7 +41,10 @@ void PlayerMenu::manageKeyDownEvents(const SDLKey &k){
         case SDLK_SPACE:
             if(_currentButton == 0) throw GoTo3DEnvironment();
             if(_currentButton == 1) throw GoToChangeSkinMenu();
-            if(_currentButton == 2) throw GoToSaveMenu();
+            if(_currentButton == 2){
+                _player.save();
+                throw GoToSaveMenu();
+            } 
             throw QuitGame();
             break;
         default:

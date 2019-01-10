@@ -23,8 +23,6 @@ class ChangeSkinMenu : public RenderingInterface
 		std::vector<ImageButton> _frontElements;
 		const glimac::FilePath _applicationPath;
 		
-		/// \brief Set screen elements
-		void setScreen();
 	public:
 		/// \param: applicationPath: Game applicationPath
 		/// \param: player: Game _player param
@@ -52,10 +50,10 @@ class ChangeSkinMenu : public RenderingInterface
 		void show();
 
 		/// \brief setter to update player if it has change of object
-		void player(Player p){
-			_player = p;
-			setScreen();
-		}
+		void player(Player &p){_player = p;}
+		
+		/// \brief Set screen elements
+		void updateScreen();
 };
 
 #endif

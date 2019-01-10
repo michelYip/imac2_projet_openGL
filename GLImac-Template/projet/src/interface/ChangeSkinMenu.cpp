@@ -64,7 +64,11 @@ void ChangeSkinMenu::updateArrow(){
     _elements.back().setPosX(_selectableElements.at(_currentButton).posX() - 0.15f);
 }
 
-void ChangeSkinMenu::setScreen(){
+void ChangeSkinMenu::updateScreen(){
+    _elements.clear();
+    _frontElements.clear();
+    _selectableElements.clear();
+
     _elements.push_back(ImageButton("background.png",   0.f, 0.f, 1.f, 1.f, _applicationPath));
     _elements.push_back(ImageButton("frame.png", 0.f, 0.f, 1.3f, 1.3f, _applicationPath));
     _listSkins = Skin::loadSkins();

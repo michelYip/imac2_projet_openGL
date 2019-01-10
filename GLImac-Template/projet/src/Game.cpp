@@ -28,7 +28,6 @@ void Game::run(char* execName){
 	while(!_world.coroutine(_view.done(), time_interval)){
 		time_interval = float(end - start)/CLOCKS_PER_SEC; 
 		start = clock();
-		// std::cout << _world.character().modele3D()._texture->_texture << std::endl;
 		try{
 			_view.waitEvents();
 		}
@@ -50,6 +49,7 @@ void Game::run(char* execName){
 	    }
 	    catch(const GoToChangeSkinMenu &e){ 
 	    	changeskinmenu->player(_player);
+	    	changeskinmenu->updateScreen();
 	    	_view.set_rendering(changeskinmenu);
 	    }
 	    catch(const GoTo3DEnvironment &e){ 
