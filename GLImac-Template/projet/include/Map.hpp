@@ -67,6 +67,9 @@ public:
 	//Progress in the map
 	void moveMap(const float & distance);
 
+	//Return the list of the map object
+	inline std::vector<Object> getObjectList(){ return _objectList; }
+
 	//Return the list of object of all maps
 	std::vector<Object> getAllObjects(const int & i) const;
 
