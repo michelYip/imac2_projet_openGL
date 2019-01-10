@@ -38,7 +38,7 @@ class View
 		View()
 		:_done(false),
 		_screen(0),
-		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "SanGLimac"),
+		_windowManager(WINDOW_WIDTH, WINDOW_HEIGHT, "Enter The Tetris"),
 		_rendering(NULL)
 		{};
 
