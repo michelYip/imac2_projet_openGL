@@ -43,7 +43,7 @@ public:
 	void initCharacter();
 
 	//Return the character
-	inline Character character() { return _player; }
+	inline Character &character() { return _player; }
 
 	inline void movingLeft() { _player.movingLeft(); }
 	inline void movingRight() { _player.movingRight(); }

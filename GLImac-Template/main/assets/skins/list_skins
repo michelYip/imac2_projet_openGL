@@ -1,4 +1,6 @@
 #Commentaries are set with the "#" character
 #The template is : [name],[price],[textureFile], [previewFile]
-Skin0,0,skin0,preview_skin0.png
-Skin1,15,skin1,preview_skin1.png
+#Skins are at assets/textures/obj/
+#Skins preview are at asset/interface/
+Skin0,0,skin0.png,preview_skin0.png
+Skin1,15,skin1.png,preview_skin1.png

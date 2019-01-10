@@ -1,7 +1,7 @@
 #include "interface/SaveMenu.hpp"
 
-SaveMenu::SaveMenu(const glimac::FilePath &applicationPath, Player &player)
-:RenderingInterface(applicationPath), _player(player)
+SaveMenu::SaveMenu(const glimac::FilePath &applicationPath, Player &player, World &world)
+:RenderingInterface(applicationPath), _player(player), _world(world)
 {
     Player p1, p2, p3;  
     Player *pp1, *pp2, *pp3;  
@@ -66,6 +66,7 @@ void SaveMenu::manageKeyDownEvents(const SDLKey &k){
         case SDLK_SPACE:
             try{ 
                 _player = Player::load(std::string("player_")+std::to_string(_currentButton+1));
+                _world.character().texture(_player.selectedSkin().texture());
                 throw GoToPlayerMenu();
             }
             catch(const Unreachable_file &e){ throw GoToCreatePlayerMenu(_currentButton+1);}
