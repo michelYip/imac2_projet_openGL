@@ -31,9 +31,6 @@ public:
 	Game(){}
 	~Game() = default;
 
-
-
-
 	/// \brief Launch the window and the main loop
 	/// \param execName: Name of the executed file. Supposed to be argv[0] of the main
 	void run(char* execName);

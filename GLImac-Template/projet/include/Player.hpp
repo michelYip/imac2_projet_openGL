@@ -39,7 +39,6 @@ public:
 
 	~Player() = default;
 	
-
 	//GETTERS & SETTER
 	inline const std::string& name() const{return _name;}
 	inline std::string& name(){return _name;}

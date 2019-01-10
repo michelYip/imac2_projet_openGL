@@ -31,5 +31,5 @@ void Rendering3D::show(){
         glUniformMatrix4fv(_programs[0]._uNormalMatrix, 1, GL_FALSE, glm::value_ptr(_NormalMatrix));
         list_obj.at(i).modele3D().show(_programs[0]._uTexture);
     }
-    // _interface.show();
+    _interface.show();
 }

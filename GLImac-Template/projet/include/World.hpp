@@ -55,6 +55,10 @@ public:
 	/// \brief Return a list of all object in the world
 	/// \return: A list containing every Object of every Map in the world
 	const std::vector<Object> getAllPrintableObjects() const;
+	//Return the money of the player
+	inline unsigned int earnedMoney() const{
+		return _player.totalCoin();
+	}
 
 	/// \brief Make the world run
 	/// \return: True if the game has ended, return false otherwise

@@ -6,6 +6,7 @@
 #include <fstream>
 #include "Object.hpp"
 #include "Obstacle.hpp"
+#include "Coin.hpp"
 #include "Character.hpp"
 #include "exceptions/Incorrect_map_file.hpp"
 #include "exceptions/Unreachable_map_file.hpp"
@@ -30,6 +31,7 @@ class Map
 {
 private: 
 	std::vector<Object> _objectList; ///< The vector of object in the map
+	std::vector<Coin> _coinList; ///< The vector of coins in the map
 	glm::vec2 _startPoint; ///< The starting point of a map, used as a node to connect to the previous map
 	std::vector<glm::vec2> _endPoints; ///< The vector of endings of a map, used as a node to connect to the next map(s)
 	std::vector<Map> _nextMaps; ///< The vector of incomming maps
@@ -80,16 +82,23 @@ public:
 	/// \brief Add an object to the object list
 	/// \param obj: Object to add to the list
 	void addObject(const Object & obj);
+	//Add a coin to the coin list
+	void addCoin(const Coin & coin);
 
 	/// \brief Remove an object from the object list
 	/// \param obj: Object to remove from the list
 	void removeObject(const Object & obj);
+	//Remove a coin from the coin list
+	void removeCoin(const Coin & coin);
 
 	/// \brief Progress in the map
 	/// \param distance: The distance used to move all object of the map
 	void moveMap(const float & distance);
 
-	inline std::vector<Object> getObjectList(){ return _objectList; }
+	//Return the list of the map object
+	inline std::vector<Object> objectList(){ return _objectList; }
+	//Return the list of the map object
+	inline std::vector<Coin> coinList(){ return _coinList; }
 
 	/// \brief Return the list of object until the i-th Map
 	/// \param i: Number of map to look for object

@@ -12,8 +12,9 @@ Physic * Physic::getInstance() noexcept{
     return physic;
 }
 
-bool Physic::checkCollision(const Collider & a, const Collider & b){
-    return a.isColliding(b);
+bool Physic::checkCollision(const Character & a, const Object & b){
+    Collider bbA = a.boundingBox(), bbB = b.boundingBox();
+    return bbA.isColliding(bbB);
 }
 
 bool Physic::isGrounded(const Collider & a, const Collider & other){

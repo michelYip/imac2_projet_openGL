@@ -26,11 +26,11 @@ using namespace glimac;
 class View
 {
 	private:
-		bool _done;			// end app loop
-		unsigned int _screen;
-		Rendering *_rendering;
-		SDLWindowManager _windowManager;
-		Music _audio;
+		bool _done;	///< reveals when the render is done
+		unsigned int _screen; ///< reveals which screen we're in
+		Rendering *_rendering; ///< the render to display
+		SDLWindowManager _windowManager; ///< allows to display a window
+		Music _audio; ///< music of the game
 
 	public:
 		//CONSTRUCTORS & DESTRUCTORS
@@ -59,11 +59,15 @@ class View
 		}
 
 		//PUBLIC METHODS
-
+		/// \param: applicationPath : filePath of the game
+		/// \param: param : world to display
+		/// \brief creates the window for the render
 		int createWindow(const glimac::FilePath &applicationPath, const World &world);
+		/// \brief display window and render
 		void displayWindow();
+		/// \brief clears properly window
 		void clearWindow();
-
+		/// \brief manages the events of the window
 		void waitEvents();
 };
 

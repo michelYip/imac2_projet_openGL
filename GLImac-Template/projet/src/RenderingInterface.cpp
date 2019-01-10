@@ -60,16 +60,18 @@ glm::mat3 scale(float sx, float sy){
 
 
 void RenderingInterface::show() {
-    _program2D._program.use();
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glEnable(GL_BLEND);
-    glDisable(GL_DEPTH_TEST);
-    glBindVertexArray(this->_vao);
-    for(int i = 0; i < _elements.size(); i++)
-        showElement(_elements.at(i));
-    for(int i = 0; i < _selectableElements.size(); i++)
-        showElement(_selectableElements.at(i));   
-    glBindVertexArray(0);
+    if(!_elements.empty() || !_selectableElements.empty()){
+        _program2D._program.use();
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable(GL_BLEND);
+        glDisable(GL_DEPTH_TEST);
+        glBindVertexArray(this->_vao);
+        for(int i = 0; i < _elements.size(); i++)
+            showElement(_elements.at(i));
+        for(int i = 0; i < _selectableElements.size(); i++)
+            showElement(_selectableElements.at(i));   
+        glBindVertexArray(0);
+    }
 }
 
 

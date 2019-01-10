@@ -5,12 +5,12 @@
 
 //Default constructor
 Map::Map()
-:_objectList(), _startPoint(glm::vec2()), _endPoints(), _nextMaps()
+:_objectList(), _coinList(), _startPoint(glm::vec2()), _endPoints(), _nextMaps()
 {}
 
 //Default constructor
 Map::Map(const Map & other)
-:_objectList(other._objectList), _startPoint(other._startPoint), _endPoints(other._endPoints), _nextMaps(other._nextMaps)
+:_objectList(other._objectList),_coinList(other._coinList), _startPoint(other._startPoint), _endPoints(other._endPoints), _nextMaps(other._nextMaps)
 {}
 
 //Parameter constructor, load a map and the next ones
@@ -107,7 +107,17 @@ void Map::createObject(const int & col, const int & row, const float & g, const 
 	}
 	//Add coin and bonus/malus
 	if (b > 0){
-
+		if (b <= COIN_GROUNDED_THRESHOLD){
+			height = 1;
+			altitude = 0;
+		}
+		if (b > COIN_GROUNDED_THRESHOLD && g <= COIN_AIRBORN_THRESHOLD){
+			height = 1;
+			altitude = (int)g % 10;
+		}
+		for (int i = 0; i < height; i++){
+			addCoin(Coin(col, row, altitude + i));
+		}
 	}
 }
 
@@ -115,10 +125,18 @@ void Map::createObject(const int & col, const int & row, const float & g, const 
 void Map::addObject(const Object & obj){
     _objectList.push_back(obj);
 }
+//Add a coin to the coin list
+void Map::addCoin(const Coin & coin){
+    _coinList.push_back(coin);
+}
 
 //Remove an object from the object list
 void Map::removeObject(const Object & obj){
     _objectList.erase(std::remove(_objectList.begin(), _objectList.end(), obj), _objectList.end());
+}
+//Remove an object from the object list
+void Map::removeCoin(const Coin &coin){
+    _coinList.erase(std::remove(_coinList.begin(), _coinList.end(), coin), _coinList.end());
 }
 
 //Progress in the map
@@ -130,6 +148,9 @@ void Map::moveMap(const float & distance){
 	for (int i = 0; i < _objectList.size(); i++){
 		_objectList[i].moveObject(glm::vec3(0,0,distance));
 	}
+	for (int i = 0; i < _coinList.size(); i++){
+		_coinList[i].moveObject(glm::vec3(0,0,distance));
+	}
 	for (int i = 0; i < _endPoints.size(); i++){
 		_endPoints[i] += glm::vec2(0,distance);
 	}
@@ -138,12 +159,16 @@ void Map::moveMap(const float & distance){
 //Return the list of object of all maps
 std::vector<Object> Map::getAllObjects(const int & i) const {
 	if (_nextMaps.empty()){
-		return _objectList;
+		std::vector<Object> list = _objectList;
+		list.insert( list.end(), _coinList.begin(), _coinList.end() );
+		return list;
 	}
 	std::vector<Object> list = _objectList;
+	list.insert( list.end(), _coinList.begin(), _coinList.end() );
 	for (int t = 0; t < _nextMaps.size(); t++){
 		std::vector<Object> nextList = _nextMaps[t].getAllObjects(i-1);
 		list.insert(std::end(list), std::begin(nextList), std::end(nextList));
+		list.insert(std::end(list), _nextMaps[t]._coinList.begin(), _nextMaps[t]._coinList.end() );
 	}
 	return list;
 }

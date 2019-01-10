@@ -16,7 +16,8 @@ public:
 
 	//Parameter constructor
 	StaticObject(const glm::vec3 & position, const glm::vec3 & _lower, const glm::vec3 & _upper);
-	
+	//Copy constructor
+	StaticObject(const StaticObject &staticObject);
 
 	//Default destructor
 	~StaticObject() = default;

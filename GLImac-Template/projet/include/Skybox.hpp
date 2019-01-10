@@ -3,6 +3,8 @@
 
 #include "StaticObject.hpp"
 
+/// \class Skybox
+/// \brief box that envelops the world
 class Skybox : public StaticObject{
 protected:
 	virtual const std::string TEXTURE_FILE(){return "gameboy.png";}
@@ -10,7 +12,6 @@ protected:
 public:
 	Skybox(){}
 	~Skybox(){}
-	//Parameter constructor
 	Skybox(const int & x, const int & y, const float & altitude, const float & height)
 	:StaticObject(  glm::vec3(x,altitude,y),
 	                glm::vec3(x,altitude,y),

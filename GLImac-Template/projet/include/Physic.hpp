@@ -5,9 +5,11 @@
 #include <string>
 
 #include "Collider.hpp"
+#include "Character.hpp"
+#include "Object.hpp"
 
 const float KNOCKBACK_VALUE = 0.05;
-const float RAYCAST_LENGTH = 0.1;
+const float RAYCAST_LENGTH = 0.2;
 
 /// \class Physic
 /// \brief Physic of the Game, a singleton, only one Physic can be instancied at a time
@@ -27,7 +29,7 @@ public:
 	/// \brief Check if two Colliders are colliding or not
 	/// \param a, b: Colliders to check if they collide
 	/// \return: True if the colliders collide, otherwise return false
-	bool checkCollision(const Collider & a, const Collider & b);
+	bool checkCollision(const Character & a, const Object & b);
 
 	/// \brief Check if the collider a is touching another collider from above
 	/// \return: True if a is touching other from above, otherwise return False
