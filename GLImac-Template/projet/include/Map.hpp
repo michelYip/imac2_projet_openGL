@@ -32,7 +32,7 @@ private:
 	std::vector<Object> _objectList;
 	glm::vec2 _startPoint;
 	std::vector<glm::vec2> _endPoints;
-	std::vector<Map*> _nextMaps;
+	std::vector<Map> _nextMaps;
 
 public:
 	//CONSTRUCTORS & DESTRUCTORS
@@ -60,10 +60,13 @@ public:
 	}
 
 	//Return the list of the next maps
-	inline const std::vector<Map*> getNextMaps() const { return _nextMaps; }
+	inline const std::vector<Map> getNextMaps() const { return _nextMaps; }
 
 	//Return a list of the object of the map
 	const std::vector<Object> objectList() const{ return _objectList; }
+
+	//Create a random map at the end of the track
+	void appendMaps();
 
 	//Create an object from a pixel
 	void createObject(const int & col, const int & row, const float & g, const float & b);

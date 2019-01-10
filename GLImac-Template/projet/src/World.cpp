@@ -53,13 +53,9 @@ void World::switchMap(){
 	std::vector<float>::iterator it = std::min_element(std::begin(distToEnd), std::end(distToEnd));
     int nextMapIndex = std::distance(std::begin(distToEnd), it);
 
-	for (int i = 0; i < v.size(); i++)
-		if (i != nextMapIndex)
-			delete _map.getNextMaps()[i];
+	_map = _map.getNextMaps()[nextMapIndex];
 
-	_map = *(_map.getNextMaps()[nextMapIndex]);
-
-	
+	_map.appendMaps();
 
 }
 

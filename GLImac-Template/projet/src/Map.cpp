@@ -65,10 +65,27 @@ Map::Map(const std::string & mapFile, const int & i, const glm::vec2 & start){
     }
 	for (int t = 0; t < _endPoints.size(); t++){
 		if (i > 0){
-			_nextMaps.push_back(new Map(randomMap(), i - 1, start + _endPoints.back() - _startPoint));
+			_nextMaps.push_back(Map(randomMap(), i - 1, start + _endPoints.back() - _startPoint));
 		}
 	}
 	delete tmp_line;		
+}
+
+//Create a random map at the end of the track
+void Map::appendMaps(){
+	if (_nextMaps.empty())
+	{
+		for (int i = 0; i < _endPoints.size(); i++)
+		{
+			_nextMaps.push_back(Map(randomMap(), 0, _endPoints[i]));
+		}
+	}
+	else
+	{
+		for (int j = 0; j < _nextMaps.size(); j++){
+			_nextMaps[j].appendMaps();
+		}
+	}
 }
 
 //Create an object from a pixel
@@ -108,7 +125,7 @@ void Map::removeObject(const Object & obj){
 void Map::moveMap(const float & distance){
 	if (!_nextMaps.empty()){
 		for (int t = 0; t < _nextMaps.size(); t++)
-			_nextMaps[t]->moveMap(distance);
+			_nextMaps[t].moveMap(distance);
 	}
 	for (int i = 0; i < _objectList.size(); i++){
 		_objectList[i].moveObject(glm::vec3(0,0,distance));
@@ -125,7 +142,7 @@ std::vector<Object> Map::getAllObjects(const int & i) const {
 	}
 	std::vector<Object> list = _objectList;
 	for (int t = 0; t < _nextMaps.size(); t++){
-		std::vector<Object> nextList = _nextMaps[t]->getAllObjects(i-1);
+		std::vector<Object> nextList = _nextMaps[t].getAllObjects(i-1);
 		list.insert(std::end(list), std::begin(nextList), std::end(nextList));
 	}
 	return list;
@@ -135,7 +152,6 @@ std::string Map::randomMap() const{
     int random_number = std::rand() % MAP_NUMBER;
 	std::string mapName = std::to_string(random_number);
 	mapName += ".ppm";
-	std::cout << mapName << std::endl;
 	return mapName;
 }
 

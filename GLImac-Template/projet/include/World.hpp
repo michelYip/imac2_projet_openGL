@@ -7,7 +7,7 @@
 #include "Map.hpp"
 #include "Skybox.hpp"
 
-const float INITIAL_SPEED = 3;
+const float INITIAL_SPEED = 10;
 const int MAX_MAPS = 4;
 
 /// \class World
