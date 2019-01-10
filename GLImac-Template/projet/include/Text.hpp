@@ -27,6 +27,7 @@ class Text: public Element2D{
 			_position = glm::vec2(x, y);
 			_dimension = glm::vec2((float)surface->w * 2 / 1600, (float)surface->h * 2 / 1200);
 			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 			glGenTextures(1, &_texture);
 			glBindTexture(GL_TEXTURE_2D, _texture);
 			glTexImage2D(
@@ -47,6 +48,7 @@ class Text: public Element2D{
 		    glBindTexture(GL_TEXTURE_2D, 0);
 		    SDL_FreeSurface(surface);
 		    TTF_CloseFont(_font);
+		    glDisable(GL_BLEND);
 		}
 		~Text(){}
 

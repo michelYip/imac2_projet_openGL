@@ -61,28 +61,25 @@ glm::mat3 scale(float sx, float sy){
 
 void RenderingInterface::show() {
     _program2D._program.use();
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
+    glDisable(GL_DEPTH_TEST);
     glBindVertexArray(this->_vao);
-
     for(int i = 0; i < _elements.size(); i++)
         showElement(_elements.at(i));
     for(int i = 0; i < _selectableElements.size(); i++)
         showElement(_selectableElements.at(i));   
-
     glBindVertexArray(0);
 }
 
 
 void RenderingInterface::showElement(const Element2D &image){
     glBindTexture(GL_TEXTURE_2D, image.texture());
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glUniform1i(_program2D._uTexture, 0);
     glUniformMatrix3fv(_program2D._uModelMatrix, 1, GL_FALSE,glm::value_ptr(scale(image.width(), image.height()) * translate(image.posX(), image.posY())));
     glUniform3f(_program2D._uColor, 1.f, 0.f, 0.f);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
     glBindTexture(GL_TEXTURE_2D, 0);
-    glDisable(GL_BLEND);
 }
 
 

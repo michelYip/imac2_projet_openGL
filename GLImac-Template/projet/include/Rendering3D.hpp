@@ -3,13 +3,13 @@
 
 #include "Camera.hpp"
 #include "Rendering.hpp"
+#include "interface/GameInterface.hpp"
 #include "Mesh.hpp"
 #include "World.hpp"
-#include <glimac/Sphere.hpp>
 #include "GPUProgram3D.hpp"
 
-const float WINDOW_WIDTH = 1200;
-const float WINDOW_HEIGHT = 800;
+const float WINDOW_WIDTH = 1600;
+const float WINDOW_HEIGHT = 1200;
 
 
 /// \class Rendering3D
@@ -19,6 +19,7 @@ class Rendering3D : public Rendering
 	protected:
 		Camera *_camera;
 		World &_world;
+		GameInterface _interface;
 	
 	private:
 		glm::mat4 _ProjMatrix;
