@@ -1,0 +1,10 @@
+<map id="World" name="World">
+<area shape="rect" id="node2" href="$classMap.html" title="The structure of the Map where the game takes place. " alt="" coords="5,336,55,363"/>
+<area shape="rect" id="node3" href="$classCharacter.html" title="Character present on the Map controlled by the Player. " alt="" coords="79,336,165,363"/>
+<area shape="rect" id="node4" href="$classMovingObject.html" title="Abstract class of an object able to move " alt="" coords="67,260,177,287"/>
+<area shape="rect" id="node5" href="$classObject.html" title="Abstract class of an object present in the World " alt="" coords="90,184,154,211"/>
+<area shape="rect" id="node6" href="$classCollider.html" title="Collider bouding box of an Object. " alt="" coords="22,95,94,121"/>
+<area shape="rect" id="node7" href="$classMesh.html" title="3D Mesh of an object " alt="" coords="158,95,214,121"/>
+<area shape="rect" id="node8" href="$classTexture.html" title="Texture applied on a Mesh. " alt="" coords="105,5,176,32"/>
+<area shape="rect" id="node9" href="$classVAO.html" title="Create a VAO that can be drawn on the window from an .obj file. " alt="" coords="205,5,255,32"/>
+</map>

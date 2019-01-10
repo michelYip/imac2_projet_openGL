@@ -1,0 +1,14 @@
+<map id="projet/include/Coin.hpp" name="projet/include/Coin.hpp">
+<area shape="rect" id="node2" href="$StaticObject_8hpp.html" title="StaticObject.hpp" alt="" coords="259,80,389,107"/>
+<area shape="rect" id="node3" href="$Object_8hpp.html" title="Object.hpp" alt="" coords="278,155,370,181"/>
+<area shape="rect" id="node7" href="$Collider_8hpp.html" title="Collider.hpp" alt="" coords="5,229,104,256"/>
+<area shape="rect" id="node8" href="$Mesh_8hpp.html" title="Mesh.hpp" alt="" coords="1237,229,1321,256"/>
+<area shape="rect" id="node9" href="$VAO_8hpp.html" title="VAO.hpp" alt="" coords="1381,304,1457,331"/>
+<area shape="rect" id="node26" href="$Texture_8hpp.html" title="Texture.hpp" alt="" coords="913,379,1012,405"/>
+<area shape="rect" id="node10" href="$Rendering_8hpp.html" title="Rendering.hpp" alt="" coords="1243,379,1357,405"/>
+<area shape="rect" id="node20" href="$Unreachable__file_8hpp.html" title="exceptions/Unreachable\l_file.hpp" alt="" coords="645,453,824,495"/>
+<area shape="rect" id="node23" href="$Vertex3DUV_8hpp.html" title="Vertex3DUV.hpp" alt="" coords="1497,461,1623,487"/>
+<area shape="rect" id="node14" href="$Element2D_8hpp.html" title="Element2D.hpp" alt="" coords="1304,543,1427,569"/>
+<area shape="rect" id="node17" href="$Text_8hpp.html" title="Text.hpp" alt="" coords="1261,461,1339,487"/>
+<area shape="rect" id="node21" href="$Game__exception_8hpp.html" title="exceptions/Game_exception.hpp" alt="" coords="691,543,925,569"/>
+</map>

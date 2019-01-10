@@ -1,0 +1,20 @@
+<map id="projet/src/interface/ChangeSkinMenu.cpp" name="projet/src/interface/ChangeSkinMenu.cpp">
+<area shape="rect" id="node2" href="$ChangeSkinMenu_8hpp.html" title="interface/ChangeSkinMenu.hpp" alt="" coords="1767,95,1991,121"/>
+<area shape="rect" id="node3" href="$RenderingInterface_8hpp.html" title="RenderingInterface.hpp" alt="" coords="976,177,1149,203"/>
+<area shape="rect" id="node21" href="$Player_8hpp.html" title="Player.hpp" alt="" coords="1624,177,1715,203"/>
+<area shape="rect" id="node27" href="$Unreachable__file_8hpp.html" title="exceptions/Unreachable\l_file.hpp" alt="" coords="1760,348,1939,389"/>
+<area shape="rect" id="node29" href="$Skin_8hpp.html" title="Skin.hpp" alt="" coords="1427,266,1506,293"/>
+<area shape="rect" id="node31" href="$QuitGame_8hpp.html" title="interface/throwableEvents\l/QuitGame.hpp" alt="" coords="2126,169,2319,211"/>
+<area shape="rect" id="node32" href="$GoToPlayerMenu_8hpp.html" title="interface/throwableEvents\l/GoToPlayerMenu.hpp" alt="" coords="2343,169,2537,211"/>
+<area shape="rect" id="node5" href="$Rendering_8hpp.html" title="Rendering.hpp" alt="" coords="627,266,741,293"/>
+<area shape="rect" id="node15" href="$Vertex2DColor_8hpp.html" title="Vertex2DColor.hpp" alt="" coords="1093,355,1235,382"/>
+<area shape="rect" id="node16" href="$Vertex2DUV_8hpp.html" title="Vertex2DUV.hpp" alt="" coords="999,266,1126,293"/>
+<area shape="rect" id="node17" href="$GPUProgram2D_8hpp.html" title="GPUProgram2D.hpp" alt="" coords="825,266,975,293"/>
+<area shape="rect" id="node20" href="$Illustration_8hpp.html" title="Illustration.hpp" alt="" coords="173,355,293,382"/>
+<area shape="rect" id="node10" href="$Element2D_8hpp.html" title="Element2D.hpp" alt="" coords="271,437,393,464"/>
+<area shape="rect" id="node13" href="$Text_8hpp.html" title="Text.hpp" alt="" coords="493,355,571,382"/>
+<area shape="rect" id="node18" href="$GPUProgram_8hpp.html" title="GPUProgram.hpp" alt="" coords="833,355,967,382"/>
+<area shape="rect" id="node24" href="$Incorrect__saving__file_8hpp.html" title="exceptions/Incorrect\l_saving_file.hpp" alt="" coords="1581,348,1736,389"/>
+<area shape="rect" id="node28" href="$Insufficient__funds_8hpp.html" title="exceptions/Insufficient\l_funds.hpp" alt="" coords="1881,259,2050,300"/>
+<area shape="rect" id="node25" href="$Game__exception_8hpp.html" title="exceptions/Game_exception.hpp" alt="" coords="1725,437,1960,464"/>
+</map>

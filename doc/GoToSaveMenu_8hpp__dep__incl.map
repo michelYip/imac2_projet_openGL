@@ -1,0 +1,8 @@
+<map id="projet/include/interface/throwableEvents/GoToSaveMenu.hpp" name="projet/include/interface/throwableEvents/GoToSaveMenu.hpp">
+<area shape="rect" id="node2" href="$StartMenu_8hpp.html" title="projet/include/interface\l/StartMenu.hpp" alt="" coords="81,95,254,136"/>
+<area shape="rect" id="node6" href="$PlayerMenu_8hpp.html" title="projet/include/interface\l/PlayerMenu.hpp" alt="" coords="278,95,451,136"/>
+<area shape="rect" id="node3" href="$Game_8hpp.html" title="projet/include/Game.hpp" alt="" coords="175,191,357,218"/>
+<area shape="rect" id="node5" href="$StartMenu_8cpp.html" title="projet/src/interface\l/StartMenu.cpp" alt="" coords="5,184,151,225"/>
+<area shape="rect" id="node4" href="$Game_8cpp.html" title="projet/src/Game.cpp" alt="" coords="189,273,343,300"/>
+<area shape="rect" id="node7" href="$PlayerMenu_8cpp.html" title="projet/src/interface\l/PlayerMenu.cpp" alt="" coords="381,184,527,225"/>
+</map>

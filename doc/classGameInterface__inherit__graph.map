@@ -1,0 +1,4 @@
+<map id="GameInterface" name="GameInterface">
+<area shape="rect" id="node2" href="$classRenderingInterface.html" title="Rendering module that is able to create a 2D environment to create an interface. " alt="" coords="5,80,151,107"/>
+<area shape="rect" id="node3" href="$classRendering.html" title="Rendering module of the View. " alt="" coords="35,5,121,32"/>
+</map>

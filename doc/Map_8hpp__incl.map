@@ -1,0 +1,20 @@
+<map id="projet/include/Map.hpp" name="projet/include/Map.hpp">
+<area shape="rect" id="node5" href="$Object_8hpp.html" title="Object.hpp" alt="" coords="777,304,869,331"/>
+<area shape="rect" id="node27" href="$Obstacle_8hpp.html" title="Obstacle.hpp" alt="" coords="884,80,991,107"/>
+<area shape="rect" id="node29" href="$Character_8hpp.html" title="Character.hpp" alt="" coords="1020,80,1132,107"/>
+<area shape="rect" id="node32" href="$Incorrect__map__file_8hpp.html" title="exceptions/Incorrect\l_map_file.hpp" alt="" coords="5,603,160,644"/>
+<area shape="rect" id="node33" href="$Unreachable__map__file_8hpp.html" title="exceptions/Unreachable\l_map_file.hpp" alt="" coords="184,603,363,644"/>
+<area shape="rect" id="node9" href="$Collider_8hpp.html" title="Collider.hpp" alt="" coords="489,379,588,405"/>
+<area shape="rect" id="node10" href="$Mesh_8hpp.html" title="Mesh.hpp" alt="" coords="821,379,905,405"/>
+<area shape="rect" id="node11" href="$VAO_8hpp.html" title="VAO.hpp" alt="" coords="1021,453,1097,480"/>
+<area shape="rect" id="node25" href="$Texture_8hpp.html" title="Texture.hpp" alt="" coords="811,528,909,555"/>
+<area shape="rect" id="node12" href="$Rendering_8hpp.html" title="Rendering.hpp" alt="" coords="1255,528,1369,555"/>
+<area shape="rect" id="node20" href="$Unreachable__file_8hpp.html" title="exceptions/Unreachable\l_file.hpp" alt="" coords="539,603,717,644"/>
+<area shape="rect" id="node23" href="$Vertex3DUV_8hpp.html" title="Vertex3DUV.hpp" alt="" coords="995,610,1122,637"/>
+<area shape="rect" id="node15" href="$Element2D_8hpp.html" title="Element2D.hpp" alt="" coords="1175,692,1297,719"/>
+<area shape="rect" id="node18" href="$Text_8hpp.html" title="Text.hpp" alt="" coords="1197,610,1275,637"/>
+<area shape="rect" id="node21" href="$Game__exception_8hpp.html" title="exceptions/Game_exception.hpp" alt="" coords="77,692,312,719"/>
+<area shape="rect" id="node28" href="$StaticObject_8hpp.html" title="StaticObject.hpp" alt="" coords="861,229,990,256"/>
+<area shape="rect" id="node30" href="$MovingObject_8hpp.html" title="MovingObject.hpp" alt="" coords="1015,229,1153,256"/>
+<area shape="rect" id="node31" href="$Coin_8hpp.html" title="Coin.hpp" alt="" coords="965,155,1043,181"/>
+</map>

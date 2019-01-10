@@ -1,0 +1,17 @@
+<map id="Rendering3D" name="Rendering3D">
+<area shape="rect" id="node2" href="$classRendering.html" title="Rendering module of the View. " alt="" coords="5,260,92,287"/>
+<area shape="rect" id="node5" href="$classRenderingInterface.html" title="Rendering module that is able to create a 2D environment to create an interface. " alt="" coords="87,349,232,376"/>
+<area shape="rect" id="node3" href="$classCamera.html" title="Camera of the View " alt="" coords="232,439,305,465"/>
+<area shape="rect" id="node4" href="$classGameInterface.html" title="Show infos of current game during the game. " alt="" coords="89,439,208,465"/>
+<area shape="rect" id="node6" href="$classGPUProgram2D.html" title="Contain the uniform var location needed by the RenderingInterface " alt="" coords="117,260,239,287"/>
+<area shape="rect" id="node7" href="$classGPUProgram.html" title="associated with shaders " alt="" coords="125,184,231,211"/>
+<area shape="rect" id="node8" href="$classWorld.html" title="World of the Game that manages every element in it. " alt="" coords="330,439,389,465"/>
+<area shape="rect" id="node9" href="$classMap.html" title="The structure of the Map where the game takes place. " alt="" coords="257,349,307,376"/>
+<area shape="rect" id="node10" href="$classCharacter.html" title="Character present on the Map controlled by the Player. " alt="" coords="331,349,417,376"/>
+<area shape="rect" id="node11" href="$classMovingObject.html" title="Abstract class of an object able to move " alt="" coords="319,260,429,287"/>
+<area shape="rect" id="node12" href="$classObject.html" title="Abstract class of an object present in the World " alt="" coords="342,184,406,211"/>
+<area shape="rect" id="node13" href="$classCollider.html" title="Collider bouding box of an Object. " alt="" coords="274,95,346,121"/>
+<area shape="rect" id="node14" href="$classMesh.html" title="3D Mesh of an object " alt="" coords="410,95,466,121"/>
+<area shape="rect" id="node15" href="$classTexture.html" title="Texture applied on a Mesh. " alt="" coords="357,5,428,32"/>
+<area shape="rect" id="node16" href="$classVAO.html" title="Create a VAO that can be drawn on the window from an .obj file. " alt="" coords="457,5,507,32"/>
+</map>

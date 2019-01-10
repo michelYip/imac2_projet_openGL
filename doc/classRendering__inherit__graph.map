@@ -1,0 +1,11 @@
+<map id="Rendering" name="Rendering">
+<area shape="rect" id="node2" href="$classRendering3D.html" title="Rendering module that is able to create a 3D environment from the world informations ..." alt="" coords="160,56,265,83"/>
+<area shape="rect" id="node4" href="$classRenderingInterface.html" title="Rendering module that is able to create a 2D environment to create an interface. " alt="" coords="140,157,285,184"/>
+<area shape="rect" id="node3" href="$classEnvironment3D.html" title="Environment3D" alt="" coords="343,5,465,32"/>
+<area shape="rect" id="node5" href="$classChangeSkinMenu.html" title="Manage all the Player creation Menu of the game, can create a new saving file and load the player to ..." alt="" coords="337,56,471,83"/>
+<area shape="rect" id="node6" href="$classCreatePlayerMenu.html" title="Manage all the Player creation Menu of the game, can create a new saving file and load the player to ..." alt="" coords="333,107,475,133"/>
+<area shape="rect" id="node7" href="$classGameInterface.html" title="Show infos of current game during the game. " alt="" coords="345,157,463,184"/>
+<area shape="rect" id="node8" href="$classPlayerMenu.html" title="Manage all the Player selection Menu of the game, it create all the needed elements and is able to mo..." alt="" coords="355,208,453,235"/>
+<area shape="rect" id="node9" href="$classSaveMenu.html" title="Manage all the Saving Menu of the game, it create all the needed elements and is able to modify the p..." alt="" coords="359,259,449,285"/>
+<area shape="rect" id="node10" href="$classStartMenu.html" title="Manage all the Start Menu of the game, it create all the needed elements. " alt="" coords="360,309,448,336"/>
+</map>
