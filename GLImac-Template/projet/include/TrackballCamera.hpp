@@ -15,7 +15,7 @@ class TrackballCamera : public Camera{
 
 	public:
 		// constructeur(s)
-		TrackballCamera():_fDistance(-5.f), _fAngleY(180.f),_fAngleX(15.f){}; 
+		TrackballCamera():_fDistance(-3.f), _fAngleY(180.f),_fAngleX(25.f){}; 
 
 		// getters
 		inline const float getDistance() const{
@@ -30,7 +30,9 @@ class TrackballCamera : public Camera{
 
 		// méthodes
 		void moveFront(float delta){
-			_fDistance += delta;
+			float newDistance = _fDistance + delta;
+			if(newDistance < -3.f && newDistance > -15.f)
+				_fDistance = newDistance;
 		};
 		void rotateLeft(float degrees){
 			float newAngleY = _fAngleY + degrees * TRACKBALL_ROTATION_SPEED;
