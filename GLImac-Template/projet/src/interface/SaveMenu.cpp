@@ -10,18 +10,37 @@ SaveMenu::SaveMenu(const glimac::FilePath &applicationPath, Player &player)
     try{ p2 = Player::load("player_2"); pp2 = &p2; }catch(const Unreachable_file &e){ pp2 = NULL; }
     try{ p3 = Player::load("player_3"); pp3 = &p3; }catch(const Unreachable_file &e){ pp3 = NULL; }
 
-    if(pp1 == NULL) std::cout <<  "Player1 saving file not found" << std::endl;
-    else std::cout << *pp1 << " found" << std::endl;
-    
-    if(pp2 == NULL) std::cout <<  "Player2 saving file not found" << std::endl;
-    else std::cout << *pp2 << " found" << std::endl;
-    
-    if(pp3 == NULL) std::cout <<  "Player3 saving file not found" << std::endl;
-    else std::cout << *pp3 << " found" << std::endl;
-     
+    std::string fontPath = "main/assets/fonts/retro.ttf";
     _elements.push_back(Illustration("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
     _elements.push_back(Illustration("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
     _elements.push_back(Illustration("saves-frames.png",   0.f, 0.f, 0.5f, 0.5f, applicationPath));
+    // display player 1 infos
+    if(pp1 == NULL){
+        _selectableElements.push_back(Text("Empty", 255, 255, 255, fontPath.c_str(), 40, -0.25f, 0.35f));       
+    }
+    else{
+        _selectableElements.push_back(Text(pp1->name().c_str(), 255, 255, 255, fontPath.c_str(), 40, -0.25f, 0.35f));
+        std::string money = std::to_string(pp1->money());
+        _elements.push_back(Text(money.c_str(), 255, 255, 255, fontPath.c_str(), 40, 0.25f, 0.35f));
+    }
+    // display player 2 infos
+    if(pp2 == NULL){
+        _selectableElements.push_back(Text("Empty", 255, 255, 255, fontPath.c_str(), 40, -0.25f, 0.05f));       
+    }
+    else{
+        _selectableElements.push_back(Text(pp2->name().c_str(), 255, 255, 255, fontPath.c_str(), 40, -0.25f, 0.1f));
+        std::string money = std::to_string(pp2->money());
+        _elements.push_back(Text(money.c_str(), 255, 255, 255, fontPath.c_str(), 40, 0.25f, 0.1f));
+    }
+    // display player 3 infos
+    if(pp3 == NULL){
+        _selectableElements.push_back(Text("Empty", 255, 255, 255, fontPath.c_str(), 40, -0.25f, -0.25f));       
+    }
+    else{
+        _selectableElements.push_back(Text(pp3->name().c_str(), 255, 255, 255, fontPath.c_str(), 40, -0.25f, -0.25f));
+        std::string money = std::to_string(pp3->money());
+        _elements.push_back(Text(money.c_str(), 255, 255, 255, fontPath.c_str(), 40, 0.25f, -0.25f));
+    }
     _elements.push_back(Illustration("arrow.png", -0.475f, 0.31, 0.03f, 0.03f, applicationPath));
     
 }
