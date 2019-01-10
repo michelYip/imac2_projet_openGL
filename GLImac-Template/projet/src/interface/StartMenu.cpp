@@ -28,17 +28,14 @@ void StartMenu::manageKeyUpEvents(const SDLKey &k){
 // deals with key down events
 void StartMenu::manageKeyDownEvents(const SDLKey &k){
     switch(k){
-        case SDLK_DOWN:
+        case SDLK_s:
             arrowDown();
-            break;
-        case SDLK_ESCAPE:
-            throw QuitGame();
             break;
         case SDLK_SPACE:
             if(_currentButton == 0) throw GoToSaveMenu();
             throw QuitGame();
             break;
-        case SDLK_UP:
+        case SDLK_z:
             arrowUp();
             break;
         default:

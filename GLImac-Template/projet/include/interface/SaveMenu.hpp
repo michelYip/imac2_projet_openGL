@@ -3,6 +3,7 @@
 
 #include "RenderingInterface.hpp"
 #include "Player.hpp"
+#include "World.hpp"
 #include "interface/throwableEvents/QuitGame.hpp"
 #include "interface/throwableEvents/GoToCreatePlayerMenu.hpp"
 #include "interface/throwableEvents/GoToPlayerMenu.hpp"
@@ -16,10 +17,11 @@ class SaveMenu : public RenderingInterface
 {
 	private:
 		Player &_player; ///< _player parameter of the Game 
+		World &_world; ///< _player parameter of the Game 
 	public:
 		/// \param: applicationPath: Game applicationPath
 		/// \param: player: Game _player param
-		SaveMenu(const glimac::FilePath &applicationPath, Player &player);
+		SaveMenu(const glimac::FilePath &applicationPath, Player &player, World &world);
 
 		~SaveMenu() = default;   		
 

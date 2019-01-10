@@ -1,10 +1,16 @@
 #include <algorithm>
+#include <random>
 
 #include "Map.hpp"
 
 //Default constructor
 Map::Map()
 :_objectList(), _startPoint(glm::vec2()), _endPoints(), _nextMaps()
+{}
+
+//Default constructor
+Map::Map(const Map & other)
+:_objectList(other._objectList), _startPoint(other._startPoint), _endPoints(other._endPoints), _nextMaps(other._nextMaps)
 {}
 
 //Parameter constructor, load a map and the next ones
@@ -31,8 +37,6 @@ Map::Map(const std::string & mapFile, const int & i, const glm::vec2 & start){
 	ppmFile.getline(tmp_line,128);
 	std::string str_color_depth(tmp_line);
 	float r, g, b;
-	// for (int col = 0; col < MAP_SIZE; col++){
-    //     for (int row = MAP_SIZE; row > 0; row--){
 	for (int row = MAP_SIZE; row > 0; row--){
         for (int col = MAP_SIZE; col > 0; col--){
 			if (ppmFile.eof()){
@@ -54,27 +58,51 @@ Map::Map(const std::string & mapFile, const int & i, const glm::vec2 & start){
 				_endPoints.push_back(glm::vec2(col,row) - glm::vec2(INIT_X, INIT_Z) + start);
 			}
 			if (!(r == 0 && g == 0 && b == 0))
-				addObject(Obstacle(col + start.x - INIT_X, row + start.y - INIT_Z, -1, 1));
+				addObject(Obstacle(col + start.x - INIT_X, row + start.y - INIT_Z, -1));
 			if (g < END_MIN && b < END_MIN)
 				createObject(col + start.x - INIT_X, row + start.y - INIT_Z, g, b);
         }
     }
 	for (int t = 0; t < _endPoints.size(); t++){
 		if (i > 0){
-			_nextMaps.push_back(new Map(mapFile, i - 1, start + _endPoints.back() - _startPoint));
+			_nextMaps.push_back(Map(randomMap(), i - 1, start + _endPoints.back() - _startPoint));
 		}
 	}
-	delete tmp_line;
-		
+	delete tmp_line;		
+}
+
+//Create a random map at the end of the track
+void Map::appendMaps(){
+	if (_nextMaps.empty())
+	{
+		for (int i = 0; i < _endPoints.size(); i++)
+		{
+			_nextMaps.push_back(Map(randomMap(), 0, _endPoints[i]));
+		}
+	}
+	else
+	{
+		for (int j = 0; j < _nextMaps.size(); j++){
+			_nextMaps[j].appendMaps();
+		}
+	}
 }
 
 //Create an object from a pixel
 void Map::createObject(const int & col, const int & row, const float & g, const float & b){
+	int height = 0;
+	int altitude = 0;
 	if (g > 0){
-		if (g <= OBSTACLE_GROUNDED_THRESHOLD)
-			addObject(Obstacle(col, row, 0, g));
+		if (g <= OBSTACLE_GROUNDED_THRESHOLD){
+			height = g;
+			altitude = 0;
+		}
 		if (g > OBSTACLE_GROUNDED_THRESHOLD && g <= OBSTACLE_AIRBORN_THRESHOLD){
-			addObject(Obstacle(col, row, OBSTACLE_FLOAT_HEIGHT, g - OBSTACLE_HEIGHT_MARGIN));
+			height = g - OBSTACLE_HEIGHT_MARGIN;
+			altitude = OBSTACLE_FLOAT_HEIGHT;
+		}
+		for (int i = 0; i < height; i++){
+			addObject(Obstacle(col, row, altitude + i));
 		}
 	}
 	//Add coin and bonus/malus
@@ -97,10 +125,13 @@ void Map::removeObject(const Object & obj){
 void Map::moveMap(const float & distance){
 	if (!_nextMaps.empty()){
 		for (int t = 0; t < _nextMaps.size(); t++)
-			_nextMaps[t]->moveMap(distance);
+			_nextMaps[t].moveMap(distance);
 	}
 	for (int i = 0; i < _objectList.size(); i++){
-		_objectList[i].setPosition( _objectList[i].getPosition() + glm::vec3(0,0,distance));
+		_objectList[i].moveObject(glm::vec3(0,0,distance));
+	}
+	for (int i = 0; i < _endPoints.size(); i++){
+		_endPoints[i] += glm::vec2(0,distance);
 	}
 }
 
@@ -111,10 +142,17 @@ std::vector<Object> Map::getAllObjects(const int & i) const {
 	}
 	std::vector<Object> list = _objectList;
 	for (int t = 0; t < _nextMaps.size(); t++){
-		std::vector<Object> nextList = _nextMaps[t]->getAllObjects(i-1);
+		std::vector<Object> nextList = _nextMaps[t].getAllObjects(i-1);
 		list.insert(std::end(list), std::begin(nextList), std::end(nextList));
 	}
 	return list;
+}
+
+std::string Map::randomMap() const{
+    int random_number = std::rand() % MAP_NUMBER;
+	std::string mapName = std::to_string(random_number);
+	mapName += ".ppm";
+	return mapName;
 }
 
 //Print the starting point and the end point of the map

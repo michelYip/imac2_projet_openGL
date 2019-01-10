@@ -37,8 +37,8 @@ Player Player::load(const std::string &filename){
 			throw UNREACHABLE_FILE(PLAYER_SAVING_FOLDER+filename);
 			
 		//Findint parameters in file
-		char *tmp_line = new char[128];
-		playerFile.getline(tmp_line,128);
+		char *tmp_line = new char[512];
+		playerFile.getline(tmp_line,512);
 		std::string str_line(tmp_line);
 		delete[] tmp_line;
 		std::smatch param;
@@ -56,22 +56,8 @@ Player Player::load(const std::string &filename){
 				std::istringstream split(str_param); 
 				std::vector<std::string> list_skin_as_str;
 				for (std::string each; std::getline(split, each, ']'); list_skin_as_str.push_back(each));
-				
 				for (int i = 0; i < list_skin_as_str.size(); ++i)
-				{
-					list_skin_as_str.at(i).erase(0,1);
-					std::istringstream split(list_skin_as_str.at(i)); 
-					std::vector<std::string> skin_as_str;
-					for (std::string each; std::getline(split, each, ','); skin_as_str.push_back(each));
-					//Removing everything that is not a param
-					skin_as_str.at(0).erase(0,skin_as_str.at(0).find(":")+1);
-					skin_as_str.at(1).erase(0,skin_as_str.at(1).find(":")+1);
-					skin_as_str.at(2).erase(0,skin_as_str.at(2).find(":")+1);
-					skin_as_str.at(3).erase(0,skin_as_str.at(3).find(":")+1);
-
-				
-					player.addUnlockedSkins(Skin(skin_as_str.at(0),std::stoi(skin_as_str.at(1)),skin_as_str.at(2),skin_as_str.at(3)));
-				}
+					player.addUnlockedSkins(Skin::load(list_skin_as_str.at(i)));
 			}
 		}else if(line_number == 3){
 			//Selected skins

@@ -3,9 +3,6 @@
 
 #include "Object.hpp"
 
-const float MOVE_SPEED = 5.0f;
-
-
 /// \class MovingObject
 /// \bried Abstract class of an object able to move 
 class MovingObject : public Object

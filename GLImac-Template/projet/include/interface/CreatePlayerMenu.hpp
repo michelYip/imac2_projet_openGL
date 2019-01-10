@@ -19,20 +19,26 @@ class CreatePlayerMenu : public RenderingInterface
 	private:
 		Player &_player; ///< _player parameter of the Game
 		int _playerNum; ///< _player parameter of the Game
+
+		///\brief temp function that create the player until the menu is ready
+		void createPlayer(){
+			_player = Player();
+			_player.savingFile() = "player_" + std::to_string(_playerNum);
+			_player.name() = _player.savingFile();
+			std::vector<Skin> listSkins = Skin::loadSkins();
+			_player.buyskin(listSkins.at(0));
+			_player.selectedSkin() = listSkins.at(0);
+			_player.save();
+		}
 	public:
 		/// \param: applicationPath: Game applicationPath
 		/// \param: player: Game _player param
 		/// \param: playerNum: unique player number (used for saving file)
-		CreatePlayerMenu(const glimac::FilePath &applicationPath, Player &player, const int playerNum)
+		CreatePlayerMenu(const glimac::FilePath &applicationPath, Player &player, const int playerNum = 0)
 		:RenderingInterface(applicationPath), _player(player), _playerNum(playerNum)
 		{
-			_player = Player();
-			_player.savingFile() = "player_" + std::to_string(playerNum);
-			_player.name() = _player.savingFile();
-			_player.save();
-			// _elements.push_back(ImageButton("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            // _elements.push_back(ImageButton("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-            // _elements.push_back(ImageButton("arrow.png", -0.1f, 0.25, 0.03f, 0.03f, applicationPath));
+			if( playerNum != 0)
+				createPlayer();
 		}
 		~CreatePlayerMenu() = default;
 
@@ -53,7 +59,10 @@ class CreatePlayerMenu : public RenderingInterface
 	Player& player(){return _player;}
 	
 	/// \brief setter to update playerNum
-	int& playerNum(){return _playerNum;}
+	int playerNum(const int num){
+		_playerNum = num;
+		createPlayer();
+	}
 };
 
 #endif

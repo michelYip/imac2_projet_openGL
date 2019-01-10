@@ -8,7 +8,7 @@ Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, Camera* camer
 }
 
 void Rendering3D::show(){
-    _camera->updatePos(_world.character().getPosition());
+    _camera->updatePos(_world.character().position());
     _MVMatrix = _camera->getViewMatrix();
     _NormalMatrix = glm::transpose(glm::inverse(_MVMatrix));
 

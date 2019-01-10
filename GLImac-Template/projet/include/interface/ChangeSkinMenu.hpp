@@ -21,12 +21,13 @@ class ChangeSkinMenu : public RenderingInterface
 		Player &_player; ///< _player parameter of the Game
 		std::vector<Skin> _listSkins; ///< List of the playables skins
 		std::vector<Element2D> _frontElements;
+		const glimac::FilePath _applicationPath;
 		
 	public:
 		/// \param: applicationPath: Game applicationPath
 		/// \param: player: Game _player param
-		ChangeSkinMenu(const glimac::FilePath &applicationPath, Player &player)
-		:RenderingInterface(applicationPath), _player(player)
+		ChangeSkinMenu(const glimac::FilePath &applicationPath, Player &player
+		:RenderingInterface(applicationPath), _player(player), _applicationPath(applicationPath)
 		{
 			_elements.push_back(Illustration("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
             _elements.push_back(Illustration("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
@@ -46,26 +47,30 @@ class ChangeSkinMenu : public RenderingInterface
 		}
 		~ChangeSkinMenu() = default;
 
+		~ChangeSkinMenu() = default;
 
-	/// \brief Manage the events
-	/// \param e: SDL_Event that comme from the view's SDLWindowManager
-	void manageEvents(const SDL_Event &e);
-	
-	/// \brief Manage the keyUp events
-	/// \param k: [SDL_Event].key.keysym.sym
-	void manageKeyUpEvents(const SDLKey &k);
+		/// \brief Manage the events
+		/// \param e: SDL_Event that comme from the view's SDLWindowManager
+		void manageEvents(const SDL_Event &e);
+		
+		/// \brief Manage the keyUp events
+		/// \param k: [SDL_Event].key.keysym.sym
+		void manageKeyUpEvents(const SDLKey &k);
 
-	/// \brief Manage the keyDown events
-	/// \param k: [SDL_Event].key.keysym.sym
-	void manageKeyDownEvents(const SDLKey &k);
+		/// \brief Manage the keyDown events
+		/// \param k: [SDL_Event].key.keysym.sym
+		void manageKeyDownEvents(const SDLKey &k);
 
-	/// \brief Used to update the Arrow position 
-	void updateArrow();
+		/// \brief Used to update the Arrow position 
+		void updateArrow();
 
-	void show();
+		void show();
 
-	/// \brief setter to update player if it has change of object
-	Player& player(){return _player;}
+		/// \brief setter to update player if it has change of object
+		void player(Player &p){_player = p;}
+		
+		/// \brief Set screen elements
+		void updateScreen();
 };
 
 #endif
