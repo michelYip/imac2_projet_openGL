@@ -7,15 +7,14 @@
 #include "Map.hpp"
 #include "Skybox.hpp"
 
-const float INITIAL_SPEED = 3;
-const int MAX_MAPS = 3;
-
+const float INITIAL_SPEED = 10;
+const int MAX_MAPS = 4;
 
 /// \class World
 /// \brief World of the Game that manage every element present in it
 class World
 {
-private: 
+private:
 	float _worldSpeed;
 	float _gameOverZone;
 	glm::vec3 _cameraPosition;
@@ -40,15 +39,17 @@ public:
 	//Return the current map
 	Map getMap() const;
 
+	//Check if the end of the map is reached
+	bool endOfMapReached() const;
+
+	//Change the current map to the next one
+	void switchMap();
+
 	//Create the character
 	void initCharacter();
 
 	//Return the character
 	inline Character &character() { return _player; }
-
-	inline void movingLeft() { _player.movingLeft(); }
-	inline void movingRight() { _player.movingRight(); }
-	inline void jump() { _player.jump(); }
 
 	//Return a list of all object in the world
 	const std::vector<Object> getAllPrintableObjects() const;

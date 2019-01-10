@@ -3,10 +3,10 @@
 
 #include "StaticObject.hpp"
 
-const int OBSTACLE_GROUNDED_THRESHOLD = 100;
-const int OBSTACLE_AIRBORN_THRESHOLD  = 200;
-const int OBSTACLE_FLOAT_HEIGHT = 3;
-const int OBSTACLE_HEIGHT_MARGIN = 50;
+const int OBSTACLE_GROUNDED_THRESHOLD = 10;
+const int OBSTACLE_AIRBORN_THRESHOLD  = 20;
+const float OBSTACLE_FLOAT_HEIGHT = 1.5;
+const int OBSTACLE_HEIGHT_MARGIN = 5;
 
 
 /// \class Obstacle

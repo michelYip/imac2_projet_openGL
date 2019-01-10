@@ -22,6 +22,8 @@ const float END_MAX = 24.5;
 const int INIT_X = 8;
 const int INIT_Z = 3;
 
+const int MAP_NUMBER = 6;
+
 /// \class Map
 /// \bried [DESCRIPTION TO FILL] 
 class Map
@@ -30,13 +32,16 @@ private:
 	std::vector<Object> _objectList;
 	glm::vec2 _startPoint;
 	std::vector<glm::vec2> _endPoints;
-	std::vector<Map*> _nextMaps;
+	std::vector<Map> _nextMaps;
 
 public:
 	//CONSTRUCTORS & DESTRUCTORS
 	
 	//Default constructor
 	Map();
+
+	//Reference constructor
+	Map(const Map & other);
 
 	//Parameter constructor
 	Map(const std::string & mapFile, const int & flag, const glm::vec2 & start);
@@ -49,11 +54,19 @@ public:
 		return _startPoint;
 	}
 
+	//Return a list of the ends point
+	inline std::vector<glm::vec2> getEndPoints() const{
+		return _endPoints;
+	}
+
 	//Return the list of the next maps
-	inline const std::vector<Map*> getNextMaps() const { return _nextMaps; }
+	inline const std::vector<Map> getNextMaps() const { return _nextMaps; }
 
 	//Return a list of the object of the map
 	const std::vector<Object> objectList() const{ return _objectList; }
+
+	//Create a random map at the end of the track
+	void appendMaps();
 
 	//Create an object from a pixel
 	void createObject(const int & col, const int & row, const float & g, const float & b);
@@ -72,6 +85,9 @@ public:
 
 	//Return the list of object of all maps
 	std::vector<Object> getAllObjects(const int & i) const;
+
+	//Return a random map name
+	std::string randomMap() const;
 
 	//DEBUG
 
