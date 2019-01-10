@@ -1,0 +1,4 @@
+<map id="Coin" name="Coin">
+<area shape="rect" id="node2" href="$classStaticObject.html" title="Inert Object that are present in the World. " alt="" coords="5,80,107,107"/>
+<area shape="rect" id="node3" href="$classObject.html" title="Abstract class of an object present in the World " alt="" coords="24,5,88,32"/>
+</map>

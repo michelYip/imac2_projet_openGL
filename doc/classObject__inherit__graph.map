@@ -1,0 +1,12 @@
+<map id="Object" name="Object">
+<area shape="rect" id="node2" href="$classMovingObject.html" title="Abstract class of an object able to move " alt="" coords="93,80,203,107"/>
+<area shape="rect" id="node5" href="$classStaticObject.html" title="Inert Object that are present in the World. " alt="" coords="269,80,371,107"/>
+<area shape="rect" id="node9" href="$classTriggerObject.html" title="Object that can launch and event present in the World " alt="" coords="455,80,563,107"/>
+<area shape="rect" id="node3" href="$classCharacter.html" title="Character present on the Map controlled by the Player. " alt="" coords="5,155,91,181"/>
+<area shape="rect" id="node4" href="$classEnemy.html" title="Enemy present on the Map. " alt="" coords="115,155,181,181"/>
+<area shape="rect" id="node6" href="$classCoin.html" title="Coin present on the Map that add money to the Player at the end of every Game try. " alt="" coords="205,155,256,181"/>
+<area shape="rect" id="node7" href="$classObstacle.html" title="Obstacle present on the Map " alt="" coords="281,155,359,181"/>
+<area shape="rect" id="node8" href="$classSkybox.html" title="Skybox" alt="" coords="383,155,454,181"/>
+<area shape="rect" id="node10" href="$classBonus.html" title="Bonus present on the Map. " alt="" coords="478,155,541,181"/>
+<area shape="rect" id="node11" href="$classMalus.html" title="Malus present on the Map " alt="" coords="565,155,625,181"/>
+</map>

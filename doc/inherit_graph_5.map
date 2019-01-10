@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classGame__exception.html" title="Game_exception" alt="" coords="140,132,272,159"/>
+<area shape="rect" id="node3" href="$classException__template.html" title="Exception_template" alt="" coords="327,5,479,32"/>
+<area shape="rect" id="node4" href="$classIncorrect__map__file.html" title="Incorrect_map_file" alt="" coords="332,56,475,83"/>
+<area shape="rect" id="node5" href="$classIncorrect__saving__file.html" title="Incorrect_saving_file" alt="" coords="325,107,481,133"/>
+<area shape="rect" id="node6" href="$classInsufficient__funds.html" title="Insufficient_funds" alt="" coords="335,157,472,184"/>
+<area shape="rect" id="node7" href="$classUnreachable__file.html" title="Unreachable_file" alt="" coords="338,208,469,235"/>
+<area shape="rect" id="node8" href="$classUnreachable__map__file.html" title="Unreachable_map_file" alt="" coords="320,259,487,285"/>
+</map>

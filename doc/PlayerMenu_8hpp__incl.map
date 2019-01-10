@@ -1,0 +1,21 @@
+<map id="projet/include/interface/PlayerMenu.hpp" name="projet/include/interface/PlayerMenu.hpp">
+<area shape="rect" id="node2" href="$RenderingInterface_8hpp.html" title="RenderingInterface.hpp" alt="" coords="962,102,1135,129"/>
+<area shape="rect" id="node20" href="$Player_8hpp.html" title="Player.hpp" alt="" coords="1585,102,1675,129"/>
+<area shape="rect" id="node26" href="$Unreachable__file_8hpp.html" title="exceptions/Unreachable\l_file.hpp" alt="" coords="1683,273,1862,315"/>
+<area shape="rect" id="node30" href="$QuitGame_8hpp.html" title="interface/throwableEvents\l/QuitGame.hpp" alt="" coords="1844,95,2037,136"/>
+<area shape="rect" id="node31" href="$GoToSaveMenu_8hpp.html" title="interface/throwableEvents\l/GoToSaveMenu.hpp" alt="" coords="2061,95,2255,136"/>
+<area shape="rect" id="node32" href="$GoTo3DEnvironment_8hpp.html" title="interface/throwableEvents\l/GoTo3DEnvironment.hpp" alt="" coords="2279,95,2472,136"/>
+<area shape="rect" id="node33" href="$GoToChangeSkinMenu_8hpp.html" title="interface/throwableEvents\l/GoToChangeSkinMenu.hpp" alt="" coords="2496,95,2695,136"/>
+<area shape="rect" id="node4" href="$Rendering_8hpp.html" title="Rendering.hpp" alt="" coords="767,191,882,218"/>
+<area shape="rect" id="node14" href="$Vertex2DColor_8hpp.html" title="Vertex2DColor.hpp" alt="" coords="1015,281,1157,307"/>
+<area shape="rect" id="node15" href="$Vertex2DUV_8hpp.html" title="Vertex2DUV.hpp" alt="" coords="1087,191,1213,218"/>
+<area shape="rect" id="node16" href="$GPUProgram2D_8hpp.html" title="GPUProgram2D.hpp" alt="" coords="236,191,387,218"/>
+<area shape="rect" id="node19" href="$Illustration_8hpp.html" title="Illustration.hpp" alt="" coords="394,281,514,307"/>
+<area shape="rect" id="node9" href="$Element2D_8hpp.html" title="Element2D.hpp" alt="" coords="589,363,711,389"/>
+<area shape="rect" id="node12" href="$Text_8hpp.html" title="Text.hpp" alt="" coords="862,281,939,307"/>
+<area shape="rect" id="node17" href="$GPUProgram_8hpp.html" title="GPUProgram.hpp" alt="" coords="77,281,210,307"/>
+<area shape="rect" id="node23" href="$Incorrect__saving__file_8hpp.html" title="exceptions/Incorrect\l_saving_file.hpp" alt="" coords="1505,273,1659,315"/>
+<area shape="rect" id="node27" href="$Insufficient__funds_8hpp.html" title="exceptions/Insufficient\l_funds.hpp" alt="" coords="1844,184,2013,225"/>
+<area shape="rect" id="node28" href="$Skin_8hpp.html" title="Skin.hpp" alt="" coords="1340,191,1419,218"/>
+<area shape="rect" id="node24" href="$Game__exception_8hpp.html" title="exceptions/Game_exception.hpp" alt="" coords="1649,363,1883,389"/>
+</map>
