@@ -53,7 +53,7 @@ void Game::run(char* execName){
 	    	_view.set_rendering(changeskinmenu);
 	    }
 	    catch(const GoTo3DEnvironment &e){ 
-	    	_world.createMap("01.ppm");
+	    	_world.createMap("0.ppm");
 			_world.initCharacter();
 	    	environment3D->player() = _player;
 	    	environment3D->updateCharaterTexture();

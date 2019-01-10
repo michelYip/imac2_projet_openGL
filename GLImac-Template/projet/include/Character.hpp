@@ -18,7 +18,7 @@ class Character : public MovingObject
 {
 protected:
 	virtual const std::string TEXTURE_FILE(){return _texture;}
-	virtual const std::string OBJ_FILE(){return "character.obj";}
+	virtual const std::string OBJ_FILE(){return "cube.obj";}
 
 private: 
 	std::vector<Coin> _collectedCoins;
