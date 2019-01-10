@@ -82,8 +82,8 @@ bool World::coroutine(const bool & done, const float & time_interval){
 
 	_player.move(glm::vec3(_player.getXVelocity(), _player.getYVelocity(), 0) * glm::vec3(time_interval));
 	
-	for(std::vector<Object>::iterator it = _map.getObjectList().begin(); it != _map.getObjectList().end(); it++){
-		if (Physic::getInstance()->checkCollision(_player.boundingBox(), it->boundingBox())){
+	for(std::vector<Object>::iterator it = _map.objectList().begin(); it != _map.objectList().end(); it++){
+		if (Physic::getInstance()->checkCollision(_player, *it)){
 			glm::vec3 dir = _player.position() - it->position();
 			glm::vec3 xzDir = glm::vec3(dir.x, 0, dir.z) * glm::vec3(KNOCKBACK_VALUE);
 			_player.move(xzDir);
@@ -93,6 +93,13 @@ bool World::coroutine(const bool & done, const float & time_interval){
 			break;
 		} else {
 			_player.fall(time_interval);
+		}
+	}
+	for(std::vector<Coin>::iterator it = _map.coinList().begin(); it != _map.coinList().end(); it++){
+		if (Physic::getInstance()->checkCollision(_player, *it)){
+			std::cout << "coin collected ! " << std::endl;
+			_player.collectCoin(*it);
+			_map.removeCoin(it);
 		}
 	}
 

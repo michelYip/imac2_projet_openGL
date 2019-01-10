@@ -15,7 +15,7 @@ class GameInterface : public RenderingInterface
 		{
 			std::string fontPath = "main/assets/fonts/retro.ttf";
             // _elements.push_back(Illustration("title.png", 0.05f, 0.f, 0.5f, 0.5f, applicationPath));
-            _selectableElements.push_back(Text("start", 255, 255, 255, fontPath.c_str(), 50, 0.f, -0.25f));
+            // _selectableElements.push_back(Text("start", 255, 255, 255, fontPath.c_str(), 50, 0.f, -0.25f));
             // _selectableElements.push_back(Text("quit", 255, 255, 255, fontPath.c_str(), 50, 0.f, -0.35f));
             // _elements.push_back(Illustration("arrow.png", -0.20f, -0.25, 0.03f, 0.03f, applicationPath));   
 		}

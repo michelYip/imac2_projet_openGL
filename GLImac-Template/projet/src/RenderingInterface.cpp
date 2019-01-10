@@ -60,6 +60,7 @@ glm::mat3 scale(float sx, float sy){
 
 
 void RenderingInterface::show() {
+    if(!_elements.empty() || !_selectableElements.empty()){
     _program2D._program.use();
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
@@ -70,6 +71,7 @@ void RenderingInterface::show() {
     for(int i = 0; i < _selectableElements.size(); i++)
         showElement(_selectableElements.at(i));   
     glBindVertexArray(0);
+    }
 }
 
 

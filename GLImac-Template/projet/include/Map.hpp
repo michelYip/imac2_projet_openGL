@@ -6,6 +6,7 @@
 #include <fstream>
 #include "Object.hpp"
 #include "Obstacle.hpp"
+#include "Coin.hpp"
 #include "Character.hpp"
 #include "exceptions/Incorrect_map_file.hpp"
 #include "exceptions/Unreachable_map_file.hpp"
@@ -30,6 +31,7 @@ class Map
 {
 private: 
 	std::vector<Object> _objectList;
+	std::vector<Coin> _coinList;
 	glm::vec2 _startPoint;
 	std::vector<glm::vec2> _endPoints;
 	std::vector<Map> _nextMaps;
@@ -62,9 +64,6 @@ public:
 	//Return the list of the next maps
 	inline const std::vector<Map> getNextMaps() const { return _nextMaps; }
 
-	//Return a list of the object of the map
-	const std::vector<Object> objectList() const{ return _objectList; }
-
 	//Create a random map at the end of the track
 	void appendMaps();
 
@@ -73,15 +72,21 @@ public:
 
 	//Add an object to the object list
 	void addObject(const Object & obj);
+	//Add a coin to the coin list
+	void addCoin(const Coin & coin);
 
 	//Remove an object from the object list
 	void removeObject(const Object & obj);
+	//Remove a coin from the coin list
+	void removeCoin(const std::vector<Coin>::iterator &it);
 
 	//Progress in the map
 	void moveMap(const float & distance);
 
 	//Return the list of the map object
-	inline std::vector<Object> getObjectList(){ return _objectList; }
+	inline std::vector<Object> objectList(){ return _objectList; }
+	//Return the list of the map object
+	inline std::vector<Coin> coinList(){ return _coinList; }
 
 	//Return the list of object of all maps
 	std::vector<Object> getAllObjects(const int & i) const;

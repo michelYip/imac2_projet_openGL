@@ -5,9 +5,11 @@
 #include <string>
 
 #include "Collider.hpp"
+#include "Character.hpp"
+#include "Object.hpp"
 
 const float KNOCKBACK_VALUE = 0.05;
-const float RAYCAST_LENGTH = 0.1;
+const float RAYCAST_LENGTH = 0.2;
 
 /// \class Physic
 /// \bried Physic of the World
@@ -23,8 +25,8 @@ public:
 
 	static Physic * getInstance() noexcept;
 
-	bool checkCollision(const Collider & a, const Collider & b);
-
+	bool checkCollision(const Character & a, const Object & b);
+	
 	bool isGrounded(const Collider & a, const Collider & other);
 
 };
