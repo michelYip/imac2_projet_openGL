@@ -37,14 +37,14 @@ void ChangeSkinMenu::manageKeyUpEvents(const SDLKey &k){
 // deals with key down events
 void ChangeSkinMenu::manageKeyDownEvents(const SDLKey &k){
     switch(k){
-        case SDLK_RIGHT:
+        case SDLK_d:
             arrowDown();
             break;
-        case SDLK_LEFT:
+        case SDLK_q:
             arrowUp();
             break;
         case SDLK_ESCAPE:
-            throw QuitGame();
+            throw GoToPlayerMenu();
             break;
         case SDLK_SPACE:
             try{

@@ -54,10 +54,10 @@ void SaveMenu::manageKeyUpEvents(const SDLKey &k){
 // deals with key down events
 void SaveMenu::manageKeyDownEvents(const SDLKey &k){
     switch(k){
-        case SDLK_DOWN:
+        case SDLK_s:
             arrowDown();
             break;
-        case SDLK_BACKSPACE:
+        case SDLK_ESCAPE:
             throw GoToStartMenu();
             break;
         case SDLK_SPACE:
@@ -68,7 +68,7 @@ void SaveMenu::manageKeyDownEvents(const SDLKey &k){
             }
             catch(const Unreachable_file &e){ throw GoToCreatePlayerMenu(_currentButton+1);}
             break;
-        case SDLK_UP:
+        case SDLK_z:
             arrowUp();
             break;
         default:
