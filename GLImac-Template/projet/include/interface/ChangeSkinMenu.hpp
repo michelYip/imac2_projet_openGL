@@ -20,7 +20,7 @@ class ChangeSkinMenu : public RenderingInterface
 	private:
 		Player &_player; ///< _player parameter of the Game
 		std::vector<Skin> _listSkins; ///< List of the playables skins
-		std::vector<ImageButton> _frontElements;
+		std::vector<Element2D> _frontElements;
 		
 	public:
 		/// \param: applicationPath: Game applicationPath
@@ -28,20 +28,20 @@ class ChangeSkinMenu : public RenderingInterface
 		ChangeSkinMenu(const glimac::FilePath &applicationPath, Player &player)
 		:RenderingInterface(applicationPath), _player(player)
 		{
-			_elements.push_back(ImageButton("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            _elements.push_back(ImageButton("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
+			_elements.push_back(Illustration("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
+            _elements.push_back(Illustration("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
 			_listSkins = Skin::loadSkins();
 			float arrowX = -.45f;
 			for (int i = 0; i < _listSkins.size(); ++i)
 			{
 				float x = .3f*i-.3f;
-            	_selectableElements.push_back(ImageButton(_listSkins.at(i).previewPng(), x, 0.0f, 0.10f, 0.10f, applicationPath));
+            	_elements.push_back(Illustration(_listSkins.at(i).previewPng(), x, 0.0f, 0.10f, 0.10f, applicationPath));
 				if(std::find(_player.unlockedSkins().begin(), _player.unlockedSkins().end(),_listSkins.at(i)) == _player.unlockedSkins().end())
-            		_frontElements.push_back(ImageButton("buy.png", x, 0.f, .1f, .1f, applicationPath));
+            		_frontElements.push_back(Illustration("buy.png", x, 0.f, .1f, .1f, applicationPath));
 				if(_listSkins.at(i) == _player.selectedSkin())
          		   arrowX = .3f*i-.3f-0.15f;
 			}
-         	_elements.push_back(ImageButton("arrow.png", arrowX, 0.f, 0.03f, 0.03f, applicationPath));
+         	_elements.push_back(Illustration("arrow.png", arrowX, 0.f, 0.03f, 0.03f, applicationPath));
             
 		}
 		~ChangeSkinMenu() = default;

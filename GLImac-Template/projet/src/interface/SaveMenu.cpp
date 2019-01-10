@@ -19,10 +19,10 @@ SaveMenu::SaveMenu(const glimac::FilePath &applicationPath, Player &player)
     if(pp3 == NULL) std::cout <<  "Player3 saving file not found" << std::endl;
     else std::cout << *pp3 << " found" << std::endl;
      
-    _elements.push_back(ImageButton("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-    _elements.push_back(ImageButton("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-    _elements.push_back(ImageButton("saves-frames.png",   0.f, 0.f, 0.5f, 0.5f, applicationPath));
-    _elements.push_back(ImageButton("arrow.png", -0.475f, 0.31, 0.03f, 0.03f, applicationPath));
+    _elements.push_back(Illustration("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
+    _elements.push_back(Illustration("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
+    _elements.push_back(Illustration("saves-frames.png",   0.f, 0.f, 0.5f, 0.5f, applicationPath));
+    _elements.push_back(Illustration("arrow.png", -0.475f, 0.31, 0.03f, 0.03f, applicationPath));
     
 }
 

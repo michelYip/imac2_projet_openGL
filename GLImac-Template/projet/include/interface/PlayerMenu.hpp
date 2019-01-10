@@ -26,13 +26,14 @@ class PlayerMenu : public RenderingInterface
 		PlayerMenu(const glimac::FilePath &applicationPath, Player &player)
 		:RenderingInterface(applicationPath), _player(player)
 		{
-			_elements.push_back(ImageButton("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
-            _elements.push_back(ImageButton("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
-            _selectableElements.push_back(ImageButton("play.png", 0.05f, 0.25f, 0.07f, 0.05f, applicationPath));
-            _selectableElements.push_back(ImageButton("change-skin.png", 0.175f, 0.15f, 0.2f, 0.05f, applicationPath));
-            _selectableElements.push_back(ImageButton("change-player.png", 0.175f, 0.05f, 0.2f, 0.05f, applicationPath));
-            _selectableElements.push_back(ImageButton("quit.png", 0.05f, -0.05f, 0.07f, 0.05f, applicationPath));
-            _elements.push_back(ImageButton("arrow.png", -0.1f, 0.25, 0.03f, 0.03f, applicationPath));
+			std::string fontPath = applicationPath.dirPath() + "assets/fonts/retro.ttf";
+			_elements.push_back(Illustration("background.png",   0.f, 0.f, 1.f, 1.f, applicationPath));
+            _elements.push_back(Illustration("frame.png", 0.f, 0.f, 1.3f, 1.3f, applicationPath));
+            _selectableElements.push_back(Text("play", 255, 255, 255, fontPath.c_str(), 50, 0.f, 0.25f));
+            _selectableElements.push_back(Text("change skin", 255, 255, 255, fontPath.c_str(), 50, 0.f, 0.125f));
+            _selectableElements.push_back(Text("change player", 255, 255, 255, fontPath.c_str(), 50, 0.f, 0.f));
+            _selectableElements.push_back(Text("quit", 255, 255, 255, fontPath.c_str(), 50, 0.f, -0.125f));
+            _elements.push_back(Illustration("arrow.png", -0.4f, 0.25, 0.03f, 0.03f, applicationPath));
 		}
 
 		~PlayerMenu() = default;

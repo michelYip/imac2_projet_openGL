@@ -72,7 +72,7 @@ void RenderingInterface::show() {
 }
 
 
-void RenderingInterface::showElement(const ImageButton &image){
+void RenderingInterface::showElement(const Element2D &image){
     glBindTexture(GL_TEXTURE_2D, image.texture());
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

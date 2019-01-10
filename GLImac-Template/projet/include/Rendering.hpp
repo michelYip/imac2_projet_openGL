@@ -5,7 +5,8 @@
 #include <string>
 #include <GL/glew.h>
 #include <glimac/SDLWindowManager.hpp>
-#include "ImageButton.hpp"
+#include "Element2D.hpp"
+#include "Text.hpp"
 
 /// \class Rendering
 /// \brief Rendering module of the View

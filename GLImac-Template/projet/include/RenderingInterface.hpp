@@ -8,6 +8,8 @@
 #include "Vertex2DUV.hpp"
 #include "GPUProgram2D.hpp"
 
+#include "Illustration.hpp"
+
 const GLuint VERTEX_ATTR_POSITION = 0;
 const GLuint VERTEX_ATTR_COLOR = 1;
 
@@ -19,15 +21,15 @@ const std::vector<unsigned int> NB_BUTTON = {2, 3, 4};
 class RenderingInterface : public Rendering
 {
 	protected:
-		std::vector<ImageButton> _elements;
-		std::vector<ImageButton> _selectableElements;
+		std::vector<Element2D> _elements;
+		std::vector<Element2D> _selectableElements;
 		unsigned int _currentButton = 0;
 		GPUProgram2D _program2D;
 		GLuint _vbo;
 		GLuint _vao;
 		GLuint _ibo;
 		bool isFinished = 0;
-		void showElement(const ImageButton &image);
+		void showElement(const Element2D &image);
 	
 	public:
 		RenderingInterface(){}
