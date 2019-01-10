@@ -35,9 +35,6 @@ void PlayerMenu::manageKeyDownEvents(const SDLKey &k){
         case SDLK_DOWN:
             arrowDown();
             break;
-        case SDLK_ESCAPE:
-            throw QuitGame();
-            break;
         case SDLK_SPACE:
             if(_currentButton == 0) throw GoTo3DEnvironment();
             if(_currentButton == 1) throw GoToChangeSkinMenu();

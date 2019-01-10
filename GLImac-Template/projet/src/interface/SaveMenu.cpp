@@ -60,9 +60,6 @@ void SaveMenu::manageKeyDownEvents(const SDLKey &k){
         case SDLK_BACKSPACE:
             throw GoToStartMenu();
             break;
-        case SDLK_ESCAPE:
-            throw QuitGame();
-            break;
         case SDLK_SPACE:
             try{ 
                 _player = Player::load(std::string("player_")+std::to_string(_currentButton+1));
