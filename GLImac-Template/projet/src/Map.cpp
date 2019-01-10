@@ -135,8 +135,8 @@ void Map::removeObject(const Object & obj){
     _objectList.erase(std::remove(_objectList.begin(), _objectList.end(), obj), _objectList.end());
 }
 //Remove an object from the object list
-void Map::removeCoin(const std::vector<Coin>::iterator &it){
-    // _coinList.erase(it);
+void Map::removeCoin(const Coin &coin){
+    _coinList.erase(std::remove(_coinList.begin(), _coinList.end(), coin), _coinList.end());
 }
 
 //Progress in the map

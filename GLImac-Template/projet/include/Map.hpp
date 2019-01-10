@@ -78,7 +78,7 @@ public:
 	//Remove an object from the object list
 	void removeObject(const Object & obj);
 	//Remove a coin from the coin list
-	void removeCoin(const std::vector<Coin>::iterator &it);
+	void removeCoin(const Coin & coin);
 
 	//Progress in the map
 	void moveMap(const float & distance);

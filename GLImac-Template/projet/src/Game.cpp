@@ -62,6 +62,7 @@ void Game::run(char* execName){
 	    }    
     	_view.displayWindow();
   		end = clock();
+	  	_player.gainMoney(_world.earnedMoney());
   	}
   	_player.save();
 

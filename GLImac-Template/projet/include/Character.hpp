@@ -54,7 +54,6 @@ public:
 	//Increase the velocity on X axis until it reach max velocity
 	void accelerateX(const float & time_interval, const bool & left);
 
-
 	inline bool isGrounded()  const { return _isGrounded; }
 	inline bool isJumping()   const { return _isJumping;  }
 	inline bool isCrouching() const { return _isCrouching;}
@@ -69,6 +68,7 @@ public:
 
 	//Add coin value to the collected coin
 	void collectCoin(Coin c);
+	inline int totalCoin() const { return _collectedCoins.size() * COIN_VALUE;}
 };
 
 #endif

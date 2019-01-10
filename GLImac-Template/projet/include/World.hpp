@@ -53,6 +53,10 @@ public:
 
 	//Return a list of all object in the world
 	const std::vector<Object> getAllPrintableObjects() const;
+	//Return the money of the player
+	inline unsigned int earnedMoney() const{
+		return _player.totalCoin();
+	}
 
 	//Make the world continue running
 	bool coroutine(const bool & done, const float & time_interval);

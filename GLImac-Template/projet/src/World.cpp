@@ -95,18 +95,16 @@ bool World::coroutine(const bool & done, const float & time_interval){
 			_player.fall(time_interval);
 		}
 	}
-	for(std::vector<Coin>::iterator it = _map.coinList().begin(); it != _map.coinList().end(); it++){
-		if (Physic::getInstance()->checkCollision(_player, *it)){
-			std::cout << "coin collected ! " << std::endl;
-			_player.collectCoin(*it);
-			_map.removeCoin(it);
+	for(int i = 0; i < _map.coinList().size(); i++){
+		if (Physic::getInstance()->checkCollision(_player, _map.coinList()[i])){
+			_player.collectCoin(_map.coinList().at(i));
+			_map.removeCoin(_map.coinList().at(i));
 		}
 	}
 
 	if (endOfMapReached()){
 		switchMap();
 	}
-
 	return done && isFinished();
 }
 
