@@ -1,9 +1,10 @@
-#include "ImageButton.hpp"
+#include "Element2D.hpp"
 
-ImageButton::ImageButton(const std::string &imageName, const float &posX, const float &posY, const float &width, const float &height, const glimac::FilePath &applicationPath):_position(glm::vec2(posX, posY)), _dimension(glm::vec2(width, height)){
+Element2D::Element2D(const std::string &imageName, const float &posX, const float &posY, const float &width, const float &height, const glimac::FilePath &applicationPath):_position(glm::vec2(posX, posY)), _dimension(glm::vec2(width, height)){
     std::unique_ptr<glimac::Image> image = glimac::loadImage(applicationPath.dirPath() + "assets/interface/" + imageName);
     if(image == NULL) std::cout << "ERROR IMG : " << imageName << std::endl;
     glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glGenTextures(1, &_texture);
     glBindTexture(GL_TEXTURE_2D, _texture);
     glTexImage2D(
@@ -20,4 +21,5 @@ ImageButton::ImageButton(const std::string &imageName, const float &posX, const 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glBindTexture(GL_TEXTURE_2D, 0);
+    glDisable(GL_BLEND);
 }

@@ -10,9 +10,6 @@
 #include "interface/throwableEvents/GoToStartMenu.hpp"
 #include "exceptions/Unreachable_file.hpp"
 
-
-
-
 /// \class SaveMenu
 /// \brief Manage all the Saving Menu of the game, it create all the needed elements and is able to modify the player    
 /// \brief Like all others Interfaces folder class it has its own key event manager to control every elements

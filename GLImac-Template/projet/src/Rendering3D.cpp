@@ -1,9 +1,9 @@
 #include "Rendering3D.hpp"
 
 Rendering3D::Rendering3D(const glimac::FilePath & applicationPath, Camera* camera, World &world)
-:_world(world), _camera(camera)
+:_world(world), _camera(camera), _interface(GameInterface(applicationPath))
 {  
-    _programs.push_back(GPUProgram3D(applicationPath, "3D.vs.glsl", "directionalLight.fs.glsl"));  
+    _programs.push_back(GPUProgram3D(applicationPath, "3D.vs.glsl", "tex3D.fs.glsl"));  
     _ProjMatrix = glm::perspective(glm::radians(70.f), (float)(WINDOW_WIDTH / WINDOW_HEIGHT), 0.1f, 100.f);
 }
 
@@ -20,6 +20,8 @@ void Rendering3D::show(){
     glm::vec4 lightPos = _MVMatrix * glm::vec4(0.0f, 1.0f, 1.5f, 0.0f);
     _programs[0].setLight(lightPos, glm::vec3(20.f, 20.f, 20.f));
 
+    glEnable(GL_DEPTH_TEST);
+    glDisable(GL_BLEND);
     std::vector<Object> list_obj = _world.getAllPrintableObjects();
     _programs[0]._program.use();
     for (int i = 0; i < list_obj.size(); ++i){
@@ -29,4 +31,5 @@ void Rendering3D::show(){
         glUniformMatrix4fv(_programs[0]._uNormalMatrix, 1, GL_FALSE, glm::value_ptr(_NormalMatrix));
         list_obj.at(i).modele3D().show(_programs[0]._uTexture);
     }
+    // _interface.show();
 }
