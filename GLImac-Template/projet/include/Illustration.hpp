@@ -10,19 +10,16 @@
 #include "Element2D.hpp"
 
 /// \class Illustration
-/// \brief 2D element
+/// \brief In order to display the wanted images / textures
 class Illustration: public Element2D{
 	public:
 		Illustration(){}
+		/// \param: imageName : name of the image
+		/// \param: posX, posY : position of the element
+		/// \param: width, height : dimension of the element
+		/// \param: Game applicationPath 
 		Illustration(const std::string &imageName, const float &posX, const float &posY, const float &width, const float &height, const glimac::FilePath &applicationPath):Element2D(imageName, posX, posY, width, height, applicationPath){}
 		~Illustration(){}
-
-		Illustration &operator=(const Illustration &image){
-			if(this != &image){
-				_position = glm::vec2(image._position.x, image._position.y);
-				_texture = image._texture;
-			}
-		}
 };
 
 #endif

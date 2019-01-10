@@ -21,19 +21,21 @@ const std::vector<unsigned int> NB_BUTTON = {2, 3, 4};
 class RenderingInterface : public Rendering
 {
 	protected:
-		std::vector<Element2D> _elements;
-		std::vector<Element2D> _selectableElements;
-		unsigned int _currentButton = 0;
-		GPUProgram2D _program2D;
-		GLuint _vbo;
-		GLuint _vao;
-		GLuint _ibo;
-		bool isFinished = 0;
-		void showElement(const Element2D &image);
+		std::vector<Element2D> _elements; ///< 2D elements to display
+		std::vector<Element2D> _selectableElements; ///< 2D elements that are selectable by the arrow and triggers actions
+		unsigned int _currentButton = 0; ///< currentButton revealing what is the action to trigger if the button is selected 
+		GPUProgram2D _program2D; ///< GPUProgram that will allow to display the 2D render
+		GLuint _vbo; ///< id to Vertex Buffer Objects
+		GLuint _vao; ///< id to Vertex Array Objects
+		GLuint _ibo; ///< id to Index Buffer Objects
+		bool isFinished = 0; ///< reveals if it is the end of the render
+		void showElement(const Element2D &image); ///< displays a 2D element
 	
 	public:
 		RenderingInterface(){}
+		/// \param: applicationPath : filePath of the Game
 		RenderingInterface(const glimac::FilePath &applicationPath);
+		/// \param: renderingInterface : object to copy;
 		RenderingInterface(const RenderingInterface &renderingInterface):Rendering(renderingInterface), _ibo(renderingInterface._ibo){
 			_elements = renderingInterface._elements;
 		}

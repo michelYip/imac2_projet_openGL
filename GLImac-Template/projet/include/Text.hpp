@@ -9,15 +9,20 @@
 
 #include "Element2D.hpp"
 
-/// \ Class Text
-/// \ brief displays text (string converted to image)
+/// \class Text
+/// \brief displays text (string converted to image)
 class Text: public Element2D{
 	private:
-		SDL_Color _color;
-		unsigned int _size;
-		TTF_Font* _font;
+		SDL_Color _color; ///< color of the text
+		unsigned int _size; ///< size of the text
+		TTF_Font* _font; ///< font used
 	public:
 		Text(){}
+		/// \param: text : the text to display
+		/// \param: r, g, b : values of channels for color
+		/// \param: fontPath : gives path to find wanted font
+		/// \param: size : size of the font
+		/// \param: x, y : position of the text
 		Text(const char* text, const Uint8 &r, const Uint8 &g, const Uint8 &b, const char* fontPath, const unsigned int &size, const float &x, const float &y):_color({r, g, b}), _size(size){
 			TTF_Init();
 			_font = TTF_OpenFont(fontPath, size);

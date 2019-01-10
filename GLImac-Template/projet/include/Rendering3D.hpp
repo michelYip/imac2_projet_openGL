@@ -17,30 +17,34 @@ const float WINDOW_HEIGHT = 1200;
 class Rendering3D : public Rendering
 {
 	protected:
-		Camera *_camera;
-		World &_world;
-		GameInterface _interface;
+		Camera *_camera; ///< current camera of the 3D render
+		World &_world; ///< world of the game
+		GameInterface _interface; ///< interface showing informations during the game
 	
 	private:
-		glm::mat4 _ProjMatrix;
-		glm::mat4 _MVMatrix;
-		glm::mat4 _NormalMatrix;
-		std::vector<GPUProgram3D> _programs;
+		glm::mat4 _ProjMatrix; ///< Projection matrix that will be sent to shaders
+		glm::mat4 _MVMatrix; ///< ModelView Matrix that will be sent to the shaders
+		glm::mat4 _NormalMatrix; ///< Normal Matrix that will be sent to the shaders
+		std::vector<GPUProgram3D> _programs; ///< GPUPrograms cointaining programs to use according to different shaders
 
 	public:
 		Rendering3D() = default;
 
+		/// \param: applicationPath : filePath of the Game
+		/// \param: camera : the camera of the 3D render
+		/// \param: world : world to render
 		Rendering3D(const glimac::FilePath &applicationPath, Camera* camera, World &world);
 
 		~Rendering3D() = default;
 
-		// deals with the events
+		/// \brief deals with the events
 		virtual void manageEvents(const SDL_Event &e) = 0;
-		// deals with key up events
+		/// \brief deals with key up events
 		virtual void manageKeyUpEvents(const SDLKey &k) = 0;
-		// deals with key down events
+		/// \briefdeals with key down events
 		virtual void manageKeyDownEvents(const SDLKey &k) = 0;	
 
+		/// \brief displays what is in the render
 		void show();
 };
 

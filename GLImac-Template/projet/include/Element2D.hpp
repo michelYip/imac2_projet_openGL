@@ -8,14 +8,18 @@
 #include <iostream>
 
 /// \class Element2D
-/// \brief 2D element
+/// \brief 2D Element, can be an Illustration or Text
 class Element2D{
 	protected:
-		GLuint _texture;
-		glm::vec2 _position;
-		glm::vec2 _dimension;
+		GLuint _texture; ///< texture of the element
+		glm::vec2 _position; ///< position of the texture
+		glm::vec2 _dimension; ///< dimension of the texture
 	public:
 		Element2D(){}
+		/// \param: imageName : name of the image
+		/// \param: posX, posY : position of the element
+		/// \param: width, height : dimension of the element
+		/// \param: Game applicationPath 
 		Element2D(const std::string &imageName, const float &posX, const float &posY, const float &width, const float &height, const glimac::FilePath &applicationPath);
 		~Element2D(){}
 
@@ -38,7 +42,6 @@ class Element2D{
 		void setPosY(const float &posY){
 			_position.y = posY;
 		}
-
 		void setPosX(const float &posX){
 			_position.x = posX;
 		}

@@ -29,7 +29,6 @@ class PlayerMenu : public RenderingInterface
 
 		~PlayerMenu() = default;
 
-
 	/// \brief Manage the events
 	/// \param e: SDL_Event that comme from the view's SDLWindowManager
 	void manageEvents(const SDL_Event &e);
