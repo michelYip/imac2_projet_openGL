@@ -6,12 +6,12 @@ void Environment3D::manageEvents(const SDL_Event &e){
     if  ((keyState[SDLK_q] && !_world.character().isMovingLeft()) || 
         (!keyState[SDLK_q] && _world.character().isMovingLeft()))
     {
-        _world.movingLeft();
+        _world.character().movingLeft();
     }
     if  ((keyState[SDLK_d] && !_world.character().isMovingRight()) || 
         (!keyState[SDLK_d] && _world.character().isMovingRight()))
     {
-        _world.movingRight();
+        _world.character().movingRight();
     }
 
     switch(e.type){
@@ -68,7 +68,10 @@ void Environment3D::manageKeyDownEvents(const SDLKey &k){
             break;
         case SDLK_z:
             if (_world.character().isGrounded())
-                _world.jump();
+                _world.character().jump();
+        case SDLK_SPACE:
+            if (_world.character().isGrounded())
+                _world.character().jump();
         default:
             break;
     }   

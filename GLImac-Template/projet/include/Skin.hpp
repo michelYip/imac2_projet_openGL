@@ -24,6 +24,10 @@ public:
 	:_name(""),_price(0),_texture()
 	{}
 
+	Skin(const Skin &s)
+	:_name(s._name),_price(s._price),_texture(s._texture),_previewPng(s._previewPng)
+	{}
+
 	///param name: Name of the Skin
 	///param price: Price to acquire the Skin 
 	///param texture: Texture filename 
@@ -35,17 +39,17 @@ public:
 
 
 	//GETTERS & SETTER
-	inline const std::string name() const{return _name;}
-	inline std::string name() {return _name;}
+	inline const std::string &name() const{return _name;}
+	inline std::string &name() {return _name;}
 
 	inline const unsigned int &price() const{return _price;}
 	inline unsigned int &price() {return _price;}
 	
-	inline const std::string texture() const{return _texture;}
-	inline std::string texture() {return _texture;}
+	inline const std::string &texture() const{return _texture;}
+	inline std::string &texture() {return _texture;}
 
-	inline const std::string previewPng() const{return _previewPng;}
-	inline std::string previewPng() {return _previewPng;}
+	inline const std::string &previewPng() const{return _previewPng;}
+	inline std::string &previewPng() {return _previewPng;}
 
 	//PUBLICS FUNCTIONS
 

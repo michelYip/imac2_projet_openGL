@@ -18,7 +18,7 @@ class Player
 {
 private:
 	std::string _name; ///< Name of the player
-	unsigned int _money; ///< Total of money 
+	int _money; ///< Total of money 
 	std::string _savingFile; ///<  Filename of the saving file
 	std::vector<Skin> _unlockedSkins; ///< Skin that can be picked up by the player
 	Skin _selectedSkin; ///< Selected Skin of the player applyed to the Character during the Game
@@ -44,21 +44,22 @@ public:
 	inline const std::string& name() const{return _name;}
 	inline std::string& name(){return _name;}
 	
-	inline const unsigned int& money() const{return _money;}
-	inline unsigned int& money(){return _money;}
+	inline const int &money() const{return _money;}
+	inline int &money(){return _money;}
 	
 	inline const std::string& savingFile() const{return _savingFile;}
 	inline std::string& savingFile(){return _savingFile;}
 
-	inline const Skin selectedSkin() const{return _selectedSkin;}
-	inline Skin selectedSkin() {return _selectedSkin;}
+	inline const Skin &selectedSkin() const{return _selectedSkin;}
+	inline Skin &selectedSkin() {return _selectedSkin;}
 	
-	inline void gainMoney(const unsigned int sum){ _money+=sum; }
-	inline void spendMoney(const unsigned int sum){_money-sum >= 0 ? _money-=sum : throw INSUFFICIENT_FUNDS();}
+	inline void gainMoney(const int sum){ _money+=sum; }
+	inline void spendMoney(const int sum){ _money-sum >= 0 ? _money-=sum : throw INSUFFICIENT_FUNDS();}
 	
-	inline const std::vector<Skin> unlockedSkins() const{return _unlockedSkins;}
+	inline const std::vector<Skin> &unlockedSkins() const{return _unlockedSkins;}
 	inline void buyskin(const Skin &skin){
 		if(std::find(_unlockedSkins.begin(), _unlockedSkins.end(),skin) == _unlockedSkins.end()){
+			//If not already unlocked
 			spendMoney(skin.price());
 			_unlockedSkins.push_back(skin);
 		}

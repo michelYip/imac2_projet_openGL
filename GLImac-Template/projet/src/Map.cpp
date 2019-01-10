@@ -1,10 +1,16 @@
 #include <algorithm>
+#include <random>
 
 #include "Map.hpp"
 
 //Default constructor
 Map::Map()
 :_objectList(), _startPoint(glm::vec2()), _endPoints(), _nextMaps()
+{}
+
+//Default constructor
+Map::Map(const Map & other)
+:_objectList(other._objectList), _startPoint(other._startPoint), _endPoints(other._endPoints), _nextMaps(other._nextMaps)
 {}
 
 //Parameter constructor, load a map and the next ones
@@ -31,8 +37,6 @@ Map::Map(const std::string & mapFile, const int & i, const glm::vec2 & start){
 	ppmFile.getline(tmp_line,128);
 	std::string str_color_depth(tmp_line);
 	float r, g, b;
-	// for (int col = 0; col < MAP_SIZE; col++){
-    //     for (int row = MAP_SIZE; row > 0; row--){
 	for (int row = MAP_SIZE; row > 0; row--){
         for (int col = MAP_SIZE; col > 0; col--){
 			if (ppmFile.eof()){
@@ -61,11 +65,10 @@ Map::Map(const std::string & mapFile, const int & i, const glm::vec2 & start){
     }
 	for (int t = 0; t < _endPoints.size(); t++){
 		if (i > 0){
-			_nextMaps.push_back(new Map(mapFile, i - 1, start + _endPoints.back() - _startPoint));
+			_nextMaps.push_back(new Map(randomMap(), i - 1, start + _endPoints.back() - _startPoint));
 		}
 	}
-	delete tmp_line;
-		
+	delete tmp_line;		
 }
 
 //Create an object from a pixel
@@ -110,6 +113,9 @@ void Map::moveMap(const float & distance){
 	for (int i = 0; i < _objectList.size(); i++){
 		_objectList[i].moveObject(glm::vec3(0,0,distance));
 	}
+	for (int i = 0; i < _endPoints.size(); i++){
+		_endPoints[i] += glm::vec2(0,distance);
+	}
 }
 
 //Return the list of object of all maps
@@ -123,6 +129,14 @@ std::vector<Object> Map::getAllObjects(const int & i) const {
 		list.insert(std::end(list), std::begin(nextList), std::end(nextList));
 	}
 	return list;
+}
+
+std::string Map::randomMap() const{
+    int random_number = std::rand() % MAP_NUMBER;
+	std::string mapName = std::to_string(random_number);
+	mapName += ".ppm";
+	std::cout << mapName << std::endl;
+	return mapName;
 }
 
 //Print the starting point and the end point of the map

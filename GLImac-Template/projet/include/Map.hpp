@@ -22,6 +22,8 @@ const float END_MAX = 24.5;
 const int INIT_X = 8;
 const int INIT_Z = 3;
 
+const int MAP_NUMBER = 6;
+
 /// \class Map
 /// \bried [DESCRIPTION TO FILL] 
 class Map
@@ -38,6 +40,9 @@ public:
 	//Default constructor
 	Map();
 
+	//Reference constructor
+	Map(const Map & other);
+
 	//Parameter constructor
 	Map(const std::string & mapFile, const int & flag, const glm::vec2 & start);
 
@@ -47,6 +52,11 @@ public:
 	//Return the starting point
 	inline glm::vec2 getStartPoint() const{
 		return _startPoint;
+	}
+
+	//Return a list of the ends point
+	inline std::vector<glm::vec2> getEndPoints() const{
+		return _endPoints;
 	}
 
 	//Return the list of the next maps
@@ -72,6 +82,9 @@ public:
 
 	//Return the list of object of all maps
 	std::vector<Object> getAllObjects(const int & i) const;
+
+	//Return a random map name
+	std::string randomMap() const;
 
 	//DEBUG
 
