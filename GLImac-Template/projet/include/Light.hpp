@@ -3,8 +3,8 @@
 
 #include "GPUProgram.hpp"
 
-/// \ class Light
-/// \ brief set the light of the scene or an object
+/// \class Light
+/// \brief set the light of the scene or an object
 class Light{
 	private:
 		GLuint _uKd;
