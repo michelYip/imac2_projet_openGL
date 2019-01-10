@@ -8,8 +8,8 @@
 class MovingObject : public Object
 {
 protected:
-	float _xVelocity;
-	float _yVelocity;
+	float _xVelocity; ///< Horizontal speed
+	float _yVelocity; ///< Vertical speed
 
 public:
 	//CONSTRUCTOR
@@ -35,7 +35,7 @@ public:
 
 	//METHODS
 
-	//Move the object to the direction
+	/// \brief Move the object to the given direction
 	void move(const glm::vec3 & direction);
 
 };

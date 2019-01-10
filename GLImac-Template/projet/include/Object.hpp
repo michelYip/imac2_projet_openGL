@@ -50,7 +50,8 @@ public:
 	//Set the object to a given position
 	inline void setPosition(const glm::vec3 & pos) { _position = pos; }
 
-	//Move an object to the given direction
+	/// \brief Move an object to the given direction
+	/// \param direction: direction in which the object move
 	inline void moveObject(const glm::vec3 & direction) { 
 		_position += direction; 
 		_boundingBox.moveCollider(direction);

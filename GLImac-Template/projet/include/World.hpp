@@ -11,16 +11,16 @@ const float INITIAL_SPEED = 10;
 const int MAX_MAPS = 4;
 
 /// \class World
-/// \brief World of the Game that manage every element present in it
+/// \brief World of the Game that manages every element in it
 class World
 {
 private:
-	float _worldSpeed;
-	float _gameOverZone;
-	glm::vec3 _cameraPosition;
-	std::string _backgroundTexture;
-	Character _player;
-	Map _map;
+	float _worldSpeed; ///< World traveling speed
+	float _gameOverZone; ///< Distance to game over
+	glm::vec3 _cameraPosition; 
+	std::string _backgroundTexture; 
+	Character _player; ///< Current character
+	Map _map; ///< Current map
 public:
 	//CONSTRUCTORS & DESTRUCTORS
 	//Default constructor
@@ -39,24 +39,29 @@ public:
 	//Return the current map
 	Map getMap() const;
 
-	//Check if the end of the map is reached
+	/// \brief Check if the end of the current map is reached
+	/// \return: True if the character reached the end on the map, otherwise return False
 	bool endOfMapReached() const;
 
-	//Change the current map to the next one
+	/// \brief Change the current map to the next one depending on the character position
 	void switchMap();
 
-	//Create the character
+	/// \brief Initialize the character to the World
 	void initCharacter();
 
 	//Return the character
 	inline Character &character() { return _player; }
 
-	//Return a list of all object in the world
+	/// \brief Return a list of all object in the world
+	/// \return: A list containing every Object of every Map in the world
 	const std::vector<Object> getAllPrintableObjects() const;
 
-	//Make the world continue running
+	/// \brief Make the world run
+	/// \return: True if the game has ended, return false otherwise
 	bool coroutine(const bool & done, const float & time_interval);
 
+	/// \brief Check if the game has ended or not
+	/// \return: True if the game has ended, return False otherwise
 	bool isFinished();
 	
 };

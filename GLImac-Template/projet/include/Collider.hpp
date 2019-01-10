@@ -11,22 +11,20 @@ const unsigned int DIM = 3;
 class Collider
 {
 private: 
-	glm::vec3 _lower;
-	glm::vec3 _upper;
+	glm::vec3 _lower; ///< Lower point of the bounding box
+	glm::vec3 _upper; ///< Upper point of the bounding box
 
 public:
 	//CONSTRUCTOR & DESTRUCTOR
 
-	//Default constructor
 	Collider();
 
-	//Reference constructor
+	/// \brief Reference constructor
 	Collider(const Collider & other);
 	
-	//Parameters constructor
+	/// \brief Parameters constructor
 	Collider(const glm::vec3 & lower, const glm::vec3 & upper);
 	
-	//Default constructor
 	~Collider() = default;
 
 	//GETTER & SETTER
@@ -49,22 +47,29 @@ public:
 
 	//PUBLIC METHODS
 
-	//Compute the center of the bounding box
+	/// \brief Compute the center of the bounding box
+	/// \return: the center of the bounding box
 	inline glm::vec3 getCenter() const;
 
-	//Return the intersection between two bounding boxes
+	/// \brief Take the intersection of two collider to make another collider
+	/// \param other: the collider to intersect
+	/// \return: the intersection between two bounding boxes
 	Collider intersect(const Collider & other) const;
 
-	//Check if a bounding box is empty
+	/// \brief Check if a bounding box is empty
+	/// \return: True if the collider is empty, otherwise return False 
 	bool empty() const;
 
-	//Return the size of a bounding box
+	/// \brief Compute the size of a collider
+	/// \return: the size of a collider
 	glm::vec3 size() const;
 
-	//Check the collision between two bounding boxes
+	/// \brief Check the collision between two colliders
+	/// \return: True if the colliders are collinding, otherwise return False
 	bool isColliding(const Collider & other) const;
 
-	//Move a bounding box
+	/// \brief Move a Collider to the given direction
+	/// \param direction: The direction in which the Collider is going to
 	void moveCollider(const glm::vec3 & direction);
 };
 
