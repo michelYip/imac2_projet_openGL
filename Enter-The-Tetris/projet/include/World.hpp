@@ -67,6 +67,11 @@ public:
 	/// \brief Check if the game has ended or not
 	/// \return: True if the game has ended, return False otherwise
 	bool isFinished();
+
+	/// \brief reset score to 0
+	void resetScore(){
+		_player.resetCoins();
+	}
 	
 };
 

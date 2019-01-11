@@ -46,6 +46,7 @@ void Game::run(char* execName){
 	    }
 	    catch(const GoToPlayerMenu &e){
 		  	_player.gainMoney(_world.earnedMoney());
+		  	_world.resetScore();
 	    	playermenu->player() = _player;
 	    	playermenu->updateScreen();
 			_view.set_rendering(playermenu);
